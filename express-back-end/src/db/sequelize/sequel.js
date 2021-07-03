@@ -1,6 +1,5 @@
 const { Sequelize } = require("sequelize");
-
-import User from "./users";
+const User = require("./src/db/sequelize/users");
 
 const sequelize = new Sequelize(
   "postgres://development:development@localhost:5432/rentcouver"

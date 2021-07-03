@@ -1,7 +1,9 @@
 const Express = require("express");
 const App = Express();
 const BodyParser = require("body-parser");
+const { upsert } = require("./src/db/sequelize/users");
 const PORT = 8000;
+const User = require("./src/db/sequelize/users");
 
 // Express Configuration
 App.use(BodyParser.urlencoded({ extended: false }));
@@ -14,6 +16,11 @@ App.get("/api/data", (req, res) =>
     message: "Seems to work!",
   })
 );
+
+App.get("/user", async (req, res) => {
+  const users = await User.findAll();
+  res.json(users);
+});
 
 App.listen(PORT, () => {
   // eslint-disable-next-line no-console
