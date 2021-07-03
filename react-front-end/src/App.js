@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './Navigation.css';
 import Navigation from './components/Navigation';
+import User from './components/User/index';
+
 
 export default function App() {
 
@@ -22,6 +23,7 @@ export default function App() {
   return (
     <>
       <Navigation />
+      <User />
     </>
   );
 }

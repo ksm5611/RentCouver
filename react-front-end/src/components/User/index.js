@@ -1,8 +1,22 @@
-// import Navigation from '../Navigation';
+const test = (
+  <ul> 
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+)
 
-// export default function () {
-  
-//   return (
-    
-//   )
+// const mockData = {
+//   name: 'Felicia',
+
+
 // }
+
+export default function User () {
+  
+  return (
+    <div>
+      {test}
+    </div>
+  )
+}
