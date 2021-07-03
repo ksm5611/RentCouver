@@ -1,13 +1,15 @@
-const Express = require("express");
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+import dotenv from "dotenv";
+dotenv.config();
+import Express from "express";
+import { User } from "./db/models";
 const App = Express();
-const BodyParser = require("body-parser");
-const { upsert } = require("./src/db/sequelize/users");
-const PORT = 8000;
-const User = require("./src/db/sequelize/users");
+const PORT = process.env.PORT;
 
 // Express Configuration
-App.use(BodyParser.urlencoded({ extended: false }));
-App.use(BodyParser.json());
+// App.use(BodyParser.urlencoded({ extended: false }));
+// App.use(BodyParser.json());
 App.use(Express.static("public"));
 
 // Sample GET route
