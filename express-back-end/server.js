@@ -1,6 +1,7 @@
 const Express = require("express");
 const App = Express();
 const BodyParser = require("body-parser");
+const { upsert } = require("./src/db/sequelize/users");
 const PORT = 8000;
 const User = require("./src/db/sequelize/users");
 
