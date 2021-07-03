@@ -6,7 +6,7 @@
 
 -- 1 renter: 10
 -- 9 landlords: 1-9
-INSERT INTO users (name, email, password, current_address, job_title, annual_income, other_household_occupants, profile_picture_url, is_landlord) VALUES ('Sura Jeon', 'example1@lhl.com', 'password', '2595 W 1st Ave, Vancouver, BC V6K 1G8', 'Web Developer', 50000, null, 'https://img.zumpercdn.com/424911000/1280x960?auto=format&w=1238&h=580&fit=fill', true);
+INSERT INTO users (name, email, password, current_address, job_title, annual_income, other_household_occupants, profile_picture_url, is_landlord) VALUES ('Sura Jeon', 'example1@lhl.com', 'password', '2595 W 1st Ave, Vancouver, BC V6K 1G8', 'Web Developer', 50000, null, null, true);
 INSERT INTO users (name, email, password, current_address, job_title, annual_income, other_household_occupants, profile_picture_url, is_landlord) VALUES ('Felicia Okta', 'example2@lhl.com', 'password', '2597 W 1st Ave, Vancouver, BC V6K 1G8', 'Web Developer', 50000, null, null, true);
 INSERT INTO users (name, email, password, current_address, job_title, annual_income, other_household_occupants, profile_picture_url, is_landlord) VALUES ('Sumin Kim', 'example3@lhl.com', 'password', '2565 W 1st Ave, Vancouver, BC V6K 1G8', 'Web Developer', 50000, null, null, true);
 INSERT INTO users (name, email, password, current_address, job_title, annual_income, other_household_occupants, profile_picture_url, is_landlord) VALUES ('Andy Lindsay', 'example4@lhl.com', 'password', '2559 W 1st Ave, Vancouver, BC V6K 1G8', 'Web Developer', 100000, null, null, true);
