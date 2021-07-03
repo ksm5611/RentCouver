@@ -3,34 +3,27 @@ import axios from 'axios';
 import './Navigation.css';
 import Navigation from './components/Navigation';
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      message: 'Click the button to load data!'
-    }
-  }
+export default function App() {
 
-  fetchData = () => {
-    axios.get('/api/data') // You can simply make your requests to "/api/whatever you want"
-    .then((response) => {
-      // handle success
-      console.log(response.data) // The entire response from the Rails API
+  // fetchData = () => {
+  //   axios.get('/api/data') // You can simply make your requests to "/api/whatever you want"
+  //     .then((response) => {
+  //       // handle success
+  //       console.log(response.data) // The entire response from the Rails API
 
-      console.log(response.data.message) // Just the message
-      this.setState({
-        message: response.data.message
-      });
-    }) 
-  }
+  //       console.log(response.data.message) // Just the message
+  //       this.setState({
+  //         message: response.data.message
+  //       });
+  //     })
+  // }
 
-  render() {
-    return (
-      <>
-        <Navigation />
-      </>
-    );
-  }
+
+  return (
+    <>
+      <Navigation />
+    </>
+  );
 }
 
-export default App;
+
