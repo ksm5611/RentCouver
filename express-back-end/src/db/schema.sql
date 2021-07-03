@@ -9,10 +9,11 @@ CREATE TABLE users (
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  address VARCHAR(255) NOT NULL,
+  current_address VARCHAR(255) NOT NULL,
   job_title VARCHAR(255) NOT NULL,
-  annual_income VARCHAR(255) NOT NULL,
-  other_household_occupants VARCHAR(255) NOT NULL,
+  annual_income INTEGER NOT NULL DEFAULT 0,
+  other_household_occupants VARCHAR(255),
+  profile_picture_url VARCHAR(255),
   is_landlord BOOLEAN NOT NULL DEFAULT TRUE
 );
 
@@ -20,12 +21,12 @@ CREATE TABLE properties (
   id SERIAL PRIMARY KEY NOT NULL,
   landlord_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   title VARCHAR(255) NOT NULL,
-  square_feet INTEGER NOT NULL DEFAULT 0,
   street VARCHAR(255) NOT NULL,
-  unit VARCHAR(255),
+  unit SMALLINT,
   city VARCHAR(255) NOT NULL,
   province VARCHAR(255) NOT NULL,
   postal_code VARCHAR(255) NOT NULL,
+  square_feet INTEGER NOT NULL DEFAULT 0,
   description VARCHAR(255) NOT NULL,
   property_type VARCHAR(255) NOT NULL,
   number_of_bathrooms INTEGER  NOT NULL DEFAULT 0,
@@ -48,7 +49,7 @@ CREATE TABLE rentHistories (
   end_date DATE NOT NULL,
   review_content VARCHAR(255) NOT NULL,
   is_requested BOOLEAN NOT NULL,
-  decline BOOLEAN
+  is_decline BOOLEAN NOT NULL
 );
 
 CREATE TABLE refs (

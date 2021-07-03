@@ -6,7 +6,7 @@
 
 -- 1 renter: 10
 -- 9 landlords: 1-9
-INSERT INTO users (name, email, password, current_address, job_title, annual_income, other_household_occupants, profile_picture_url, is_landlord) VALUES ('Sura Jeon', 'example1@lhl.com', 'password', '2595 W 1st Ave, Vancouver, BC V6K 1G8', 'Web Developer', 50000, null, null, true);
+INSERT INTO users (name, email, password, current_address, job_title, annual_income, other_household_occupants, profile_picture_url, is_landlord) VALUES ('Sura Jeon', 'example1@lhl.com', 'password', '2595 W 1st Ave, Vancouver, BC V6K 1G8', 'Web Developer', 50000, null, 'https://img.zumpercdn.com/424911000/1280x960?auto=format&w=1238&h=580&fit=fill', true);
 INSERT INTO users (name, email, password, current_address, job_title, annual_income, other_household_occupants, profile_picture_url, is_landlord) VALUES ('Felicia Okta', 'example2@lhl.com', 'password', '2597 W 1st Ave, Vancouver, BC V6K 1G8', 'Web Developer', 50000, null, null, true);
 INSERT INTO users (name, email, password, current_address, job_title, annual_income, other_household_occupants, profile_picture_url, is_landlord) VALUES ('Sumin Kim', 'example3@lhl.com', 'password', '2565 W 1st Ave, Vancouver, BC V6K 1G8', 'Web Developer', 50000, null, null, true);
 INSERT INTO users (name, email, password, current_address, job_title, annual_income, other_household_occupants, profile_picture_url, is_landlord) VALUES ('Andy Lindsay', 'example4@lhl.com', 'password', '2559 W 1st Ave, Vancouver, BC V6K 1G8', 'Web Developer', 100000, null, null, true);
@@ -61,8 +61,6 @@ INSERT INTO properties (landlord_id, title, street, unit, city, province, postal
 INSERT INTO properties (landlord_id, title, street, unit, city, province, postal_code, square_feet, description, property_type, number_of_bathrooms, number_of_bedrooms, listed_start_date, cost_of_month, pets_allowed) VALUES (1, 'West 2nd Avenue', '159 West 2nd Ave', 202, 'Vancouver', 'BC', 'V5Y 1B8', 525, 'Tower Green At West is located in the heart of False Creek. Just steps to the Sea Wall and all the amazing restaurants, amenities and specialty shops in the Olympic Village.', 'condo', 1, 1, '2021-03-05', 225000, false)
 INSERT INTO properties (landlord_id, title, street, unit, city, province, postal_code, square_feet, description, property_type, number_of_bathrooms, number_of_bedrooms, listed_start_date, cost_of_month, pets_allowed) VALUES (1, 'Quebec Street', '1661 Quebec Street', 1001, 'Vancouver', 'BC', 'V5T 1B4', 460, 'For rent is a gorgeous, fully furnished small 1 bedroom 1 bathroom unit in a 3-year-old upscale building. It is located in Olympic Village/ False Creek, right next to Science World and the seawall, so it is literally steps away from buses & the skytrain station.', 'condo', 1, 1, '2020-11-05', 240000, true)
 
-
--- Sura --
 --https://img.zumpercdn.com/426438098/1280x960?auto=format&w=1438&h=494&fit=fill&dpr=2
 INSERT INTO properties (landlord_id, title, street, unit, city, province, postal_code, square_feet, description, property_type, number_of_bathrooms, number_of_bedrooms, listed_start_date, cost_of_month, pets_allowed) VALUES (3, 'North Vancouver King Edward','288 King Edward Ave', 307, 'Vancouver', 'BC', 'V5Y 2J2', 1100, 'The Edward - Brand new boutique development by Mosaic. Spacious & filled with light, with 10-ft. ceilings & big windows. Huge wrap-around balcony. Quality finishings, with attention to details. Serene view of mountains & treetops. Close to Cambie Canada Line station, Queen Elizabeth Park, Cambie village, and Main Street. LEED Gold certified.', 'apartment', 2, 2, '2021-05-20', 300000, true)
 
@@ -76,11 +74,11 @@ INSERT INTO properties (landlord_id, title, street, unit, city, province, postal
 -- https://www.zumper.com/apartment-buildings/p561687/arbutus-residences-quilchena-vancouver-bc
 
 -- if "decline" is false, we don't display the reference request on the page
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_decline) VALUES (10, 2, 2017-01-01, 2017-12-31)
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 5, 2018-01-01, 2018-12-31)
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 7, 2019-01-01, 2019-12-31)
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 8, 2020-01-01, 2020-12-31)
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 3, 2021-01-01, 2021-06-31)
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 2, 2017-01-01, 2017-12-31, )
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 5, 2018-01-01, 2018-12-31, )
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 7, 2019-01-01, 2019-12-31, )
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 8, 2020-01-01, 2020-12-31, )
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 3, 2021-01-01, 2021-06-31, )
 
 
 INSERT INTO refs (tenant_id, landlord_id, review_content) VALUES (10, 1, "he was really bad")
