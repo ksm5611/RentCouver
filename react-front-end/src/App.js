@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './Navigation.css';
 import Navigation from './components/Navigation';
+import Map from './components/PropertyListing/Map';
+import PropertyDisplay from './components/PropertyListing/PropertyList'; 
 
 export default function App() {
 
@@ -22,6 +24,8 @@ export default function App() {
   return (
     <>
       <Navigation />
+      <PropertyDisplay /> 
+      <Map />
     </>
   );
 }
