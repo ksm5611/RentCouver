@@ -10,7 +10,7 @@ export default function PropertyDisplay () {
   return (
     <div>
       <li>{test.propertyName}</li>
-      <img src={test.image} />
+      <img width="50%" height="auto" src={test.image} />
     </div>
   )
 
