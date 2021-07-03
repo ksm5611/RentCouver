@@ -1,8 +1,10 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS properties CASCADE;
+DROP TABLE IF EXISTS photos CASCADE;
 DROP TABLE IF EXISTS rentHistories CASCADE;
+DROP TABLE IF EXISTS refs CASCADE;
 DROP TABLE IF EXISTS applications CASCADE;
-DROP TABLE IF EXISTS reviews CASCADE;
+DROP TABLE IF EXISTS ref_requests CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -36,10 +38,10 @@ CREATE TABLE properties (
   pets_allowed BOOLEAN NOT NULL
 );
  
-CREATE TABLE uploading_photos (
+CREATE TABLE photos (
   property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE,
-  photo_url VARCHAR(255) NOT NULL,
-)
+  photo_url VARCHAR(255) NOT NULL
+);
 
 CREATE TABLE rentHistories (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -55,20 +57,20 @@ CREATE TABLE rentHistories (
 CREATE TABLE refs (
   id SERIAL PRIMARY KEY NOT NULL,
   tenant_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  landlord_id INTEGER REFERENCES users(id) ON DELETE CASCADE, 
-)
+  landlord_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);
 
 CREATE TABLE applications (
   id SERIAL PRIMARY KEY NOT NULL,
   tenant_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE,
-  ref_id INTEGER REFERENCES references(id) ON DELETE CASCADE,
-  potential_move_in_date DATE NOT NULL,
-)
+  ref_id INTEGER REFERENCES refs(id) ON DELETE CASCADE,
+  potential_move_in_date DATE NOT NULL
+);
 
 CREATE TABLE ref_requests (
   id SERIAL PRIMARY KEY NOT NULL,
   landlord_id INTEGER REFERENCES users(id) ON DELETE CASCADE, 
   tenant_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE,
-)
+  property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE
+);
