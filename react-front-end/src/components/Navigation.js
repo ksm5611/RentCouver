@@ -3,7 +3,7 @@ import '../Navigation.css';
 
 export default function Navigation() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar className="navbar1" collapseOnSelect expand="lg" variant="dark">
       <Navbar.Brand href="#home">RentCouver</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
