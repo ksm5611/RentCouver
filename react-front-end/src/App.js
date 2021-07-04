@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Navigation from './components/Navigation';
-<<<<<<< HEAD
 import Map from './components/PropertyListing/Map';
 import PropertyDisplay from './components/PropertyListing/PropertyList'; 
-=======
 import User from './components/User/index';
 
->>>>>>> 1a9e57f47f6d44a8361ca476ca86b39cacbf71a7
 
 export default function App() {
 
@@ -28,12 +25,9 @@ export default function App() {
   return (
     <>
       <Navigation />
-<<<<<<< HEAD
       <PropertyDisplay /> 
       <Map />
-=======
       <User />
->>>>>>> 1a9e57f47f6d44a8361ca476ca86b39cacbf71a7
     </>
   );
 }

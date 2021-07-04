@@ -19,8 +19,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 _dotenv["default"].config();
 
 var App = (0, _express["default"])();
-var PORT = process.env.PORT; // const User = require("./sequelize/users");
-// Express Configuration
+var PORT = process.env.PORT; // Express Configuration
 // App.use(BodyParser.urlencoded({ extended: false }));
 // App.use(BodyParser.json());
 
@@ -31,7 +30,7 @@ App.get("/api/data", function (req, res) {
     message: "Seems to work!"
   });
 });
-App.get("/api/users", /*#__PURE__*/function () {
+App.get("/user", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {
     var users;
     return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -56,11 +55,7 @@ App.get("/api/users", /*#__PURE__*/function () {
   return function (_x, _x2) {
     return _ref.apply(this, arguments);
   };
-}()); // App.get("/user", async (req, res) => {
-//   const users = await User.findAll();
-//   res.json(users);
-// });
-
+}());
 App.listen(PORT, function () {
   // eslint-disable-next-line no-console
   console.log("Express seems to be listening on port ".concat(PORT, " so that's pretty good \uD83D\uDC4D"));

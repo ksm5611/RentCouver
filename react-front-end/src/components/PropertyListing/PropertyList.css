@@ -1,0 +1,12 @@
+
+
+.btn-outline-primary {
+  margin: 5px;
+  border-radius: 40px !important;
+  color: #7c7878 !important;
+  border-color: #7c7878 !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: #f8f3f0 !important;
+}
