@@ -8,7 +8,7 @@ export default function Navigation() {
   const instance = (
       <Navbar id="nav-wrapper">
         <Navbar.Header id="nav-logo">
-          <a href="/" className="navbar-brand logo"><h4>RentCouver</h4></a>
+          <a href="/" className="navbar-brand logo"><div><h4>RentCouver</h4></div></a>
         </Navbar.Header>
         <Navbar.Body>
           <Nav>
@@ -37,3 +37,6 @@ export default function Navigation() {
 
   )
 };
+
+
+{/* <div><h4><span>R</span>ent<span>C</span>ouver</h4></div> */}

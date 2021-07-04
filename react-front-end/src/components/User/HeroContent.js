@@ -53,14 +53,13 @@ export default function HeroContent () {
     }
   ]
 
-
-
   return(
     <section className="hero-container">
       <div className="hero-content">
         <div className="hero-content-item"><img className="profile-img" src={user[0].profile_picture_url} alt="profile"/></div>
-        <div className="hero-content-item">{user[0].name}</div>
+        <p className="hero-content-item">{user[0].name}</p>
       </div>
     </section>
   )
+  
 }

@@ -1,18 +1,33 @@
 // Navigation.js
 $light-orange: #f8f3f0;
+$main-font: 'Ubuntu', sans-serif;
+$logo-font: 'Bad Script', cursive;
+$name-font: 'Kalam', cursive;
+
+body {
+  font-family: $logo-font, $main-font;
+}
 
 #nav-wrapper {
+  font-family: $main-font;
   padding: 0 20px;
   background-color: $light-orange;
   
   #nav-logo {
     display: flex;
     align-items: center;
+    font-family: $logo-font;
   }
 
   h4 {
-    color: #a09898;
+    color: #574f4a;
+    font-size: 24px;
+    font-weight: 700;
     margin: 0;
+    
+    span {
+      font-size: 28px;
+    }
   }
 
   .dropdown-space {
@@ -32,6 +47,7 @@ $light-orange: #f8f3f0;
 // HeroContent.js
 
 .hero-container {
+  font-family: $name-font;
   height: 200px;
   width: 100%;
   background-color: $light-orange;
@@ -54,6 +70,11 @@ $light-orange: #f8f3f0;
         width: 100px;
         border-radius: 50%;
       }
+
+    }
+
+    p {
+      font-size: 28px;
     }
   }
 }
