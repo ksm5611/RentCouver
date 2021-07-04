@@ -4,6 +4,7 @@ body {
 
 #nav-wrapper {
   display: flex;
+  justify-content: space-around;
   font-family: "Ubuntu", sans-serif;
   padding: 0 20px;
   background-color: #f8f3f0;
@@ -15,6 +16,7 @@ body {
   display: flex;
   align-items: center;
   font-family: "Bad Script", cursive;
+  margin-right: 8px;
 }
 #nav-wrapper #nav-logo h4 {
   color: #574f4a;
@@ -55,26 +57,10 @@ body {
   padding-left: 8px;
 }
 
-.user-page-wrapper {
-  background-color: #c1b9b9;
-  padding: 52px;
-  margin: 0 auto;
-  display: flex;
-  position: relative;
-  justify-content: space-between;
-}
-.user-page-wrapper .user-info-wrapper {
-  position: relative;
-}
-.user-page-wrapper .user-info-wrapper #my-info-label {
-  background-color: #7c7878;
-  border: #7c7878;
-}
-
 .hero-container {
   padding-top: 80px;
   font-family: "Kalam", cursive;
-  height: 280px;
+  height: 310px;
   width: 100%;
   background-color: #f8f3f0;
   display: flex;
@@ -92,12 +78,28 @@ body {
   margin: 10px;
 }
 .hero-container .hero-content .hero-content-item .profile-img {
-  width: 100px;
+  width: 112px;
   border-radius: 50%;
 }
 .hero-container .hero-content p {
   font-size: 28px;
   color: #7c7878;
+}
+
+.user-page-wrapper {
+  background-color: #c1b9b9;
+  padding: 52px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+.user-page-wrapper .user-info-wrapper {
+  position: relative;
+}
+.user-page-wrapper .user-info-wrapper #my-info-label {
+  background-color: #7c7878;
+  border: #7c7878;
 }
 
 /*# sourceMappingURL=App.css.map */

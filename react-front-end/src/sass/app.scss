@@ -14,6 +14,7 @@ body {
 
 #nav-wrapper {
   display: flex;
+  justify-content: space-around;
   font-family: $main-font;
   padding: 0 20px;
   background-color: $light-orange;
@@ -25,6 +26,7 @@ body {
     display: flex;
     align-items: center;
     font-family: $logo-font;
+    margin-right: 8px;
     
     h4 {
       color: #574f4a;
@@ -76,11 +78,48 @@ body {
       }
     }
   }
-  
-
-
 
 }
+
+
+// HeroContent.js
+
+.hero-container {
+  padding-top: 80px;
+  font-family: $name-font;
+  height: 310px;
+  width: 100%;
+  background-color: $light-orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .hero-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    list-style: none;
+    // border: 1px solid red;
+    padding: 20px;
+
+    .hero-content-item {
+      margin: 10px;
+
+      .profile-img {
+        width: 112px;
+        border-radius: 50%;
+      }
+
+    }
+
+    p {
+      font-size: 28px;
+      color: $dark-grey;
+    }
+  }
+}
+
+
 
 // User.js (index.js)
 
@@ -115,39 +154,3 @@ body {
 
 
 
-// HeroContent.js
-
-.hero-container {
-  padding-top: 80px;
-  font-family: $name-font;
-  height: 280px;
-  width: 100%;
-  background-color: $light-orange;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  .hero-content {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    list-style: none;
-    // border: 1px solid red;
-    padding: 20px;
-
-    .hero-content-item {
-      margin: 10px;
-
-      .profile-img {
-        width: 100px;
-        border-radius: 50%;
-      }
-
-    }
-
-    p {
-      font-size: 28px;
-      color: $dark-grey;
-    }
-  }
-}
