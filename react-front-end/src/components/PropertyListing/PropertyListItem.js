@@ -1,4 +1,5 @@
 import { Card } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import './PropertyListItem.css';
 
 const searchResults = {
@@ -23,6 +24,12 @@ export default function PropertyListItem () {
                 <p><b>${searchResults.price}</b></p>
                 <p>{searchResults.bedrooms} bed {searchResults.bathrooms} bath</p>
               </Card.Text>
+              <Button id="btn-outline-primary" variant="outline-primary">
+                Details
+              </Button>
+              <Button id="btn-outline-primary" variant="outline-primary">
+                Message
+              </Button>
             </Card.Body>
           </div>
         </Card>
