@@ -72,5 +72,6 @@ CREATE TABLE ref_requests (
   id SERIAL PRIMARY KEY NOT NULL,
   landlord_id INTEGER REFERENCES users(id) ON DELETE CASCADE, 
   tenant_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE
+  property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE,
+  is_decline BOOLEAN NOT NULL
 );
