@@ -1,0 +1,80 @@
+// Navigation.js
+$light-orange: #f8f3f0;
+$main-font: 'Ubuntu', sans-serif;
+$logo-font: 'Bad Script', cursive;
+$name-font: 'Kalam', cursive;
+
+body {
+  font-family: $logo-font, $main-font;
+}
+
+#nav-wrapper {
+  font-family: $main-font;
+  padding: 0 20px;
+  background-color: $light-orange;
+  
+  #nav-logo {
+    display: flex;
+    align-items: center;
+    font-family: $logo-font;
+  }
+
+  h4 {
+    color: #574f4a;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    
+    span {
+      font-size: 28px;
+    }
+  }
+
+  .dropdown-space {
+    left: -14px;
+    
+  }
+
+  .test:active, .test:focus, .test:hover, .test:target {
+    background-color: $light-orange;
+    box-shadow: none;
+  }
+
+}
+
+// User.js 
+
+// HeroContent.js
+
+.hero-container {
+  font-family: $name-font;
+  height: 200px;
+  width: 100%;
+  background-color: $light-orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .hero-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    list-style: none;
+    // border: 1px solid red;
+    padding: 20px;
+
+    .hero-content-item {
+      margin: 10px;
+
+      .profile-img {
+        width: 100px;
+        border-radius: 50%;
+      }
+
+    }
+
+    p {
+      font-size: 28px;
+    }
+  }
+}

@@ -1,5 +1,59 @@
-.navbar1 {
-  background-color: #f1a177;
+body {
+  font-family: "Bad Script", cursive, "Ubuntu", sans-serif;
+}
+
+#nav-wrapper {
+  font-family: "Ubuntu", sans-serif;
+  padding: 0 20px;
+  background-color: #f8f3f0;
+}
+#nav-wrapper #nav-logo {
+  display: flex;
+  align-items: center;
+  font-family: "Bad Script", cursive;
+}
+#nav-wrapper h4 {
+  color: #574f4a;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+#nav-wrapper h4 span {
+  font-size: 28px;
+}
+#nav-wrapper .dropdown-space {
+  left: -14px;
+}
+#nav-wrapper .test:active, #nav-wrapper .test:focus, #nav-wrapper .test:hover, #nav-wrapper .test:target {
+  background-color: #f8f3f0;
+  box-shadow: none;
+}
+
+.hero-container {
+  font-family: "Kalam", cursive;
+  height: 200px;
+  width: 100%;
+  background-color: #f8f3f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-container .hero-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  list-style: none;
+  padding: 20px;
+}
+.hero-container .hero-content .hero-content-item {
+  margin: 10px;
+}
+.hero-container .hero-content .hero-content-item .profile-img {
+  width: 100px;
+  border-radius: 50%;
+}
+.hero-container .hero-content p {
+  font-size: 28px;
 }
 
 /*# sourceMappingURL=App.css.map */

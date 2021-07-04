@@ -3,7 +3,15 @@ import "regenerator-runtime/runtime";
 import dotenv from "dotenv";
 dotenv.config();
 import Express from "express";
-import { User } from "./db/models";
+import {
+  User,
+  Property,
+  Photo,
+  RentHistory,
+  Ref,
+  Application,
+  Ref_request,
+} from "./db/models";
 const App = Express();
 const PORT = process.env.PORT;
 
@@ -19,9 +27,39 @@ App.get("/api/data", (req, res) =>
   })
 );
 
-App.get("/user", async (req, res) => {
+App.get("/users", async (req, res) => {
   const users = await User.findAll();
   res.json(users);
+});
+
+App.get("/properties", async (req, res) => {
+  const properties = await Property.findAll();
+  res.json(properties);
+});
+
+App.get("/photos", async (req, res) => {
+  const photos = await Photo.findAll();
+  res.json(photos);
+});
+
+App.get("/rentHistories", async (req, res) => {
+  const rentHistories = await RentHistory.findAll();
+  res.json(rentHistories);
+});
+
+App.get("/refs", async (req, res) => {
+  const refs = await Ref.findAll();
+  res.json(refs);
+});
+
+App.get("/applications", async (req, res) => {
+  const applications = await Application.findAll();
+  res.json(applications);
+});
+
+App.get("/ref_requests", async (req, res) => {
+  const ref_requests = await Ref_request.findAll();
+  res.json(ref_requests);
 });
 
 App.listen(PORT, () => {

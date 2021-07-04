@@ -1,31 +1,42 @@
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+// import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import '../App.css'
+import { Navbar, Nav, Icon, Dropdown } from 'rsuite';
+import 'rsuite/dist/styles/rsuite-default.css';
 
 export default function Navigation() {
+
+  const instance = (
+      <Navbar id="nav-wrapper">
+        <Navbar.Header id="nav-logo">
+          <a href="/" className="navbar-brand logo"><div><h4>RentCouver</h4></div></a>
+        </Navbar.Header>
+        <Navbar.Body>
+          <Nav>
+            <Nav.Item icon={<Icon icon="home" />} >Home</Nav.Item>
+            <Nav.Item>Properties</Nav.Item>
+            <Nav.Item>About Us</Nav.Item>
+          </Nav>
+          <Nav className="test" pullRight>
+            <Dropdown className="dropdown-space" title="Profile" icon={<Icon icon="avatar" />}>
+              <Dropdown.Item>Account</Dropdown.Item>
+              <Dropdown.Item>My properties</Dropdown.Item>
+              <Dropdown.Item>Received Apps</Dropdown.Item>
+              <Dropdown.Item>My References</Dropdown.Item>
+              <Dropdown.Item>Rent History</Dropdown.Item>
+              <Dropdown.Item>Reference requests</Dropdown.Item>
+            </Dropdown>
+          </Nav>
+        </Navbar.Body>
+      </Navbar>
+  );
+
   return (
-    <Navbar className="navbar1" collapseOnSelect expand="lg" variant="dark">
-      <Navbar.Brand href="#home">RentCouver</Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link href="#">Home</Nav.Link>
-          <Nav.Link href="#listings">Property</Nav.Link>
-          <Nav.Link href="#AboutUs">About Us</Nav.Link>
-          {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-          </NavDropdown> */}
-        </Nav>
-        <Nav>
-          <Nav.Link href="#user">Profile</Nav.Link>
-          {/* <Nav.Link eventKey={2} href="#memes">
-            Dank memes
-      </Nav.Link> */}
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+    <>
+      {instance}
+    </>
+
   )
 };
+
+
+{/* <div><h4><span>R</span>ent<span>C</span>ouver</h4></div> */}

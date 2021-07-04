@@ -9,6 +9,27 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.hasMany(models.Property, {
+        foreignKey: "landlord_id",
+      });
+      this.hasMany(models.RentHistory, {
+        foreignKey: "tenant_id",
+      });
+      this.hasMany(models.Ref, {
+        foreignKey: "tenant_id",
+      });
+      this.hasMany(models.Ref, {
+        foreignKey: "landlord_id",
+      });
+      this.hasMany(models.Application, {
+        foreignKey: "tenant_id",
+      });
+      this.hasMany(models.Ref_request, {
+        foreignKey: "landlord_id",
+      });
+      this.hasMany(models.Ref_request, {
+        foreignKey: "tenant_id",
+      });
     }
   }
   User.init(
