@@ -1,21 +1,46 @@
+
+
 // Navigation.js
 $light-orange: #f8f3f0;
 $main-font: 'Ubuntu', sans-serif;
 $logo-font: 'Bad Script', cursive;
 $name-font: 'Kalam', cursive;
 $background-color: #c1b9b9;
+$dark-grey: #7c7878;
 
 body {
   font-family: $logo-font, $main-font;
 }
 
 #nav-wrapper {
+  display: flex;
   font-family: $main-font;
   padding: 0 20px;
   background-color: $light-orange;
   position: fixed;
   z-index: 1;
   width: 100%;
+
+  .nav-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // border: 1px solid red;
+    width: 100%;
+
+    .nav-body-item-list {
+      display: flex;
+      align-items: center;
+      // border: 1px solid red;
+      .nav-link {
+        color: $dark-grey;
+      }
+
+      .dropdown-item {
+        color: $dark-grey;
+      }
+    }
+  }
   
   #nav-logo {
     display: flex;
@@ -69,6 +94,10 @@ body {
   .user-info-wrapper {
     position: relative;
     // border: 1px solid red;
+    #my-info-label {
+      background-color: $dark-grey;
+      border: $dark-grey;
+    }
   }
 }
 
@@ -107,6 +136,7 @@ body {
 
     p {
       font-size: 28px;
+      color: $dark-grey;
     }
   }
 }

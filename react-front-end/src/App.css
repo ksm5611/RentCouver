@@ -3,12 +3,29 @@ body {
 }
 
 #nav-wrapper {
+  display: flex;
   font-family: "Ubuntu", sans-serif;
   padding: 0 20px;
   background-color: #f8f3f0;
   position: fixed;
   z-index: 1;
   width: 100%;
+}
+#nav-wrapper .nav-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+#nav-wrapper .nav-body .nav-body-item-list {
+  display: flex;
+  align-items: center;
+}
+#nav-wrapper .nav-body .nav-body-item-list .nav-link {
+  color: #7c7878;
+}
+#nav-wrapper .nav-body .nav-body-item-list .dropdown-item {
+  color: #7c7878;
 }
 #nav-wrapper #nav-logo {
   display: flex;
@@ -43,6 +60,10 @@ body {
 .user-page-wrapper .user-info-wrapper {
   position: relative;
 }
+.user-page-wrapper .user-info-wrapper #my-info-label {
+  background-color: #7c7878;
+  border: #7c7878;
+}
 
 .hero-container {
   padding-top: 80px;
@@ -70,6 +91,7 @@ body {
 }
 .hero-container .hero-content p {
   font-size: 28px;
+  color: #7c7878;
 }
 
 /*# sourceMappingURL=App.css.map */
