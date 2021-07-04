@@ -1,13 +1,19 @@
 // import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import '../App.css'
-import { Navbar, Icon, Dropdown, Nav } from 'rsuite';
+import { Navbar, Dropdown, Icon } from 'rsuite';
 import NavItem from 'react-bootstrap/Nav';
-import { NavDropdown } from 'react-bootstrap';
 import 'rsuite/dist/styles/rsuite-default.css';
+import { NavDropdown } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome } from '@fortawesome/free-solid-svg-icons'
 
 export default function Navigation() {
 
-  const instance = (
+  function dropdownItemColor() {
+    document.getElementsByClassName('dropdown-item').style.backgroundColor='#FFF';
+  }
+
+  return (
     <Navbar id="nav-wrapper">
       <Navbar.Header id="nav-logo">
         <a href="/" className="navbar-brand logo"><div><h4>RentCouver</h4></div></a>
@@ -18,12 +24,14 @@ export default function Navigation() {
             <Nav.Item>Properties</Nav.Item>
             <Nav.Item>About Us</Nav.Item> </Nav> */}
         <NavItem
-          activeKey="/home"
-          onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+          // activeKey="/home"
+          // onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
           className="nav-body-item-list"
         >
-          <NavItem.Item  icon={<Icon icon="home" />}>
-            <NavItem.Link className="nav-link" href="/home">Home</NavItem.Link>
+
+
+          <NavItem.Item>
+            <NavItem.Link className="nav-link" href="/home"><FontAwesomeIcon icon={faHome} />&nbsp; Home</NavItem.Link>
           </NavItem.Item>
           <NavItem.Item>
             <NavItem.Link className="nav-link" eventKey="link-1">Properties</NavItem.Link>
@@ -35,14 +43,13 @@ export default function Navigation() {
         </NavItem>
         <NavItem className="nav-body-item-list">
           <NavDropdown className="profile-tab" title="Profile" id="basic-nav-dropdown">
-            <NavDropdown.Item className="dropdown-item" href="#action/3.1">Dashboard</NavDropdown.Item>
-            <NavDropdown.Item className="dropdown-item" href="#action/3.2">Account</NavDropdown.Item>
-            <NavDropdown.Item className="dropdown-item" href="#action/3.3">My properties</NavDropdown.Item>
+            <NavDropdown.Item className="dropdown-item" onClick={() => dropdownItemColor} href="/">Dashboard</NavDropdown.Item>
+            <NavDropdown.Item className="dropdown-item" onClick={() => dropdownItemColor} href="/">My properties</NavDropdown.Item>
+            <NavDropdown.Item className="dropdown-item" onClick={() => dropdownItemColor} href="/">My Rent History</NavDropdown.Item>
+            <NavDropdown.Item className="dropdown-item" onClick={() => dropdownItemColor} href="/">My References</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item className="dropdown-item" href="#action/3.4">Received Apps</NavDropdown.Item>
-            <NavDropdown.Item className="dropdown-item" href="#action/3.4">My References</NavDropdown.Item>
-            <NavDropdown.Item className="dropdown-item" href="#action/3.4">Rent History</NavDropdown.Item>
-            <NavDropdown.Item className="dropdown-item" href="#action/3.4">Reference requests</NavDropdown.Item>
+            <NavDropdown.Item className="dropdown-item" onClick={() => dropdownItemColor} href="/">Received Apps</NavDropdown.Item>
+            <NavDropdown.Item className="dropdown-item" onClick={() => dropdownItemColor} href="/">Reference requests</NavDropdown.Item>
           </NavDropdown>
         </NavItem>
 
@@ -61,12 +68,6 @@ export default function Navigation() {
 
       </Navbar.Body>
     </Navbar>
+  
   );
-
-  return (
-    <div>
-      {instance}
-    </div>
-
-  )
 };

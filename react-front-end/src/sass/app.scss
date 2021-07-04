@@ -36,8 +36,16 @@ body {
         color: $dark-grey;
       }
 
+      .nav-link:hover {
+        color:#5e5858;
+      }
+
       .dropdown-item {
         color: $dark-grey;
+      }
+
+      .dropdown-item:hover, .dropdown-item:active {
+        background-color: $background-color;
       }
     }
   }
@@ -57,11 +65,6 @@ body {
     span {
       font-size: 28px;
     }
-  }
-
-  .dropdown-space {
-    left: -14px;
-    
   }
 
   .test:active, .test:focus, .test:hover, .test:target {

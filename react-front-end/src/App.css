@@ -24,8 +24,14 @@ body {
 #nav-wrapper .nav-body .nav-body-item-list .nav-link {
   color: #7c7878;
 }
+#nav-wrapper .nav-body .nav-body-item-list .nav-link:hover {
+  color: #5e5858;
+}
 #nav-wrapper .nav-body .nav-body-item-list .dropdown-item {
   color: #7c7878;
+}
+#nav-wrapper .nav-body .nav-body-item-list .dropdown-item:hover, #nav-wrapper .nav-body .nav-body-item-list .dropdown-item:active {
+  background-color: #c1b9b9;
 }
 #nav-wrapper #nav-logo {
   display: flex;
@@ -40,9 +46,6 @@ body {
 }
 #nav-wrapper h4 span {
   font-size: 28px;
-}
-#nav-wrapper .dropdown-space {
-  left: -14px;
 }
 #nav-wrapper .test:active, #nav-wrapper .test:focus, #nav-wrapper .test:hover, #nav-wrapper .test:target {
   background-color: #f8f3f0;
