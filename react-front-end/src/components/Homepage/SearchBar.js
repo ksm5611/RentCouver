@@ -11,7 +11,7 @@ return (
                 className="search-input"
             type="text"
             id="header-search"
-            placeholder="Search blog posts"
+            placeholder="Where do you want to live?"
             name="s" 
         />
         <button className="search-button" type="submit">Search</button>
