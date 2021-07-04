@@ -29,7 +29,7 @@ CREATE TABLE properties (
   province VARCHAR(255) NOT NULL,
   postal_code VARCHAR(255) NOT NULL,
   square_feet INTEGER NOT NULL DEFAULT 0,
-  description VARCHAR(255) NOT NULL,
+  description TEXT,
   property_type VARCHAR(255) NOT NULL,
   number_of_bathrooms INTEGER  NOT NULL DEFAULT 0,
   number_of_bedrooms INTEGER  NOT NULL DEFAULT 0,
@@ -49,7 +49,7 @@ CREATE TABLE rentHistories (
   property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE,
   start_date DATE NOT NULL,
   end_date DATE NOT NULL,
-  review_content VARCHAR(255) NOT NULL,
+  review_content TEXT,
   is_requested BOOLEAN NOT NULL,
   is_decline BOOLEAN NOT NULL
 );
@@ -64,7 +64,6 @@ CREATE TABLE applications (
   id SERIAL PRIMARY KEY NOT NULL,
   tenant_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE,
-  ref_id INTEGER REFERENCES refs(id) ON DELETE CASCADE,
   potential_move_in_date DATE NOT NULL
 );
 
