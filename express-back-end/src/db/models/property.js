@@ -19,6 +19,12 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.RentHistory, {
         foreignKey: "property_id",
       });
+      this.hasMany(models.Application, {
+        foreignKey: "property_id",
+      });
+      this.hasMany(models.Ref_request, {
+        foreignKey: "property_id",
+      });
     }
   }
   Property.init(

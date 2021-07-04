@@ -10,6 +10,7 @@ import {
   RentHistory,
   Ref,
   Application,
+  Ref_request,
 } from "./db/models";
 const App = Express();
 const PORT = process.env.PORT;
@@ -54,6 +55,11 @@ App.get("/refs", async (req, res) => {
 App.get("/applications", async (req, res) => {
   const applications = await Application.findAll();
   res.json(applications);
+});
+
+App.get("/ref_requests", async (req, res) => {
+  const ref_requests = await Ref_request.findAll();
+  res.json(ref_requests);
 });
 
 App.listen(PORT, () => {

@@ -59,6 +59,15 @@ module.exports = function (sequelize, DataTypes) {
         this.hasMany(models.Ref, {
           foreignKey: "landlord_id"
         });
+        this.hasMany(models.Application, {
+          foreignKey: "tenant_id"
+        });
+        this.hasMany(models.Ref_request, {
+          foreignKey: "landlord_id"
+        });
+        this.hasMany(models.Ref_request, {
+          foreignKey: "tenant_id"
+        });
       }
     }]);
 
