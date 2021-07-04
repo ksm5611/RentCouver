@@ -6,7 +6,10 @@ export default function UserInfo() {
     'Date of birth: 11/11/2000',
     'Current Address: 2405 Heather St. Vancouver BC',
     'email address: example@gmail.com',
-    ''
+    'Other personal information',
+    'Other personal information',
+    'Other personal information',
+    'Other personal information'
   ]
   return (
     <section className="user-info-wrapper">
