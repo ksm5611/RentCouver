@@ -26,18 +26,18 @@ var _require = require("sequelize"),
     Model = _require.Model;
 
 module.exports = function (sequelize, DataTypes) {
-  var User = /*#__PURE__*/function (_Model) {
-    _inherits(User, _Model);
+  var Application = /*#__PURE__*/function (_Model) {
+    _inherits(Application, _Model);
 
-    var _super = _createSuper(User);
+    var _super = _createSuper(Application);
 
-    function User() {
-      _classCallCheck(this, User);
+    function Application() {
+      _classCallCheck(this, Application);
 
       return _super.apply(this, arguments);
     }
 
-    _createClass(User, null, [{
+    _createClass(Application, null, [{
       key: "associate",
       value:
       /**
@@ -47,66 +47,37 @@ module.exports = function (sequelize, DataTypes) {
        */
       function associate(models) {
         // define association here
-        this.hasMany(models.Property, {
-          foreignKey: "landlord_id"
+        this.belongsTo(models.User, {
+          foreignKey: "tenant_id",
+          onDelete: "CASCADE"
         });
-        this.hasMany(models.RentHistory, {
-          foreignKey: "tenant_id"
-        });
-        this.hasMany(models.Ref, {
-          foreignKey: "tenant_id"
-        });
-        this.hasMany(models.Ref, {
-          foreignKey: "landlord_id"
+        this.belongsTo(models.Property, {
+          foreignKey: "property_id",
+          onDelete: "CASCADE"
         });
       }
     }]);
 
-    return User;
+    return Application;
   }(Model);
 
-  User.init({
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    current_address: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    job_title: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    annual_income: {
+  Application.init({
+    tenant_id: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    other_household_occupants: {
+    property_id: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
-    profile_picture_url: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    is_landlord: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: true
+    potential_move_in_date: {
+      type: DataTypes.DATE,
+      allowNull: false
     }
   }, {
     sequelize: sequelize,
-    tableName: "users",
+    tableName: "applications",
     timestamps: false
   });
-  return User;
+  return Application;
 };

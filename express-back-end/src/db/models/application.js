@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Ref extends Model {
+  class Application extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,28 +13,32 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "tenant_id",
         onDelete: "CASCADE",
       });
-      this.belongsTo(models.User, {
-        foreignKey: "landlord_id",
+      this.belongsTo(models.Property, {
+        foreignKey: "property_id",
         onDelete: "CASCADE",
       });
     }
   }
-  Ref.init(
+  Application.init(
     {
       tenant_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      landlord_id: {
+      property_id: {
         type: DataTypes.STRING,
+        allowNull: false,
+      },
+      potential_move_in_date: {
+        type: DataTypes.DATE,
         allowNull: false,
       },
     },
     {
       sequelize,
-      tableName: "refs",
+      tableName: "applications",
       timestamps: false,
     }
   );
-  return Ref;
+  return Application;
 };
