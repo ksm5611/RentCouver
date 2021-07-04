@@ -1,12 +1,20 @@
 // Navigation.js
 
-.nav-wrapper {
+#nav-wrapper {
   padding: 0 20px;
+  background-color: #f8f3f0;
   
   #nav-logo {
     display: flex;
     align-items: center;
   }
 
+  h4 {
+    color: #a09898;
+    margin: 0;
+  }
+  .test {
+    left: -14px;
+  }
 }  
- 
+

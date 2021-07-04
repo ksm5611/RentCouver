@@ -1,9 +1,17 @@
-.nav-wrapper {
+#nav-wrapper {
   padding: 0 20px;
+  background-color: #f8f3f0;
 }
-.nav-wrapper #nav-logo {
+#nav-wrapper #nav-logo {
   display: flex;
   align-items: center;
+}
+#nav-wrapper h4 {
+  color: #a09898;
+  margin: 0;
+}
+#nav-wrapper .test {
+  left: -14px;
 }
 
 /*# sourceMappingURL=App.css.map */
