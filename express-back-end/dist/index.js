@@ -10,6 +10,8 @@ var _express = _interopRequireDefault(require("express"));
 
 var _models = require("./db/models");
 
+var _applicationForm = _interopRequireDefault(require("./routes/applicationForm"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -186,6 +188,7 @@ App.get("/applications", /*#__PURE__*/function () {
     return _ref6.apply(this, arguments);
   };
 }());
+App.use("/api", _applicationForm["default"]);
 App.get("/ref_requests", /*#__PURE__*/function () {
   var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(req, res) {
     var ref_requests;
