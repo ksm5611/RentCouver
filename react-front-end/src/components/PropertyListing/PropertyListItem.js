@@ -16,12 +16,15 @@ export default function PropertyListItem () {
 
         <Card id="prop_ins">
           <Card.Img variant="top" src={searchResults.image} />
-          <Card.Body>
-            <Card.Title>{searchResults.title}</Card.Title>
-            <Card.Text>
-              {searchResults.bedrooms} bed {searchResults.bathrooms} bath
-            </Card.Text>
-          </Card.Body>
+          <div>
+            <Card.Body id="card-body">
+              <Card.Title>{searchResults.title}</Card.Title>
+              <Card.Text>
+                <p><b>${searchResults.price}</b></p>
+                <p>{searchResults.bedrooms} bed {searchResults.bathrooms} bath</p>
+              </Card.Text>
+            </Card.Body>
+          </div>
         </Card>
 
       </div>
