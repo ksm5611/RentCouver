@@ -26,18 +26,18 @@ var _require = require("sequelize"),
     Model = _require.Model;
 
 module.exports = function (sequelize, DataTypes) {
-  var User = /*#__PURE__*/function (_Model) {
-    _inherits(User, _Model);
+  var Property = /*#__PURE__*/function (_Model) {
+    _inherits(Property, _Model);
 
-    var _super = _createSuper(User);
+    var _super = _createSuper(Property);
 
-    function User() {
-      _classCallCheck(this, User);
+    function Property() {
+      _classCallCheck(this, Property);
 
       return _super.apply(this, arguments);
     }
 
-    _createClass(User, null, [{
+    _createClass(Property, null, [{
       key: "associate",
       value:
       /**
@@ -47,57 +47,85 @@ module.exports = function (sequelize, DataTypes) {
        */
       function associate(models) {
         // define association here
-        this.hasMany(models.Property, {
-          foreignKey: "landlord_id"
+        this.belongsTo(models.User, {
+          foreignKey: "landlord_id",
+          onDelete: "CASCADE"
         });
       }
     }]);
 
-    return User;
+    return Property;
   }(Model);
 
-  User.init({
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    current_address: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    job_title: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    annual_income: {
+  Property.init({
+    landlord_id: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    other_household_occupants: {
+    title: {
       type: DataTypes.STRING,
+      allowNull: false
+    },
+    street: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    unit: {
+      type: DataTypes.INTEGER,
       allowNull: true
     },
-    profile_picture_url: {
+    city: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     },
-    is_landlord: {
-      type: DataTypes.BOOLEAN,
+    province: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    postal_code: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    square_feet: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: true
+      defaultValue: 0
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    property_type: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    number_of_bathrooms: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    number_of_bedrooms: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    listed_start_date: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    cost_of_month: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    pets_allowed: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
     }
   }, {
     sequelize: sequelize,
-    tableName: "users",
+    tableName: "properties",
     timestamps: false
   });
-  return User;
+  return Property;
 };

@@ -9,12 +9,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.User, {
+        foreignKey: "landlord_id",
+        onDelete: "CASCADE",
+      });
     }
   }
   Property.init(
     {
       landlord_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       title: {
@@ -26,59 +30,56 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       unit: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.INTEGER,
+        allowNull: true,
       },
       city: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       province: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       postal_code: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       square_feet: {
-        type: DataTypes.STRING,
-        allowNull: true,
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
       },
       description: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: true,
+        type: DataTypes.TEXT,
+        allowNull: true,
       },
       property_type: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: true,
       },
       number_of_bathrooms: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.INTEGER,
         allowNull: false,
-        defaultValue: true,
+        defaultValue: 0,
       },
       number_of_bedrooms: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.INTEGER,
         allowNull: false,
-        defaultValue: true,
+        defaultValue: 0,
       },
       listed_start_date: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.DATE,
         allowNull: false,
-        defaultValue: true,
       },
       cost_of_month: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.INTEGER,
         allowNull: false,
-        defaultValue: true,
+        defaultValue: 0,
       },
       pets_allowed: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-        defaultValue: true,
       },
     },
     {
