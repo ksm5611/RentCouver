@@ -29,10 +29,10 @@ export default function App() {
   return (
     <>
       <Navigation />
-      {/* <PropertyDisplay />  */}
+      <PropertyDisplay />
       {/* <Map /> */}
       {/* <User /> */}
-      <Homepage/>
+      {/* <Homepage/> */}
     </>
   );
 }
