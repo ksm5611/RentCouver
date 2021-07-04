@@ -1,31 +1,36 @@
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+// import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import '../App.css'
+import { Navbar, Nav, Icon, Dropdown } from 'rsuite';
+import 'rsuite/dist/styles/rsuite-default.css';
 
 export default function Navigation() {
+
+  const instance = (
+      <Navbar className="nav-wrapper">
+        <Navbar.Header id="nav-logo">
+          <a href="/" className="navbar-brand logo">RentCouver</a>
+        </Navbar.Header>
+        <Navbar.Body>
+          <Nav>
+            <Nav.Item icon={<Icon icon="home" />} >Home</Nav.Item>
+            <Nav.Item>Properties</Nav.Item>
+            <Nav.Item>About Us</Nav.Item>
+          </Nav>
+          <Nav pullRight>
+            <Dropdown title="Profile" icon={<Icon icon="avatar" />}>
+              <Dropdown.Item>Company</Dropdown.Item>
+              <Dropdown.Item>Team</Dropdown.Item>
+              <Dropdown.Item>Contact</Dropdown.Item>
+            </Dropdown>
+          </Nav>
+        </Navbar.Body>
+      </Navbar>
+  );
+
   return (
-    <Navbar className="navbar1" collapseOnSelect expand="lg" variant="dark">
-      <Navbar.Brand href="#home">RentCouver</Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link href="#">Home</Nav.Link>
-          <Nav.Link href="#listings">Property</Nav.Link>
-          <Nav.Link href="#AboutUs">About Us</Nav.Link>
-          {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-          </NavDropdown> */}
-        </Nav>
-        <Nav>
-          <Nav.Link href="#user">Profile</Nav.Link>
-          {/* <Nav.Link eventKey={2} href="#memes">
-            Dank memes
-      </Nav.Link> */}
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+    <>
+      {instance}
+    </>
+
   )
 };

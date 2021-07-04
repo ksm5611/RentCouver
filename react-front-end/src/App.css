@@ -1,5 +1,9 @@
-.navbar1 {
-  background-color: #f1a177;
+.nav-wrapper {
+  padding: 0 20px;
+}
+.nav-wrapper #nav-logo {
+  display: flex;
+  align-items: center;
 }
 
 /*# sourceMappingURL=App.css.map */

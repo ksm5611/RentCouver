@@ -3,27 +3,28 @@ import axios from 'axios';
 import Navigation from './components/Navigation';
 import User from './components/User/index';
 
-
 export default function App() {
-
-  // fetchData = () => {
-  //   axios.get('/api/data') // You can simply make your requests to "/api/whatever you want"
-  //     .then((response) => {
-  //       // handle success
-  //       console.log(response.data) // The entire response from the Rails API
-
-  //       console.log(response.data.message) // Just the message
-  //       this.setState({
-  //         message: response.data.message
-  //       });
-  //     })
-  // }
-
+  const items = [
+    { name: 'home', label: 'Home' },
+    {
+      name: 'billing',
+      label: 'Billing',
+      items: [
+        { name: 'statements', label: 'Statements' },
+        { name: 'reports', label: 'Reports' },
+      ],
+    },
+    {
+      name: 'settings',
+      label: 'Settings',
+      items: [{ name: 'profile', label: 'Profile' }],
+    },
+  ]
+  
 
   return (
     <>
       <Navigation />
-      <User />
     </>
   );
 }
