@@ -3,7 +3,8 @@ export default function SearchBar () {
 return (
   <form className="search-form" action="/" method="get">
       <label className="search-label" htmlFor="header-search">
-        <p>Find your fresh start</p>
+        <h3>Find your fresh start</h3>
+        <p>Houses, condos, and apartments for rent</p>
       </label>
       <div className="search-input-wrapper">
         <input
