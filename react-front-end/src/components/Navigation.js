@@ -1,12 +1,11 @@
 // import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import '../App.css'
-import { Navbar, Dropdown, Icon } from 'rsuite';
-import NavItem from 'react-bootstrap/Nav';
 import 'rsuite/dist/styles/rsuite-default.css';
+import { Navbar } from 'rsuite';
+import NavItem from 'react-bootstrap/Nav';
 import { NavDropdown } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome } from '@fortawesome/free-solid-svg-icons'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faUser } from '@fortawesome/free-solid-svg-icons'
 
 export default function Navigation() {
 

@@ -2,6 +2,33 @@ body {
   font-family: "Bad Script", cursive, "Ubuntu", sans-serif;
 }
 
+/* Homepage.js */
+.homepage-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+.homepage-wrapper .search-form {
+  display: flex;
+  flex-direction: column;
+}
+.homepage-wrapper .search-form .search-label p {
+  font-size: 28px;
+  font-family: "Ubuntu", sans-serif;
+}
+.homepage-wrapper .search-form .search-input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 600px;
+}
+.homepage-wrapper .search-form .search-input-wrapper .search-input {
+  width: 500px;
+}
+.homepage-wrapper .search-form .search-input-wrapper .search-button {
+  width: 80px;
+}
+
 #nav-wrapper {
   display: flex;
   justify-content: space-around;
