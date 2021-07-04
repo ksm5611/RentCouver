@@ -26,18 +26,18 @@ var _require = require("sequelize"),
     Model = _require.Model;
 
 module.exports = function (sequelize, DataTypes) {
-  var Property = /*#__PURE__*/function (_Model) {
-    _inherits(Property, _Model);
+  var RentHistory = /*#__PURE__*/function (_Model) {
+    _inherits(RentHistory, _Model);
 
-    var _super = _createSuper(Property);
+    var _super = _createSuper(RentHistory);
 
-    function Property() {
-      _classCallCheck(this, Property);
+    function RentHistory() {
+      _classCallCheck(this, RentHistory);
 
       return _super.apply(this, arguments);
     }
 
-    _createClass(Property, null, [{
+    _createClass(RentHistory, null, [{
       key: "associate",
       value:
       /**
@@ -48,90 +48,52 @@ module.exports = function (sequelize, DataTypes) {
       function associate(models) {
         // define association here
         this.belongsTo(models.User, {
-          foreignKey: "landlord_id",
+          foreignKey: "tenant_id",
           onDelete: "CASCADE"
         });
-        this.hasMany(models.Photo, {
-          foreignKey: "property_id"
-        });
-        this.hasMany(models.RentHistory, {
-          foreignKey: "property_id"
+        this.belongsTo(models.Property, {
+          foreignKey: "property_id",
+          onDelete: "CASCADE"
         });
       }
     }]);
 
-    return Property;
+    return RentHistory;
   }(Model);
 
-  Property.init({
-    landlord_id: {
+  RentHistory.init({
+    tenant_id: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    street: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    unit: {
+    property_id: {
       type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    city: {
-      type: DataTypes.STRING,
       allowNull: false
     },
-    province: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    postal_code: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    square_feet: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0
-    },
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    property_type: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    number_of_bathrooms: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0
-    },
-    number_of_bedrooms: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0
-    },
-    listed_start_date: {
+    start_date: {
       type: DataTypes.DATE,
       allowNull: false
     },
-    cost_of_month: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0
+    end_date: {
+      type: DataTypes.DATE,
+      allowNull: false
     },
-    pets_allowed: {
+    review_content: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    is_requested: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    is_decline: {
       type: DataTypes.BOOLEAN,
       allowNull: false
     }
   }, {
     sequelize: sequelize,
-    tableName: "properties",
+    tableName: "renthistories",
     timestamps: false
   });
-  return Property;
+  return RentHistory;
 };

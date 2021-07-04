@@ -39,7 +39,9 @@ INSERT INTO properties (landlord_id, title, street, unit, city, province, postal
 
 
 INSERT INTO photos (property_id, photo_url) VALUES (1, 'https://img.zumpercdn.com/424911000/1280x960?auto=format&w=1238&h=580&fit=fill');
-INSERT INTO photos (property_id, photo_url) VALUES (2, 'https://img.zumpercdn.com/427039524/1280x960?auto=format&w=326&h=360&fit=crop, https://img.zumpercdn.com/427039528/1280x960?auto=format&w=1140&h=488&fit=fill, https://img.zumpercdn.com/427039526/1280x960?auto=format&w=1140&h=488&fit=fill');
+INSERT INTO photos (property_id, photo_url) VALUES (2, 'https://img.zumpercdn.com/427039524/1280x960?auto=format&w=326&h=360&fit=crop');
+INSERT INTO photos (property_id, photo_url) VALUES (2, 'https://img.zumpercdn.com/427039528/1280x960?auto=format&w=1140&h=488&fit=fill');
+INSERT INTO photos (property_id, photo_url) VALUES (2, 'https://img.zumpercdn.com/427039526/1280x960?auto=format&w=1140&h=488&fit=fill');
 INSERT INTO photos (property_id, photo_url) VALUES (3, 'https://img.zumpercdn.com/305108468/1280x960?auto=format&w=1238&h=580&fit=fill');
 INSERT INTO photos (property_id, photo_url) VALUES (4, 'https://img.zumpercdn.com/424440739/1280x960?auto=format&w=1238&h=580&fit=fill');
 INSERT INTO photos (property_id, photo_url) VALUES (5, 'https://img.zumpercdn.com/424438325/1280x960?auto=format&w=1238&h=580&fit=fill');

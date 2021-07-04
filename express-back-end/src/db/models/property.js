@@ -13,6 +13,12 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "landlord_id",
         onDelete: "CASCADE",
       });
+      this.hasMany(models.Photo, {
+        foreignKey: "property_id",
+      });
+      this.hasMany(models.RentHistory, {
+        foreignKey: "property_id",
+      });
     }
   }
   Property.init(

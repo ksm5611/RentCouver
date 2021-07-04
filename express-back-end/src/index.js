@@ -3,7 +3,7 @@ import "regenerator-runtime/runtime";
 import dotenv from "dotenv";
 dotenv.config();
 import Express from "express";
-import { User, Property } from "./db/models";
+import { User, Property, Photo, RentHistory } from "./db/models";
 const App = Express();
 const PORT = process.env.PORT;
 
@@ -27,6 +27,16 @@ App.get("/users", async (req, res) => {
 App.get("/properties", async (req, res) => {
   const properties = await Property.findAll();
   res.json(properties);
+});
+
+App.get("/photos", async (req, res) => {
+  const photos = await Photo.findAll();
+  res.json(photos);
+});
+
+App.get("/rentHistories", async (req, res) => {
+  const rentHistories = await RentHistory.findAll();
+  res.json(rentHistories);
 });
 
 App.listen(PORT, () => {
