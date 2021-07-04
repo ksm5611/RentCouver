@@ -16,8 +16,8 @@ export default function Navigation() {
             <Nav.Item>Properties</Nav.Item>
             <Nav.Item>About Us</Nav.Item>
           </Nav>
-          <Nav pullRight>
-            <Dropdown className="test" title="Profile" icon={<Icon icon="avatar" />}>
+          <Nav className="test" pullRight>
+            <Dropdown className="dropdown-space" title="Profile" icon={<Icon icon="avatar" />}>
               <Dropdown.Item>Account</Dropdown.Item>
               <Dropdown.Item>My properties</Dropdown.Item>
               <Dropdown.Item>Received Apps</Dropdown.Item>

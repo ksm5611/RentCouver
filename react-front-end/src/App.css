@@ -10,8 +10,35 @@
   color: #a09898;
   margin: 0;
 }
-#nav-wrapper .test {
+#nav-wrapper .dropdown-space {
   left: -14px;
+}
+#nav-wrapper .test:active, #nav-wrapper .test:focus, #nav-wrapper .test:hover, #nav-wrapper .test:target {
+  background-color: #f8f3f0;
+  box-shadow: none;
+}
+
+.hero-container {
+  height: 200px;
+  width: 100%;
+  background-color: #f8f3f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-container .hero-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  list-style: none;
+  padding: 20px;
+}
+.hero-container .hero-content .hero-content-item {
+  margin: 10px;
+}
+.hero-container .hero-content .hero-content-item .profile-img {
+  width: 100px;
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=App.css.map */

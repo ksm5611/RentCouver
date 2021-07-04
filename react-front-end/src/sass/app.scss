@@ -1,0 +1,59 @@
+// Navigation.js
+$light-orange: #f8f3f0;
+
+#nav-wrapper {
+  padding: 0 20px;
+  background-color: $light-orange;
+  
+  #nav-logo {
+    display: flex;
+    align-items: center;
+  }
+
+  h4 {
+    color: #a09898;
+    margin: 0;
+  }
+
+  .dropdown-space {
+    left: -14px;
+    
+  }
+
+  .test:active, .test:focus, .test:hover, .test:target {
+    background-color: $light-orange;
+    box-shadow: none;
+  }
+
+}
+
+// User.js 
+
+// HeroContent.js
+
+.hero-container {
+  height: 200px;
+  width: 100%;
+  background-color: $light-orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .hero-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    list-style: none;
+    // border: 1px solid red;
+    padding: 20px;
+
+    .hero-content-item {
+      margin: 10px;
+
+      .profile-img {
+        width: 100px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
