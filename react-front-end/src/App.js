@@ -5,7 +5,6 @@ import Map from './components/PropertyListing/Map';
 import PropertyDisplay from './components/PropertyListing/PropertyList'; 
 import User from './components/User/index';
 
-
 export default function App() {
 
   // fetchData = () => {

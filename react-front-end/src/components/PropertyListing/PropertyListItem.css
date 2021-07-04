@@ -1,0 +1,19 @@
+#card-container {
+  display: flex;
+  align-items: center;
+  border: solid 2px;
+  border-color: #c1b9b9;
+  border-radius: 5px;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+#card {
+  width: 200px;
+}
+
+#prop_ins {
+  display: flex;
+  flex-direction: row;
+}
