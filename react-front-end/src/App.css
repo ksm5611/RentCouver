@@ -11,6 +11,20 @@ body {
   z-index: 1;
   width: 100%;
 }
+#nav-wrapper #nav-logo {
+  display: flex;
+  align-items: center;
+  font-family: "Bad Script", cursive;
+}
+#nav-wrapper #nav-logo h4 {
+  color: #574f4a;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+#nav-wrapper #nav-logo h4 span {
+  font-size: 28px;
+}
 #nav-wrapper .nav-body {
   display: flex;
   justify-content: space-between;
@@ -33,23 +47,11 @@ body {
 #nav-wrapper .nav-body .nav-body-item-list .dropdown-item:hover, #nav-wrapper .nav-body .nav-body-item-list .dropdown-item:active {
   background-color: #c1b9b9;
 }
-#nav-wrapper #nav-logo {
-  display: flex;
-  align-items: center;
-  font-family: "Bad Script", cursive;
+#nav-wrapper .nav-body .nav-body-item-list .user-icon {
+  font-size: 14px;
 }
-#nav-wrapper h4 {
-  color: #574f4a;
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0;
-}
-#nav-wrapper h4 span {
-  font-size: 28px;
-}
-#nav-wrapper .test:active, #nav-wrapper .test:focus, #nav-wrapper .test:hover, #nav-wrapper .test:target {
-  background-color: #f8f3f0;
-  box-shadow: none;
+#nav-wrapper .nav-body .nav-body-item-list #basic-nav-dropdown {
+  padding-left: 8px;
 }
 
 .user-page-wrapper {

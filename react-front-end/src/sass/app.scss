@@ -20,6 +20,24 @@ body {
   position: fixed;
   z-index: 1;
   width: 100%;
+  
+  #nav-logo {
+    display: flex;
+    align-items: center;
+    font-family: $logo-font;
+    
+    h4 {
+      color: #574f4a;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0;
+      
+      span {
+        font-size: 28px;
+      }
+    }
+
+  }
 
   .nav-body {
     display: flex;
@@ -47,30 +65,19 @@ body {
       .dropdown-item:hover, .dropdown-item:active {
         background-color: $background-color;
       }
+
+      .user-icon {
+        font-size: 14px;
+      }
+
+      #basic-nav-dropdown {
+        padding-left: 8px;
+      }
     }
   }
   
-  #nav-logo {
-    display: flex;
-    align-items: center;
-    font-family: $logo-font;
-  }
 
-  h4 {
-    color: #574f4a;
-    font-size: 24px;
-    font-weight: 700;
-    margin: 0;
-    
-    span {
-      font-size: 28px;
-    }
-  }
 
-  .test:active, .test:focus, .test:hover, .test:target {
-    background-color: $light-orange;
-    box-shadow: none;
-  }
 
 }
 
