@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import Navigation from './components/Navigation';
 import Map from './components/PropertyListing/Map';
 import PropertyDisplay from './components/PropertyListing/PropertyList'; 
 import User from './components/User/index';
+import "./App.css"
 
 export default function App() {
   const items = [
@@ -27,8 +28,8 @@ export default function App() {
   return (
     <>
       <Navigation />
-      <PropertyDisplay /> 
-      <Map />
+      {/* <PropertyDisplay />  */}
+      {/* <Map /> */}
       <User />
     </>
   );

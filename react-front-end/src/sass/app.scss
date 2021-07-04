@@ -3,6 +3,7 @@ $light-orange: #f8f3f0;
 $main-font: 'Ubuntu', sans-serif;
 $logo-font: 'Bad Script', cursive;
 $name-font: 'Kalam', cursive;
+$background-color: #c1b9b9;
 
 body {
   font-family: $logo-font, $main-font;
@@ -12,6 +13,9 @@ body {
   font-family: $main-font;
   padding: 0 20px;
   background-color: $light-orange;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
   
   #nav-logo {
     display: flex;
@@ -42,13 +46,41 @@ body {
 
 }
 
-// User.js 
+// User.js (index.js)
+
+.user-page-wrapper {
+  background-color: $background-color;
+  padding: 64px 64px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  // FavouritesList.js & Favourites.js 
+  justify-content: space-between;
+  
+  .fav-wrapper {
+    .fav-properties {
+      // border: 1px solid red;
+    }
+  
+  }
+  
+  // UserInfo.js
+  
+  .user-info-wrapper {
+    position: relative;
+    // border: 1px solid red;
+  }
+}
+
+
+
 
 // HeroContent.js
 
 .hero-container {
+  padding-top: 80px;
   font-family: $name-font;
-  height: 200px;
+  height: 280px;
   width: 100%;
   background-color: $light-orange;
   display: flex;

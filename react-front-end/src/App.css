@@ -6,6 +6,9 @@ body {
   font-family: "Ubuntu", sans-serif;
   padding: 0 20px;
   background-color: #f8f3f0;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
 }
 #nav-wrapper #nav-logo {
   display: flex;
@@ -29,9 +32,22 @@ body {
   box-shadow: none;
 }
 
+.user-page-wrapper {
+  background-color: #c1b9b9;
+  padding: 64px 64px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+.user-page-wrapper .user-info-wrapper {
+  position: relative;
+}
+
 .hero-container {
+  padding-top: 80px;
   font-family: "Kalam", cursive;
-  height: 200px;
+  height: 280px;
   width: 100%;
   background-color: #f8f3f0;
   display: flex;
