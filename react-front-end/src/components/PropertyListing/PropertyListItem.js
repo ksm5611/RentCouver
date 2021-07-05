@@ -13,10 +13,34 @@ const searchResults = {
 export default function PropertyListItem () {
   return (
     <div id="card-container">
+
+      <div id="card">
+        <Card id="prop_ins">
+          <Card.Img id="card-img" variant="top" src={searchResults.image} />
+          <div>
+            <Card.Body id="card-body">
+              <Card.Title>{searchResults.title}</Card.Title>
+              <Card.Text>
+                <p><b>${searchResults.price}</b></p>
+                <p>{searchResults.bedrooms} bed {searchResults.bathrooms} bath</p>
+              </Card.Text>
+                <div className="propslist_buttons">
+                  <Button id="btn-outline-primary" variant="outline-primary">
+                    Details
+                  </Button>
+                  <Button id="btn-outline-primary" variant="outline-primary">
+                    Message
+                  </Button>
+                </div>
+            </Card.Body>
+          </div>
+        </Card>
+      </div>
+
       <div id="card">
 
         <Card id="prop_ins">
-          <Card.Img variant="top" src={searchResults.image} />
+          <Card.Img id="card-img" variant="top" src={searchResults.image} />
           <div>
             <Card.Body id="card-body">
               <Card.Title>{searchResults.title}</Card.Title>
@@ -37,6 +61,7 @@ export default function PropertyListItem () {
         </Card>
 
       </div>
+
     </div>
   )
 }
