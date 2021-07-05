@@ -11,6 +11,46 @@ body ul {
 body li {
   list-style: none;
 }
+body .hero-container {
+  padding-top: 80px;
+  font-family: "Kalam", cursive;
+  height: 310px;
+  width: 100%;
+  background-color: #f8f3f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .hero-container .hero-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  list-style: none;
+  margin-top: 200px;
+  padding: 20px;
+  z-index: 1;
+}
+body .hero-container .hero-content .hero-content-item {
+  margin: 10px;
+}
+body .hero-container .hero-content .hero-content-item .profile-img {
+  width: 200px;
+  border-radius: 50%;
+}
+body .hero-container .hero-content h2 {
+  font-size: 40px;
+  color: #7c7878;
+}
+body .second-hero-container {
+  display: flex;
+  justify-content: start;
+  padding-left: 100px;
+  height: 240px;
+}
+body .second-hero-container h2 {
+  font-family: "Ubuntu", sans-serif;
+  color: #7c7878;
+}
 
 .homepage-wrapper {
   display: flex;
@@ -119,37 +159,6 @@ body li {
 }
 
 /* UserpageHeroContent.js */
-.hero-container {
-  padding-top: 80px;
-  font-family: "Kalam", cursive;
-  height: 310px;
-  width: 100%;
-  background-color: #f8f3f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.hero-container .hero-content {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  list-style: none;
-  margin-top: 200px;
-  padding: 20px;
-  z-index: 1;
-}
-.hero-container .hero-content .hero-content-item {
-  margin: 10px;
-}
-.hero-container .hero-content .hero-content-item .profile-img {
-  width: 200px;
-  border-radius: 50%;
-}
-.hero-container .hero-content h2 {
-  font-size: 40px;
-  color: #7c7878;
-}
-
 /* User.js (index.js) */
 .user-page-wrapper {
   background-color: #c1b9b9;
@@ -178,17 +187,6 @@ body li {
 .user-page-wrapper .user-info-wrapper #my-info-label {
   background-color: #7c7878;
   border: #7c7878;
-}
-
-.property-details-container {
-  display: flex;
-  justify-content: start;
-  padding-left: 100px;
-  height: 240px;
-}
-.property-details-container h2 {
-  font-family: "Ubuntu", sans-serif;
-  color: #7c7878;
 }
 
 .btn {
@@ -291,6 +289,22 @@ body li {
   background-size: cover;
   height: 540px;
   border-radius: 8px;
+}
+
+.req-ref-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.req-ref-info p {
+  margin: 0;
+}
+
+.ref-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 400px;
 }
 
 /*# sourceMappingURL=App.css.map */

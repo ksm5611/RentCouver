@@ -1,0 +1,16 @@
+.req-ref-info {
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  p {
+    margin: 0;
+  }
+  width: 100%;
+}
+
+.ref-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 400px;
+}

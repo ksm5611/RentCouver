@@ -21,8 +21,9 @@ export default function App() {
       {/* <Map /> */}
       {/* <User /> */}
       {/* <Homepage /> */}
-      <PropertyDetails />
+      {/* <PropertyDetails /> */}
       {/* <PropertyListing /> */}
+      <RefReqList />
     </>
   );
 }
