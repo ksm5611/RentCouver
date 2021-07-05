@@ -6,11 +6,10 @@ import clsx from 'clsx';
 import List from '@material-ui/core/List';
 import PriceSlider from './PriceSlider';
 import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import FilterType from './FilterType';
 import FilterBedroom from './FilterBedroom';
 import FilterBathroom from './FilterBathroom';
+import FilterChecklist from './FilterChecklist';
 import './Filters.css';
 
 const useStyles = makeStyles({
@@ -77,11 +76,9 @@ export default function Filters () {
       <Divider />
 
       <List>
-        {['Air Conditioning', 'Pets Allowed', 'Parking'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+
+        <FilterChecklist />
+
       </List>
     </div>
   );
