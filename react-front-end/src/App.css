@@ -295,15 +295,18 @@ body .second-hero-container h2 {
   margin: 24px 0;
 }
 
-.req-ref-info {
+.req-info {
   display: flex;
   align-items: center;
   width: 100%;
 }
-.req-ref-info p, .req-ref-info h5 {
+.req-info .req-tenant, .req-info h5 {
   margin: 0;
   padding: 0 20px;
   width: 200px;
+}
+.req-info .address {
+  width: 620px;
 }
 
 .head {
@@ -311,7 +314,7 @@ body .second-hero-container h2 {
   height: 60px;
 }
 
-.ref-btn {
+.option-btn {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

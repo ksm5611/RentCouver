@@ -41,30 +41,30 @@ export default function ReqRefList() {
       <Container>
         {/* <Typography variant="h4">Tenant name Address</Typography> */}
         <ListItem className={classes.root} id="listitem-head">
-            <div className="req-ref-info head">
+            <div className="req-info head">
               <h5>Tenant's name</h5>
               <h5>Property Address</h5>
             </div>
           </ListItem>
         <List>
           <ListItem className={classes.root}>
-            <div className="req-ref-info">
+            <div className="req-info">
               <Avatar src=""/>
               <p>Sumin Kim</p>
               <p>property address</p>
             </div>
-            <div className="ref-btn">
+            <div className="option-btn">
               <Button variant="contained" color="primary">Write a Reference</Button>
               <Button variant="contained" color="secondary">Decline</Button>
             </div>
           </ListItem>
           <ListItem className={classes.root}>
-            <div className="req-ref-info">
+            <div className="req-info">
               <Avatar src=""/>
               <p>Felicia Okta</p>
               <p>property address</p>
             </div>
-            <div className="ref-btn">
+            <div className="option-btn">
               <Button variant="contained" color="primary">Write a Reference</Button>
               <Button variant="contained" color="secondary">Decline</Button>
             </div>

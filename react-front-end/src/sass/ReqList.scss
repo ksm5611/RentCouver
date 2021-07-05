@@ -2,16 +2,21 @@
   margin: 24px 0;
 }
 
-.req-ref-info {
+.req-info {
   display: flex;
   align-items: center;
+  width: 100%;
   // justify-content: space-between;
-  p, h5 {
+  .req-tenant, h5 {
     margin: 0;
     padding: 0 20px;
     width: 200px;
   }
-  width: 100%;
+
+  .address {
+    width: 620px;
+  }  
+
 }
 
 .head {
@@ -19,7 +24,7 @@
   height: 60px;
 }
 
-.ref-btn {
+.option-btn {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
