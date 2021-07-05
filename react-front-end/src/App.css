@@ -67,7 +67,7 @@ body #nav-wrapper {
   display: flex;
   justify-content: space-around;
   font-family: "Ubuntu", sans-serif;
-  padding: 0 20px;
+  padding: 0 28px;
   position: fixed;
   z-index: 2;
   width: 100%;
@@ -93,6 +93,7 @@ body #nav-wrapper .nav-body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin-left: 20px;
 }
 body #nav-wrapper .nav-body .nav-body-item-list {
   display: flex;
@@ -100,6 +101,7 @@ body #nav-wrapper .nav-body .nav-body-item-list {
 }
 body #nav-wrapper .nav-body .nav-body-item-list .nav-link {
   color: #7c7878;
+  font-size: 16px;
 }
 body #nav-wrapper .nav-body .nav-body-item-list .nav-link:hover {
   color: #574f4a;
