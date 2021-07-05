@@ -6,6 +6,7 @@ import PropertyDisplay from "./components/PropertyListing/PropertyList";
 import Homepage from "./components/Homepage/index";
 import User from "./components/User/index";
 import "./App.css";
+import ApplicationForm from "../src/components/ApplicationForm";
 
 export default function App() {
   const items = [
@@ -31,10 +32,8 @@ export default function App() {
       <PropertyDisplay />
       <Map />
       <User />
-      {/* <PropertyDisplay />  */}
-      {/* <Map /> */}
-      {/* <User /> */}
       <Homepage />
+      <ApplicationForm />
     </>
   );
 }
