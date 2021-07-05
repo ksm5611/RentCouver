@@ -18,11 +18,11 @@ export default function App() {
   return (
     <>
       <Navigation />
-      {/* <PropertyDisplay />  */}
       {/* <Map /> */}
       {/* <User /> */}
       {/* <Homepage /> */}
-      <PropertyDetails />
+      {/* <PropertyDetails /> */}
+      <PropertyListing />
     </>
   );
 }
