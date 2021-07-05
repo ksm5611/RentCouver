@@ -11,7 +11,7 @@ const useStyles = makeStyles({
 });
 
 function valuetext(value) {
-  return `${value}°C`;
+  return `${value}`;
 }
 
 export default function RangeSlider() {
@@ -28,9 +28,10 @@ export default function RangeSlider() {
         Price Range
       </Typography>
       <Slider
+        style={{padding:'50px 0 0 0'}}
         value={value}
         onChange={handleChange}
-        valueLabelDisplay="auto"
+        valueLabelDisplay="on"
         aria-labelledby="range-slider"
         getAriaValueText={valuetext}
       />

@@ -44,8 +44,8 @@ export default function Filters () {
         [classes.fullList]: anchor === 'top' || anchor === 'bottom',
       })}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      onClick={toggleDrawer(anchor, true)}
+      onKeyDown={toggleDrawer(anchor, true)}
     >
       <List>
       <PriceSlider />
