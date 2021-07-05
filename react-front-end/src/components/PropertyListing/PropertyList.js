@@ -6,7 +6,7 @@ import PropertyListItem from './PropertyListItem';
 export default function PropertyDisplay () {
 
   return (
-    <div>
+    <div id="proplist_top">
 
       <div className="filters">
         <Button id="btn-outline-primary" variant="outline-primary">

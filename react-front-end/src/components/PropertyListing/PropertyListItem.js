@@ -24,12 +24,14 @@ export default function PropertyListItem () {
                 <p><b>${searchResults.price}</b></p>
                 <p>{searchResults.bedrooms} bed {searchResults.bathrooms} bath</p>
               </Card.Text>
-              <Button id="btn-outline-primary" variant="outline-primary">
-                Details
-              </Button>
-              <Button id="btn-outline-primary" variant="outline-primary">
-                Message
-              </Button>
+                <div className="propslist_buttons">
+                  <Button id="btn-outline-primary" variant="outline-primary">
+                    Details
+                  </Button>
+                  <Button id="btn-outline-primary" variant="outline-primary">
+                    Message
+                  </Button>
+                </div>
             </Card.Body>
           </div>
         </Card>

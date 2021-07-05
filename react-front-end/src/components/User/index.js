@@ -1,16 +1,16 @@
 import react from 'react'
-import HeroContent from '../HeroContent';
-import FavouritesList from './FavouritesList';
+import RecentViewList from './RecentViewList';
 import UserInfo from './UserInfo';
+import UserpageHeroContent from './UserpageHeroContent';
 
 export default function User () {
 
   return (
     <div>
-      <HeroContent />
+      <UserpageHeroContent />
       <div className="user-page-wrapper">
-        <FavouritesList />
         <UserInfo />
+        <RecentViewList />
       </div>
     </div>
   )
