@@ -31,7 +31,11 @@ export default function Navigation() {
             </NavItem.Link>
           </NavItem.Item>
           <NavItem.Item>
-            <NavItem.Link className="nav-link" eventKey="link-1">
+            <NavItem.Link
+              className="nav-link"
+              eventKey="link-1"
+              href="/property_listings"
+            >
               Properties
             </NavItem.Link>
           </NavItem.Item>
@@ -51,7 +55,7 @@ export default function Navigation() {
             <NavDropdown.Item
               className="dropdown-item"
               onClick={() => dropdownItemColor}
-              href="/homePage"
+              href="/user"
             >
               Dashboard
             </NavDropdown.Item>
@@ -65,14 +69,14 @@ export default function Navigation() {
             <NavDropdown.Item
               className="dropdown-item"
               onClick={() => dropdownItemColor}
-              href="/"
+              href="/rent_history"
             >
               My Rent History
             </NavDropdown.Item>
             <NavDropdown.Item
               className="dropdown-item"
               onClick={() => dropdownItemColor}
-              href="/"
+              href="/user"
             >
               My References
             </NavDropdown.Item>
@@ -80,14 +84,14 @@ export default function Navigation() {
             <NavDropdown.Item
               className="dropdown-item"
               onClick={() => dropdownItemColor}
-              href="/"
+              href="/app_list"
             >
               Received Apps
             </NavDropdown.Item>
             <NavDropdown.Item
               className="dropdown-item"
               onClick={() => dropdownItemColor}
-              href="/"
+              href="/ref_request_list"
             >
               Reference requests
             </NavDropdown.Item>

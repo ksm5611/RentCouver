@@ -22,7 +22,7 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/home">
+          <Route path="/user">
             <User />
           </Route>
           <Route path="/properties">
@@ -31,22 +31,22 @@ export default function App() {
           <Route path="/applicationForm">
             <ApplicationForm propertyId={17} />
           </Route>
-          <Route path="/propertyDisplay">
+          <Route path="/property_listings">
             <PropertyListing />
           </Route>
-          <Route path="/homePage">
+          <Route path="/home">
             <Homepage />
           </Route>
-          <Route path="/applicationList">
+          <Route path="/app_list">
             <ApplicationList />
           </Route>
-          <Route path="/applicationReview">
+          <Route path="/app_review">
             <ApplicationReview />
           </Route>
-          <Route path="/rentHistory">
+          <Route path="/rent_history">
             <RentHistory />
           </Route>
-          <Route path="/refReqList">
+          <Route path="/ref_request_list">
             <RefReqList />
           </Route>
         </Switch>
