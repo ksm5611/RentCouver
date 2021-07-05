@@ -7,8 +7,11 @@ import {
   Container,
   Typography,
   makeStyles,
+  ListItemAvatar,
+  Avatar,
 } from "@material-ui/core";
 
+//material ui styling funtion
 const useStyles = makeStyles(() => {
   return {
     root: {
@@ -23,10 +26,13 @@ export default function ApplicationForm() {
   const [user, setUser] = useState(null);
   const [rentHistories, setRentHistories] = useState([]);
 
+  //labeling user's info function
   const userInfo = [
     { label: "Name", value: "name" },
-    { label: "Job title", value: "job_title" },
     { label: "Current address", value: "current_address" },
+    { label: "Job title", value: "job_title" },
+    { label: "Annual income", value: "annual_income" },
+    { label: "Other Household Occupants", value: "other_household_occupants" },
     { label: "Email address", value: "email" },
   ];
 
@@ -50,6 +56,11 @@ export default function ApplicationForm() {
   const renderUserData = () => {
     return (
       <List>
+        <ListItem className={classes.root}>
+          <ListItemAvatar>
+            <Avatar src={user.profile_picture_url} />
+          </ListItemAvatar>
+        </ListItem>
         {userInfo.map((info) => (
           <ListItem key={info.value} className={classes.root}>
             <ListItemText primary={info.label} secondary={user[info.value]} />
