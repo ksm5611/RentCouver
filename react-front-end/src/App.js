@@ -29,18 +29,12 @@ export default function App() {
     <>
       <Navigation />
       <PropertyDisplay />
-<<<<<<< HEAD
-      {/* <Map /> */}
-      {/* <User /> */}
-      {/* <Homepage/> */}
-=======
       <Map />
       <User />
       {/* <PropertyDisplay />  */}
       {/* <Map /> */}
       {/* <User /> */}
       <Homepage />
->>>>>>> 6ea42003356c8134eb7ba9cf29ce77a1627083f3
     </>
   );
 }
