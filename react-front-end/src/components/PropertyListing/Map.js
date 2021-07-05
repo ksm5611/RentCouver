@@ -1,11 +1,11 @@
-import PropertyDisplay from "./PropertyList";
+import Filters from "./Filters";
 import './Map.css'
 
 export default function Map () {
   return (
     <div id='proplist-container'>
 
-      <PropertyDisplay />
+      <Filters />
 
       <p>Map on the right side of the page askdhfkajshdflkasjdhflksajhdfkajsh</p>
     </div>

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 // import axios from 'axios';
 import Navigation from "./components/Navigation";
 import Map from "./components/PropertyListing/Map";
-import PropertyDisplay from "./components/PropertyListing/PropertyList";
+import Filters from "./components/PropertyListing/Filters";
 import Homepage from "./components/Homepage/index";
 import User from "./components/User/index";
 import "./App.css";
