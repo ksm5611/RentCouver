@@ -18,6 +18,8 @@ var _applicationForm = _interopRequireDefault(require("./routes/applicationForm"
 
 var _userInfo = _interopRequireDefault(require("./routes/userInfo"));
 
+var _propertyDetails = _interopRequireDefault(require("./routes/propertyDetails"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -94,6 +96,7 @@ App.get("/properties", /*#__PURE__*/function () {
     return _ref2.apply(this, arguments);
   };
 }());
+App.use("/api", _propertyDetails["default"]);
 App.get("/photos", /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {
     var photos;
