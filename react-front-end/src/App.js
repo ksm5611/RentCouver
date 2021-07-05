@@ -9,6 +9,8 @@ import PropertyListing from "./components/PropertyListing";
 import RefReqList from "./components/RefReqList";
 import RentHistory from "./components/RentHistory";
 import User from "./components/User";
+
+import "react-slideshow-image/dist/styles.css";
 import "./App.css";
 
 export default function App() {
