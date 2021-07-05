@@ -80,7 +80,7 @@ export default function ApplicationForm({ propertyId }) {
     );
   };
 
-  //to show  residential history period
+  //to show residential history period
   const formatRentHistoryPeriod = (rentHistory) => {
     return `${rentHistory.start_date} - ${rentHistory.end_date}`;
   };
@@ -109,15 +109,13 @@ export default function ApplicationForm({ propertyId }) {
   };
 
   const handleSubmit = async () => {
-    const application = await axios.post(
-      "http://localhost:8000/api/applications",
-      {
-        tenant_id: 10,
-        property_id: propertyId,
-        potential_move_in_date: potentialMoveInDate,
-      }
-    );
+    await axios.post("http://localhost:8000/api/applications", {
+      tenant_id: 10,
+      property_id: propertyId,
+      potential_move_in_date: potentialMoveInDate,
+    });
   };
+
   // setting date funtion
   const formateDefaultDate = () => {
     const date = new Date();
@@ -129,6 +127,7 @@ export default function ApplicationForm({ propertyId }) {
     if (day.length < 2) day = "0" + day;
     return [year, month, day].join("-");
   };
+
   // change date funtion
   const onChangeDate = (event) => {
     setPotentailDate(event.target.value);
