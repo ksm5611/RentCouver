@@ -15,11 +15,12 @@ export default function App() {
   return (
     <>
       <Navigation />
+      <User />
       {/* <PropertyDisplay />
       <Map />
       <User />
       <Homepage /> */}
-      <ApplicationForm propertyId={17} />
+      {/* <ApplicationForm propertyId={17} /> */}
     </>
   );
 }

@@ -80,7 +80,7 @@ export default function ApplicationForm({ propertyId }) {
     );
   };
 
-  //to show  residential history period
+  //to show residential history period
   const formatRentHistoryPeriod = (rentHistory) => {
     return `${rentHistory.start_date} - ${rentHistory.end_date}`;
   };
@@ -118,6 +118,7 @@ export default function ApplicationForm({ propertyId }) {
       }
     );
   };
+
   // setting date funtion
   const formateDefaultDate = () => {
     const date = new Date();
@@ -129,6 +130,7 @@ export default function ApplicationForm({ propertyId }) {
     if (day.length < 2) day = "0" + day;
     return [year, month, day].join("-");
   };
+
   // change date funtion
   const onChangeDate = (event) => {
     setPotentailDate(event.target.value);
