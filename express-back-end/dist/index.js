@@ -6,6 +6,8 @@ require("regenerator-runtime/runtime");
 
 var _dotenv = _interopRequireDefault(require("dotenv"));
 
+var _cors = _interopRequireDefault(require("cors"));
+
 var _express = _interopRequireDefault(require("express"));
 
 var _models = require("./db/models");
@@ -21,6 +23,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 _dotenv["default"].config();
 
 var App = (0, _express["default"])();
+App.use((0, _cors["default"])());
 var PORT = process.env.PORT; // Express Configuration
 // App.use(BodyParser.urlencoded({ extended: false }));
 // App.use(BodyParser.json());

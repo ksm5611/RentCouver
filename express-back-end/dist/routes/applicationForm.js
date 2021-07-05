@@ -27,21 +27,24 @@ router.get("/applications/:tenantId", /*#__PURE__*/function () {
               where: {
                 id: req.params.tenantId
               },
+              attributes: {
+                exclude: ["is_landlord", "password"]
+              },
               include: [{
-                model: _models.Application,
+                model: _models.RentHistory,
                 where: {
                   tenant_id: req.params.tenantId
                 },
                 require: false,
                 attributes: {
-                  exclude: ["is_landlord", "password"]
-                }
-              }, {
-                model: _models.RentHistory,
-                where: {
-                  tenant_id: req.params.tenantId
+                  exclude: ["is_requested", "is_decline", "review_content"]
                 },
-                require: false
+                include: [{
+                  model: _models.Property,
+                  attributes: {
+                    exclude: ["title", "square_feet", "description", "property_type", "number_of_bathrooms", "number_of_bedrooms", "listed_start_date", "cost_of_month", "pets_allowed"]
+                  }
+                }]
               }]
             });
 

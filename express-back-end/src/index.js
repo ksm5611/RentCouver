@@ -2,6 +2,7 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 import dotenv from "dotenv";
 dotenv.config();
+import cors from "cors";
 import Express from "express";
 import {
   User,
@@ -14,6 +15,7 @@ import {
 } from "./db/models";
 import applicationForm from "./routes/applicationForm";
 const App = Express();
+App.use(cors());
 const PORT = process.env.PORT;
 
 // Express Configuration
