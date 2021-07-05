@@ -12,6 +12,7 @@ import {
   Application,
   Ref_request,
 } from "./db/models";
+import applicationForm from "./routes/applicationForm";
 const App = Express();
 const PORT = process.env.PORT;
 
@@ -56,6 +57,8 @@ App.get("/applications", async (req, res) => {
   const applications = await Application.findAll();
   res.json(applications);
 });
+
+App.use("/api", applicationForm);
 
 App.get("/ref_requests", async (req, res) => {
   const ref_requests = await Ref_request.findAll();
