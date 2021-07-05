@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 // import axios from 'axios';
 import Navigation from "./components/Navigation";
-import Map from "./components/PropertyListing/Map";
+import PropertyListing from "./components/PropertyListing";
 import Filters from "./components/PropertyListing/Filters";
 import Homepage from "./components/Homepage/index";
 import User from "./components/User/index";
@@ -29,7 +29,7 @@ export default function App() {
     <>
       <Navigation />
       {/* <PropertyDisplay /> */}
-      <Map />
+      <PropertyListing />
       {/* <User /> */}
       {/* <Homepage/> */}
     </>

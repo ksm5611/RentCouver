@@ -1,0 +1,8 @@
+#proplist-container {
+  padding-top: 55px
+}
+
+#map-and-proplist {
+  display: flex;
+  flex-direction: row;
+}
