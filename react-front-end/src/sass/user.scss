@@ -1,40 +1,5 @@
 /* UserpageHeroContent.js */
 
-.hero-container {
-  padding-top: 80px;
-  font-family: $name-font;
-  height: 310px;
-  width: 100%;
-  background-color: $light-orange;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .hero-content {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    list-style: none;
-    margin-top: 200px;
-    padding: 20px;
-    z-index: 1;
-
-    .hero-content-item {
-      margin: 10px;
-
-      .profile-img {
-        width: 200px;
-        border-radius: 50%;
-      }
-    }
-
-    h2 {
-      font-size: 40px;
-      color: $dark-grey;
-    }
-  }
-}
-
 /* User.js (index.js) */
 
 .user-page-wrapper {

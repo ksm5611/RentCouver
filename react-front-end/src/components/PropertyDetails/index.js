@@ -1,13 +1,43 @@
+import { useEffect, useState, setError } from 'react'
 import { List } from 'rsuite';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faBath, faRulerCombined, faCar, faSnowflake, faDog, faCat, faBoxOpen } from '@fortawesome/free-solid-svg-icons'
 import Slideshow from './Slideshow';
+import axios from 'axios';
 
 export default function PropertyDetails() {
 
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const result = await axios.get(
+          "http://localhost:8000/api/applications/10"
+        );
+        const { Users: userInfo } = result.data;
+        // console.log("hello", userInfo);
+        setUser(userInfo);
+      } catch (error) {
+        setError("Your server is broken");
+      }
+    }
+    fetchData();
+  }, []);
+
+  const renderUserInfo = () => {
+    return (
+    <List.Item className="landlord-contact-container">
+      <img className="landlord-img" alt="landlord-img" src='https://cad.gov.jm/wp-content/uploads/2017/10/img_avatar2.png' />
+        <h3>{user.name}</h3>
+    </List.Item>
+
+    )
+  }
+
   return (
     <div>
-      <section className="hero-container property-details-container">
+      <section className="hero-container second-hero-container">
         <div>
           <h2>Property Details</h2>
         </div>
@@ -20,7 +50,8 @@ export default function PropertyDetails() {
             <Slideshow />
           </div>
           <List bordered className="contact-info">
-            <List.Item className="landlord-contact-container"><img className="landlord-img" alt="landlord-img" src='https://cad.gov.jm/wp-content/uploads/2017/10/img_avatar2.png' /><h3>Sumin Kim</h3></List.Item>
+            {/* <List.Item className="landlord-contact-container"><img className="landlord-img" alt="landlord-img" src='https://cad.gov.jm/wp-content/uploads/2017/10/img_avatar2.png' /><h3>Sumin Kim</h3></List.Item> */}
+            {user && renderUserInfo()}
             <List.Item className="landlord-contact-container">
               <p>Work: 604-xxx-xxxx</p>
               <p>Cell: 604-xxx-xxxx</p>
