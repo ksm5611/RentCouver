@@ -1,17 +1,21 @@
 #card-container {
   display: flex;
-  align-items: center;
-  border: solid 2px;
-  border-color: #c1b9b9;
-  border-radius: 5px;
+  flex-direction: column;
   width: 500px;
-  margin-left: 25%;
-  margin-right: 25%;
+  margin-left: 5px;
+  margin-right: 5px
 }
 
 #card {
-  width: 200px;
-  height: 200px;
+  border: solid 2px;
+  border-color: #c1b9b9;
+  border-radius: 5px;
+  margin: 10px
+}
+
+#card:hover {
+  box-shadow: 10px 10px #f8f3f0;
+  transition: box-shadow 0.2s ease-in-out;
 }
 
 #prop_ins {
@@ -19,13 +23,15 @@
   flex-direction: row;
 }
 
-.card-img-top {
+#card-img {
   object-fit: cover;
   border-radius: 5px 0 0 5px;
+  width: 200px;
+  height: 198px
 }
 
 #card-body {
-  width: 300px;
+  width: 275px;
   height: 198px
 }
 
