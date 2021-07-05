@@ -1,11 +1,22 @@
+#listitem-head {
+  margin: 24px 0;
+}
+
 .req-ref-info {
   display: flex;
   align-items: center;
   // justify-content: space-between;
-  p {
+  p, h5 {
     margin: 0;
+    padding: 0 20px;
+    width: 200px;
   }
   width: 100%;
+}
+
+.head {
+  padding-left: 40px;
+  height: 60px;
 }
 
 .ref-btn {

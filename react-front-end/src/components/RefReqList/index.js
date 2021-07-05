@@ -16,6 +16,8 @@ const useStyles = makeStyles((theme) => {
     root: {
       border: "1px solid black",
       marginBottom: "16px",
+      display: "flex",
+      justifyContent: "space-between"      
     },
     "& > *": {
       margin: theme.spacing(1),
@@ -37,12 +39,18 @@ export default function ReqRefList() {
         </div>
       </section>
       <Container>
-        {/* <Typography variant="h4">About yourself</Typography> */}
+        {/* <Typography variant="h4">Tenant name Address</Typography> */}
+        <ListItem className={classes.root} id="listitem-head">
+            <div className="req-ref-info head">
+              <h5>Tenant's name</h5>
+              <h5>Property Address</h5>
+            </div>
+          </ListItem>
         <List>
           <ListItem className={classes.root}>
             <div className="req-ref-info">
               <Avatar src=""/>
-              <p>tenant's name</p>
+              <p>Sumin Kim</p>
               <p>property address</p>
             </div>
             <div className="ref-btn">
@@ -50,11 +58,16 @@ export default function ReqRefList() {
               <Button variant="contained" color="secondary">Decline</Button>
             </div>
           </ListItem>
-              <ListItem className={classes.root}>
-                <Avatar src="" /> tenant's name  -  property address
-          </ListItem>
-              <ListItem className={classes.root}>
-                <Avatar src="" /> tenant's name  -  property address
+          <ListItem className={classes.root}>
+            <div className="req-ref-info">
+              <Avatar src=""/>
+              <p>Felicia Okta</p>
+              <p>property address</p>
+            </div>
+            <div className="ref-btn">
+              <Button variant="contained" color="primary">Write a Reference</Button>
+              <Button variant="contained" color="secondary">Decline</Button>
+            </div>
           </ListItem>
         </List>
       </Container>

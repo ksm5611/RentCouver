@@ -17,12 +17,13 @@ export default function App() {
   return (
     <>
       <Navigation />
-      <User />
+      {/* <User /> */}
       {/* <PropertyDisplay />
       <Map />
       <User />
       <Homepage /> */}
       {/* <ApplicationForm propertyId={17} /> */}
+      <RefReqList />
     </>
   );
 }
