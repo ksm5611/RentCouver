@@ -321,4 +321,14 @@ body .second-hero-container h2 {
   width: 400px;
 }
 
+.seperator {
+  position: absolute;
+  padding-top: 112px;
+  right: 0;
+}
+.seperator #text {
+  width: 800px;
+  height: 60px;
+}
+
 /*# sourceMappingURL=App.css.map */

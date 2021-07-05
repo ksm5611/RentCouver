@@ -30,3 +30,16 @@
   justify-content: space-between;
   width: 400px;
 }
+
+// ReqList/Form.js
+
+.seperator {
+  position: absolute;
+  padding-top: 112px;
+  right: 0;
+
+  #text {
+    width: 800px;
+    height: 60px;
+  }
+}
