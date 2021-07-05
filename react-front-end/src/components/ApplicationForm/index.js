@@ -9,22 +9,29 @@ import {
   makeStyles,
   ListItemAvatar,
   Avatar,
+  Button,
+  TextField,
 } from "@material-ui/core";
 
 //material ui styling funtion
-const useStyles = makeStyles(() => {
+const useStyles = makeStyles((theme) => {
   return {
     root: {
       border: "1px solid black",
       marginBottom: "16px",
     },
+    "& > *": {
+      margin: theme.spacing(1),
+    },
   };
 });
 
-export default function ApplicationForm() {
+export default function ApplicationForm({ propertyId }) {
   const classes = useStyles();
   const [user, setUser] = useState(null);
   const [rentHistories, setRentHistories] = useState([]);
+  const [error, setError] = useState("");
+  const [potentialMoveInDate, setPotentailDate] = useState(null);
 
   //labeling user's info function
   const userInfo = [
@@ -37,6 +44,10 @@ export default function ApplicationForm() {
   ];
 
   useEffect(() => {
+    setPotentailDate(formateDefaultDate());
+  }, []);
+
+  useEffect(() => {
     async function fetchData() {
       try {
         const result = await axios.get(
@@ -45,9 +56,8 @@ export default function ApplicationForm() {
         const { RentHistories: rentHistoryData, ...userData } = result.data;
         setUser(userData);
         setRentHistories(rentHistoryData);
-        console.log(rentHistoryData);
       } catch (error) {
-        console.log(error);
+        setError("Your server is broken");
       }
     }
     fetchData();
@@ -70,6 +80,15 @@ export default function ApplicationForm() {
     );
   };
 
+  //to show  residential history period
+  const formatRentHistoryPeriod = (rentHistory) => {
+    return `${rentHistory.start_date} - ${rentHistory.end_date}`;
+  };
+  //to show residential history address
+  const formatAddressFromProperty = (property) => {
+    return `${property.street}, ${property.city}, ${property.province} ${property.postal_code}`;
+  };
+
   const renderRentHistory = (rentHistory) => {
     return (
       <List className={classes.root}>
@@ -89,13 +108,35 @@ export default function ApplicationForm() {
     );
   };
 
-  const formatRentHistoryPeriod = (rentHistory) => {
-    return `${rentHistory.start_date} - ${rentHistory.end_date}`;
+  const handleSubmit = async () => {
+    const application = await axios.post(
+      "http://localhost:8000/api/applications",
+      {
+        tenant_id: 10,
+        property_id: propertyId,
+        potential_move_in_date: potentialMoveInDate,
+      }
+    );
+  };
+  // setting date funtion
+  const formateDefaultDate = () => {
+    const date = new Date();
+    let month = "" + (date.getMonth() + 1);
+    let day = "" + date.getDate();
+    const year = date.getFullYear();
+
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+    return [year, month, day].join("-");
+  };
+  // change date funtion
+  const onChangeDate = (event) => {
+    setPotentailDate(event.target.value);
   };
 
-  const formatAddressFromProperty = (property) => {
-    return `${property.street}, ${property.city}, ${property.province} ${property.postal_code}`;
-  };
+  if (error) {
+    return <Container maxWidth="md">{error}</Container>;
+  }
 
   return (
     <Container maxWidth="md">
@@ -108,6 +149,21 @@ export default function ApplicationForm() {
           {rentHistories.map((history) => renderRentHistory(history))}
         </>
       )}
+      <div>
+        <TextField
+          label="Potential Move-in date"
+          type="date"
+          value={potentialMoveInDate}
+          onChange={onChangeDate}
+        />
+      </div>
+
+      <Button variant="contained" color="primary" onClick={handleSubmit}>
+        Send
+      </Button>
+      <Button variant="contained" color="secondary">
+        cancel
+      </Button>
     </Container>
   );
 }

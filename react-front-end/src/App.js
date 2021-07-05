@@ -1,39 +1,25 @@
 import React, { Component, Fragment } from "react";
-// import axios from 'axios';
 import Navigation from "./components/Navigation";
-import Map from "./components/PropertyListing/Map";
-import PropertyDisplay from "./components/PropertyListing/PropertyList";
-import Homepage from "./components/Homepage/index";
-import User from "./components/User/index";
+import ApplicationForm from "./components/ApplicationForm";
+import ApplicationList from "./components/ApplicationList";
+import ApplicationReview from "./components/ApplicationReview";
+import Homepage from "./components/Homepage";
+import PropertyDetails from "./components/PropertyDetails";
+import PropertyListing from "./components/PropertyListing";
+import RefReqList from "./components/RefReqList";
+import RentHistory from "./components/RentHistory";
+import User from "./components/User";
 import "./App.css";
-import ApplicationForm from "../src/components/ApplicationForm";
 
 export default function App() {
-  const items = [
-    { name: "home", label: "Home" },
-    {
-      name: "billing",
-      label: "Billing",
-      items: [
-        { name: "statements", label: "Statements" },
-        { name: "reports", label: "Reports" },
-      ],
-    },
-    {
-      name: "settings",
-      label: "Settings",
-      items: [{ name: "profile", label: "Profile" }],
-    },
-  ];
-
   return (
     <>
       <Navigation />
-      <PropertyDisplay />
+      {/* <PropertyDisplay />
       <Map />
       <User />
-      <Homepage />
-      <ApplicationForm />
+      <Homepage /> */}
+      <ApplicationForm propertyId={17} />
     </>
   );
 }
