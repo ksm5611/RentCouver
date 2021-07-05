@@ -35,7 +35,12 @@
   height: 198px
 }
 
-.propslist_buttons {
+/* #bed-bath{
+  margin-bottom: 0px;
+} */
+
+#propslist_buttons {
   display: flex;
   justify-content: center;
+  padding: 0px
 }

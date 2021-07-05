@@ -8,8 +8,10 @@ import PriceSlider from './PriceSlider';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import Collapse from '@material-ui/core/Collapse';
 import './Filters.css';
-import PropertyListItem from './PropertyListItem';
 
 const useStyles = makeStyles({
   list: {
@@ -23,6 +25,8 @@ const useStyles = makeStyles({
 export default function Filters () {
 
   const classes = useStyles();
+  
+  // for the drawer
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -38,6 +42,17 @@ export default function Filters () {
     setState({ ...state, [anchor]: open });
   };
 
+
+
+  // for the nested lists inside the drawer
+  const [open, setOpen] = React.useState(true);
+  
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
+
+
   const list = (anchor) => (
     <div
       className={clsx(classes.list, {
@@ -48,12 +63,51 @@ export default function Filters () {
       onKeyDown={toggleDrawer(anchor, true)}
     >
       <List>
-      <PriceSlider />
-        {['Type', 'Bedrooms', 'Bathrooms'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
+
+        <PriceSlider />
+        
+        <ListItem button onClick={handleClick}>
+          <ListItemText primary="Type" />
+          {open ? <ExpandLess /> : <ExpandMore />}
+        </ListItem>
+        {['Condo', 'Basement', 'Laneway House', 'Townhouse', 'Detached House'].map((text, index) => (
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem button id="nested-filters" className={classes.nested}>
+                <ListItemText primary={text} />
+              </ListItem>
+            </List>
+          </Collapse>
         ))}
+
+        <ListItem button onClick={handleClick}>
+          <ListItemText primary="Bedrooms" />
+          {open ? <ExpandLess /> : <ExpandMore />}
+        </ListItem>
+        {['1+', '2+', '3+', '4+'].map((text, index) => (
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem button id="nested-filters" className={classes.nested}>
+                <ListItemText primary={text} />
+              </ListItem>
+            </List>
+          </Collapse>
+        ))}
+
+        <ListItem button onClick={handleClick}>
+          <ListItemText primary="Bathrooms" />
+          {open ? <ExpandLess /> : <ExpandMore />}
+        </ListItem>
+        {['1+', '2+', '3+', '4+'].map((text, index) => (
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem button id="nested-filters" className={classes.nested}>
+                <ListItemText primary={text} />
+              </ListItem>
+            </List>
+          </Collapse>
+        ))}
+
       </List>
 
       <Divider />
@@ -67,6 +121,7 @@ export default function Filters () {
       </List>
     </div>
   );
+
 
 
   return (

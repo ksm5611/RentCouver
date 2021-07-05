@@ -13,3 +13,10 @@
 #btn-outline-primary:hover {
   background-color: #f8f3f0;
 }
+
+#nested-filters {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 30px;
+}

@@ -22,9 +22,9 @@ export default function PropertyListItem () {
               <Card.Title>{searchResults.title}</Card.Title>
               <Card.Text>
                 <p><b>${searchResults.price}</b></p>
-                <p>{searchResults.bedrooms} bed {searchResults.bathrooms} bath</p>
+                <p id="bed-bath">{searchResults.bedrooms} bed {searchResults.bathrooms} bath</p>
               </Card.Text>
-                <div className="propslist_buttons">
+                <div id="propslist_buttons">
                   <Button id="btn-outline-primary" variant="outline-primary">
                     Details
                   </Button>
