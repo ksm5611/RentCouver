@@ -32,4 +32,5 @@
 .propslist_buttons {
   display: flex;
   justify-content: center;
+  padding-top: 25px;
 }
