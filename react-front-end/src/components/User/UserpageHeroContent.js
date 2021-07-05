@@ -1,30 +1,7 @@
-import '../App.css'
 import axios from 'axios';
+import '../../App.css';
 
-export default function HeroContent () {
-
-  // const [state, setState] = useState({
-  //   day: "Monday", // initial day state "Monday"
-  //   days: [],
-  //   appointments: {},
-  //   interviewers: {}
-  // });
-  
-  // this useEffect hook will fetch data
-  // useEffect(() => {
-  //   const promiseDays = '/api/days';
-  //   const promiseAppointments = '/api/appointments';
-  //   const promiseInterviewers = '/api/interviewers';
-  
-  //   Promise.all([
-  //     axios.get(promiseDays),
-  //     axios.get(promiseAppointments),
-  //     axios.get(promiseInterviewers),
-  //   ])
-  //     .then((all) => {
-  //       setState(prev => ({ ...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }))
-  //     })
-  // }, [])
+export default function UserpageHeroContent () {
 
   const user = [
     {
@@ -57,7 +34,7 @@ export default function HeroContent () {
     <section className="hero-container">
       <div className="hero-content">
         <div className="hero-content-item"><img className="profile-img" src={user[0].profile_picture_url} alt="profile"/></div>
-        <p className="hero-content-item">{user[0].name}</p>
+        <h2 className="hero-content-item">{user[0].name}</h2>
       </div>
     </section>
   )

@@ -1,6 +1,6 @@
 import PropertyListItem from '../PropertyListing/PropertyListItem';
 
-export default function Favourites () {
+export default function RecentView () {
 
   return (
     <div className="fav-properties">
