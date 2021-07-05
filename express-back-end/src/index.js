@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import cors from "cors";
 import Express from "express";
+import BodyParser from "body-parser";
 import {
   User,
   Property,
@@ -19,8 +20,8 @@ App.use(cors());
 const PORT = process.env.PORT;
 
 // Express Configuration
-// App.use(BodyParser.urlencoded({ extended: false }));
-// App.use(BodyParser.json());
+App.use(BodyParser.urlencoded({ extended: false }));
+App.use(BodyParser.json());
 App.use(Express.static("public"));
 
 // Sample GET route

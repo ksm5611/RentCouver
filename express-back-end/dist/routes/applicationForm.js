@@ -63,6 +63,34 @@ router.get("/applications/:tenantId", /*#__PURE__*/function () {
   return function (_x, _x2) {
     return _ref.apply(this, arguments);
   };
+}()); //submit application form call
+
+router.post("/applications", /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {
+    var applicationForm;
+    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            console.log(req.body);
+            _context2.next = 3;
+            return _models.Application.create(req.body);
+
+          case 3:
+            applicationForm = _context2.sent;
+            res.json(applicationForm);
+
+          case 5:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+
+  return function (_x3, _x4) {
+    return _ref2.apply(this, arguments);
+  };
 }());
 var _default = router;
 exports["default"] = _default;
