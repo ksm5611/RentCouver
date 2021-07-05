@@ -43,15 +43,6 @@ export default function Filters () {
 
 
 
-  // for the nested lists inside the drawer
-  // const [open, setOpen] = React.useState(true);
-  
-  // const handleClick = () => {
-  //   setOpen(!open);
-  // };
-
-
-
   const list = (anchor) => (
     <div
       className={clsx(classes.list, {
