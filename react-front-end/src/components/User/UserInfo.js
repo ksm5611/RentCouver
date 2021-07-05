@@ -27,14 +27,13 @@ export default function UserInfo() {
     fetchData();
   }, []);
 
-  // const userList = ["Contact Information", "Messages", "Recent Activity"];
-
   const settings = [
     "Edit MyAccount",
     "Preferences",
     "Notifications",
     "Privacy and Safety",
   ];
+
   if (!user) {
     return <div>Loading..</div>;
   }
