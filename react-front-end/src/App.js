@@ -5,6 +5,7 @@ import Map from "./components/PropertyListing/Map";
 import PropertyDisplay from "./components/PropertyListing/PropertyList";
 import Homepage from "./components/Homepage/index";
 import User from "./components/User/index";
+import PropertyDetails from './components/PropertyDetails/index';
 import "./App.css";
 
 export default function App() {
@@ -28,13 +29,11 @@ export default function App() {
   return (
     <>
       <Navigation />
-      <PropertyDisplay />
-      <Map />
-      <User />
       {/* <PropertyDisplay />  */}
       {/* <Map /> */}
-      {/* <User /> */}
-      <Homepage />
+      <User />
+      {/* <Homepage /> */}
+      {/* <PropertyDetails /> */}
     </>
   );
 }

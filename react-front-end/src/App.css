@@ -55,8 +55,9 @@ body #nav-wrapper {
   font-family: "Ubuntu", sans-serif;
   padding: 0 20px;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
+  background-color: #f8f3f0;
 }
 body #nav-wrapper #nav-logo {
   display: flex;
@@ -117,29 +118,42 @@ body .hero-container .hero-content {
   align-items: center;
   flex-direction: column;
   list-style: none;
+  margin-top: 200px;
   padding: 20px;
+  z-index: 1;
 }
 body .hero-container .hero-content .hero-content-item {
   margin: 10px;
 }
 body .hero-container .hero-content .hero-content-item .profile-img {
-  width: 112px;
+  width: 200px;
   border-radius: 50%;
 }
-body .hero-container .hero-content p {
-  font-size: 28px;
+body .hero-container .hero-content h2 {
+  font-size: 40px;
   color: #7c7878;
 }
 body .user-page-wrapper {
   background-color: #c1b9b9;
-  padding: 52px;
+  padding: 160px;
   margin: 0 auto;
   display: flex;
   position: relative;
-  justify-content: space-between;
+  height: 1000px;
+  width: 2000px;
+}
+body .user-page-wrapper .fav-wrapper {
+  width: 100px;
+}
+body .user-page-wrapper .fav-wrapper .fav-properties {
+  display: flex;
 }
 body .user-page-wrapper .user-info-wrapper {
   position: relative;
+  width: 400px;
+}
+body .user-page-wrapper .user-info-wrapper .user-info-list {
+  margin-bottom: 40px;
 }
 body .user-page-wrapper .user-info-wrapper #my-info-label {
   background-color: #7c7878;
