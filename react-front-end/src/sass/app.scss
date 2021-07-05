@@ -5,16 +5,22 @@ $name-font: 'Kalam', cursive;
 $background-color: #c1b9b9;
 $dark-grey: #7c7878;
 
+
 body {
-  font-family: $logo-font, $main-font;
-}
+  font-family: $main-font;
+
 
 /* Homepage.js */
 .homepage-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 600px;
+  padding-left: 40px;
+  padding-top: 180px;
+  width: 100%;
+  height: 1000px;
+  background-image: url("https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80");
+  background-size: cover;
+
 
   .search-form {
 
@@ -23,23 +29,42 @@ body {
     // width: 1000px;
     // border: 1px solid red;
     .search-label {
-      p {
+      font-family: $main-font;
+      color: #574f4a;
+      h3 {
         font-size: 28px;
-        font-family: $main-font;
       }
     }
 
     .search-input-wrapper {
       display: flex;
       justify-content: space-between;
-      width: 600px;
+      width: 520px;
 
       .search-input {
-        width: 500px;
+        border: none;
+        border-radius: 4px;
+        font-family: $main-font;
+        width: 420px;
+        height: 36px;
+        opacity: 0.5;
+      }
+
+      .search-input:focus {
+        outline: none;
+        
       }
 
       .search-button {
+        background-color: $dark-grey;
+        border-radius: 4px;
+        font-family: $main-font;
         width: 80px;
+        color: $light-orange;
+      }
+
+      .search-button:focus {
+        background-color: $dark-grey;
       }
     }
   }
@@ -53,7 +78,6 @@ body {
   justify-content: space-around;
   font-family: $main-font;
   padding: 0 20px;
-  background-color: $light-orange;
   position: fixed;
   z-index: 1;
   width: 100%;
@@ -190,3 +214,4 @@ body {
 
 
 
+}
