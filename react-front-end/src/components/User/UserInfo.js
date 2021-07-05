@@ -1,24 +1,48 @@
 // import { Button } from 'react-bootstrap';
-import { List } from 'rsuite';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { List } from "rsuite";
+import { ListItemText } from "@material-ui/core";
 
 export default function UserInfo() {
+  const [user, setUser] = useState(null);
+  const [error, setError] = useState("");
+
   const userList = [
-    'Contact Information',
-    'Messages',
-    'Recent Activity'
-  ]
+    { label: "Contact Information", value: "email" },
+    { label: "Current address", value: "current_address" },
+    { label: "Job title", value: "job_title" },
+  ];
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const result = await axios.get("http://localhost:8000/api/users/10");
+        const { ...userData } = result.data;
+        setUser(userData);
+      } catch (error) {
+        setError("Your server is broken");
+      }
+    }
+    fetchData();
+  }, []);
+
+  // const userList = ["Contact Information", "Messages", "Recent Activity"];
 
   const settings = [
-    'Edit MyAccount',
-    'Preferences',
-    'Notifications',
-    'Privacy and Safety'
-  ]
+    "Edit MyAccount",
+    "Preferences",
+    "Notifications",
+    "Privacy and Safety",
+  ];
+  if (!user) {
+    return <div>Loading..</div>;
+  }
+
   return (
     <section className="user-info-wrapper">
       <div>
         <div>
-
           {/* <section>
             <ul>
               
@@ -28,15 +52,18 @@ export default function UserInfo() {
 
           </section> */}
           <List bordered className="user-info-list">
-            <List.Item id= "my-info-label">User Information</List.Item>
-            {userList.map((item, index) => (
-              <List.Item key={index} index={index}>
-                {item}
+            <List.Item id="my-info-label">User Information</List.Item>
+            {userList.map((info) => (
+              <List.Item key={info.label} index={info.value}>
+                <ListItemText
+                  primary={info.label}
+                  secondary={user[info.value]}
+                />
               </List.Item>
             ))}
           </List>
           <List bordered className="user-info-list">
-            <List.Item id= "my-info-label">Account Settings</List.Item>
+            <List.Item id="my-info-label">Account Settings</List.Item>
             {settings.map((item, index) => (
               <List.Item key={index} index={index}>
                 {item}
@@ -46,5 +73,5 @@ export default function UserInfo() {
         </div>
       </div>
     </section>
-  )
+  );
 }

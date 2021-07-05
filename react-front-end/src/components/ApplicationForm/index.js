@@ -109,14 +109,11 @@ export default function ApplicationForm({ propertyId }) {
   };
 
   const handleSubmit = async () => {
-    const application = await axios.post(
-      "http://localhost:8000/api/applications",
-      {
-        tenant_id: 10,
-        property_id: propertyId,
-        potential_move_in_date: potentialMoveInDate,
-      }
-    );
+    await axios.post("http://localhost:8000/api/applications", {
+      tenant_id: 10,
+      property_id: propertyId,
+      potential_move_in_date: potentialMoveInDate,
+    });
   };
 
   // setting date funtion
