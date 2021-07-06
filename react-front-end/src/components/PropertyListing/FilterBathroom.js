@@ -34,7 +34,7 @@ export default function FilterBathroom () {
           <ListItemText primary="Bathrooms" />
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
-        {['1+', '2+', '3+', '4+'].map((text, index) => (
+        {['1', '2', '3', '4+'].map((text, index) => (
           <Collapse in={open} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button id="nested-filters" className={classes.nested}>
