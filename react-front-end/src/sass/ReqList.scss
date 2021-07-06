@@ -6,16 +6,16 @@
   display: flex;
   align-items: center;
   width: 100%;
-  // justify-content: space-between;
-  .req-tenant,
-  h5 {
+  padding-right: 20px;
+
+  .req-tenant, .req-landlord, h5 {
     margin: 0;
     padding: 0 20px;
-    width: 200px;
+    width: 240px;
   }
 
   .address {
-    width: 620px;
+    width: 480px;
   }
 }
 
@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 400px;
+  width: 300px;
 }
 
 // ReqList/Form.js
@@ -44,4 +44,20 @@
     resize: none;
     border-radius: 6px;
   }
+}
+
+// RentHistory.js
+
+.rent-history-info {
+  display: flex;
+  padding: 0 20px;
+
+  .rent-historty-address {
+    width: 480px;
+  }
+
+  h5 {
+    padding-right: 112px;
+  }
+
 }
