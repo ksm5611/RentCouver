@@ -295,18 +295,19 @@ body .second-hero-container h2 {
   margin: 24px 0;
 }
 
-.req-info {
+.req-info, .history-info {
   display: flex;
   align-items: center;
   width: 100%;
 }
 .req-info .req-tenant,
-.req-info h5 {
+.req-info h5, .history-info .req-tenant,
+.history-info h5 {
   margin: 0;
   padding: 0 20px;
   width: 200px;
 }
-.req-info .address {
+.req-info .address, .history-info .address {
   width: 620px;
 }
 
