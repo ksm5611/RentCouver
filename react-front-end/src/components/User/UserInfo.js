@@ -6,6 +6,7 @@ import { ListItemText } from "@material-ui/core";
 
 export default function UserInfo() {
   const [user, setUser] = useState(null);
+  const [properties, setProperties] = useState([]);
   const [error, setError] = useState("");
 
   const userList = [

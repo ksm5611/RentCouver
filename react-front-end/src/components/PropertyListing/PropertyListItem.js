@@ -1,29 +1,10 @@
-import axios from "axios";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import "./PropertyListItem.css";
 
-export default function PropertyListItem() {
-  const [properties, setProperties] = useState([]);
-  const [error, setError] = useState("");
-
+export default function PropertyListItem({ properties }) {
   const propertyValues = ["cost_of_month", "listed_start_date"];
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const result = await axios.get(
-          "http://localhost:8000/api/propertyLists"
-        );
-
-        setProperties(result.data);
-      } catch (error) {
-        setError("Your server is broken");
-      }
-    }
-    fetchData();
-  }, []);
 
   const renderPropertyCard = (property) => {
     return (
