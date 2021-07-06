@@ -1,12 +1,16 @@
 import {
   Container,
   ListItem,
+  ListItemText,
   List,
+  Typography,
   Button,
+  TextField,
   makeStyles,
   Avatar,
 } from "@material-ui/core";
 
+import ApplicationReview from '../ApplicationReview';
 
 
 const useStyles = makeStyles((theme) => {
@@ -54,9 +58,12 @@ export default function ApplicationList() {
             </div>
             <div className="option-btn">
               <Button variant="contained" color="primary">Review Application</Button>
+              <ApplicationReview />
               <Button variant="contained" color="secondary">Decline</Button>
             </div>
           </ListItem>
+
+          <ApplicationReview />
 
           <ListItem className={classes.root}>
             <div className="req-info">

@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 import '../../../App.css';
 
-export default function ReqRefHandling(props) {
+export default function RefReqItem(props) {
 
   const REQUEST = "REQUEST"
   const FORM = "FORM";

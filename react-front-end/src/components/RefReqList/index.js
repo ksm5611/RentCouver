@@ -1,16 +1,11 @@
 // import RefForm from './RefReqHandling/Form';
-import useVisualMode from './RefReqHandling/useVisualMode';
-import ReqRefHandling from './RefReqHandling/index';
+import useVisualMode from './RefReqItem/useVisualMode';
+import RefReqItem from './RefReqItem/index';
 import {
   Container,
   ListItem,
-  ListItemText,
   List,
-  Typography,
-  Button,
-  TextField,
-  makeStyles,
-  Avatar,
+  makeStyles
 } from "@material-ui/core";
 import '../../App.css';
 
@@ -52,7 +47,7 @@ export default function ReqRefList() {
           </div>
         </ListItem>
         <List className={classes.root}>
-          <ReqRefHandling />
+          <RefReqItem />
         </List>
       </Container>
 
