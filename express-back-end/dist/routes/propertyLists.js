@@ -22,7 +22,17 @@ router.get("/propertyLists", /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return _models.Property.findAll();
+            return _models.Property.findAll({
+              attributes: {
+                exclude: ["landlord_id", "square_feet", "description", "property_type", "number_of_bathrooms", "number_of_bedrooms", "pets_allowed"]
+              },
+              include: [{
+                model: _models.Photo,
+                attributes: {
+                  exclude: ["property_id"]
+                }
+              }]
+            });
 
           case 2:
             propertyList = _context.sent;
