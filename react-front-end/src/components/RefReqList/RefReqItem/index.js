@@ -2,6 +2,7 @@ import Form from './Form';
 import Sent from './Sent';
 import Declined from './Decilned';
 import useVisualMode from './useVisualMode';
+import { useEffect, useState } from 'react';
 import { Fragment } from 'react';
 import {
   ListItem,
@@ -10,24 +11,37 @@ import {
 } from "@material-ui/core";
 import '../../../App.css';
 
-export default function ReqRefHandling(props) {
+export default function RefReqItem({request, classes}) {
 
   const REQUEST = "REQUEST"
   const FORM = "FORM";
   const DECLINED = "DECLINED";
   const SENT = "SENT";
 
+  // const [currentMode, setCurrentMode] = useState(REQUEST);
+
   const { mode, transition, back } = useVisualMode(REQUEST);
+
+  useEffect(() => {
+    // setCurrentMode(REQUEST)
+    //axios.get
+  },[])
+
+  // map current state props
+
+  // requst.currentState===REQUEST 
 
   // const mode = REQUEST;
 
+  // function : submit to db, modify og array 
+
   return (
     <Fragment>
-      {mode === REQUEST && (<ListItem className={props.classes}>
+      {(mode === REQUEST) && (<ListItem className={classes}>
         <div className="req-info">
           <Avatar src="" />
-          <p className="req-tenant">Felicia Okta</p>
-          <p className="req-tenant address">property address</p>
+          <p className="req-tenant">{request.name}</p>
+          <p className="req-tenant address">{request.address}</p>
         </div>
         <div className="option-btn">
           <Button variant="contained" color="primary" onClick={() => transition(FORM)}>Leave Reference</Button>

@@ -1,16 +1,11 @@
 // import RefForm from './RefReqHandling/Form';
-import useVisualMode from './RefReqHandling/useVisualMode';
-import ReqRefHandling from './RefReqHandling/index';
+import useVisualMode from './RefReqItem/useVisualMode';
+import RefReqItem from './RefReqItem/index';
 import {
   Container,
   ListItem,
-  ListItemText,
   List,
-  Typography,
-  Button,
-  TextField,
-  makeStyles,
-  Avatar,
+  makeStyles
 } from "@material-ui/core";
 import '../../App.css';
 
@@ -30,11 +25,14 @@ const useStyles = makeStyles((theme) => {
 });
 
 
-export default function ReqRefList() {
-
+export default function ReqRefList(props) {
 
   //material ui styling funtion
   const classes = useStyles();
+
+  const refReqItem = (list) => {
+    list.map((item)=>{ <RefReqItem request={item} />})
+  }
 
   return (
     <div>
@@ -52,7 +50,7 @@ export default function ReqRefList() {
           </div>
         </ListItem>
         <List className={classes.root}>
-          <ReqRefHandling />
+          {refReqItem(props.refReqList)}
         </List>
       </Container>
 

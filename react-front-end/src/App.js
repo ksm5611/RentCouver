@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import ApplicationForm from "./components/ApplicationForm";
@@ -15,6 +15,25 @@ import "react-slideshow-image/dist/styles.css";
 import "./App.css";
 
 export default function App() {
+  
+  const list = [{
+    "name":"Felicia", 
+    "address": "property address",
+    "currentState": "request"
+  },
+  {
+    "name":"Sumin", 
+    "address": "property address",
+    "currentState": "request"
+  }
+]
+  
+  const [refReqList, setRefReqList] = useState(list);
+
+  useEffect(() => {
+    setRefReqList(list)
+  },[])
+
   return (
     <>
       <Router>
@@ -47,7 +66,7 @@ export default function App() {
             <RentHistory />
           </Route>
           <Route path="/ref_request_list">
-            <RefReqList />
+            <RefReqList refReqList={refReqList} setRefReqList={setRefReqList} />
           </Route>
         </Switch>
       </Router>
