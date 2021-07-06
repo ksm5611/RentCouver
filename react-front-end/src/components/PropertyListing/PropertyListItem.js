@@ -4,18 +4,8 @@ import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import "./PropertyListItem.css";
 
-// const searchResults = {
-//   title: "Arbutus Nook",
-//   price: 2400,
-//   image:
-//     "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80",
-//   bathrooms: 2,
-//   bedrooms: 1,
-// };
-
 export default function PropertyListItem() {
   const [properties, setProperties] = useState([]);
-  const [photos, setPhotos] = useState(null);
   const [error, setError] = useState("");
 
   const propertyValues = ["cost_of_month", "listed_start_date"];
