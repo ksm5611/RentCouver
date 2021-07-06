@@ -11,12 +11,12 @@ const useStyles = makeStyles({
 });
 
 function valuetext(value) {
-  return `${value}°C`;
+  return `${value}`;
 }
 
 export default function RangeSlider() {
   const classes = useStyles();
-  const [value, setValue] = React.useState([20, 37]);
+  const [value, setValue] = React.useState([800, 2000]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -28,9 +28,12 @@ export default function RangeSlider() {
         Price Range
       </Typography>
       <Slider
+        min={400}
+        max={5000}
+        style={{padding:'50px 0 0 0'}}
         value={value}
         onChange={handleChange}
-        valueLabelDisplay="auto"
+        valueLabelDisplay="on"
         aria-labelledby="range-slider"
         getAriaValueText={valuetext}
       />
