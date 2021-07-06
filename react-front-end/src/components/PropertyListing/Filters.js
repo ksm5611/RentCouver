@@ -95,6 +95,15 @@ export default function Filters () {
           onClose={toggleDrawer("left", false)}
           >
           {list("left")}
+
+          <Button
+            id="btn-outline-primary"
+            variant="outline-primary"
+            onClick={toggleDrawer("left", false)}
+          >
+            Search
+          </Button>
+
         </Drawer>
       
       </div>
