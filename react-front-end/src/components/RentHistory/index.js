@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState, useEffect, setError } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Container,
   ListItem,
@@ -27,14 +27,22 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-
-
 export default function RentHistory () {
 
   const classes = useStyles();
 
+  const [user, setUser] = useState(null);
+  const [properties, setProperty] = useState();
   const [rentHistories, setRentHistories] = useState([]);
   const [error, setError] = useState("");
+
+  const propertyInfo = [
+    {value: "street"},
+    {value: "unit"},
+    {value: "city"},
+    {value: "province"},
+    {value: "postal_code"}    
+  ]
 
   useEffect(() => {
     async function fetchData() {
@@ -42,9 +50,11 @@ export default function RentHistory () {
         const result = await axios.get(
           "http://localhost:8000/api/rentHistories"
         );
-        const { ...rentHistoryData } = result.data;
-        console.log(result.data);
+        const { Property: propertyData, ...rentHistoryData} = result.data;
+
+        setProperty(propertyData);
         setRentHistories(rentHistoryData);
+        // setUser(userData);
       } catch (error) {
         setError("Your server is broken");
       }
@@ -70,7 +80,7 @@ export default function RentHistory () {
 
           <ListItem className={classes.root}>
             <div className="history-info">
-              <p className="req-tenant address">{rentHistories}</p>
+              <p className="req-tenant address">{rentHistories.start_date}</p>
               <p className="req-tenant">Start date - End date</p>
               <span>Landlord Name</span>
             </div>
