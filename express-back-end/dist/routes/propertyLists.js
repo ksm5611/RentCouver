@@ -32,7 +32,7 @@ router.get("/propertyLists", /*#__PURE__*/function () {
                   exclude: ["property_id"]
                 }
               }],
-              limit: 3
+              limit: req.query.limit
             });
 
           case 2:

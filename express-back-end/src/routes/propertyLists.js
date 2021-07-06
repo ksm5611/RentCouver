@@ -23,7 +23,7 @@ router.get("/propertyLists", async (req, res) => {
         },
       },
     ],
-    limit: 3,
+    limit: req.query.limit,
   });
   res.send(propertyList);
 });
