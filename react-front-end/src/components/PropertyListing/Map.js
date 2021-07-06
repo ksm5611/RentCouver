@@ -17,7 +17,7 @@ export default function Googlemaps () {
 
       <MyMapComponent
         isMarkerShown
-        googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBll-wcAmMAts26B9ItG6HIl3cnviRY3lE"
+        googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `500px`, width: `1000px` }} />}
         mapElement={<div style={{ height: `100%` }} />}
