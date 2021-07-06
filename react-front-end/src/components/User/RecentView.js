@@ -1,12 +1,31 @@
-import PropertyListItem from '../PropertyListing/PropertyListItem';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import PropertyListItem from "../PropertyListing/PropertyListItem";
 
-export default function RecentView () {
+export default function RecentView() {
+  const [properties, setProperties] = useState([]);
+  const [error, setError] = useState("");
 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const result = await axios.get(
+          "http://localhost:8000/api/propertyLists"
+        );
+        setProperties(result.data);
+      } catch (error) {
+        setError("Your server is broken");
+      }
+    }
+    fetchData();
+  }, []);
+
+  if (properties.length < 1) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="fav-properties">
       <PropertyListItem />
-      <PropertyListItem />
-      <PropertyListItem />
     </div>
-  )
+  );
 }
