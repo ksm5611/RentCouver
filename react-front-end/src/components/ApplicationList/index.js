@@ -24,6 +24,15 @@ const useStyles = makeStyles((theme) => {
     "& > *": {
       margin: theme.spacing(1),
     },
+    btn: {
+      backgroundColor: '#f1a177',
+      color: 'white',
+  
+      "&:hover": {
+        backgroundColor: 'rgb(7, 177, 77, 0.42)'
+      }
+  
+    }
   };
 });
 
@@ -57,13 +66,10 @@ export default function ApplicationList() {
               <p className="req-tenant address">applied property address</p>
             </div>
             <div className="option-btn">
-              <Button variant="contained" color="primary">Review Application</Button>
               <ApplicationReview />
-              <Button variant="contained" color="secondary">Decline</Button>
+              <Button className={classes.btn} variant="contained" color="secondary">Decline</Button>
             </div>
           </ListItem>
-
-          <ApplicationReview />
 
           <ListItem className={classes.root}>
             <div className="req-info">
@@ -72,8 +78,8 @@ export default function ApplicationList() {
               <p className="req-tenant address">applied property address</p>
             </div>
             <div className="option-btn">
-              <Button variant="contained" color="primary">Review Application</Button>
-              <Button variant="contained" color="secondary">Decline</Button>
+            <ApplicationReview />
+              <Button className={classes.btn} variant="contained" color="secondary">Decline</Button>
             </div>
           </ListItem>
 

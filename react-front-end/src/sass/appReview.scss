@@ -1,0 +1,13 @@
+#drawer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drawer-content {
+  border: 1px solid red;
+  margin-top: 40px;
+
+  height: 660px;
+  width: 600px;
+}

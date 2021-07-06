@@ -2,8 +2,8 @@
 import { Button } from "@material-ui/core";
 import { useState } from 'react'
 import clsx from 'clsx';
-import List from '@material-ui/core/List';
 import {
+  List,
   Container,
   ListItem,
   makeStyles,
@@ -15,7 +15,6 @@ import { Drawer } from '@material-ui/core';
 
 import Divider from '@material-ui/core/Divider';
 
-// import '../PropertyListing/Filters.css';
 
 const useStyles = makeStyles({
   list: {
@@ -24,12 +23,20 @@ const useStyles = makeStyles({
   fullList: {
     width: 'auto',
   },
+  btn: {
+    backgroundColor: '#f1a177',
+    color: 'white',
+
+    "&:hover": {
+      backgroundColor: 'rgb(7, 177, 77, 0.42)'
+    }
+  }
 });
 
-export default function Filters () {
+export default function Filters() {
 
   const classes = useStyles();
-  
+
   // for the drawer
   const [state, setState] = useState({
     top: false,
@@ -56,7 +63,27 @@ export default function Filters () {
       role="presentation"
       onClick={toggleDrawer(anchor, true)}
       onKeyDown={toggleDrawer(anchor, true)}
+      id="drawer-container"
     >
+      <div className="drawer-content">
+        <List>
+          <Avatar></Avatar>
+          <ListItem>Full Name</ListItem>
+          <ListItem>Current Address</ListItem>
+          <ListItem>Applying property address</ListItem>
+          <ListItem>Phone Number</ListItem>
+          <ListItem>Reason for Moving</ListItem>
+          <ListItem>Other household Occupants</ListItem>
+          <ListItem>Email Address</ListItem>
+          <List>
+            <ListItem>Rent History</ListItem>
+          </List>
+          <List>
+            <ListItem>References</ListItem>
+          </List>
+          <Button className={classes.btn}>Contact tenant</Button>
+        </List>
+      </div>
 
     </div>
   );
@@ -66,25 +93,25 @@ export default function Filters () {
   return (
     <div id="proplist_top">
 
-      <div className="filters">
+      <div>
         <Button
-          id="btn-outline-primary"
+          className={classes.btn}
           variant="outline-primary"
           onClick={toggleDrawer("left", true)}>
-          Filters
+          Review Application
         </Button>
 
         <Drawer
           className="drawer"
-          style={{ width:'640px'}}
+          style={{ width: '640px' }}
           variant="temporary"
           anchor="left"
           open={state["left"]}
           onClose={toggleDrawer("left", false)}
-          >
+        >
           {list("left")}
         </Drawer>
-      
+
       </div>
 
     </div>
