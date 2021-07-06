@@ -74,7 +74,7 @@ export default function PropertyDetails() {
             </List.Item>
             <List.Item className="landlord-contact-container">
               <button className="contact-us btn">
-                <a href="/">Application Form</a>
+                <a href="/applicationForm">Application Form</a>
               </button>
             </List.Item>
           </List>
