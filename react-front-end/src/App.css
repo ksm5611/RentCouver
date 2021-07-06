@@ -291,20 +291,47 @@ body .second-hero-container h2 {
   border-radius: 8px;
 }
 
-.req-ref-info {
+#listitem-head {
+  margin: 24px 0;
+}
+
+.req-info {
   display: flex;
   align-items: center;
   width: 100%;
 }
-.req-ref-info p {
+.req-info .req-tenant,
+.req-info h5 {
   margin: 0;
+  padding: 0 20px;
+  width: 200px;
+}
+.req-info .address {
+  width: 620px;
 }
 
-.ref-btn {
+.head {
+  padding-left: 40px;
+  height: 60px;
+}
+
+.option-btn {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 400px;
+}
+
+.seperator {
+  position: absolute;
+  margin-top: 200px;
+  right: 0;
+}
+.seperator #text {
+  width: 800px;
+  height: 100px;
+  resize: none;
+  border-radius: 6px;
 }
 
 /*# sourceMappingURL=App.css.map */

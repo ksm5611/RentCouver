@@ -6,10 +6,11 @@ import clsx from 'clsx';
 import List from '@material-ui/core/List';
 import PriceSlider from './PriceSlider';
 import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import FilterType from './FilterType';
+import FilterBedroom from './FilterBedroom';
+import FilterBathroom from './FilterBathroom';
+import FilterChecklist from './FilterChecklist';
 import './Filters.css';
-import PropertyListItem from './PropertyListItem';
 
 const useStyles = makeStyles({
   list: {
@@ -23,6 +24,8 @@ const useStyles = makeStyles({
 export default function Filters () {
 
   const classes = useStyles();
+  
+  // for the drawer
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -38,35 +41,39 @@ export default function Filters () {
     setState({ ...state, [anchor]: open });
   };
 
+
+
   const list = (anchor) => (
     <div
       className={clsx(classes.list, {
         [classes.fullList]: anchor === 'top' || anchor === 'bottom',
       })}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      onClick={toggleDrawer(anchor, true)}
+      onKeyDown={toggleDrawer(anchor, true)}
     >
       <List>
-      <PriceSlider />
-        {['Type', 'Bedrooms', 'Bathrooms'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+
+        <PriceSlider />
+
+        <FilterType />
+
+        <FilterBedroom />
+
+        <FilterBathroom />
+
       </List>
 
       <Divider />
 
       <List>
-        {['Air Conditioning', 'Pets Allowed', 'Parking'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+
+        <FilterChecklist />
+
       </List>
     </div>
   );
+
 
 
   return (
