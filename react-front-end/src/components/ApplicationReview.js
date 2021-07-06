@@ -2,8 +2,8 @@
 import { Button } from "@material-ui/core";
 import { useState } from 'react'
 import clsx from 'clsx';
-import List from '@material-ui/core/List';
 import {
+  List,
   Container,
   ListItem,
   makeStyles,
@@ -15,7 +15,6 @@ import { Drawer } from '@material-ui/core';
 
 import Divider from '@material-ui/core/Divider';
 
-// import '../PropertyListing/Filters.css';
 
 const useStyles = makeStyles({
   list: {
@@ -24,6 +23,15 @@ const useStyles = makeStyles({
   fullList: {
     width: 'auto',
   },
+  btn: {
+    backgroundColor: '#f1a177',
+    color: 'white',
+
+    "&:hover": {
+      backgroundColor: 'rgb(7, 177, 77, 0.42)'
+    }
+
+  }
 });
 
 export default function Filters () {
@@ -56,7 +64,14 @@ export default function Filters () {
       role="presentation"
       onClick={toggleDrawer(anchor, true)}
       onKeyDown={toggleDrawer(anchor, true)}
+      id="drawer-container"
     >
+      <div className="drawer-content">
+        <List>
+          <Avatar></Avatar>
+          <ListItem>Current Address: </ListItem>
+        </List>
+      </div>
 
     </div>
   );
@@ -66,12 +81,12 @@ export default function Filters () {
   return (
     <div id="proplist_top">
 
-      <div className="filters">
+      <div>
         <Button
-          id="btn-outline-primary"
+          className={classes.btn}
           variant="outline-primary"
           onClick={toggleDrawer("left", true)}>
-          Filters
+          Review Application
         </Button>
 
         <Drawer
