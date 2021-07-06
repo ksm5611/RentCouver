@@ -30,14 +30,13 @@ const useStyles = makeStyles({
     "&:hover": {
       backgroundColor: 'rgb(7, 177, 77, 0.42)'
     }
-
   }
 });
 
-export default function Filters () {
+export default function Filters() {
 
   const classes = useStyles();
-  
+
   // for the drawer
   const [state, setState] = useState({
     top: false,
@@ -69,7 +68,20 @@ export default function Filters () {
       <div className="drawer-content">
         <List>
           <Avatar></Avatar>
-          <ListItem>Current Address: </ListItem>
+          <ListItem>Full Name</ListItem>
+          <ListItem>Current Address</ListItem>
+          <ListItem>Applying property address</ListItem>
+          <ListItem>Phone Number</ListItem>
+          <ListItem>Reason for Moving</ListItem>
+          <ListItem>Other household Occupants</ListItem>
+          <ListItem>Email Address</ListItem>
+          <List>
+            <ListItem>Rent History</ListItem>
+          </List>
+          <List>
+            <ListItem>References</ListItem>
+          </List>
+          <Button className={classes.btn}>Contact tenant</Button>
         </List>
       </div>
 
@@ -91,15 +103,15 @@ export default function Filters () {
 
         <Drawer
           className="drawer"
-          style={{ width:'640px'}}
+          style={{ width: '640px' }}
           variant="temporary"
           anchor="left"
           open={state["left"]}
           onClose={toggleDrawer("left", false)}
-          >
+        >
           {list("left")}
         </Drawer>
-      
+
       </div>
 
     </div>
