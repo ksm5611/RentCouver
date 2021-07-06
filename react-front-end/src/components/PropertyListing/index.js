@@ -1,7 +1,8 @@
 import Filters from "./Filters";
-import Map from "./Map";
+import MyComponent from "./Map";
 import PropertyListItem from "./PropertyListItem";
-import './index.css'
+import './index.css';
+import React, { memo } from 'react';
 
 export default function PropertyListing () {
 
@@ -10,7 +11,7 @@ export default function PropertyListing () {
       <Filters />
       <div id='map-and-proplist'>
         <PropertyListItem />
-        <Map />
+        <MyComponent />
       </div>
     </div>
   )

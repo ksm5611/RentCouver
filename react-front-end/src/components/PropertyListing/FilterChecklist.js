@@ -33,7 +33,7 @@ export default function FilterChecklist () {
 
   return (
     <List className={classes.root}>
-      {['Air Conditioning', 'Cats Allowed', 'Dogs Allowed', 'Parking'].map((value) => {
+      {['Air Conditioning', 'Pets Allowed', 'Parking'].map((value) => {
         const labelId = `checkbox-list-label-${value}`;
 
         return (
