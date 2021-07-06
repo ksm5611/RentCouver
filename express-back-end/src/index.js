@@ -17,6 +17,7 @@ import {
 import applicationForm from "./routes/applicationForm";
 import userInfo from "./routes/userInfo";
 import propertyDetails from "./routes/propertyDetails";
+import propertyList from "./routes/propertyLists";
 const App = Express();
 App.use(cors());
 const PORT = process.env.PORT;
@@ -44,6 +45,7 @@ App.get("/properties", async (req, res) => {
   res.json(properties);
 });
 App.use("/api", propertyDetails);
+App.use("/api", propertyList);
 
 App.get("/photos", async (req, res) => {
   const photos = await Photo.findAll();

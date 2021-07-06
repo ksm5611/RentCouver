@@ -20,6 +20,8 @@ var _userInfo = _interopRequireDefault(require("./routes/userInfo"));
 
 var _propertyDetails = _interopRequireDefault(require("./routes/propertyDetails"));
 
+var _propertyLists = _interopRequireDefault(require("./routes/propertyLists"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -97,6 +99,7 @@ App.get("/properties", /*#__PURE__*/function () {
   };
 }());
 App.use("/api", _propertyDetails["default"]);
+App.use("/api", _propertyLists["default"]);
 App.get("/photos", /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {
     var photos;
