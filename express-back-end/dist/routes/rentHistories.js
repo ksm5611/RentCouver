@@ -14,30 +14,35 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 var router = (0, _express.Router)();
-router.get("/propertyLists", /*#__PURE__*/function () {
+router.get("/rentHistories", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {
-    var propertyList;
+    var rentHistories;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return _models.Property.findAll({
+            return _models.RentHistory.findAll({
               attributes: {
-                exclude: ["landlord_id", "square_feet", "description", "property_type", "number_of_bathrooms", "number_of_bedrooms", "pets_allowed"]
+                exclude: ["is_requested", "is_decline"]
               },
               include: [{
-                model: _models.Photo,
+                model: _models.Property,
                 attributes: {
-                  exclude: ["property_id"]
-                }
-              }],
-              limit: 3
+                  exclude: ["title", "square_feet", "description", "property_type", "number_of_bathrooms", "number_of_bedrooms", "listed_start_date", "cost_of_month", "pets_allowed"]
+                },
+                include: [{
+                  model: _models.User,
+                  attributes: {
+                    exclude: ["password", "job_title", "annual_income", "profile_picture_url", "other_household_occupants", "is_landlord"]
+                  }
+                }]
+              }]
             });
 
           case 2:
-            propertyList = _context.sent;
-            res.send(propertyList);
+            rentHistories = _context.sent;
+            res.send(rentHistories);
 
           case 4:
           case "end":

@@ -334,4 +334,17 @@ body .second-hero-container h2 {
   border-radius: 6px;
 }
 
+#drawer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drawer-content {
+  border: 1px solid red;
+  margin-top: 40px;
+  height: 660px;
+  width: 600px;
+}
+
 /*# sourceMappingURL=App.css.map */

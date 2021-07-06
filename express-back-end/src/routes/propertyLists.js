@@ -23,6 +23,7 @@ router.get("/propertyLists", async (req, res) => {
         },
       },
     ],
+    limit: 3,
   });
   res.send(propertyList);
 });
