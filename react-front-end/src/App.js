@@ -26,7 +26,7 @@ export default function App() {
     "address": "property address",
     "currentState": "request"
   }
-]
+ ]
   
   const [refReqList, setRefReqList] = useState(list);
 
