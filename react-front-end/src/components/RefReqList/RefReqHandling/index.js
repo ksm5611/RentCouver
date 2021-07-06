@@ -1,6 +1,7 @@
 import Form from './Form';
 import Sent from './Sent';
 import Declined from './Decilned';
+import useVisualMode from './useVisualMode';
 import { Fragment } from 'react';
 import {
   ListItem,
@@ -16,11 +17,9 @@ export default function ReqRefHandling(props) {
   const DECLINED = "DECLINED";
   const SENT = "SENT";
 
-  // const { mode, transition, back } = useVisualMode(
-  //   props.? FORM : DECLINED
-  // );
+  const { mode, transition, back } = useVisualMode(REQUEST);
 
-  const mode = FORM;
+  // const mode = REQUEST;
 
   return (
     <Fragment>
@@ -31,16 +30,14 @@ export default function ReqRefHandling(props) {
           <p className="req-tenant address">property address</p>
         </div>
         <div className="option-btn">
-          <Button variant="contained" color="primary" onSubmit={props.onSubmit}>Submit</Button>
-          <Button variant="contained" color="secondary" onCancel={props.onCancel}>Cancel</Button>
+          <Button variant="contained" color="primary" onClick={() => transition(FORM)}>Leave Reference</Button>
+          <Button variant="contained" color="secondary" onClick={() => transition(DECLINED)}>Decline</Button>
         </div>
       </ListItem>)}
-      {mode === FORM && (<Form />)}
+      {mode === FORM && (<Form onSubmit={() => transition(SENT)} onCancel={() => back()} />)}
       {mode === DECLINED && (<Declined />)}
       {mode === SENT && (<Sent />)}
-
     </Fragment>
-
   )
 
 }

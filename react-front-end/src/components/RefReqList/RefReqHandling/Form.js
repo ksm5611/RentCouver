@@ -16,12 +16,12 @@ export default function RefForm(props) {
         <p className="req-tenant address">property address</p>
       </div>
       <div className="option-btn">
-        <Button variant="contained" color="primary" onSubmit={props.onSubmit}>Submit</Button>
-        <Button variant="contained" color="secondary" onCancel={props.onCancel}>Cancel</Button>
+        <Button variant="contained" color="primary" onClick={props.onSubmit}>Submit</Button>
+        <Button variant="contained" color="secondary" onClick={props.onCancel}>Cancel</Button>
       </div>
 
       <form className="seperator">
-        <input type="text" id="text" />
+        <textarea id="text"/>
       </form>
     </ListItem>
 

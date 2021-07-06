@@ -300,7 +300,8 @@ body .second-hero-container h2 {
   align-items: center;
   width: 100%;
 }
-.req-info .req-tenant, .req-info h5 {
+.req-info .req-tenant,
+.req-info h5 {
   margin: 0;
   padding: 0 20px;
   width: 200px;
@@ -323,12 +324,14 @@ body .second-hero-container h2 {
 
 .seperator {
   position: absolute;
-  padding-top: 112px;
+  margin-top: 200px;
   right: 0;
 }
 .seperator #text {
   width: 800px;
-  height: 60px;
+  height: 100px;
+  resize: none;
+  border-radius: 6px;
 }
 
 /*# sourceMappingURL=App.css.map */

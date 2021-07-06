@@ -7,7 +7,8 @@
   align-items: center;
   width: 100%;
   // justify-content: space-between;
-  .req-tenant, h5 {
+  .req-tenant,
+  h5 {
     margin: 0;
     padding: 0 20px;
     width: 200px;
@@ -15,8 +16,7 @@
 
   .address {
     width: 620px;
-  }  
-
+  }
 }
 
 .head {
@@ -35,11 +35,13 @@
 
 .seperator {
   position: absolute;
-  padding-top: 112px;
+  margin-top: 200px;
   right: 0;
 
   #text {
     width: 800px;
-    height: 60px;
+    height: 100px;
+    resize: none;
+    border-radius: 6px;
   }
 }
