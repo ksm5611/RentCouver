@@ -25,7 +25,7 @@ export default function App() {
           <Route path="/user">
             <User />
           </Route>
-          <Route path="/properties">
+          <Route path="/property_details/:id">
             <PropertyDetails />
           </Route>
           <Route path="/applicationForm">

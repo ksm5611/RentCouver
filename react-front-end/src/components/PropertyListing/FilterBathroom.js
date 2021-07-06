@@ -27,6 +27,12 @@ export default function FilterBathroom () {
     setOpen(!open);
   };
 
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+  };
+
   return (
     <>
 
@@ -34,13 +40,21 @@ export default function FilterBathroom () {
           <ListItemText primary="Bathrooms" />
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
-        {['1', '2', '3', '4+'].map((text, index) => (
+
+        {['All', '1', '2', '3', '4+'].map((text, index) => (
           <Collapse in={open} timeout="auto" unmountOnExit>
+            
             <List component="div" disablePadding>
-              <ListItem button id="nested-filters" className={classes.nested}>
+              <ListItem button
+                id="nested-filters"
+                className={classes.nested}
+                selected={selectedIndex === index}
+                onClick={(event) => handleListItemClick(event, index)}
+              >
                 <ListItemText primary={text} />
               </ListItem>
             </List>
+
           </Collapse>
         ))}
 

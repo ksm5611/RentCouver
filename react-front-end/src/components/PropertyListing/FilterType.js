@@ -27,19 +27,33 @@ export default function FilterType () {
     setOpen(!open);
   };
 
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+  };
+
   return (
     <>
       <ListItem button onClick={handleClick}>
           <ListItemText primary="Type" />
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
-        {['Condo', 'Basement', 'Laneway House', 'Townhouse', 'Detached House'].map((text, index) => (
+
+        {['All', 'Condo', 'Basement', 'Laneway House', 'Townhouse', 'Detached House'].map((text, index) => (
           <Collapse in={open} timeout="auto" unmountOnExit>
+            
             <List component="div" disablePadding>
-              <ListItem button id="nested-filters" className={classes.nested}>
+              <ListItem button
+                id="nested-filters"
+                className={classes.nested}
+                selected={selectedIndex === index}
+                onClick={(event) => handleListItemClick(event, index)}
+              >
                 <ListItemText primary={text} />
               </ListItem>
             </List>
+          
           </Collapse>
         ))}
 

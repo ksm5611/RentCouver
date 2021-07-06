@@ -6,7 +6,7 @@ import './PriceSlider.css';
 
 const useStyles = makeStyles({
   root: {
-    width: 200,
+    width: 220,
   },
 });
 
