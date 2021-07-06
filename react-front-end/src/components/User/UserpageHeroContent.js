@@ -1,42 +1,41 @@
-import axios from 'axios';
-import '../../App.css';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "../../App.css";
 
-export default function UserpageHeroContent () {
+export default function UserpageHeroContent() {
+  const [user, setUser] = useState(null);
+  const [error, setError] = useState("");
 
-  const user = [
-    {
-    "id": 1,
-    "name": "Sura Jeon",
-    "email": "example1@lhl.com",
-    "password": "password",
-    "current_address": "2595 W 1st Ave, Vancouver, BC V6K 1G8",
-    "job_title": "Web Developer",
-    "annual_income": 50000,
-    "other_household_occupants": null,
-    "profile_picture_url": 'https://cad.gov.jm/wp-content/uploads/2017/10/img_avatar2.png',
-    "is_landlord": true
-    },
-    {
-    "id": 2,
-    "name": "Felicia Okta",
-    "email": "example2@lhl.com",
-    "password": "password",
-    "current_address": "2597 W 1st Ave, Vancouver, BC V6K 1G8",
-    "job_title": "Web Developer",
-    "annual_income": 50000,
-    "other_household_occupants": null,
-    "profile_picture_url": null,
-    "is_landlord": true
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const result = await axios.get("http://localhost:8000/api/users/10");
+        const { ...userData } = result.data;
+        setUser(userData);
+      } catch (error) {
+        setError("Your server is broken");
+      }
     }
-  ]
+    fetchData();
+  }, []);
 
-  return(
+  //if loading backend info is slow, this will show shortly
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+
+  return (
     <section className="hero-container">
       <div className="hero-content">
-        <div className="hero-content-item"><img className="profile-img" src={user[0].profile_picture_url} alt="profile"/></div>
-        <h2 className="hero-content-item">{user[0].name}</h2>
+        <div className="hero-content-item">
+          <img
+            className="profile-img"
+            src={user.profile_picture_url}
+            alt="profile"
+          />
+        </div>
+        <h2 className="hero-content-item">{user.name}</h2>
       </div>
     </section>
-  )
-  
+  );
 }

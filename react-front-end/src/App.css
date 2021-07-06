@@ -1,107 +1,15 @@
 body {
+  box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
-  /* Homepage.js */
 }
-body .homepage-wrapper {
-  display: flex;
-  justify-content: center;
-  padding-left: 40px;
-  padding-top: 180px;
-  width: 100%;
-  height: 1000px;
-  background-image: url("https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80");
-  background-size: cover;
+body a:hover {
+  text-decoration: none;
 }
-body .homepage-wrapper .search-form {
-  display: flex;
-  flex-direction: column;
+body ul {
+  padding: 0;
 }
-body .homepage-wrapper .search-form .search-label {
-  font-family: "Ubuntu", sans-serif;
-  color: #574f4a;
-}
-body .homepage-wrapper .search-form .search-label h3 {
-  font-size: 28px;
-}
-body .homepage-wrapper .search-form .search-input-wrapper {
-  display: flex;
-  justify-content: space-between;
-  width: 520px;
-}
-body .homepage-wrapper .search-form .search-input-wrapper .search-input {
-  border: none;
-  border-radius: 4px;
-  font-family: "Ubuntu", sans-serif;
-  width: 420px;
-  height: 36px;
-  opacity: 0.5;
-}
-body .homepage-wrapper .search-form .search-input-wrapper .search-input:focus {
-  outline: none;
-}
-body .homepage-wrapper .search-form .search-input-wrapper .search-button {
-  background-color: #7c7878;
-  border-radius: 4px;
-  font-family: "Ubuntu", sans-serif;
-  width: 80px;
-  color: #f8f3f0;
-}
-body .homepage-wrapper .search-form .search-input-wrapper .search-button:focus {
-  background-color: #7c7878;
-}
-body #nav-wrapper {
-  display: flex;
-  justify-content: space-around;
-  font-family: "Ubuntu", sans-serif;
-  padding: 0 20px;
-  position: fixed;
-  z-index: 2;
-  width: 100%;
-  background-color: #f8f3f0;
-}
-body #nav-wrapper #nav-logo {
-  display: flex;
-  align-items: center;
-  font-family: "Bad Script", cursive;
-  margin-right: 8px;
-}
-body #nav-wrapper #nav-logo h4 {
-  color: #574f4a;
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0;
-}
-body #nav-wrapper #nav-logo h4 span {
-  font-size: 28px;
-}
-body #nav-wrapper .nav-body {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-body #nav-wrapper .nav-body .nav-body-item-list {
-  display: flex;
-  align-items: center;
-}
-body #nav-wrapper .nav-body .nav-body-item-list .nav-link {
-  color: #7c7878;
-}
-body #nav-wrapper .nav-body .nav-body-item-list .nav-link:hover {
-  color: #5e5858;
-}
-body #nav-wrapper .nav-body .nav-body-item-list .dropdown-item {
-  color: #7c7878;
-}
-body #nav-wrapper .nav-body .nav-body-item-list .dropdown-item:hover, body #nav-wrapper .nav-body .nav-body-item-list .dropdown-item:active {
-  background-color: #c1b9b9;
-  color: #FFF;
-}
-body #nav-wrapper .nav-body .nav-body-item-list .user-icon {
-  font-size: 14px;
-}
-body #nav-wrapper .nav-body .nav-body-item-list #basic-nav-dropdown {
-  padding-left: 8px;
+body li {
+  list-style: none;
 }
 body .hero-container {
   padding-top: 80px;
@@ -133,7 +41,126 @@ body .hero-container .hero-content h2 {
   font-size: 40px;
   color: #7c7878;
 }
-body .user-page-wrapper {
+body .second-hero-container {
+  display: flex;
+  justify-content: start;
+  padding-left: 100px;
+  height: 240px;
+}
+body .second-hero-container h2 {
+  font-family: "Ubuntu", sans-serif;
+  color: #7c7878;
+}
+
+.homepage-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-left: 40px;
+  padding-top: 180px;
+  width: 100%;
+  height: 1000px;
+  background-image: url("https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80");
+  background-size: cover;
+}
+.homepage-wrapper .search-form {
+  display: flex;
+  flex-direction: column;
+}
+.homepage-wrapper .search-form .search-label {
+  font-family: "Ubuntu", sans-serif;
+  color: #574f4a;
+}
+.homepage-wrapper .search-form .search-label h3 {
+  font-size: 28px;
+}
+.homepage-wrapper .search-form .search-input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 520px;
+}
+.homepage-wrapper .search-form .search-input-wrapper .search-input {
+  border: none;
+  border-radius: 4px;
+  font-family: "Ubuntu", sans-serif;
+  width: 420px;
+  height: 36px;
+  opacity: 0.5;
+}
+.homepage-wrapper .search-form .search-input-wrapper .search-input:focus {
+  outline: none;
+}
+.homepage-wrapper .search-form .search-input-wrapper .search-button {
+  background-color: #7c7878;
+  border-radius: 4px;
+  font-family: "Ubuntu", sans-serif;
+  width: 80px;
+  color: #f8f3f0;
+}
+.homepage-wrapper .search-form .search-input-wrapper .search-button:focus {
+  background-color: #7c7878;
+}
+
+#nav-wrapper {
+  display: flex;
+  justify-content: space-around;
+  font-family: "Ubuntu", sans-serif;
+  padding: 0 28px;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  background-color: #f8f3f0;
+}
+#nav-wrapper #nav-logo {
+  display: flex;
+  align-items: center;
+  font-family: "Bad Script", cursive;
+  margin-right: 8px;
+}
+#nav-wrapper #nav-logo h4 {
+  color: #574f4a;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+#nav-wrapper #nav-logo h4 span {
+  font-size: 28px;
+}
+#nav-wrapper .nav-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-left: 20px;
+}
+#nav-wrapper .nav-body .nav-body-item-list {
+  display: flex;
+  align-items: center;
+}
+#nav-wrapper .nav-body .nav-body-item-list .nav-link {
+  color: #7c7878;
+  font-size: 16px;
+}
+#nav-wrapper .nav-body .nav-body-item-list .nav-link:hover {
+  color: #574f4a;
+}
+#nav-wrapper .nav-body .nav-body-item-list .dropdown-item {
+  color: #7c7878;
+}
+#nav-wrapper .nav-body .nav-body-item-list .dropdown-item:hover,
+#nav-wrapper .nav-body .nav-body-item-list .dropdown-item:active {
+  background-color: #c1b9b9;
+  color: #fff;
+}
+#nav-wrapper .nav-body .nav-body-item-list .user-icon {
+  font-size: 14px;
+}
+#nav-wrapper .nav-body .nav-body-item-list #basic-nav-dropdown {
+  padding-left: 8px;
+}
+
+/* UserpageHeroContent.js */
+/* User.js (index.js) */
+.user-page-wrapper {
   background-color: #c1b9b9;
   padding: 160px;
   margin: 0 auto;
@@ -141,23 +168,157 @@ body .user-page-wrapper {
   position: relative;
   height: 1000px;
   width: 2000px;
+  /* RecentViewList.js & RecentView.js */
+  /* UserInfo.js */
 }
-body .user-page-wrapper .fav-wrapper {
+.user-page-wrapper .fav-wrapper {
   width: 100px;
 }
-body .user-page-wrapper .fav-wrapper .fav-properties {
+.user-page-wrapper .fav-wrapper .fav-properties {
   display: flex;
 }
-body .user-page-wrapper .user-info-wrapper {
+.user-page-wrapper .user-info-wrapper {
   position: relative;
   width: 400px;
 }
-body .user-page-wrapper .user-info-wrapper .user-info-list {
+.user-page-wrapper .user-info-wrapper .user-info-list {
   margin-bottom: 40px;
 }
-body .user-page-wrapper .user-info-wrapper #my-info-label {
+.user-page-wrapper .user-info-wrapper #my-info-label {
   background-color: #7c7878;
   border: #7c7878;
+}
+
+.btn {
+  padding: 8px 32px;
+  border-radius: 2px;
+  background-color: #f8f3f0;
+}
+
+.property-container-wrapper {
+  color: #574f4a;
+  background-color: #7c7878;
+  padding: 80px 100px;
+  display: flex;
+  flex-direction: column;
+  height: 2000px;
+  /* Slideshow.js */
+}
+.property-container-wrapper .property-container-top {
+  font-family: "Ubuntu", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 540px;
+}
+.property-container-wrapper .property-container-top .property-img {
+  width: 720px;
+  border-radius: 8px;
+}
+.property-container-wrapper .property-container-top .contact-info {
+  width: 400px;
+}
+.property-container-wrapper .property-container-top .contact-info .landlord-contact-container {
+  text-align: center;
+  min-height: 113px;
+}
+.property-container-wrapper .property-container-top .contact-info .landlord-contact-container .landlord-img {
+  width: 100px;
+  border-radius: 50%;
+  margin: 16px 0;
+}
+.property-container-wrapper .property-container-top .contact-info .landlord-contact-container .contact-us a {
+  color: #f8f3f0;
+  background-color: #7c7878;
+  padding: 8px 24px;
+  border-radius: 4px;
+}
+.property-container-wrapper .property-container-top .contact-info .landlord-contact-container a:hover {
+  color: #7c7878;
+  background-color: #f8f3f0;
+}
+.property-container-wrapper .property-container-top .contact-info .landlord-contact-container a:visited,
+.property-container-wrapper .property-container-top .contact-info .landlord-contact-container a:active,
+.property-container-wrapper .property-container-top .contact-info .landlord-contact-container a:link {
+  text-decoration: none;
+}
+.property-container-wrapper .property-container-bottom {
+  font-family: "Ubuntu", sans-serif;
+  background-color: #f8f3f0;
+  margin-top: 80px;
+  height: 800px;
+  border-radius: 8px;
+  padding: 72px 140px;
+}
+.property-container-wrapper .property-container-bottom .property-title {
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+.property-container-wrapper .property-container-bottom .details-main {
+  display: flex;
+}
+.property-container-wrapper .property-container-bottom .details-main h4 {
+  padding-right: 100px;
+  margin-bottom: 40px;
+}
+.property-container-wrapper .property-container-bottom .sub-details,
+.property-container-wrapper .property-container-bottom .amenities {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0;
+}
+.property-container-wrapper .property-container-bottom .sub-details .sub-details-item,
+.property-container-wrapper .property-container-bottom .amenities .sub-details-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.property-container-wrapper .property-container-bottom .property-description {
+  margin-bottom: 40px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+.property-container-wrapper .property-slideshow {
+  width: 720px;
+}
+.property-container-wrapper .property-slideshow .each-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 540px;
+  border-radius: 8px;
+}
+
+#listitem-head {
+  margin: 24px 0;
+}
+
+.req-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.req-info .req-tenant, .req-info h5 {
+  margin: 0;
+  padding: 0 20px;
+  width: 200px;
+}
+.req-info .address {
+  width: 620px;
+}
+
+.head {
+  padding-left: 40px;
+  height: 60px;
+}
+
+.option-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 400px;
 }
 
 /*# sourceMappingURL=App.css.map */

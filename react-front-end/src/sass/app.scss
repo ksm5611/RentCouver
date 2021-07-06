@@ -1,233 +1,77 @@
-
-  
 $light-orange: #f8f3f0;
-$main-font: 'Ubuntu', sans-serif;
-$logo-font: 'Bad Script', cursive;
-$name-font: 'Kalam', cursive;
+$main-font: "Ubuntu", sans-serif;
+$logo-font: "Bad Script", cursive;
+$name-font: "Kalam", cursive;
 $background-color: #c1b9b9;
 $dark-grey: #7c7878;
-
+$font-dark-grey: #574f4a;
 
 body {
+  box-sizing: border-box;
   font-family: $main-font;
 
-
-/* Homepage.js */
-.homepage-wrapper {
-  display: flex;
-  justify-content: center;
-  padding-left: 40px;
-  padding-top: 180px;
-  width: 100%;
-  height: 1000px;
-  background-image: url("https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80");
-  background-size: cover;
-
-
-  .search-form {
-
-    display: flex;
-    flex-direction: column;
-    // width: 1000px;
-    // border: 1px solid red;
-    .search-label {
-      font-family: $main-font;
-      color: #574f4a;
-      h3 {
-        font-size: 28px;
-      }
-    }
-
-    .search-input-wrapper {
-      display: flex;
-      justify-content: space-between;
-      width: 520px;
-
-      .search-input {
-        border: none;
-        border-radius: 4px;
-        font-family: $main-font;
-        width: 420px;
-        height: 36px;
-        opacity: 0.5;
-      }
-
-      .search-input:focus {
-        outline: none;
-        
-      }
-
-      .search-button {
-        background-color: $dark-grey;
-        border-radius: 4px;
-        font-family: $main-font;
-        width: 80px;
-        color: $light-orange;
-      }
-
-      .search-button:focus {
-        background-color: $dark-grey;
-      }
-    }
-  }
-}
-
-// Navigation.js
-
-
-#nav-wrapper {
-  display: flex;
-  justify-content: space-around;
-  font-family: $main-font;
-  padding: 0 20px;
-  position: fixed;
-  z-index: 2;
-  width: 100%;
-  background-color: $light-orange;
-  
-  #nav-logo {
-    display: flex;
-    align-items: center;
-    font-family: $logo-font;
-    margin-right: 8px;
-    
-    h4 {
-      color: #574f4a;
-      font-size: 24px;
-      font-weight: 700;
-      margin: 0;
-      
-      span {
-        font-size: 28px;
-      }
-    }
-
+  a:hover {
+    text-decoration: none;
   }
 
-  .nav-body {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    // border: 1px solid red;
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  .hero-container {
+    padding-top: 80px;
+    font-family: $name-font;
+    height: 310px;
     width: 100%;
-
-    .nav-body-item-list {
+    background-color: $light-orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    .hero-content {
       display: flex;
       align-items: center;
-      // border: 1px solid red;
-      .nav-link {
+      flex-direction: column;
+      list-style: none;
+      margin-top: 200px;
+      padding: 20px;
+      z-index: 1;
+  
+      .hero-content-item {
+        margin: 10px;
+  
+        .profile-img {
+          width: 200px;
+          border-radius: 50%;
+        }
+      }
+  
+      h2 {
+        font-size: 40px;
         color: $dark-grey;
-      }
-
-      .nav-link:hover {
-        color:#5e5858;
-      }
-
-      .dropdown-item {
-        color: $dark-grey;
-      }
-
-      .dropdown-item:hover, .dropdown-item:active {
-        background-color: $background-color;
-        color: #FFF;
-      }
-
-      .user-icon {
-        font-size: 14px;
-      }
-
-      #basic-nav-dropdown {
-        padding-left: 8px;
       }
     }
   }
 
-}
-
-
-// UserpageHeroContent.js
-
-.hero-container {
-  padding-top: 80px;
-  font-family: $name-font;
-  height: 310px;
-  width: 100%;
-  background-color: $light-orange;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  .hero-content {
+  .second-hero-container {
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    list-style: none;
-    // border: 1px solid red;
-    margin-top: 200px;
-    padding: 20px;
-    z-index: 1;
-
-    .hero-content-item {
-      margin: 10px;
-
-      .profile-img {
-        width: 200px;
-        border-radius: 50%;
-      }
-
-    }
-
+    justify-content: start;
+    padding-left: 100px;
+    height: 240px;
+  
     h2 {
-      font-size: 40px;
+      font-family: $main-font;
       color: $dark-grey;
     }
   }
 }
 
-
-
-// User.js (index.js)
-
-.user-page-wrapper {
-  background-color: $background-color;
-  padding: 160px;
-  margin: 0 auto;
-  display: flex;
-  position: relative;
-  height: 1000px;
-  // padding-top: 160px;
-  width: 2000px;
-
-  // RecentViewList.js & RecentView.js 
-  // justify-content: space-between;
-  
-  .fav-wrapper {
-    width: 100px;
-    .fav-properties {
-      display: flex;
-      // border: 1px solid red;
-    }
-  
-  }
-  
-  // UserInfo.js
-  
-  .user-info-wrapper {
-    position: relative;
-    width: 400px;
-    // border: 1px solid red;
-    .user-info-list {
-      margin-bottom: 40px;
-    }
-
-    #my-info-label {
-      background-color: $dark-grey;
-      border: $dark-grey;
-    }
-  }
-}
-
-
-
-
-}
+@import "homepage";
+@import "navigation";
+@import "user";
+@import "propertyDetail";
+@import "ReqList";

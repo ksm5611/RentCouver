@@ -1,6 +1,37 @@
-// Hero content
+/* UserpageHeroContent.js */
 
-.hero-content {
-  height: 200px;
-  width: 100%;
+/* User.js (index.js) */
+
+.user-page-wrapper {
+  background-color: $background-color;
+  padding: 160px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  height: 1000px;
+  width: 2000px;
+
+  /* RecentViewList.js & RecentView.js */
+
+  .fav-wrapper {
+    width: 100px;
+    .fav-properties {
+      display: flex;
+    }
+  }
+
+  /* UserInfo.js */
+
+  .user-info-wrapper {
+    position: relative;
+    width: 400px;
+    .user-info-list {
+      margin-bottom: 40px;
+    }
+
+    #my-info-label {
+      background-color: $dark-grey;
+      border: $dark-grey;
+    }
+  }
 }

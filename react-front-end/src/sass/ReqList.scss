@@ -1,0 +1,32 @@
+#listitem-head {
+  margin: 24px 0;
+}
+
+.req-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  // justify-content: space-between;
+  .req-tenant, h5 {
+    margin: 0;
+    padding: 0 20px;
+    width: 200px;
+  }
+
+  .address {
+    width: 620px;
+  }  
+
+}
+
+.head {
+  padding-left: 40px;
+  height: 60px;
+}
+
+.option-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 400px;
+}

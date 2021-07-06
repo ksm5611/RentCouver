@@ -15,6 +15,7 @@ import {
   Ref_request,
 } from "./db/models";
 import applicationForm from "./routes/applicationForm";
+import userInfo from "./routes/userInfo";
 const App = Express();
 App.use(cors());
 const PORT = process.env.PORT;
@@ -35,6 +36,8 @@ App.get("/users", async (req, res) => {
   const users = await User.findAll();
   res.json(users);
 });
+
+App.use("/api", userInfo);
 
 App.get("/properties", async (req, res) => {
   const properties = await Property.findAll();

@@ -1,0 +1,119 @@
+.btn {
+  padding: 8px 32px;
+  border-radius: 2px;
+  background-color: $light-orange;
+}
+
+.property-container-wrapper {
+  color: $font-dark-grey;
+  background-color: $dark-grey;
+  padding: 80px 100px;
+  display: flex;
+  flex-direction: column;
+
+  height: 2000px;
+
+  .property-container-top {
+    font-family: $main-font;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 540px;
+
+    .property-img {
+      width: 720px;
+      border-radius: 8px;
+    }
+
+    .contact-info {
+      width: 400px;
+
+      .landlord-contact-container {
+        text-align: center;
+        min-height: 113px;
+
+        .landlord-img {
+          width: 100px;
+          border-radius: 50%;
+          margin: 16px 0;
+        }
+
+        .contact-us a {
+          // color: rgb(55, 52, 52);
+          color: $light-orange;
+          background-color: $dark-grey;
+          padding: 8px 24px;
+          border-radius: 4px;
+        }
+
+        a:hover {
+          color: $dark-grey;
+          background-color: $light-orange;
+        }
+
+        a:visited,
+        a:active,
+        a:link {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .property-container-bottom {
+    font-family: $main-font;
+    background-color: $light-orange;
+    margin-top: 80px;
+    height: 800px;
+    border-radius: 8px;
+    padding: 72px 140px;
+
+    .property-title {
+      margin-bottom: 60px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .details-main {
+      display: flex;
+
+      h4 {
+        padding-right: 100px;
+        margin-bottom: 40px;
+      }
+    }
+
+    .sub-details,
+    .amenities {
+      display: flex;
+      justify-content: space-between;
+      margin: 40px 0;
+
+      .sub-details-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .property-description {
+      margin-bottom: 40px;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+  }
+
+  /* Slideshow.js */
+
+  .property-slideshow {
+    width: 720px;
+
+    .each-slide > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      height: 540px;
+      border-radius: 8px;
+    }
+  }
+}
