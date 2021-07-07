@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -21,13 +21,13 @@ export default function FilterType () {
 
   const classes = useStyles();
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   
   const handleClick = () => {
     setOpen(!open);
   };
 
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
@@ -40,7 +40,7 @@ export default function FilterType () {
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
 
-        {['All', 'Condo', 'Basement', 'Laneway House', 'Townhouse', 'Detached House'].map((text, index) => (
+        {['All', 'Apartment', 'Condo', 'House'].map((text, index) => (
           <Collapse in={open} timeout="auto" unmountOnExit>
             
             <List component="div" disablePadding>
