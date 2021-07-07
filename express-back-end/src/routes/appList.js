@@ -45,4 +45,17 @@ router.get("/appList/:landlordId", async (req, res) => {
   res.send(appList);
 });
 
+//decline application form call
+router.post("/appList/:applicationId", async (req, res) => {
+  const appList = await Application.update(
+    {
+      is_decline: true,
+    },
+    {
+      where: { id: req.params.applicationId },
+    }
+  );
+  res.json(appList);
+});
+
 export default router;

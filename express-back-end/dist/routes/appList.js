@@ -56,6 +56,39 @@ router.get("/appList/:landlordId", /*#__PURE__*/function () {
   return function (_x, _x2) {
     return _ref.apply(this, arguments);
   };
+}()); //decline application form call
+
+router.post("/appList/:applicationId", /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {
+    var appList;
+    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return _models.Application.update({
+              is_decline: true
+            }, {
+              where: {
+                id: req.params.applicationId
+              }
+            });
+
+          case 2:
+            appList = _context2.sent;
+            res.json(appList);
+
+          case 4:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+
+  return function (_x3, _x4) {
+    return _ref2.apply(this, arguments);
+  };
 }());
 var _default = router;
 exports["default"] = _default;
