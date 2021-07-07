@@ -75,7 +75,7 @@ export default function ApplicationList() {
             return (
               <ListItem className={classes.root}>
                 <div className="req-info">
-                  <Avatar src="" />
+                  <Avatar src={listValue.tenant.profile_picture_url} />
                   <p className="req-tenant">{listValue.tenant.name}</p>
                   <p className="req-tenant address">
                     {listValue.Property.street}
