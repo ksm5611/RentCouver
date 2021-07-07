@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "tenant_id",
         onDelete: "CASCADE",
       });
+      this.belongsTo(models.User, {
+        foreignKey: "landlord_id",
+        onDelete: "CASCADE",
+      });
       this.belongsTo(models.Property, {
         foreignKey: "property_id",
         onDelete: "CASCADE",
@@ -22,6 +26,10 @@ module.exports = (sequelize, DataTypes) => {
   Application.init(
     {
       tenant_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      landlord_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
