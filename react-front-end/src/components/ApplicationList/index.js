@@ -1,3 +1,5 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import {
   Container,
   ListItem,
@@ -35,6 +37,21 @@ const useStyles = makeStyles((theme) => {
 });
 
 export default function ApplicationList() {
+  const [appLists, setAppLists] = useState([]);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const result = await axios.get("http://localhost:8000/api/appList/1");
+        setAppLists(result.data);
+      } catch (error) {
+        setError("Your server is broken");
+      }
+    }
+    fetchData();
+  }, []);
+
   //material ui styling funtion
   const classes = useStyles();
 
@@ -54,41 +71,33 @@ export default function ApplicationList() {
           </div>
         </ListItem>
         <List>
-          <ListItem className={classes.root}>
-            <div className="req-info">
-              <Avatar src="" />
-              <p className="req-tenant">Sumin Kim</p>
-              <p className="req-tenant address">applied property address</p>
-            </div>
-            <div className="option-btn">
-              <ApplicationReview />
-              <Button
-                className={classes.btn}
-                variant="contained"
-                color="secondary"
-              >
-                Decline
-              </Button>
-            </div>
-          </ListItem>
-
-          <ListItem className={classes.root}>
-            <div className="req-info">
-              <Avatar src="" />
-              <p className="req-tenant">Felicia Okta</p>
-              <p className="req-tenant address">applied property address</p>
-            </div>
-            <div className="option-btn">
-              <ApplicationReview />
-              <Button
-                className={classes.btn}
-                variant="contained"
-                color="secondary"
-              >
-                Decline
-              </Button>
-            </div>
-          </ListItem>
+          {appLists.map((listValue) => {
+            return (
+              <ListItem className={classes.root}>
+                <div className="req-info">
+                  <Avatar src="" />
+                  <p className="req-tenant">{listValue.tenant.name}</p>
+                  <p className="req-tenant address">
+                    {listValue.Property.street}
+                    {listValue.Property.unit}
+                    {listValue.Property.city}
+                    {listValue.Property.provice}
+                    {listValue.Property.postal_code}
+                  </p>
+                </div>
+                <div className="option-btn">
+                  <ApplicationReview tenantId={listValue.tenant_id} />
+                  <Button
+                    className={classes.btn}
+                    variant="contained"
+                    color="secondary"
+                  >
+                    Decline
+                  </Button>
+                </div>
+              </ListItem>
+            );
+          })}
         </List>
       </Container>
     </div>

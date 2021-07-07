@@ -1,7 +1,7 @@
-
-import { Button } from "@material-ui/core";
-import { useState } from 'react'
-import clsx from 'clsx';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Button, ListItemText } from "@material-ui/core";
+import clsx from "clsx";
 import {
   List,
   Container,
@@ -9,31 +9,48 @@ import {
   makeStyles,
   Avatar,
 } from "@material-ui/core";
-import React from 'react';
-import { Drawer } from '@material-ui/core';
+import React from "react";
+import { Drawer } from "@material-ui/core";
 
-
-import Divider from '@material-ui/core/Divider';
-
+import Divider from "@material-ui/core/Divider";
 
 const useStyles = makeStyles({
   list: {
     width: 700,
   },
   fullList: {
-    width: 'auto',
+    width: "auto",
   },
   btn: {
-    backgroundColor: '#f1a177',
-    color: 'white',
+    backgroundColor: "#f1a177",
+    color: "white",
 
     "&:hover": {
-      backgroundColor: 'rgb(7, 177, 77, 0.42)'
-    }
-  }
+      backgroundColor: "rgb(7, 177, 77, 0.42)",
+    },
+  },
 });
 
-export default function Filters() {
+export default function Filters({ tenantId }) {
+  const [user, setUser] = useState(null);
+  const [rentHistories, setRentHistories] = useState([]);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const result = await axios.get(
+          `http://localhost:8000/api/applications/${tenantId}`
+        );
+        const { RentHistories: rentHistoryData, ...userData } = result.data;
+        setUser(userData);
+        setRentHistories(rentHistoryData);
+      } catch (error) {
+        setError("Your server is broken");
+      }
+    }
+    fetchData();
+  }, [tenantId]);
 
   const classes = useStyles();
 
@@ -46,19 +63,43 @@ export default function Filters() {
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
       return;
     }
 
     setState({ ...state, [anchor]: open });
   };
 
-
-
+  //to show residential history period
+  const formatRentHistoryPeriod = (rentHistory) => {
+    return `${rentHistory.start_date} - ${rentHistory.end_date}`;
+  };
+  //to show residential history address
+  const formatAddressFromProperty = (property) => {
+    return `${property.street}, ${property.city}, ${property.province} ${property.postal_code}`;
+  };
+  //rendering two parts of rent history values
+  const renderRentHistory = (rentHistory) => {
+    return (
+      <List className={classes.root}>
+        <ListItemText
+          primary="Address"
+          secondary={formatAddressFromProperty(rentHistory.Property)}
+        />
+        <ListItemText
+          primary="Period"
+          secondary={formatRentHistoryPeriod(rentHistory)}
+        />
+      </List>
+    );
+  };
   const list = (anchor) => (
     <div
       className={clsx(classes.list, {
-        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+        [classes.fullList]: anchor === "top" || anchor === "bottom",
       })}
       role="presentation"
       onClick={toggleDrawer(anchor, true)}
@@ -68,42 +109,47 @@ export default function Filters() {
       <div className="drawer-content">
         <List>
           <Avatar></Avatar>
-          <ListItem>Full Name</ListItem>
-          <ListItem>Current Address</ListItem>
-          <ListItem>Applying property address</ListItem>
-          <ListItem>Phone Number</ListItem>
-          <ListItem>Reason for Moving</ListItem>
-          <ListItem>Other household Occupants</ListItem>
-          <ListItem>Email Address</ListItem>
+          <ListItem>Name: {user.name}</ListItem>
+          <ListItem>Current address: {user.current_address}</ListItem>
+          <ListItem>Job title: {user.job_title}</ListItem>
+          <ListItem>Annual income: {user.annual_income}</ListItem>
+          <ListItem>
+            Other Household Occupants: {user.other_household_occupants}
+          </ListItem>
+          <ListItem>Contact email: {user.email}</ListItem>
           <List>
-            <ListItem>Rent History</ListItem>
+            {rentHistories.map((history) => {
+              return <ListItem>{renderRentHistory(history)}</ListItem>;
+            })}
           </List>
           <List>
             <ListItem>References</ListItem>
+            {/* 그 전 집주인이 남긴 ref? */}
           </List>
           <Button className={classes.btn}>Contact tenant</Button>
         </List>
       </div>
-
     </div>
   );
 
-
+  if (!user) {
+    return <div>Loading..</div>;
+  }
 
   return (
     <div id="proplist_top">
-
       <div>
         <Button
           className={classes.btn}
           variant="outline-primary"
-          onClick={toggleDrawer("left", true)}>
+          onClick={toggleDrawer("left", true)}
+        >
           Review Application
         </Button>
 
         <Drawer
           className="drawer"
-          style={{ width: '640px' }}
+          style={{ width: "640px" }}
           variant="temporary"
           anchor="left"
           open={state["left"]}
@@ -111,10 +157,7 @@ export default function Filters() {
         >
           {list("left")}
         </Drawer>
-
       </div>
-
     </div>
-  )
-
+  );
 }
