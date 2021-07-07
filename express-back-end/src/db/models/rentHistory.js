@@ -17,6 +17,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "property_id",
         onDelete: "CASCADE",
       });
+      this.hasMany(models.Application, {
+        foreignKey: "renthistories_id",
+      });
     }
   }
   RentHistory.init(

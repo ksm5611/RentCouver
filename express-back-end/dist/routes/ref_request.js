@@ -15,19 +15,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var router = (0, _express.Router)();
 //req.param will find
-router.get("/appList/:landlordId", /*#__PURE__*/function () {
+router.get("/refRequest/:renthistoryId", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {
-    var appList;
+    var refRequest;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return _models.Application.findAll({});
+            return _models.Application.findAll({
+              include: [{
+                model: _models.RentHistory,
+                include: [{
+                  model: _models.Property,
+                  attributes: {
+                    exclude: ["title", "square_feet", "description", "property_type", "number_of_bathrooms", "number_of_bedrooms", "listed_start_date", "cost_of_month", "pets_allowed"]
+                  },
+                  include: [{
+                    model: _models.User
+                  }]
+                }]
+              }]
+            });
 
           case 2:
-            appList = _context.sent;
-            res.send(appList);
+            refRequest = _context.sent;
+            res.send(refRequest);
 
           case 4:
           case "end":

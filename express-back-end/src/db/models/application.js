@@ -23,10 +23,18 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "property_id",
         onDelete: "CASCADE",
       });
+      this.belongsTo(models.RentHistory, {
+        foreignKey: "renthistories_id",
+        onDelete: "CASCADE",
+      });
     }
   }
   Application.init(
     {
+      renthistories_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       tenant_id: {
         type: DataTypes.INTEGER,
         allowNull: false,

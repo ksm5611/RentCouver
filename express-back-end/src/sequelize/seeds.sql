@@ -62,11 +62,11 @@ INSERT INTO photos (property_id, photo_url) VALUES (18, 'https://img.zumpercdn.c
 
 
 -- -- if "decline" is false, we don't display the reference request on the page
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 2, '2017-01-01', '2017-12-31', 'That was the best tenants I have ever met. They were quiet and respectful.', true, false);
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 5, '2018-01-01', '2018-12-31', 'I signed a contract after seeing a review by Landlord and it was not as quiet as I thought.', true, false);
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 7, '2019-01-01', '2019-12-31', 'Great Tenants!', true, false);
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 8, '2020-01-01', '2020-12-31', 'The family followed the rules that I set for tenant also they used the furnitures which is already provided without damages.', true, false);
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 3, '2021-01-01', '2021-05-31', 'Most of the reviews were good, so I signed a contract. The family was very polite and nice. I wanted to sign again, but it was too bad that they were moving to other place. May it be full of happiness!', true, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 2, '2017-01-01', '2017-12-31', null, true, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 5, '2018-01-01', '2018-12-31', null, true, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 7, '2019-01-01', '2019-12-31', null, true, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 8, '2020-01-01', '2020-12-31', null, true, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 3, '2021-01-01', '2021-05-31', null, true, false);
 
 
 
@@ -79,10 +79,11 @@ INSERT INTO refs (tenant_id, landlord_id) VALUES (10, 6);
 
 -- -- select * from refs where tenant_id (to get ref_id for tenant)
 
--- -- ㅇㅓㄴ제 이사할수있는지 날짜 1
-INSERT INTO applications (tenant_id, landlord_id, property_id, potential_move_in_date, is_decline) VALUES (10, 1, 16, '2021-07-01', false);
+-- -- ㅇㅓㄴ제 이사할수있는지 날짜 1 (actual app form part)
+INSERT INTO applications (renthistories_id, tenant_id, landlord_id, property_id, potential_move_in_date, is_decline) VALUES (5, 10, 1, 16, '2021-07-01', false);
 
-INSERT INTO applications (tenant_id, landlord_id, property_id, potential_move_in_date, is_decline) VALUES (10, 6, 3, '2021-07-01', false);
+-- (ref request part)
+INSERT INTO applications (renthistories_id, tenant_id, landlord_id, property_id, potential_move_in_date, is_decline) VALUES (5, 10, 6, 3, '2021-07-01', false);
 
 
 -- -- --- 5
