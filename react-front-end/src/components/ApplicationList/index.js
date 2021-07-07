@@ -10,8 +10,7 @@ import {
   Avatar,
 } from "@material-ui/core";
 
-import ApplicationReview from '../ApplicationReview';
-
+import ApplicationReview from "../ApplicationReview";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -19,26 +18,23 @@ const useStyles = makeStyles((theme) => {
       border: "1px solid black",
       marginBottom: "16px",
       display: "flex",
-      justifyContent: "space-between"      
+      justifyContent: "space-between",
     },
     "& > *": {
       margin: theme.spacing(1),
     },
     btn: {
-      backgroundColor: '#f1a177',
-      color: 'white',
-  
+      backgroundColor: "#f1a177",
+      color: "white",
+
       "&:hover": {
-        backgroundColor: 'rgb(7, 177, 77, 0.42)'
-      }
-  
-    }
+        backgroundColor: "rgb(7, 177, 77, 0.42)",
+      },
+    },
   };
 });
 
-
 export default function ApplicationList() {
-
   //material ui styling funtion
   const classes = useStyles();
 
@@ -52,40 +48,49 @@ export default function ApplicationList() {
       <Container>
         {/* <Typography variant="h4">Tenant name Address</Typography> */}
         <ListItem className={classes.root} id="listitem-head">
-            <div className="req-info head">
-              <h5>Tenant's name</h5>
-              <h5>Property Address</h5>
-            </div>
-          </ListItem>
+          <div className="req-info head">
+            <h5>Tenant's name</h5>
+            <h5>Property Address</h5>
+          </div>
+        </ListItem>
         <List>
-
           <ListItem className={classes.root}>
             <div className="req-info">
-              <Avatar src=""/>
+              <Avatar src="" />
               <p className="req-tenant">Sumin Kim</p>
               <p className="req-tenant address">applied property address</p>
             </div>
             <div className="option-btn">
               <ApplicationReview />
-              <Button className={classes.btn} variant="contained" color="secondary">Decline</Button>
+              <Button
+                className={classes.btn}
+                variant="contained"
+                color="secondary"
+              >
+                Decline
+              </Button>
             </div>
           </ListItem>
 
           <ListItem className={classes.root}>
             <div className="req-info">
-              <Avatar src=""/>
+              <Avatar src="" />
               <p className="req-tenant">Felicia Okta</p>
               <p className="req-tenant address">applied property address</p>
             </div>
             <div className="option-btn">
-            <ApplicationReview />
-              <Button className={classes.btn} variant="contained" color="secondary">Decline</Button>
+              <ApplicationReview />
+              <Button
+                className={classes.btn}
+                variant="contained"
+                color="secondary"
+              >
+                Decline
+              </Button>
             </div>
           </ListItem>
-
         </List>
       </Container>
-
     </div>
-  )
+  );
 }
