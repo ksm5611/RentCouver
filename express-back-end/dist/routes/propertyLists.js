@@ -16,15 +16,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var router = (0, _express.Router)();
 router.get("/propertyLists", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {
-    var propertyList;
+    var where, propertyList;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.next = 2;
+            where = {};
+
+            if (req.query) {
+              if (req.query.property_type) {
+                where.property_type = req.query.property_type;
+              }
+
+              if (req.query.number_of_bathrooms) {
+                where.number_of_bathrooms = req.query.number_of_bathrooms;
+              }
+
+              if (req.query.number_of_bedrooms) {
+                where.number_of_bedrooms = req.query.number_of_bedrooms;
+              }
+
+              if (req.query.cost_of_month) {
+                where.cost_of_month = req.query.cost_of_month;
+              }
+
+              if (req.query.pets_allowed) {
+                where.pets_allowed = req.query.pets_allowed;
+              }
+            }
+
+            _context.next = 4;
             return _models.Property.findAll({
+              where: where,
               attributes: {
-                exclude: ["landlord_id", "square_feet", "description", "property_type", "number_of_bathrooms", "number_of_bedrooms", "pets_allowed"]
+                exclude: ["landlord_id", "square_feet", "description"]
               },
               include: [{
                 model: _models.Photo,
@@ -35,11 +60,11 @@ router.get("/propertyLists", /*#__PURE__*/function () {
               limit: req.query.limit
             });
 
-          case 2:
+          case 4:
             propertyList = _context.sent;
             res.send(propertyList);
 
-          case 4:
+          case 6:
           case "end":
             return _context.stop();
         }
