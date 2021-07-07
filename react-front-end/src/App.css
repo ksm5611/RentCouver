@@ -345,6 +345,13 @@ body .second-hero-container h2 {
   padding-right: 112px;
 }
 
+.test2 {
+  border: 1px solid red;
+  width: 200px;
+  height: 400px;
+  z-index: 3;
+}
+
 #drawer-container {
   display: flex;
   justify-content: center;

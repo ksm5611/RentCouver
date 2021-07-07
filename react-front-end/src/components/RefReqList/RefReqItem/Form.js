@@ -9,7 +9,7 @@ import '../../../App.css';
 export default function RefForm(props) {
   return (
 
-    <ListItem className={props.classes}>
+    <ListItem className={props.className}>
       <div className="req-info">
         <Avatar src="" />
         <p className="req-tenant">Felicia Okta</p>

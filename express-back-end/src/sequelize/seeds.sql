@@ -84,7 +84,7 @@ INSERT INTO applications (tenant_id, landlord_id, property_id, potential_move_in
 
 
 
--- -- --- 5
+-- --- 5
 -- INSERT INTO ref_requests (landlord_id, tenant_id, property_id, is_decline) VALUES (4, 10, 2, false);
 -- INSERT INTO ref_requests (landlord_id, tenant_id, property_id, is_decline) VALUES (2, 10, 5, false);
 -- INSERT INTO ref_requests (landlord_id, tenant_id, property_id, is_decline) VALUES (5, 10, 7, false);
