@@ -49,7 +49,13 @@ module.exports = function (sequelize, DataTypes) {
         // define association here
         this.belongsTo(models.User, {
           foreignKey: "tenant_id",
-          onDelete: "CASCADE"
+          onDelete: "CASCADE",
+          as: "tenant"
+        });
+        this.belongsTo(models.User, {
+          foreignKey: "landlord_id",
+          onDelete: "CASCADE",
+          as: "landlord"
         });
         this.belongsTo(models.Property, {
           foreignKey: "property_id",
@@ -66,6 +72,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false
     },
+    landlord_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     property_id: {
       type: DataTypes.STRING,
       allowNull: false
@@ -73,6 +83,11 @@ module.exports = function (sequelize, DataTypes) {
     potential_move_in_date: {
       type: DataTypes.DATE,
       allowNull: false
+    },
+    is_decline: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     }
   }, {
     sequelize: sequelize,
