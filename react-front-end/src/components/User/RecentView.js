@@ -10,9 +10,10 @@ export default function RecentView() {
     async function fetchData() {
       try {
         const result = await axios.get(
-          "http://localhost:8000/api/propertyLists"
+          "http://localhost:8000/api/propertyLists?limit=3"
         );
         setProperties(result.data);
+        console.log(result.data);
       } catch (error) {
         setError("Your server is broken");
       }
@@ -25,7 +26,7 @@ export default function RecentView() {
   }
   return (
     <div className="fav-properties">
-      <PropertyListItem />
+      <PropertyListItem properties={properties} />
     </div>
   );
 }

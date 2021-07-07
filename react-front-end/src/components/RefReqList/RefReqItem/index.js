@@ -30,7 +30,7 @@ export default function RefReqItem(props) {
           <p className="req-tenant address">property address</p>
         </div>
         <div className="option-btn">
-          <Button variant="contained" color="primary" onClick={() => transition(FORM)}>Leave Reference</Button>
+          <Button variant="contained" color="primary" onClick={() => transition(FORM)}>Write Reference</Button>
           <Button variant="contained" color="secondary" onClick={() => transition(DECLINED)}>Decline</Button>
         </div>
       </ListItem>)}

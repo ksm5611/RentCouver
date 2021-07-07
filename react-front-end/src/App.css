@@ -295,19 +295,19 @@ body .second-hero-container h2 {
   margin: 24px 0;
 }
 
-.req-info {
+.req-info, .history-info {
   display: flex;
   align-items: center;
   width: 100%;
+  padding-right: 20px;
 }
-.req-info .req-tenant,
-.req-info h5 {
+.req-info .req-tenant, .req-info .req-landlord, .req-info h5, .history-info .req-tenant, .history-info .req-landlord, .history-info h5 {
   margin: 0;
   padding: 0 20px;
-  width: 200px;
+  width: 240px;
 }
-.req-info .address {
-  width: 620px;
+.req-info .address, .history-info .address {
+  width: 480px;
 }
 
 .head {
@@ -319,7 +319,7 @@ body .second-hero-container h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 400px;
+  width: 300px;
 }
 
 .seperator {
@@ -332,6 +332,17 @@ body .second-hero-container h2 {
   height: 100px;
   resize: none;
   border-radius: 6px;
+}
+
+.rent-history-info {
+  display: flex;
+  padding: 0 20px;
+}
+.rent-history-info .rent-historty-address {
+  width: 480px;
+}
+.rent-history-info h5 {
+  padding-right: 112px;
 }
 
 #drawer-container {

@@ -1,45 +1,28 @@
-import axios from "axios";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import "./PropertyListItem.css";
 
-export default function PropertyListItem() {
-  const [properties, setProperties] = useState([]);
-  const [error, setError] = useState("");
+
+
+export default function PropertyListItem({ properties }) {
   const [data, setData] = useState({ hits: [] });
   const [url, setUrl] = useState();
-
+  const BASEURL = 'http://localhost:7000/property_listings'
+  
   const propertyValues = ["cost_of_month", "listed_start_date"];
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const result = await axios.get(
-          "http://localhost:8000/api/propertyLists"
-        );
-
-        setProperties(result.data);
-      } catch (error) {
-        setError("Your server is broken");
-      }
-    }
-    fetchData();
-  }, []);
-
-
+  
   const filterClick = function (query) {
     setUrl(BASEURL + query);
   };
-
-
+  
+  
   // Build array of 'hits' from data
   const mappedList = data.hits.map(item => (
     <li key={item.objectID}>
       <a href={item.url}>{item.title}</a>
     </li>
   ));
-
 
   const renderPropertyCard = (property) => {
     return (
