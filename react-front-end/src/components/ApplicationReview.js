@@ -43,7 +43,6 @@ export default function Filters({ tenantId }) {
           `http://localhost:8000/api/applications/${tenantId}`
         );
         const { RentHistories: rentHistoryData, ...userData } = result.data;
-        console.log(result.data);
         setUser(userData);
         setRentHistories(rentHistoryData);
       } catch (error) {

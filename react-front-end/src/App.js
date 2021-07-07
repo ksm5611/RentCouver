@@ -28,8 +28,8 @@ export default function App() {
           <Route path="/property_details/:id">
             <PropertyDetails />
           </Route>
-          <Route path="/applicationForm">
-            <ApplicationForm propertyId={17} />
+          <Route path="/applicationForm/:propertyId/:landlordId">
+            <ApplicationForm />
           </Route>
           <Route path="/property_listings">
             <PropertyListing />

@@ -77,7 +77,6 @@ export default function ApplicationList() {
         </ListItem>
         <List>
           {appLists.map((listValue) => {
-            console.log(listValue);
             return (
               <ListItem className={classes.root}>
                 <div className="req-info">
@@ -93,14 +92,18 @@ export default function ApplicationList() {
                 </div>
                 <div className="option-btn">
                   <ApplicationReview tenantId={listValue.tenant_id} />
-                  <Button
-                    className={classes.btn}
-                    variant="contained"
-                    color="secondary"
-                    onClick={() => handleDecline(listValue.id)}
-                  >
-                    Decline
-                  </Button>
+                  {listValue.is_decline === false ? (
+                    <Button
+                      className={classes.btn}
+                      variant="contained"
+                      color="secondary"
+                      onClick={() => handleDecline(listValue.id)}
+                    >
+                      Decline
+                    </Button>
+                  ) : (
+                    "Hello"
+                  )}
                 </div>
               </ListItem>
             );
