@@ -23,10 +23,22 @@ router.get("/appList/:landlordId", /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return _models.Application.findOne({
+            return _models.Application.findAll({
               where: {
                 id: req.params.landlordId
-              }
+              },
+              include: [{
+                model: _models.Property,
+                attributes: {
+                  exclude: ["title", "square_feet", "description", "property_type", "number_of_bathrooms", "number_of_bedrooms", "listed_start_date", "cost_of_month", "pets_allowed"]
+                },
+                include: [{
+                  model: _models.User,
+                  attributes: {
+                    exclude: ["email", "password", "current_address", "property_type", "job_title", "annual_income", "is_landlord", "other_household_occupants"]
+                  }
+                }]
+              }]
             });
 
           case 2:
