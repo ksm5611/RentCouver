@@ -42,6 +42,7 @@ export default function Filters () {
     setState({ ...state, [anchor]: open });
   };
 
+  // const []
 
   // insides of the drawer
   const list = (anchor) => (
@@ -57,7 +58,9 @@ export default function Filters () {
 
         <PriceSlider />
 
-        <FilterType />
+        <FilterType 
+          // selected={selectedIndex}
+        />
 
         <FilterBedroom />
 
