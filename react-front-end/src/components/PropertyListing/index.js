@@ -23,13 +23,13 @@ export default function PropertyListing(props) {
   //   // this props will be from Filters.js
   //   // props are the filter selections
   //   if (props.property_type !== null) {
-  //     // the search button in Filters.js <Button href={"type=" + property_type} />
+  //     // the search button in Filters.js {"type=" + property_type} />
   //   }
   //   if (props.number_of_bedrooms !== null) {
-  //     // the search button in Filters.js <Button href={"number_of_bedrooms=" + number_of_bedrooms} />
+  //     // the search button in Filters.js {"number_of_bedrooms=" + number_of_bedrooms} />
   //   }
   //   if (number_of_bathrooms !== null) {
-  //     // the search button in Filters.js <Button href={"number_of_bathrooms=" + number_of_bathrooms} />
+  //     // the search button in Filters.js {"number_of_bathrooms=" + number_of_bathrooms} />
   //   }
 
   // }

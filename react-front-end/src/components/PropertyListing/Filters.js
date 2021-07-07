@@ -42,7 +42,7 @@ export default function Filters () {
     setState({ ...state, [anchor]: open });
   };
 
-  // const []
+  // const [ selectedIndex, setSelectedIndex ] = React.useState(0)...?
 
   // insides of the drawer
   const list = (anchor) => (
@@ -59,7 +59,7 @@ export default function Filters () {
         <PriceSlider />
 
         <FilterType 
-          // selected={selectedIndex}
+          // pass the selected text or index??
         />
 
         <FilterBedroom />
@@ -86,8 +86,24 @@ export default function Filters () {
   // the search URL is set in PropertyListItem.js
   // then in the back end, access the URL through req.params
   // then express should pass in the req.params back to the ReactJS
-  // set the values using useEffect hook
+  // set the values using useEffect hook to toggle the drawer and change the URL at the same time
 
+
+  //this query will go into onClick for the search button
+  // const query = (props) => {
+  //   // this props will be from Filters.js
+  //   // props are the filter selections
+  //   if (props.property_type !== null) {
+  //     // the search button in Filters.js {"type=" + property_type}
+  //   }
+  //   if (props.number_of_bedrooms !== null) {
+  //     // the search button in Filters.js {"number_of_bedrooms=" + number_of_bedrooms}
+  //   }
+  //   if (number_of_bathrooms !== null) {
+  //     // the search button in Filters.js {"number_of_bathrooms=" + number_of_bathrooms}
+  //   }
+
+  // }
 
 
   return (
@@ -111,13 +127,15 @@ export default function Filters () {
           {list("left")}
 
           <Button
-            // href=""
+            // use a Router then a Link to={query_type + query_bedrooms + query_bathrooms} so the app doesn't refresh and lose the state
             id="btn-outline-primary"
             variant="outline-primary"
+            // value=take the child info in {}, then put this in the onClick into a setState(value)
             onClick={
-              // onClick={searchClick},
-              // onClick={() => onClick(query)},
-              toggleDrawer("left", false)
+              // {searchClick},
+              // () => onClick(query),
+              // make a function to take the state from the FilterType.js
+              toggleDrawer("left", false) /*-- this will probably be in useEffect*/
             }
           >
             Search
