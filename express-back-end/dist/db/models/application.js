@@ -81,6 +81,11 @@ module.exports = function (sequelize, DataTypes) {
     potential_move_in_date: {
       type: DataTypes.DATE,
       allowNull: false
+    },
+    is_decline: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     }
   }, {
     sequelize: sequelize,
