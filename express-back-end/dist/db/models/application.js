@@ -49,11 +49,13 @@ module.exports = function (sequelize, DataTypes) {
         // define association here
         this.belongsTo(models.User, {
           foreignKey: "tenant_id",
-          onDelete: "CASCADE"
+          onDelete: "CASCADE",
+          as: "tenant"
         });
         this.belongsTo(models.User, {
           foreignKey: "landlord_id",
-          onDelete: "CASCADE"
+          onDelete: "CASCADE",
+          as: "landlord"
         });
         this.belongsTo(models.Property, {
           foreignKey: "property_id",

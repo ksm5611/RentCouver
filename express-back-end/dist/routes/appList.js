@@ -31,13 +31,13 @@ router.get("/appList/:landlordId", /*#__PURE__*/function () {
                 model: _models.Property,
                 attributes: {
                   exclude: ["title", "square_feet", "description", "property_type", "number_of_bathrooms", "number_of_bedrooms", "listed_start_date", "cost_of_month", "pets_allowed"]
-                },
-                include: [{
-                  model: _models.User,
-                  attributes: {
-                    exclude: ["email", "password", "current_address", "property_type", "job_title", "annual_income", "is_landlord", "other_household_occupants"]
-                  }
-                }]
+                }
+              }, {
+                model: _models.User,
+                as: "tenant",
+                attributes: {
+                  exclude: ["email", "password", "current_address", "property_type", "job_title", "annual_income", "is_landlord", "other_household_occupants"]
+                }
               }]
             });
 

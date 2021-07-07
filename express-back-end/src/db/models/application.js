@@ -12,10 +12,12 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.User, {
         foreignKey: "tenant_id",
         onDelete: "CASCADE",
+        as: "tenant",
       });
       this.belongsTo(models.User, {
         foreignKey: "landlord_id",
         onDelete: "CASCADE",
+        as: "landlord",
       });
       this.belongsTo(models.Property, {
         foreignKey: "property_id",

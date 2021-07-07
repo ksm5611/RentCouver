@@ -22,26 +22,26 @@ router.get("/appList/:landlordId", async (req, res) => {
             "pets_allowed",
           ],
         },
-        include: [
-          {
-            model: User,
-            attributes: {
-              exclude: [
-                "email",
-                "password",
-                "current_address",
-                "property_type",
-                "job_title",
-                "annual_income",
-                "is_landlord",
-                "other_household_occupants",
-              ],
-            },
-          },
-        ],
+      },
+      {
+        model: User,
+        as: "tenant",
+        attributes: {
+          exclude: [
+            "email",
+            "password",
+            "current_address",
+            "property_type",
+            "job_title",
+            "annual_income",
+            "is_landlord",
+            "other_household_occupants",
+          ],
+        },
       },
     ],
   });
+
   res.send(appList);
 });
 
