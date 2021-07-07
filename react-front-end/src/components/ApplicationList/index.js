@@ -55,6 +55,11 @@ export default function ApplicationList() {
   //material ui styling funtion
   const classes = useStyles();
 
+  //decline button function
+  const handleDecline = async (applicationId) => {
+    await axios.post(`http://localhost:8000/api/appList/${applicationId}`);
+  };
+
   return (
     <div>
       <section className="hero-container second-hero-container">
@@ -72,6 +77,7 @@ export default function ApplicationList() {
         </ListItem>
         <List>
           {appLists.map((listValue) => {
+            console.log(listValue);
             return (
               <ListItem className={classes.root}>
                 <div className="req-info">
@@ -91,6 +97,7 @@ export default function ApplicationList() {
                     className={classes.btn}
                     variant="contained"
                     color="secondary"
+                    onClick={() => handleDecline(listValue.id)}
                   >
                     Decline
                   </Button>
