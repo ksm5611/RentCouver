@@ -6,23 +6,9 @@ import "./PropertyListItem.css";
 
 
 export default function PropertyListItem({ properties }) {
-  const [data, setData] = useState({ hits: [] });
-  const [url, setUrl] = useState();
-  const BASEURL = 'http://localhost:7000/property_listings'
   
   const propertyValues = ["cost_of_month", "listed_start_date"];
   
-  const filterClick = function (query) {
-    setUrl(BASEURL + query);
-  };
-  
-  
-  // Build array of 'hits' from data
-  const mappedList = data.hits.map(item => (
-    <li key={item.objectID}>
-      <a href={item.url}>{item.title}</a>
-    </li>
-  ));
 
   const renderPropertyCard = (property) => {
     return (
