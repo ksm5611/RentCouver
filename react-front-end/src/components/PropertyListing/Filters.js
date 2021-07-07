@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Button } from 'react-bootstrap';
 import { Drawer } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -42,7 +43,7 @@ export default function Filters () {
   };
 
 
-
+  // insides of the drawer
   const list = (anchor) => (
     <div
       className={clsx(classes.list, {
@@ -76,6 +77,16 @@ export default function Filters () {
 
 
 
+  // search button
+  // the search button will redirect the user to a URL which has the new params for the filter
+  // /property_listings/filter?type=condo&&bedrooms=2&&bathrooms=2
+  // the search URL is set in PropertyListItem.js
+  // then in the back end, access the URL through req.params
+  // then express should pass in the req.params back to the ReactJS
+  // set the values using useEffect hook
+
+
+
   return (
     <div id="proplist_top">
 
@@ -99,7 +110,11 @@ export default function Filters () {
           <Button
             id="btn-outline-primary"
             variant="outline-primary"
-            onClick={toggleDrawer("left", false)}
+            onClick={
+              // onClick={searchClick},
+              // onClick={() => onClick(query)},
+              toggleDrawer("left", false)
+            }
           >
             Search
           </Button>

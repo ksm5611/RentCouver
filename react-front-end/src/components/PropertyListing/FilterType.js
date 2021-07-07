@@ -40,7 +40,7 @@ export default function FilterType () {
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
 
-        {['All', 'Condo', 'Basement', 'Laneway House', 'Townhouse', 'Detached House'].map((text, index) => (
+        {['All', 'Apartment', 'Condo', 'House'].map((text, index) => (
           <Collapse in={open} timeout="auto" unmountOnExit>
             
             <List component="div" disablePadding>

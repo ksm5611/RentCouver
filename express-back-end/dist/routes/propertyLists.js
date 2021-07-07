@@ -24,7 +24,7 @@ router.get("/propertyLists", /*#__PURE__*/function () {
             _context.next = 2;
             return _models.Property.findAll({
               attributes: {
-                exclude: ["landlord_id", "square_feet", "description", "property_type", "number_of_bathrooms", "number_of_bedrooms", "pets_allowed"]
+                exclude: ["landlord_id", "square_feet", "description"]
               },
               include: [{
                 model: _models.Photo,
@@ -32,7 +32,7 @@ router.get("/propertyLists", /*#__PURE__*/function () {
                   exclude: ["property_id"]
                 }
               }],
-              limit: 3
+              limit: 15
             });
 
           case 2:

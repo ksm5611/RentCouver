@@ -9,10 +9,6 @@ router.get("/propertyLists", async (req, res) => {
         "landlord_id",
         "square_feet",
         "description",
-        "property_type",
-        "number_of_bathrooms",
-        "number_of_bedrooms",
-        "pets_allowed",
       ],
     },
     include: [
@@ -23,7 +19,7 @@ router.get("/propertyLists", async (req, res) => {
         },
       },
     ],
-    limit: 3,
+    limit: 15,
   });
   res.send(propertyList);
 });
