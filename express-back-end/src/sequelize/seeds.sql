@@ -80,7 +80,7 @@ INSERT INTO refs (tenant_id, landlord_id) VALUES (10, 6);
 -- -- select * from refs where tenant_id (to get ref_id for tenant)
 
 -- -- ㅇㅓㄴ제 이사할수있는지 날짜 1
-INSERT INTO applications (tenant_id, property_id, potential_move_in_date) VALUES (10, 16, '2021-07-01');
+INSERT INTO applications (tenant_id, landlord_id, property_id, potential_move_in_date, is_decline) VALUES (10, 1, 16, '2021-07-01', false);
 
 
 
