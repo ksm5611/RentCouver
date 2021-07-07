@@ -54,6 +54,8 @@ export default function ApplicationForm({ propertyId }) {
           "http://localhost:8000/api/applications/10"
         );
         const { RentHistories: rentHistoryData, ...userData } = result.data;
+
+        console.log(result.data);
         setUser(userData);
         setRentHistories(rentHistoryData);
       } catch (error) {
