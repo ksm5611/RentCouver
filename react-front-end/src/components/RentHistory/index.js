@@ -32,23 +32,21 @@ export default function RentHistory() {
   const classes = useStyles();
 
   const [history, setHistory] = useState([]);
+
   const [error, setError] = useState(false);
   const [pending, setPending] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/rentHistories")
-      .then((result) => {
-        setHistory(result.data);
-        setError(false)
-      })
-      .catch((err) => {
-        console.log(err.message);
-        setError(true)
-      })
-      .finally(() => {
-        setPending(false);
-      })
-  }, []);
+    async function fetchData() {
+      try {
+        const result = await axios.get("http://localhost:8000/api/rentHistories");
+        setHistory(result.data)
+      } catch (error) {
+        setError("NOPE")
+      }
+    }
+    fetchData();
+  },[])
 
 
   const historyList = history.map((record) => {
