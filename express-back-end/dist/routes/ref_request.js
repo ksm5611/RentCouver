@@ -30,13 +30,12 @@ router.get("/refRequest/:landlordId", /*#__PURE__*/function () {
               include: [{
                 model: _models.RentHistory,
                 include: [{
+                  model: _models.User
+                }, {
                   model: _models.Property,
                   attributes: {
                     exclude: ["title", "square_feet", "description", "property_type", "number_of_bathrooms", "number_of_bedrooms", "listed_start_date", "cost_of_month", "pets_allowed"]
-                  },
-                  include: [{
-                    model: _models.User
-                  }]
+                  }
                 }]
               }]
             });

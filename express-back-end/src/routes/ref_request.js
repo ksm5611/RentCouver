@@ -11,6 +11,9 @@ router.get("/refRequest/:landlordId", async (req, res) => {
         model: RentHistory,
         include: [
           {
+            model: User,
+          },
+          {
             model: Property,
             attributes: {
               exclude: [
@@ -25,7 +28,6 @@ router.get("/refRequest/:landlordId", async (req, res) => {
                 "pets_allowed",
               ],
             },
-            include: [{ model: User }],
           },
         ],
       },
