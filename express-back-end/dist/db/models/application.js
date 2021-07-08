@@ -74,7 +74,7 @@ module.exports = function (sequelize, DataTypes) {
   Application.init({
     renthistories_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     tenant_id: {
       type: DataTypes.INTEGER,
@@ -90,7 +90,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     potential_move_in_date: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: true
     },
     is_decline: {
       type: DataTypes.BOOLEAN,
