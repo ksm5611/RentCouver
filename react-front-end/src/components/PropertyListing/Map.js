@@ -1,5 +1,4 @@
-import { withScriptjs, GoogleApiWrapper, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
-import './Map.css';
+import { withScriptjs, GoogleApiWrapper, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 
 export default function Googlemaps () {
   
@@ -19,7 +18,7 @@ export default function Googlemaps () {
         isMarkerShown
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBll-wcAmMAts26B9ItG6HIl3cnviRY3lE`}
         loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `500px`, width: `1000px` }} />}
+        containerElement={<div style={{ height: `800px`, width: `1000px` }} />}
         mapElement={<div style={{ height: `100%` }} />}
       />
 

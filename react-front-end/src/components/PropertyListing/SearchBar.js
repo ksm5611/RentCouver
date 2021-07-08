@@ -29,11 +29,11 @@ const properties = [
   { title: 'Arbutus Nook' },
   { title: 'Little Mountain Living'},
   { title: 'Oakridge Hideaway'},
-  { title: 'Marble Mansion' },
-  { title: 'Primo Valentino' },
-  { title: 'Anchor Point' },
-  { title: 'Corner Condo' },
-  { title: 'Sparkler Parker' },
-  { title: 'Kingsway Family Condo' },
-  { title: 'Kensington Palace' }
+  // { title: 'Marble Mansion' },
+  // { title: 'Primo Valentino' },
+  // { title: 'Anchor Point' },
+  // { title: 'Corner Condo' },
+  // { title: 'Sparkler Parker' },
+  // { title: 'Kingsway Family Condo' },
+  // { title: 'Kensington Palace' }
 ]

@@ -2,6 +2,11 @@
   padding-top: 55px
 }
 
+#search-and-filter {
+  display: flex;
+  align-items: center;
+}
+
 #map-and-proplist {
   display: flex;
   flex-direction: row;
