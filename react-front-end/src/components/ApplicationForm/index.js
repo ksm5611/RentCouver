@@ -1,4 +1,8 @@
+import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
 import axios from "axios";
+
+import { useHistory } from 'react-router-dom'
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
@@ -33,6 +37,15 @@ export default function ApplicationForm() {
   const [rentHistories, setRentHistories] = useState([]);
   const [error, setError] = useState("");
   const [potentialMoveInDate, setPotentailDate] = useState(null);
+
+
+  // modes for buttons
+  const DEFAULT = "DEFAULT";
+  const SENT = "SENT";
+  const { mode, transition } = useVisualMode(DEFAULT);
+
+  // go back to previous property page
+  const history = useHistory();
 
   //labeling user's info function
   const userInfo = [
@@ -120,6 +133,7 @@ export default function ApplicationForm() {
       landlord_id: landlordId,
       potential_move_in_date: potentialMoveInDate,
     });
+    transition(SENT)
   };
 
   // setting date funtion
@@ -161,13 +175,23 @@ export default function ApplicationForm() {
           onChange={onChangeDate}
         />
       </div>
+      {mode === DEFAULT && (
+        <>
+          <Button variant="contained" color="primary" onClick={handleSubmit}>
+            Send
+          </Button>
+          <Button variant="contained" color="secondary" onClick={() => history.push(`/property_details/${propertyId}`)}>
+            cancel
+          </Button>
+        </>
+      )}
+      {mode === SENT && (
+        <>
+          <p>SENT!</p>
+          <Button variant="contained" color="secondary" onClick={() => history.push(`/property_details/${propertyId}`)}>Back to Property Details</Button>
+        </>
+      )}
 
-      <Button variant="contained" color="primary" onClick={handleSubmit}>
-        Send
-      </Button>
-      <Button variant="contained" color="secondary">
-        cancel
-      </Button>
     </Container>
   );
 }
