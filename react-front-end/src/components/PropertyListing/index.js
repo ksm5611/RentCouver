@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Filters from "./Filters";
+import SearchBar from "./SearchBar";
 import MyComponent from "./Map";
 import PropertyListItem from "./PropertyListItem";
 import "./index.css";
@@ -57,6 +58,7 @@ export default function PropertyListing() {
       <Filters
         // filteredProperties={filter => setFilter(filter)}
       />
+      <SearchBar />
       <div id="map-and-proplist">
         <PropertyListItem
           properties={properties}
