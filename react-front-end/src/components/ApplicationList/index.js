@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core";
 
 import ApplicationReview from "../ApplicationReview";
+import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -39,7 +40,11 @@ const useStyles = makeStyles((theme) => {
 export default function ApplicationList() {
   const [appLists, setAppLists] = useState([]);
   const [error, setError] = useState("");
-  const [appDecision, setAppDecision] = useState(false);
+
+  const REQUEST = "REQUEST";
+  const DECLINED = "DECLINED";
+  const { mode, transition } = useVisualMode(REQUEST);
+
 
   useEffect(() => {
     async function fetchData() {
@@ -53,22 +58,10 @@ export default function ApplicationList() {
     fetchData();
   }, []);
 
-  useEffect(()=>{
-    async function updateStatus() {
-      try {
-
-      } catch {
-        setError("NOPE")
-      }
-    }
-    updateStatus();
-  },[])
-
   const declineApp = async (appID) => {
-    await axios.post(`http://localhost:8000/api/appList/${appID}`);    
-
+    await axios.post(`http://localhost:8000/api/appList/${appID}`);
+    transition(DECLINED)
   }
-
 
   //material ui styling funtion
   const classes = useStyles();
@@ -105,18 +98,21 @@ export default function ApplicationList() {
                 </div>
                 <div className="option-btn">
                   <ApplicationReview tenantId={listValue.tenant_id} />
-                  {listValue.is_decline === false ? (
-                  <Button
-                    className={classes.btn}
-                    variant="contained"
-                    color="secondary"
-                    onClick={() => {declineApp(listValue.id)}}
-                  >
-                    Decline
-                  </Button>
-                  ) :(
-                    <p>Declined</p>
+                  {mode === REQUEST && (
+                    listValue.is_decline === false ? (
+                      <Button
+                        className={classes.btn}
+                        variant="contained"
+                        color="secondary"
+                        onClick={() => { declineApp(listValue.id) }}
+                      >
+                        Decline
+                      </Button>
+                    ) : (
+                      <p>DECLINED</p>
+                    )
                   )}
+                  {mode === DECLINED && (<p>DECLINED</p>)}
                 </div>
               </ListItem>
             );
