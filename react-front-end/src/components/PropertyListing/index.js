@@ -6,6 +6,8 @@ import PropertyListItem from "./PropertyListItem";
 import "./index.css";
 import React, { memo } from "react";
 
+// this file cannot have props because this doesn't have a parent file
+
 export default function PropertyListing() {
   const [properties, setProperties] = useState([]);
   const [error, setError] = useState("");
@@ -19,17 +21,17 @@ export default function PropertyListing() {
   // send the state [filter, setFilter] down to Filters.js and each filter
   // Filters.js will setState and it will be sent up here
 
-  // const query = (props) => {
+  // const query = (filter) => {
   //   // this props will be from Filters.js
   //   // props are the filter selections
   //   result = "";
-  //   if (props.property_type !== null) {
+  //   if (filter.property_type !== null) {
   //     result = "type=" + property_type;
   //   }
-  //   if (props.number_of_bedrooms !== null) {
+  //   if (filter.bedrooms !== null) {
   //     result = "bedrooms=" + number_of_bedrooms;
   //   }
-  //   if (number_of_bathrooms !== null) {
+  //   if (filter.bathrooms !== null) {
   //     result = "bathrooms=" + number_of_bathrooms;
   //   }
 
@@ -52,10 +54,11 @@ export default function PropertyListing() {
 
   return (
     <div id="proplist-container">
-      <Filters />
+      <Filters
+        // filteredProperties={filter => setFilter(filter)}
+      />
       <div id="map-and-proplist">
         <PropertyListItem
-          // filteredProperties={filter => setFilter(filter)}
           properties={properties}
         />
         <MyComponent />

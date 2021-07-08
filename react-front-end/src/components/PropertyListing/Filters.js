@@ -87,7 +87,7 @@ export default function Filters (props) {
   // set the values using useEffect hook to toggle the drawer and change the URL at the same time
 
   // inside the search button
-  // onClick={() => props.filteredProperties()}
+  // onClick={() => props.filteredProperties()} && toggleDrawer("left", false)
 
 
   return (
@@ -116,10 +116,9 @@ export default function Filters (props) {
             variant="outline-primary"
             // value=take the child info in {}, then put this in the onClick into a setState(value)
             onClick={
-              // {searchClick},
-              // () => onClick(query),
-              // make a function to take the state from the FilterType.js
-              toggleDrawer("left", false) /*-- this will probably be in useEffect*/
+              // () => {
+                // props.filteredProperties();
+              toggleDrawer("left", false) /*}*/
             }
           >
             Search
