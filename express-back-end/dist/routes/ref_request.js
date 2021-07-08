@@ -15,7 +15,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var router = (0, _express.Router)();
 //req.param will find
-router.get("/refRequest/:renthistoryId", /*#__PURE__*/function () {
+router.get("/refRequest/:landlordId", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {
     var refRequest;
     return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -24,6 +24,9 @@ router.get("/refRequest/:renthistoryId", /*#__PURE__*/function () {
           case 0:
             _context.next = 2;
             return _models.Application.findAll({
+              where: {
+                landlord_id: req.params.landlordId
+              },
               include: [{
                 model: _models.RentHistory,
                 include: [{
@@ -52,6 +55,38 @@ router.get("/refRequest/:renthistoryId", /*#__PURE__*/function () {
 
   return function (_x, _x2) {
     return _ref.apply(this, arguments);
+  };
+}()); //creating ref request
+
+router.post("/refRequest/:historyId", /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {
+    var refRequest;
+    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return _models.RentHistory.update({
+              review_content: req.body,
+              wherer: {
+                id: req.params.historyId
+              }
+            });
+
+          case 2:
+            refRequest = _context2.sent;
+            res.json(refRequest);
+
+          case 4:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+
+  return function (_x3, _x4) {
+    return _ref2.apply(this, arguments);
   };
 }());
 var _default = router;
