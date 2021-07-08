@@ -41,9 +41,9 @@ export default function ApplicationList() {
   const [appLists, setAppLists] = useState([]);
   const [error, setError] = useState("");
 
-  const REQUEST = "REQUEST";
+  const DEFAULT = "DEFAULT";
   const DECLINED = "DECLINED";
-  const { mode, transition } = useVisualMode(REQUEST);
+  const { mode, transition } = useVisualMode(DEFAULT);
 
 
   useEffect(() => {
@@ -67,9 +67,9 @@ export default function ApplicationList() {
   const classes = useStyles();
 
   //decline button function
-  const handleDecline = async (applicationId) => {
-    await axios.post(`http://localhost:8000/api/appList/${applicationId}`);
-  };
+  // const handleDecline = async (applicationId) => {
+  //   await axios.post(`http://localhost:8000/api/appList/${applicationId}`);
+  // };
 
   return (
     <div>
@@ -103,7 +103,7 @@ export default function ApplicationList() {
                 </div>
                 <div className="option-btn">
                   <ApplicationReview tenantId={listValue.tenant_id} />
-                  {mode === REQUEST && (
+                  {mode === DEFAULT && (
                     listValue.is_decline === false ? (
                       <Button
                         className={classes.btn}
@@ -114,7 +114,8 @@ export default function ApplicationList() {
                         Decline
                       </Button>
                     ) : (
-                      <p>DECLINED</p>
+                      // <p>DECLINED</p>
+                      DECLINED
                     )
                   )}
                   {mode === DECLINED && (<p>DECLINED</p>)}
