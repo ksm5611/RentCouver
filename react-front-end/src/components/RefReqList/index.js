@@ -1,17 +1,16 @@
-import axios from "axios";
-import useVisualMode from './RefReqItem/useVisualMode';
-import RefReqItem from './RefReqItem/index';
+import useVisualMode from "./RefReqItem/useVisualMode";
+
+import RefReqItem from "./RefReqItem/index";
 import {
   Container,
   ListItem,
   List,
   makeStyles,
   Button,
-  Avatar
+  Avatar,
 } from "@material-ui/core";
-import '../../App.css';
-import { useEffect, useState, useParams } from 'react';
-import RentHistory from '../RentHistory/index';
+import "../../App.css";
+import RentHistory from "../RentHistory/index";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -20,7 +19,7 @@ const useStyles = makeStyles((theme) => {
       marginBottom: "16px",
       display: "flex",
       flexDirection: "column",
-      justifyContent: "space-between"
+      justifyContent: "space-between",
     },
     "& > *": {
       margin: theme.spacing(1),
@@ -28,45 +27,19 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-
 export default function ReqRefList() {
-
-  const [error, setError] = useState("");
-  const [user, setUser] = useState();
-  const [refReqList, setRefReqList] = useState([]);
-
-  let { landlordId } = useParams();
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const result = await axios.get(`http://localhost:8000/api/refRequest/${landlordId}`);
-        setRefReqList(result.data);
-      } catch (error) {
-        setError("Your server is broken", error);
-      }
-    }
-    fetchData();
-
-  }, [landlordId]);
-
-
-  const refList = refReqList.map((record) => {
-    return (
-      <ListItem>
-        <div className="req-info">
-          <Avatar src="" />
-          {/* <p className="req-tenant">{record.RentHistory.Property.User.name}</p> */}
-          <p className="req-tenant">{record.RentHistory.Property.User.name}</p>
-          <p className="req-tenant address">property address</p>
-        </div>
-        <div className="option-btn">
-          <Button variant="contained">Review Reference</Button>
-        </div>
-      </ListItem>
-    )
-  })
-
+  // return (
+  //   <ListItem>
+  //     <div className="req-info">
+  //       <Avatar src="" />
+  //       <p className="req-tenant"></p>
+  //       <p className="req-tenant address">property address</p>
+  //     </div>
+  //     <div className="option-btn">
+  //       <Button variant="contained">Review Reference</Button>
+  //     </div>
+  //   </ListItem>
+  // );
 
   //material ui styling funtion
   const classes = useStyles();
@@ -89,18 +62,7 @@ export default function ReqRefList() {
         <List className={classes.root}>
           <RefReqItem />
         </List>
-        
-        <ListItem className={classes.root} id="listitem-head">
-          <div className="req-info head">
-            <h5>Referee's name</h5>
-            <h5>Property Address</h5>
-          </div>
-        </ListItem>
-        <List className={classes.root}>
-          {refList}
-        </List>
       </Container>
-
     </div>
-  )
+  );
 }

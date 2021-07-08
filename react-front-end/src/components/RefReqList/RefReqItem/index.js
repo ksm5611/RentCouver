@@ -13,7 +13,6 @@ import "../../../App.css";
 export default function RefReqItem(props) {
   const [applications, setApplications] = useState([]);
   const [error, setError] = useState("");
-
   const REQUEST = "REQUEST";
   const FORM = "FORM";
   const DECLINED = "DECLINED";
@@ -22,7 +21,9 @@ export default function RefReqItem(props) {
   const { mode, transition, back } = useVisualMode(REQUEST);
 
   // const mode = REQUEST;
+
   let { landlordId } = useParams();
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -31,7 +32,7 @@ export default function RefReqItem(props) {
         );
         setApplications(result.data);
       } catch (error) {
-        setError("Your server is broken");
+        setError("Your server is broken", error);
       }
     }
     fetchData();
@@ -45,7 +46,9 @@ export default function RefReqItem(props) {
             return (
               <>
                 <div className="req-info">
-                  <Avatar src="" />
+                  <Avatar
+                    src={application.RentHistory.User.profile_picture_url}
+                  />
                   <p className="req-tenant">
                     {application.RentHistory.User.name}
                   </p>
@@ -75,14 +78,80 @@ export default function RefReqItem(props) {
         </ListItem>
       )}
       {mode === FORM && (
-        <Form
-          onSubmit={() => transition(SENT)}
-          onCancel={() => back()}
-          applications={applications}
-        />
+        <div className="req-info">
+          <>
+            {applications.map((application) => {
+              return (
+                <>
+                  <Avatar
+                    src={application.RentHistory.User.profile_picture_url}
+                  />
+                  <p className="req-tenant">
+                    {application.RentHistory.User.name}
+                  </p>
+                  <p className="req-tenant address">
+                    {application.RentHistory.Property.street}
+                  </p>
+                  <Form
+                    onSubmit={() => transition(SENT)}
+                    onCancel={() => back()}
+                    applications={applications}
+                  />
+                </>
+              );
+            })}
+          </>
+        </div>
       )}
-      {mode === DECLINED && <Declined />}
-      {mode === SENT && <Sent />}
+      {mode === DECLINED && (
+        <div className="req-info">
+          <>
+            {applications.map((application) => {
+              return (
+                <>
+                  <Avatar
+                    src={application.RentHistory.User.profile_picture_url}
+                  />
+                  <p className="req-tenant">
+                    {application.RentHistory.User.name}
+                  </p>
+                  <p className="req-tenant address">
+                    {application.RentHistory.Property.street}
+                  </p>
+                  <Declined />
+                </>
+              );
+            })}
+          </>
+        </div>
+      )}
+      {mode === SENT && (
+        <>
+          {applications.map((application) => {
+            return (
+              <>
+                <ListItem className={props.classes}>
+                  <div className="req-info">
+                    <Avatar
+                      src={application.RentHistory.User.profile_picture_url}
+                    />
+                    <p className="req-tenant">
+                      {application.RentHistory.User.name}
+                    </p>
+                    <p className="req-tenant address">
+                      {application.RentHistory.Property.street}
+                    </p>
+                  </div>
+                  <div className="option-btn">
+                    <p>Sent</p>
+                  </div>
+                </ListItem>
+                {/* <Sent /> */}
+              </>
+            );
+          })}
+        </>
+      )}
     </Fragment>
   );
 }
