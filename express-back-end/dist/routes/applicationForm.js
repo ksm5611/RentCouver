@@ -28,7 +28,7 @@ router.get("/applications/:tenantId", /*#__PURE__*/function () {
                 id: req.params.tenantId
               },
               attributes: {
-                exclude: ["is_landlord", "password"]
+                exclude: ["password"]
               },
               include: [{
                 model: _models.RentHistory,
@@ -72,14 +72,15 @@ router.post("/applications", /*#__PURE__*/function () {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            _context2.next = 2;
+            console.log(req.body);
+            _context2.next = 3;
             return _models.Application.create(req.body);
 
-          case 2:
+          case 3:
             applicationForm = _context2.sent;
             res.json(applicationForm);
 
-          case 4:
+          case 5:
           case "end":
             return _context2.stop();
         }

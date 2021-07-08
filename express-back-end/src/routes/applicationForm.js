@@ -6,7 +6,7 @@ import { User, RentHistory, Property, Application } from "../db/models";
 router.get("/applications/:tenantId", async (req, res) => {
   const applicationForm = await User.findOne({
     where: { id: req.params.tenantId },
-    attributes: { exclude: ["is_landlord", "password"] },
+    attributes: { exclude: ["password"] },
     include: [
       {
         model: RentHistory,
@@ -41,6 +41,7 @@ router.get("/applications/:tenantId", async (req, res) => {
 
 //submit application form call
 router.post("/applications", async (req, res) => {
+  console.log(req.body);
   const applicationForm = await Application.create(req.body);
 
   res.json(applicationForm);
