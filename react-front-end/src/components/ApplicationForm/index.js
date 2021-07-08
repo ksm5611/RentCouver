@@ -49,7 +49,7 @@ export default function ApplicationForm() {
   }, []);
   //property detail에서 클릭후 url로 갈때 필요한 propertyid랑 landlordid 찾기
   let { propertyId, landlordId } = useParams();
-  // console.log(params);
+
   useEffect(() => {
     async function fetchData() {
       try {

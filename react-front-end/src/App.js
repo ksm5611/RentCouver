@@ -37,7 +37,7 @@ export default function App() {
           <Route path="/home">
             <Homepage />
           </Route>
-          <Route path="/app_list">
+          <Route path="/app_list/:landlordId">
             <ApplicationList />
           </Route>
           <Route path="/app_review">

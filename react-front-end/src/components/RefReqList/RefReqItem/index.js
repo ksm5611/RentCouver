@@ -141,12 +141,9 @@ export default function RefReqItem(props) {
                     <p className="req-tenant address">
                       {application.RentHistory.Property.street}
                     </p>
-                  </div>
-                  <div className="option-btn">
-                    <p>Sent</p>
+                    <Sent />
                   </div>
                 </ListItem>
-                {/* <Sent /> */}
               </>
             );
           })}
