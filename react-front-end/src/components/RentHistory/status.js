@@ -29,7 +29,7 @@ export default function Status({record}) {
 
 
   return (
-    <>
+    <> 
       <div className="history-info">
         <p className="req-landlord address">{record.Property.street}, {record.Property.unit && <>#{record.Property.unit}</>} {record.Property.city} {record.Property.province} {record.Property.postal_code}</p>
         <p className="req-landlord">{record.start_date} - {record.end_date}</p>
