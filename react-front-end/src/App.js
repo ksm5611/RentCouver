@@ -46,7 +46,7 @@ export default function App() {
           <Route path="/rent_history">
             <RentHistory />
           </Route>
-          <Route path="/ref_request_list">
+          <Route path="/ref_request_list/:landlordId">
             <RefReqList />
           </Route>
         </Switch>
