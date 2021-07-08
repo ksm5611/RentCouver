@@ -62,11 +62,11 @@ INSERT INTO photos (property_id, photo_url) VALUES (18, 'https://img.zumpercdn.c
 
 
 -- -- if "decline" is false, we don't display the reference request on the page
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 2, '2017-01-01', '2017-12-31', null, true, false);
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 5, '2018-01-01', '2018-12-31', null, true, false);
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 7, '2019-01-01', '2019-12-31', null, true, false);
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 8, '2020-01-01', '2020-12-31', null, true, false);
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 3, '2021-01-01', '2021-05-31', null, true, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 2, '2017-01-01', '2017-12-31', null, false, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 5, '2018-01-01', '2018-12-31', null, false, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 7, '2019-01-01', '2019-12-31', null, false, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 8, '2020-01-01', '2020-12-31', null, false, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 3, '2021-01-01', '2021-05-31', null, false, false);
 
 
 

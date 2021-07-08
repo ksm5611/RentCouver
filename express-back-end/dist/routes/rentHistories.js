@@ -23,9 +23,9 @@ router.get("/rentHistories", /*#__PURE__*/function () {
           case 0:
             _context.next = 2;
             return _models.RentHistory.findAll({
-              attributes: {
-                exclude: ["is_requested", "is_decline"]
-              },
+              // attributes: {
+              //   exclude: ["is_requested", "is_decline"],
+              // },
               include: [{
                 model: _models.Property,
                 attributes: {
