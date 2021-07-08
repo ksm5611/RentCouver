@@ -13,6 +13,7 @@ export default function Status({record}) {
 
   const DEFAULT = "DEFAULT";
   const REQUESTED = "REQUESTED";
+  const REVIEW = "REVIEW";
   const { mode, transition } = useVisualMode(DEFAULT);
 
   const refRequested = async (historyRecord) => {
