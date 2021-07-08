@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Filters from "./Filters";
 import MyComponent from "./Map";
 import PropertyListItem from "./PropertyListItem";
@@ -9,7 +10,12 @@ import React, { memo } from "react";
 export default function PropertyListing(props) {
   const [properties, setProperties] = useState([]);
   const [error, setError] = useState("");
-  const [filter, setFilter] = useState({ property_type: "", bedrooms: null, bathrooms: null, price: null });
+  const [filter, setFilter] = useState({
+    property_type: "",
+    bedrooms: null,
+    bathrooms: null,
+    price: null,
+  });
 
   // state of [filter, setFilter] will be here
   // original state = { type: "", bedrooms: null, bathrooms: null, price: null}
@@ -38,8 +44,9 @@ export default function PropertyListing(props) {
     async function fetchData() {
       try {
         const result = await axios.get(
-          "http://localhost:8000/api/propertyLists" /*+ query*/
+          "http://localhost:8000/api/propertyLists"
         );
+
         setProperties(result.data);
       } catch (error) {
         setError("Your server is broken");

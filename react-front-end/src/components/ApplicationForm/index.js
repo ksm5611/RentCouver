@@ -50,11 +50,12 @@ export default function ApplicationForm() {
   //property detail에서 클릭후 url로 갈때 필요한 propertyid랑 landlordid 찾기
   let { propertyId, landlordId } = useParams();
 
+  console.log("here");
   useEffect(() => {
     async function fetchData() {
       try {
         const result = await axios.get(
-          `http://localhost:8000/api/applications/10`
+          "http://localhost:8000/api/applications/11"
         );
         const { RentHistories: rentHistoryData, ...userData } = result.data;
         setUser(userData);
@@ -115,7 +116,7 @@ export default function ApplicationForm() {
 
   const handleSubmit = async () => {
     await axios.post("http://localhost:8000/api/applications", {
-      tenant_id: 10,
+      tenant_id: 11,
       property_id: propertyId,
       landlord_id: landlordId,
       potential_move_in_date: potentialMoveInDate,

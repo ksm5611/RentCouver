@@ -1,6 +1,7 @@
 // import { Button } from 'react-bootstrap';
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { List } from "rsuite";
 import { ListItemText } from "@material-ui/core";
 
@@ -13,11 +14,13 @@ export default function UserInfo() {
     { label: "Current address", value: "current_address" },
     { label: "Job title", value: "job_title" },
   ];
-
+  let { tenantId } = useParams();
   useEffect(() => {
     async function fetchData() {
       try {
-        const result = await axios.get("http://localhost:8000/api/users/10");
+        const result = await axios.get(
+          `http://localhost:8000/api/users/${tenantId}`
+        );
         const { ...userData } = result.data;
         setUser(userData);
       } catch (error) {
@@ -25,7 +28,7 @@ export default function UserInfo() {
       }
     }
     fetchData();
-  }, []);
+  }, [tenantId]);
 
   const settings = [
     "Edit MyAccount",

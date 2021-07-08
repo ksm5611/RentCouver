@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import {
   Container,
   ListItem,
@@ -46,22 +46,20 @@ export default function ApplicationList() {
   const DECLINED = "DECLINED";
   const { mode, transition } = useVisualMode(DEFAULT);
 
-  let { landlordId } = useParams();
-  console.log(landlordId);
+  // let { landlordId } = useParams();
   useEffect(() => {
     async function fetchData() {
       try {
-        const result = await axios.get(
-          `http://localhost:8000/api/appList/${landlordId}`
-        );
+        const result = await axios.get("http://localhost:8000/api/appList/1");
         setAppLists(result.data);
       } catch (error) {
         setError("Your server is broken");
       }
     }
     fetchData();
-  }, [landlordId]);
+  }, []);
 
+  //decline button function
   const declineApp = async (appID) => {
     await axios.post(`http://localhost:8000/api/appList/${appID}`);
     transition(DECLINED);
@@ -70,7 +68,6 @@ export default function ApplicationList() {
   //material ui styling funtion
   const classes = useStyles();
 
-  //decline button function
   // const handleDecline = async (applicationId) => {
   //   await axios.post(`http://localhost:8000/api/appList/${applicationId}`);
   // };
