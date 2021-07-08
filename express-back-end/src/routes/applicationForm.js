@@ -41,7 +41,6 @@ router.get("/applications/:tenantId", async (req, res) => {
 
 //submit application form call
 router.post("/applications", async (req, res) => {
-  console.log(req.body);
   const applicationForm = await Application.create(req.body);
 
   res.json(applicationForm);

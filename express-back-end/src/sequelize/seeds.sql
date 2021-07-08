@@ -11,6 +11,9 @@ INSERT INTO users (name, email, password, current_address, job_title, annual_inc
 INSERT INTO users (name, email, password, current_address, job_title, annual_income, other_household_occupants, profile_picture_url, is_landlord) VALUES ('Dominic Tremblay', 'example8@lhl.com', 'password', '2560 W 1st Ave, Vancouver, BC V6K 1G7', 'Web Developer', 100000, null, null, true);
 INSERT INTO users (name, email, password, current_address, job_title, annual_income, other_household_occupants, profile_picture_url, is_landlord) VALUES ('Francis Bourgouin', 'example9@lhl.com', 'password', '2546 W 1st Ave, Vancouver, BC V6K 1G7', 'Web Developer', 100000, null, null, true);
 INSERT INTO users (name, email, password, current_address, job_title, annual_income, other_household_occupants, profile_picture_url, is_landlord) VALUES ('Egg Eggerson', 'example10@lhl.com', 'password', '2522 W 1st Ave, Vancouver, BC V6K 1G7', 'Professional Egger', 120000, 'Startbucks Barista', 'https://www.sketchappsources.com/resources/source-image/profile-illustration-gunaldi-yunus.png', false);
+INSERT INTO users (name, email, password, current_address, job_title, annual_income, other_household_occupants, profile_picture_url, is_landlord) VALUES ('Hoki Poki', 'test@test.com', 'password', '1152 E 78st Ave, Vancouver, BC V6K 1G7', 'Dentist', 400000, 'Mcdonals', 'https://i.pinimg.com/originals/9d/f9/5d/9df95dd43337435f5713813fb1422b7f.jpg', false);
+
+
 
 -- -- total 18 properties
 INSERT INTO properties (landlord_id, title, street, unit, city, province, postal_code, square_feet, description, property_type, number_of_bathrooms, number_of_bedrooms, listed_start_date, cost_of_month, pets_allowed) VALUES (1, 'Arbutus Nook', '3833 Arbutus St', null, 'Vancouver', 'BC', 'V6J 3Z9', 600, 'This loft-style 1 Bed 2 Bath & Den 600SF laneway house is near the intersection of Arbutus St and King Edward Ave. 10 mins drive/ 20 min bus ride to UBC and Downtown.','house', 2, 1, '2021-06-30', 2400, true);
@@ -65,8 +68,8 @@ INSERT INTO photos (property_id, photo_url) VALUES (18, 'https://img.zumpercdn.c
 INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 2, '2017-01-01', '2017-12-31', null, false, false);
 INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 5, '2018-01-01', '2018-12-31', null, false, false);
 INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 7, '2019-01-01', '2019-12-31', null, false, false);
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 8, '2020-01-01', '2020-12-31', null, false, false);
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 3, '2021-01-01', '2021-05-31', null, false, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (11, 8, '2020-01-01', '2020-12-31', null, false, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (11, 3, '2021-01-01', '2021-05-31', null, false, false);
 
 
 
@@ -80,10 +83,10 @@ INSERT INTO refs (tenant_id, landlord_id) VALUES (10, 6);
 -- -- select * from refs where tenant_id (to get ref_id for tenant)
 
 -- -- ㅇㅓㄴ제 이사할수있는지 날짜 1 (actual app form part)
-INSERT INTO applications (renthistories_id, tenant_id, landlord_id, property_id, potential_move_in_date, is_decline) VALUES (5, 10, 1, 16, '2021-07-01', false);
+INSERT INTO applications (renthistories_id, tenant_id, landlord_id, property_id, potential_move_in_date, is_decline) VALUES (5, 11, 1, 16, '2021-07-01', false);
 
 -- (ref request part)
-INSERT INTO applications (renthistories_id, tenant_id, landlord_id, property_id, potential_move_in_date, is_decline) VALUES (5, 10, 6, 3, '2021-07-01', false);
+INSERT INTO applications (renthistories_id, tenant_id, landlord_id, property_id, potential_move_in_date, is_decline) VALUES (5, 11, 6, 3, '2021-07-01', false);
 --  message : text == null
 
 -- -- --- 5
