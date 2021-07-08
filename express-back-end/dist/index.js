@@ -24,6 +24,8 @@ var _rentHistories = _interopRequireDefault(require("./routes/rentHistories"));
 
 var _appList = _interopRequireDefault(require("./routes/appList"));
 
+var _ref_request = _interopRequireDefault(require("./routes/ref_request"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 _dotenv["default"].config();
@@ -43,6 +45,7 @@ App.use("/api", _propertyLists["default"]);
 App.use("/api", _applicationForm["default"]);
 App.use("/api", _rentHistories["default"]);
 App.use("/api", _appList["default"]);
+App.use("/api", _ref_request["default"]);
 App.listen(PORT, function () {
   // eslint-disable-next-line no-console
   console.log("Express seems to be listening on port ".concat(PORT, " so that's pretty good \uD83D\uDC4D"));

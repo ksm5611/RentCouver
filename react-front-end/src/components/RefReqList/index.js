@@ -6,10 +6,12 @@ import {
   ListItem,
   List,
   makeStyles,
-  Button
+  Button,
+  Avatar
 } from "@material-ui/core";
 import '../../App.css';
-import { useEffect, setError, useState, useParams } from 'react';
+import { useEffect, useState, useParams } from 'react';
+import RentHistory from '../RentHistory/index';
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -17,6 +19,7 @@ const useStyles = makeStyles((theme) => {
       border: "1px solid black",
       marginBottom: "16px",
       display: "flex",
+      flexDirection: "column",
       justifyContent: "space-between"
     },
     "& > *": {
@@ -28,34 +31,39 @@ const useStyles = makeStyles((theme) => {
 
 export default function ReqRefList() {
 
+  const [error, setError] = useState("");
+  const [user, setUser] = useState();
   const [refReqList, setRefReqList] = useState([]);
-    
+
+  let { landlordId } = useParams();
+
   useEffect(() => {
     async function fetchData() {
       try {
-        const result = await axios.get(`http://localhost:8000/api/refRequest/5`);
+        const result = await axios.get(`http://localhost:8000/api/refRequest/${landlordId}`);
         setRefReqList(result.data);
       } catch (error) {
-        setError("Your server is broken");
+        setError("Your server is broken", error);
       }
     }
     fetchData();
-  }, []);
 
-  const RefList = refReqList.map((record) => {
+  }, [landlordId]);
+
+
+  const refList = refReqList.map((record) => {
     return (
-
-      <ListItem className={classes.root}>
-        {/* <Address /> */}
-        <div className="history-info">
-          <p className="req-landlord address"></p>
-          <span>{record.Property.User.name}</span>
+      <ListItem>
+        <div className="req-info">
+          <Avatar src="" />
+          {/* <p className="req-tenant">{record.RentHistory.Property.User.name}</p> */}
+          <p className="req-tenant">{record.RentHistory.Property.User.name}</p>
+          <p className="req-tenant address">property address</p>
         </div>
         <div className="option-btn">
-          <Button className={classes.btn} variant="contained">Request Reference</Button>
+          <Button variant="contained">Review Reference</Button>
         </div>
       </ListItem>
-
     )
   })
 
@@ -67,19 +75,29 @@ export default function ReqRefList() {
     <div>
       <section className="hero-container second-hero-container">
         <div>
-          <h2>Reference Requests</h2>
+          <h2>Reference Requests </h2>
         </div>
       </section>
       <Container>
         {/* <Typography variant="h4">Tenant name Address</Typography> */}
         <ListItem className={classes.root} id="listitem-head">
           <div className="req-info head">
-            <h5>Tenant's name</h5>
+            <h5>Tenant's name </h5>
             <h5>Property Address</h5>
           </div>
         </ListItem>
         <List className={classes.root}>
           <RefReqItem />
+        </List>
+        
+        <ListItem className={classes.root} id="listitem-head">
+          <div className="req-info head">
+            <h5>Referee's name</h5>
+            <h5>Property Address</h5>
+          </div>
+        </ListItem>
+        <List className={classes.root}>
+          {refList}
         </List>
       </Container>
 

@@ -66,6 +66,11 @@ export default function ApplicationList() {
   //material ui styling funtion
   const classes = useStyles();
 
+  //decline button function
+  const handleDecline = async (applicationId) => {
+    await axios.post(`http://localhost:8000/api/appList/${applicationId}`);
+  };
+
   return (
     <div>
       <section className="hero-container second-hero-container">
@@ -86,7 +91,7 @@ export default function ApplicationList() {
             return (
               <ListItem className={classes.root}>
                 <div className="req-info">
-                  <Avatar src="" />
+                  <Avatar src={listValue.tenant.profile_picture_url} />
                   <p className="req-tenant">{listValue.tenant.name}</p>
                   <p className="req-tenant address">
                     {listValue.Property.street}

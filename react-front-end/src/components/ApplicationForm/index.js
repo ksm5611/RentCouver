@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import {
   ListItem,
   ListItemText,
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-export default function ApplicationForm({ propertyId }) {
+export default function ApplicationForm() {
   const classes = useStyles();
   const [user, setUser] = useState(null);
   const [rentHistories, setRentHistories] = useState([]);
@@ -46,12 +47,14 @@ export default function ApplicationForm({ propertyId }) {
   useEffect(() => {
     setPotentailDate(formateDefaultDate());
   }, []);
-
+  //property detail에서 클릭후 url로 갈때 필요한 propertyid랑 landlordid 찾기
+  let { propertyId, landlordId } = useParams();
+  // console.log(params);
   useEffect(() => {
     async function fetchData() {
       try {
         const result = await axios.get(
-          "http://localhost:8000/api/applications/10"
+          `http://localhost:8000/api/applications/10`
         );
         const { RentHistories: rentHistoryData, ...userData } = result.data;
         setUser(userData);
@@ -63,12 +66,14 @@ export default function ApplicationForm({ propertyId }) {
     fetchData();
   }, []);
 
+  //function for rendering user data
   const renderUserData = () => {
     return (
       <List>
         <ListItem className={classes.root}>
           <ListItemAvatar>
             <Avatar src={user.profile_picture_url} />
+            <ListItem>{landlordId.name}</ListItem>
           </ListItemAvatar>
         </ListItem>
         {userInfo.map((info) => (
@@ -112,6 +117,7 @@ export default function ApplicationForm({ propertyId }) {
     await axios.post("http://localhost:8000/api/applications", {
       tenant_id: 10,
       property_id: propertyId,
+      landlord_id: landlordId,
       potential_move_in_date: potentialMoveInDate,
     });
   };
@@ -132,7 +138,6 @@ export default function ApplicationForm({ propertyId }) {
   const onChangeDate = (event) => {
     setPotentailDate(event.target.value);
   };
-
   if (error) {
     return <Container maxWidth="md">{error}</Container>;
   }

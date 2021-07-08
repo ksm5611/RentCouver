@@ -27,6 +27,7 @@ export default function PropertyDetails() {
           `http://localhost:8000/api/properties/${id}`
         );
         const { User: userData, ...propertyData } = result.data;
+        console.log(result.data);
         setUser(userData);
         setProperty(propertyData);
       } catch (error) {
@@ -74,7 +75,11 @@ export default function PropertyDetails() {
             </List.Item>
             <List.Item className="landlord-contact-container">
               <button className="contact-us btn">
-                <a href="/applicationForm">Application Form</a>
+                <a
+                  href={`/applicationForm/${property.id}/${property.landlord_id}`}
+                >
+                  Application Form
+                </a>
               </button>
             </List.Item>
           </List>

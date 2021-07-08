@@ -108,7 +108,7 @@ export default function Filters({ tenantId }) {
     >
       <div className="drawer-content">
         <List>
-          <Avatar></Avatar>
+          <Avatar src={user.profile_picture_url} />
           <ListItem>Name: {user.name}</ListItem>
           <ListItem>Current address: {user.current_address}</ListItem>
           <ListItem>Job title: {user.job_title}</ListItem>

@@ -11,6 +11,7 @@ import propertyDetails from "./routes/propertyDetails";
 import propertyList from "./routes/propertyLists";
 import rentHistories from "./routes/rentHistories";
 import appList from "./routes/appList";
+import refRequest from "./routes/ref_request";
 const App = Express();
 App.use(cors());
 const PORT = process.env.PORT;
@@ -30,6 +31,7 @@ App.use("/api", applicationForm);
 App.use("/api", rentHistories);
 
 App.use("/api", appList);
+App.use("/api", refRequest);
 
 App.listen(PORT, () => {
   // eslint-disable-next-line no-console

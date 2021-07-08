@@ -42,7 +42,7 @@ export default function RentHistory() {
         const result = await axios.get("http://localhost:8000/api/rentHistories");
         setHistory(result.data)
       } catch (error) {
-        setError("NOPE")
+        setError("Your server is broken")
       }
     }
     fetchData();
