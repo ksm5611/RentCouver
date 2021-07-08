@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => {
 });
 
 export default function ReqRefList() {
+<<<<<<< HEAD
   // return (
   //   <ListItem>
   //     <div className="req-info">
@@ -40,6 +41,45 @@ export default function ReqRefList() {
   //     </div>
   //   </ListItem>
   // );
+=======
+
+//   const [error, setError] = useState("");
+//   const [user, setUser] = useState();
+//   const [refReqList, setRefReqList] = useState([]);
+
+//   // let { landlordId } = useParams();
+
+//   useEffect(() => {
+//     async function fetchData() {
+//       try {
+//         const result = await axios.get(`http://localhost:8000/api/refRequest/5`);
+//         setRefReqList(result.data);
+//       } catch (error) {
+//         setError("Your server is broken", error);
+//       }
+//     }
+//     fetchData();
+
+//   }, []);
+
+
+  // const refList = refReqList.map((record) => {
+  //   return (
+  //     <ListItem>
+  //       <div className="req-info">
+  //         <Avatar src="" />
+  //         {/* <p className="req-tenant">{record.RentHistory.Property.User.name}</p> */}
+  //         <p className="req-tenant">{record.RentHistory.Property.User.name}</p>
+  //         <p className="req-tenant address">property address</p>
+  //       </div>
+  //       <div className="option-btn">
+  //         <Button variant="contained">Review Reference</Button>
+  //       </div>
+  //     </ListItem>
+  //   )
+  // })
+
+>>>>>>> bfe5720a776bcb65e9042cc3e45fea331a7e810e
 
   //material ui styling funtion
   const classes = useStyles();
@@ -62,6 +102,10 @@ export default function ReqRefList() {
         <List className={classes.root}>
           <RefReqItem />
         </List>
+<<<<<<< HEAD
+=======
+      
+>>>>>>> bfe5720a776bcb65e9042cc3e45fea331a7e810e
       </Container>
     </div>
   );
