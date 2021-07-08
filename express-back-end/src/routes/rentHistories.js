@@ -4,9 +4,9 @@ import { RentHistory, Property, User } from "../db/models";
 
 router.get("/rentHistories", async (req, res) => {
   const rentHistories = await RentHistory.findAll({
-    attributes: {
-      exclude: ["is_requested", "is_decline"],
-    },
+    // attributes: {
+    //   exclude: ["is_requested", "is_decline"],
+    // },
     include: [
       {
         model: Property,

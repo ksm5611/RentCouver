@@ -9,6 +9,9 @@ import {
   Avatar
 } from "@material-ui/core";
 
+import Status from './status';
+
+
 const useStyles = makeStyles((theme) => {
   return {
     root: {
@@ -32,9 +35,7 @@ export default function RentHistory() {
   const classes = useStyles();
 
   const [history, setHistory] = useState([]);
-
   const [error, setError] = useState(false);
-  const [pending, setPending] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -42,31 +43,11 @@ export default function RentHistory() {
         const result = await axios.get("http://localhost:8000/api/rentHistories");
         setHistory(result.data)
       } catch (error) {
-        setError("NOPE")
+        setError("Your server is broken")
       }
     }
     fetchData();
-  },[])
-
-
-  const historyList = history.map((record) => {
-    return (
-
-      <ListItem className={classes.root}>
-        {/* <Address /> */}
-        <div className="history-info">
-          <p className="req-landlord address">{record.Property.street}, {record.Property.unit && <>#{record.Property.unit}</>} {record.Property.city} {record.Property.province} {record.Property.postal_code}</p>
-          <p className="req-landlord">{record.start_date} - {record.end_date}</p>
-          <span>{record.Property.User.name}</span>
-        </div>
-        <div className="option-btn">
-          <Button className={classes.btn} variant="contained">Request Reference</Button>
-        </div>
-      </ListItem>
-
-    )
-  })
-
+  }, [])
 
   return (
     <div>
@@ -77,20 +58,25 @@ export default function RentHistory() {
       </section>
       <Container>
         {error && <div>Error Loading data</div>}
-        {pending && <div>Please wait</div>}
         <ListItem className={classes.root} id="listitem-head">
-            <div className="rent-history-info">
-              <h5 className="rent-historty-address">Property Address</h5>
-              <h5>Rent Period</h5>
-              <h5>Owner Name</h5>
-            </div>
-          </ListItem>
+          <div className="rent-history-info">
+            <h5 className="rent-historty-address">Property Address</h5>
+            <h5>Rent Period</h5>
+            <h5>Owner Name</h5>
+          </div>
+        </ListItem>
         <List>
-          {historyList}
+          {history.map((record) => {
+            return (
+              <ListItem className={classes.root}>
+                <Status record={record} />
+              </ListItem>
+            )
+          })}
         </List>
       </Container>
 
     </div>
   )
-
+  
 }

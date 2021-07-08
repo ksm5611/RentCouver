@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import {
   Container,
   ListItem,
@@ -13,6 +14,7 @@ import {
 } from "@material-ui/core";
 
 import ApplicationReview from "../ApplicationReview";
+import useVisualMode from "../RefReqList/RefReqItem/useVisualMode";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -39,41 +41,39 @@ const useStyles = makeStyles((theme) => {
 export default function ApplicationList() {
   const [appLists, setAppLists] = useState([]);
   const [error, setError] = useState("");
-  const [appDecision, setAppDecision] = useState(false);
 
+  const DEFAULT = "DEFAULT";
+  const DECLINED = "DECLINED";
+  const { mode, transition } = useVisualMode(DEFAULT);
+
+  let { landlordId } = useParams();
+  console.log(landlordId);
   useEffect(() => {
     async function fetchData() {
       try {
-        const result = await axios.get("http://localhost:8000/api/appList/1");
+        const result = await axios.get(
+          `http://localhost:8000/api/appList/${landlordId}`
+        );
         setAppLists(result.data);
       } catch (error) {
         setError("Your server is broken");
       }
     }
     fetchData();
-  }, []);
-
-  useEffect(() => {
-    async function updateStatus() {
-      try {
-      } catch {
-        setError("NOPE");
-      }
-    }
-    updateStatus();
-  }, []);
+  }, [landlordId]);
 
   const declineApp = async (appID) => {
     await axios.post(`http://localhost:8000/api/appList/${appID}`);
+    transition(DECLINED);
   };
 
   //material ui styling funtion
   const classes = useStyles();
 
   //decline button function
-  const handleDecline = async (applicationId) => {
-    await axios.post(`http://localhost:8000/api/appList/${applicationId}`);
-  };
+  // const handleDecline = async (applicationId) => {
+  //   await axios.post(`http://localhost:8000/api/appList/${applicationId}`);
+  // };
 
   return (
     <div>
@@ -107,20 +107,22 @@ export default function ApplicationList() {
                 </div>
                 <div className="option-btn">
                   <ApplicationReview tenantId={listValue.tenant_id} />
-                  {listValue.is_decline === false ? (
-                    <Button
-                      className={classes.btn}
-                      variant="contained"
-                      color="secondary"
-                      onClick={() => {
-                        declineApp(listValue.id);
-                      }}
-                    >
-                      Decline
-                    </Button>
-                  ) : (
-                    <p>Declined</p>
-                  )}
+                  {mode === DEFAULT &&
+                    (listValue.is_decline === false ? (
+                      <Button
+                        className={classes.btn}
+                        variant="contained"
+                        color="secondary"
+                        onClick={() => {
+                          declineApp(listValue.id);
+                        }}
+                      >
+                        Decline
+                      </Button>
+                    ) : (
+                      <p>DECLINED</p>
+                    ))}
+                  {mode === DECLINED && <p>DECLINED</p>}
                 </div>
               </ListItem>
             );

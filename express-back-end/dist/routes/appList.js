@@ -25,7 +25,7 @@ router.get("/appList/:landlordId", /*#__PURE__*/function () {
             _context.next = 2;
             return _models.Application.findAll({
               where: {
-                id: req.params.landlordId
+                landlord_id: req.params.landlordId
               },
               include: [{
                 model: _models.Property,

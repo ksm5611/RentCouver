@@ -27,6 +27,7 @@ export default function PropertyDetails() {
           `http://localhost:8000/api/properties/${id}`
         );
         const { User: userData, ...propertyData } = result.data;
+        console.log(result.data);
         setUser(userData);
         setProperty(propertyData);
       } catch (error) {
