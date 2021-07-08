@@ -3,6 +3,7 @@ import axios from "axios";
 // import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
 import Status from '../ApplicationList/Status';
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import {
   Container,
   ListItem,
@@ -44,19 +45,21 @@ export default function ApplicationList() {
 
 
 
-
+  let { landlordId } = useParams();
+  console.log(landlordId);
   useEffect(() => {
     async function fetchData() {
       try {
-        const result = await axios.get("http://localhost:8000/api/appList/1");
+        const result = await axios.get(
+          `http://localhost:8000/api/appList/${landlordId}`
+        );
         setAppLists(result.data);
       } catch (error) {
         setError("Your server is broken");
       }
     }
     fetchData();
-  }, []);
-
+  }, [landlordId]);
 
 
   //material ui styling funtion

@@ -1,17 +1,16 @@
-import axios from "axios";
-import useVisualMode from './RefReqItem/useVisualMode';
-import RefReqItem from './RefReqItem/index';
+import useVisualMode from "./RefReqItem/useVisualMode";
+
+import RefReqItem from "./RefReqItem/index";
 import {
   Container,
   ListItem,
   List,
   makeStyles,
   Button,
-  Avatar
+  Avatar,
 } from "@material-ui/core";
-import '../../App.css';
-import { useEffect, useState, useParams } from 'react';
-import RentHistory from '../RentHistory/index';
+import "../../App.css";
+import RentHistory from "../RentHistory/index";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -20,7 +19,7 @@ const useStyles = makeStyles((theme) => {
       marginBottom: "16px",
       display: "flex",
       flexDirection: "column",
-      justifyContent: "space-between"
+      justifyContent: "space-between",
     },
     "& > *": {
       margin: theme.spacing(1),
@@ -28,8 +27,21 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-
 export default function ReqRefList() {
+<<<<<<< HEAD
+  // return (
+  //   <ListItem>
+  //     <div className="req-info">
+  //       <Avatar src="" />
+  //       <p className="req-tenant"></p>
+  //       <p className="req-tenant address">property address</p>
+  //     </div>
+  //     <div className="option-btn">
+  //       <Button variant="contained">Review Reference</Button>
+  //     </div>
+  //   </ListItem>
+  // );
+=======
 
 //   const [error, setError] = useState("");
 //   const [user, setUser] = useState();
@@ -67,6 +79,7 @@ export default function ReqRefList() {
   //   )
   // })
 
+>>>>>>> bfe5720a776bcb65e9042cc3e45fea331a7e810e
 
   //material ui styling funtion
   const classes = useStyles();
@@ -89,9 +102,11 @@ export default function ReqRefList() {
         <List className={classes.root}>
           <RefReqItem />
         </List>
+<<<<<<< HEAD
+=======
       
+>>>>>>> bfe5720a776bcb65e9042cc3e45fea331a7e810e
       </Container>
-
     </div>
-  )
+  );
 }
