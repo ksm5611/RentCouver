@@ -14,7 +14,7 @@ export default function SearchBar() {
         renderInput={(params) => (
           <TextField
             {...params}
-            label="Search input"
+            label="Search properties"
             margin="normal"
             variant="outlined"
             InputProps={{ ...params.InputProps, type: 'search' }}
@@ -26,9 +26,9 @@ export default function SearchBar() {
 }
 
 const properties = [ 
-  { title: 'Arbutus Nook' },
-  { title: 'Little Mountain Living'},
-  { title: 'Oakridge Hideaway'},
+  // { title: 'Arbutus Nook' },
+  // { title: 'Little Mountain Living'},
+  // { title: 'Oakridge Hideaway'},
   // { title: 'Marble Mansion' },
   // { title: 'Primo Valentino' },
   // { title: 'Anchor Point' },

@@ -62,10 +62,12 @@ export default function PropertyListing() {
         <SearchBar />
       </div>
       <div id="map-and-proplist">
-        <PropertyListItem
-          properties={properties}
-        />
-        <Googlemaps />
+        <div id="just-propList">
+          <PropertyListItem properties={properties} />
+        </div>
+        <div id="just-map">
+          <Googlemaps />
+        </div>
       </div>
     </div>
   );
