@@ -9,7 +9,7 @@ import {
   Avatar
 } from "@material-ui/core";
 
-import Status from './Status';
+import Status from './status';
 
 
 const useStyles = makeStyles((theme) => {
