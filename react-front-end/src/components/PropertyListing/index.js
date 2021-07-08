@@ -6,7 +6,7 @@ import PropertyListItem from "./PropertyListItem";
 import "./index.css";
 import React, { memo } from "react";
 
-export default function PropertyListing(props) {
+export default function PropertyListing() {
   const [properties, setProperties] = useState([]);
   const [error, setError] = useState("");
   const [filter, setFilter] = useState({ property_type: "", bedrooms: null, bathrooms: null, price: null });
@@ -22,14 +22,15 @@ export default function PropertyListing(props) {
   // const query = (props) => {
   //   // this props will be from Filters.js
   //   // props are the filter selections
+  //   result = "";
   //   if (props.property_type !== null) {
-  //     // the search button in Filters.js {"type=" + property_type} />
+  //     result = "type=" + property_type;
   //   }
   //   if (props.number_of_bedrooms !== null) {
-  //     // the search button in Filters.js {"number_of_bedrooms=" + number_of_bedrooms} />
+  //     result = "bedrooms=" + number_of_bedrooms;
   //   }
   //   if (number_of_bathrooms !== null) {
-  //     // the search button in Filters.js {"number_of_bathrooms=" + number_of_bathrooms} />
+  //     result = "bathrooms=" + number_of_bathrooms;
   //   }
 
   // }
@@ -38,7 +39,8 @@ export default function PropertyListing(props) {
     async function fetchData() {
       try {
         const result = await axios.get(
-          "http://localhost:8000/api/propertyLists" /*+ query*/
+          // `http://localhost:8000/api/propertyLists?${query}`
+          `http://localhost:8000/api/propertyLists`
         );
         setProperties(result.data);
       } catch (error) {
@@ -52,7 +54,10 @@ export default function PropertyListing(props) {
     <div id="proplist-container">
       <Filters />
       <div id="map-and-proplist">
-        <PropertyListItem properties={properties} />
+        <PropertyListItem
+          // filteredProperties={filter => setFilter(filter)}
+          properties={properties}
+        />
         <MyComponent />
       </div>
     </div>

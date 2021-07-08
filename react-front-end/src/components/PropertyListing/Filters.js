@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Filters () {
+export default function Filters (props) {
 
   const classes = useStyles();
   
@@ -58,9 +58,7 @@ export default function Filters () {
 
         <PriceSlider />
 
-        <FilterType 
-          // pass the selected text or index??
-        />
+        <FilterType />
 
         <FilterBedroom />
 
@@ -88,22 +86,8 @@ export default function Filters () {
   // then express should pass in the req.params back to the ReactJS
   // set the values using useEffect hook to toggle the drawer and change the URL at the same time
 
-
-  //this query will go into onClick for the search button
-  // const query = (props) => {
-  //   // this props will be from Filters.js
-  //   // props are the filter selections
-  //   if (props.property_type !== null) {
-  //     // the search button in Filters.js {"type=" + property_type}
-  //   }
-  //   if (props.number_of_bedrooms !== null) {
-  //     // the search button in Filters.js {"number_of_bedrooms=" + number_of_bedrooms}
-  //   }
-  //   if (number_of_bathrooms !== null) {
-  //     // the search button in Filters.js {"number_of_bathrooms=" + number_of_bathrooms}
-  //   }
-
-  // }
+  // inside the search button
+  // onClick={() => props.filteredProperties()}
 
 
   return (
