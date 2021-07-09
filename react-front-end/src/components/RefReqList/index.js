@@ -1,16 +1,11 @@
-import useVisualMode from "./RefReqItem/useVisualMode";
-
 import RefReqItem from "./RefReqItem/index";
 import {
   Container,
   ListItem,
   List,
   makeStyles,
-  Button,
-  Avatar,
 } from "@material-ui/core";
 import "../../App.css";
-import RentHistory from "../RentHistory/index";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -28,18 +23,6 @@ const useStyles = makeStyles((theme) => {
 });
 
 export default function ReqRefList() {
-  // return (
-  //   <ListItem>
-  //     <div className="req-info">
-  //       <Avatar src="" />
-  //       <p className="req-tenant"></p>
-  //       <p className="req-tenant address">property address</p>
-  //     </div>
-  //     <div className="option-btn">
-  //       <Button variant="contained">Review Reference</Button>
-  //     </div>
-  //   </ListItem>
-  // );
 
   //material ui styling funtion
   const classes = useStyles();

@@ -1,7 +1,6 @@
 import useVisualMode from "./useVisualMode";
 import axios from "axios";
 import { Button, Avatar, ListItem } from "@material-ui/core"
-import { useParams } from 'react-router-dom';
 
 export default function Status({ application }) {
   const DEFAULT = "DEFAULT";
@@ -63,7 +62,6 @@ export default function Status({ application }) {
             <form className="seperator">
               <textarea id="text" />
             </form>
-            {/* {applications={application.applications}} */}
           </>
         )
         }
