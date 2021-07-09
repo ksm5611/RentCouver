@@ -1,10 +1,10 @@
 import { Router } from "express";
 const router = Router();
-import { Application, RentHistory, Property, User } from "../db/models";
+import { Ref_request, RentHistory, Property, User } from "../db/models";
 
 //req.param will find
 router.get("/refRequest/:landlordId", async (req, res) => {
-  const refRequest = await Application.findAll({
+  const refRequest = await Ref_request.findAll({
     where: { landlord_id: req.params.landlordId },
     include: [
       {
@@ -37,7 +37,7 @@ router.get("/refRequest/:landlordId", async (req, res) => {
   res.send(refRequest);
 });
 
-//creating ref request
+//creating ref request(message submit)
 router.post("/refRequest/:historyId", async (req, res) => {
   const refRequest = await RentHistory.update({
     review_content: req.body,

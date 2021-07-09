@@ -2,8 +2,9 @@ import { Router } from "express";
 const router = Router();
 import { RentHistory, Property, User } from "../db/models";
 
-router.get("/rentHistories", async (req, res) => {
+router.get("/rentHistories/:tenantId", async (req, res) => {
   const rentHistories = await RentHistory.findAll({
+    where: { tenant_id: req.params.tenantId },
     // attributes: {
     //   exclude: ["is_requested", "is_decline"],
     // },
