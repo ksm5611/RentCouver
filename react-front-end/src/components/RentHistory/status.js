@@ -1,5 +1,5 @@
 import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
-import  axios from 'axios';
+import axios from 'axios';
 import {
   Container,
   ListItem,
@@ -9,7 +9,7 @@ import {
   Avatar
 } from "@material-ui/core";
 
-export default function Status({record}) {
+export default function Status({ record }) {
 
   const DEFAULT = "DEFAULT";
   const REQUESTED = "REQUESTED";
@@ -30,7 +30,7 @@ export default function Status({record}) {
 
 
   return (
-    <> 
+    <>
       <div className="history-info">
         <p className="req-landlord address">{record.Property.street}, {record.Property.unit && <>#{record.Property.unit}</>} {record.Property.city} {record.Property.province} {record.Property.postal_code}</p>
         <p className="req-landlord">{record.start_date} - {record.end_date}</p>
@@ -52,6 +52,16 @@ export default function Status({record}) {
           ) : (
             REQUESTED
           )
+        )}
+        {mode === REVIEW && (
+          <>
+            <p>REQUESTED</p>
+            <Button onClick={() => {
+
+            }}>
+              REVIEW
+            </Button>
+          </>
         )}
       </div>
     </>
