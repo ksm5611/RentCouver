@@ -78,5 +78,6 @@ CREATE TABLE ref_requests (
   landlord_id INTEGER REFERENCES users(id) ON DELETE CASCADE, 
   property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE,
   potential_move_in_date DATE,
+  is_updated BOOLEAN NOT NULL,
   is_decline BOOLEAN NOT NULL
 );

@@ -57,13 +57,36 @@ router.post("/reqReference", async (req, res) => {
 });
 
 //creating ref request(message submit)
-router.post("/refRequest/:historyId", async (req, res) => {
-  const refRequest = await RentHistory.update({
-    review_content: req.body,
-    where: { id: req.params.historyId },
-  });
+router.post("/refRequest/:renthistoriesId", async (req, res) => {
+  try {
+    const refRequestMessage = await RentHistory.findOne({
+      where: { id: req.params.renthistoriesId },
+    });
+    refRequestMessage.review_content = req.body.message;
+    await refRequestMessage.save();
 
-  res.json(refRequest);
+    const refRequest = await Ref_request.findOne({
+      where: { id: req.body.refRequestId },
+    });
+    refRequest.is_updated = true;
+    await refRequest.save();
+    res.send(refRequest);
+  } catch (error) {
+    res.send(error);
+  }
+});
+
+//decline request form call
+router.post("/appList/:renthistoriesId", async (req, res) => {
+  const appList = await Ref_request.update(
+    {
+      is_decline: true,
+    },
+    {
+      where: { renthistories_id: req.params.renthistoriesId },
+    }
+  );
+  res.json(appList);
 });
 
 //decline request form call

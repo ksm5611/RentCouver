@@ -90,6 +90,11 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: true
     },
+    is_updated: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
     is_decline: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
