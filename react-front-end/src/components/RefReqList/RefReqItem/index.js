@@ -8,7 +8,7 @@ import { ListItem, Button, Avatar } from "@material-ui/core";
 import "../../../App.css";
 
 export default function RefReqItem() {
-  const [applications, setApplications] = useState([]);
+  const [refRequests, setReferenceReqeust] = useState([]);
   const [error, setError] = useState("");
 
   let { landlordId } = useParams();
@@ -19,7 +19,7 @@ export default function RefReqItem() {
         const result = await axios.get(
           `http://localhost:8000/api/refRequest/${landlordId}`
         );
-        setApplications(result.data);
+        setReferenceReqeust(result.data);
       } catch (error) {
         setError("Your server is broken", error);
       }
@@ -31,8 +31,8 @@ export default function RefReqItem() {
     <Fragment>
       <ListItem>
         <div className="req-info">
-          {applications.map((application) => {
-            return <Status application={application} />;
+          {refRequests.map((refReqeust) => {
+            return <Status refReqeust={refReqeust} />;
           })}
         </div>
       </ListItem>
