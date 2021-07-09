@@ -1,14 +1,7 @@
 import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
 import axios from 'axios';
 import ReceivedRef from './ReceivedRef';
-import {
-  Container,
-  ListItem,
-  List,
-  Button,
-  makeStyles,
-  Avatar
-} from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 export default function Status({ record }) {
 
@@ -42,7 +35,7 @@ export default function Status({ record }) {
         <span>{record.Property.User.name}</span>
       </div>
       <div className="option-btn">
-      {/* <ReceivedRef /> */}
+        <ReceivedRef />
         {mode === REQUESTED && (<p>REQUESTED</p>)}
         {mode === DEFAULT && (
           record.is_requested === false ? (
@@ -63,7 +56,7 @@ export default function Status({ record }) {
           record.review_content !== null ? (
             <>
               <p>REQUESTED</p>
-              <ReceivedRef recordId={record.recordId}/>
+              <ReceivedRef recordId={record.recordId} />
             </>
           ) : (
             mode === REQUESTED ? (<p>REQUESTED</p>)

@@ -1,10 +1,26 @@
 import { Fragment } from "react";
 import { Card } from "react-bootstrap";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
+import {
+  Button,
+  makeStyles
+} from "@material-ui/core";
 import "./PropertyListItem.css";
+
+
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: "#c1b9b9",
+    paddingTop: "4px",
+  },
+});
+
 
 export default function PropertyListItem({ properties }) {
   const propertyValues = ["cost_of_month", "listed_start_date"];
+
+  const classes = useStyles();
+
 
   const renderPropertyCard = (property) => {
     return (
@@ -33,8 +49,9 @@ export default function PropertyListItem({ properties }) {
               ))}
               <div id="propslist_buttons">
                 <Button
-                  id="btn-outline-primary"
-                  variant="outline-primary"
+                  // id="btn-outline-primary"
+                  // variant="outline-primary"
+                  className={classes.root}
                   href={`/property_details/${property.id}`}
                 >
                   Details
