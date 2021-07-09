@@ -113,35 +113,94 @@ router.post("/reqReference", /*#__PURE__*/function () {
   };
 }()); //creating ref request(message submit)
 
-router.post("/refRequest/:historyId", /*#__PURE__*/function () {
+router.post("/refRequest/:renthistoriesId", /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {
-    var refRequest;
+    var refRequestMessage, refRequest;
     return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            _context3.next = 2;
-            return _models.RentHistory.update({
-              review_content: req.body,
+            _context3.prev = 0;
+            _context3.next = 3;
+            return _models.RentHistory.findOne({
               where: {
-                id: req.params.historyId
+                id: req.params.renthistoriesId
               }
             });
 
-          case 2:
-            refRequest = _context3.sent;
-            res.json(refRequest);
+          case 3:
+            refRequestMessage = _context3.sent;
+            refRequestMessage.review_content = req.body.message;
+            _context3.next = 7;
+            return refRequestMessage.save();
 
-          case 4:
+          case 7:
+            _context3.next = 9;
+            return _models.Ref_request.findOne({
+              where: {
+                id: req.body.refRequestId
+              }
+            });
+
+          case 9:
+            refRequest = _context3.sent;
+            refRequest.is_updated = true;
+            _context3.next = 13;
+            return refRequest.save();
+
+          case 13:
+            res.send(refRequest);
+            _context3.next = 19;
+            break;
+
+          case 16:
+            _context3.prev = 16;
+            _context3.t0 = _context3["catch"](0);
+            res.send(_context3.t0);
+
+          case 19:
           case "end":
             return _context3.stop();
         }
       }
-    }, _callee3);
+    }, _callee3, null, [[0, 16]]);
   }));
 
   return function (_x5, _x6) {
     return _ref3.apply(this, arguments);
+  };
+}()); //decline request form call
+
+router.post("/appList/:renthistoriesId", /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(req, res) {
+    var appList;
+    return regeneratorRuntime.wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.next = 2;
+            return _models.Ref_request.update({
+              is_decline: true
+            }, {
+              where: {
+                renthistories_id: req.params.renthistoriesId
+              }
+            });
+
+          case 2:
+            appList = _context4.sent;
+            res.json(appList);
+
+          case 4:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4);
+  }));
+
+  return function (_x7, _x8) {
+    return _ref4.apply(this, arguments);
   };
 }());
 var _default = router;
