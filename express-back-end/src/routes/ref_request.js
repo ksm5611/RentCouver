@@ -37,11 +37,30 @@ router.get("/refRequest/:landlordId", async (req, res) => {
   res.send(refRequest);
 });
 
+router.post("/reqReference", async (req, res) => {
+  if (req.body.renthistories_id) {
+    try {
+      const rentHistory = await RentHistory.findOne({
+        where: { id: req.body.renthistories_id },
+      });
+      rentHistory.is_requested = true;
+      await rentHistory.save();
+
+      res.send(rentHistory);
+    } catch (error) {
+      res.send(error);
+    }
+  }
+  const receviedRequest = await Ref_request.create(req.body);
+
+  res.send(receviedRequest);
+});
+
 //creating ref request(message submit)
 router.post("/refRequest/:historyId", async (req, res) => {
   const refRequest = await RentHistory.update({
     review_content: req.body,
-    wherer: { id: req.params.historyId },
+    where: { id: req.params.historyId },
   });
 
   res.json(refRequest);

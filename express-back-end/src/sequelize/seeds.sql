@@ -87,7 +87,7 @@ INSERT INTO applications (renthistories_id, tenant_id, landlord_id, property_id,
 INSERT INTO applications (renthistories_id, tenant_id, landlord_id, property_id, potential_move_in_date, is_decline) VALUES (5, 11, 6, 3, '2021-07-01', false);
 
 -- (ref request part)
-INSERT INTO ref_requests (renthistories_id, tenant_id, landlord_id, property_id, potential_move_in_date,is_decline) VALUES (1, 10, 1, 17, '2021-07-01', false);
+-- INSERT INTO ref_requests (renthistories_id, tenant_id, landlord_id, property_id, potential_move_in_date,is_decline) VALUES (1, 10, 1, 17, '2021-07-01', false);
 --  message : text == null
 
 -- -- --- 5

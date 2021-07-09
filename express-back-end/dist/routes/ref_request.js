@@ -55,37 +55,93 @@ router.get("/refRequest/:landlordId", /*#__PURE__*/function () {
   return function (_x, _x2) {
     return _ref.apply(this, arguments);
   };
-}()); //creating ref request(message submit)
-
-router.post("/refRequest/:historyId", /*#__PURE__*/function () {
+}());
+router.post("/reqReference", /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {
-    var refRequest;
+    var rentHistory, receviedRequest;
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            _context2.next = 2;
+            if (!req.body.renthistories_id) {
+              _context2.next = 14;
+              break;
+            }
+
+            _context2.prev = 1;
+            _context2.next = 4;
+            return _models.RentHistory.findOne({
+              where: {
+                id: req.body.renthistories_id
+              }
+            });
+
+          case 4:
+            rentHistory = _context2.sent;
+            rentHistory.is_requested = true;
+            _context2.next = 8;
+            return rentHistory.save();
+
+          case 8:
+            res.send(rentHistory);
+            _context2.next = 14;
+            break;
+
+          case 11:
+            _context2.prev = 11;
+            _context2.t0 = _context2["catch"](1);
+            res.send(_context2.t0);
+
+          case 14:
+            _context2.next = 16;
+            return _models.Ref_request.create(req.body);
+
+          case 16:
+            receviedRequest = _context2.sent;
+            res.send(receviedRequest);
+
+          case 18:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2, null, [[1, 11]]);
+  }));
+
+  return function (_x3, _x4) {
+    return _ref2.apply(this, arguments);
+  };
+}()); //creating ref request(message submit)
+
+router.post("/refRequest/:historyId", /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {
+    var refRequest;
+    return regeneratorRuntime.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.next = 2;
             return _models.RentHistory.update({
               review_content: req.body,
-              wherer: {
+              where: {
                 id: req.params.historyId
               }
             });
 
           case 2:
-            refRequest = _context2.sent;
+            refRequest = _context3.sent;
             res.json(refRequest);
 
           case 4:
           case "end":
-            return _context2.stop();
+            return _context3.stop();
         }
       }
-    }, _callee2);
+    }, _callee3);
   }));
 
-  return function (_x3, _x4) {
-    return _ref2.apply(this, arguments);
+  return function (_x5, _x6) {
+    return _ref3.apply(this, arguments);
   };
 }());
 var _default = router;

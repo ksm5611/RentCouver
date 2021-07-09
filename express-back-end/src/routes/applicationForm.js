@@ -41,9 +41,22 @@ router.get("/applications/:tenantId", async (req, res) => {
 
 //submit application form call
 router.post("/applications", async (req, res) => {
+  if (req.body.renthistories_id) {
+    try {
+      const rentHistory = await RentHistory.findOne({
+        where: { id: req.body.renthistories_id },
+      });
+      rentHistory.is_requested = true;
+      await rentHistory.save();
+
+      res.send(rentHistory);
+    } catch (error) {
+      res.send(error);
+    }
+  }
   const applicationForm = await Application.create(req.body);
 
-  res.json(applicationForm);
+  res.send(applicationForm);
 });
 
 export default router;
