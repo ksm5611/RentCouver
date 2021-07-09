@@ -43,7 +43,7 @@ export default function App() {
           <Route path="/app_review">
             <ApplicationReview />
           </Route>
-          <Route path="/rent_history">
+          <Route path="/rent_history/:tenantId">
             <RentHistory />
           </Route>
           <Route path="/ref_request_list/:landlordId">

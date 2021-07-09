@@ -69,7 +69,7 @@ export default function Navigation() {
             <NavDropdown.Item
               className="dropdown-item"
               onClick={() => dropdownItemColor}
-              href="/rent_history"
+              href="/rent_history/10"
             >
               My Rent History
             </NavDropdown.Item>
