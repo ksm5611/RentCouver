@@ -10,13 +10,6 @@ import "../../../App.css";
 export default function RefReqItem() {
   const [applications, setApplications] = useState([]);
   const [error, setError] = useState("");
-  const DEFAULT = "DEFAULT";
-  const FORM = "FORM";
-  const DECLINED = "DECLINED";
-  const SENT = "SENT";
-
-  const { mode, transition, back } = useVisualMode(DEFAULT);
-
 
   let { landlordId } = useParams();
 
