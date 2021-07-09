@@ -26,9 +26,6 @@ router.get("/rentHistories/:tenantId", /*#__PURE__*/function () {
               where: {
                 tenant_id: req.params.tenantId
               },
-              // attributes: {
-              //   exclude: ["is_requested", "is_decline"],
-              // },
               include: [{
                 model: _models.Property,
                 attributes: {

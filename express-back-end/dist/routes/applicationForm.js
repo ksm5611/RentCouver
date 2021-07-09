@@ -67,24 +67,54 @@ router.get("/applications/:tenantId", /*#__PURE__*/function () {
 
 router.post("/applications", /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {
-    var applicationForm;
+    var rentHistory, applicationForm;
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            _context2.next = 2;
-            return _models.Application.create(req.body);
+            if (!req.body.renthistories_id) {
+              _context2.next = 14;
+              break;
+            }
 
-          case 2:
-            applicationForm = _context2.sent;
-            res.json(applicationForm);
+            _context2.prev = 1;
+            _context2.next = 4;
+            return _models.RentHistory.findOne({
+              where: {
+                id: req.body.renthistories_id
+              }
+            });
 
           case 4:
+            rentHistory = _context2.sent;
+            rentHistory.is_requested = true;
+            _context2.next = 8;
+            return rentHistory.save();
+
+          case 8:
+            res.send(rentHistory);
+            _context2.next = 14;
+            break;
+
+          case 11:
+            _context2.prev = 11;
+            _context2.t0 = _context2["catch"](1);
+            res.send(_context2.t0);
+
+          case 14:
+            _context2.next = 16;
+            return _models.Application.create(req.body);
+
+          case 16:
+            applicationForm = _context2.sent;
+            res.send(applicationForm);
+
+          case 18:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2);
+    }, _callee2, null, [[1, 11]]);
   }));
 
   return function (_x3, _x4) {

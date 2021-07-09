@@ -1,7 +1,7 @@
-import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
+import useVisualMode from "../RefReqList/RefReqItem/useVisualMode";
 import axios from "axios";
 
-import { useHistory } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -38,7 +38,6 @@ export default function ApplicationForm() {
   const [error, setError] = useState("");
   const [potentialMoveInDate, setPotentailDate] = useState(null);
 
-
   // modes for buttons
   const DEFAULT = "DEFAULT";
   const SENT = "SENT";
@@ -63,7 +62,6 @@ export default function ApplicationForm() {
   //property detail에서 클릭후 url로 갈때 필요한 propertyid랑 landlordid 찾기
   let { propertyId, landlordId } = useParams();
 
-  console.log("here");
   useEffect(() => {
     async function fetchData() {
       try {
@@ -134,7 +132,7 @@ export default function ApplicationForm() {
       landlord_id: landlordId,
       potential_move_in_date: potentialMoveInDate,
     });
-    transition(SENT)
+    transition(SENT);
   };
 
   // setting date funtion
@@ -181,7 +179,11 @@ export default function ApplicationForm() {
           <Button variant="contained" color="primary" onClick={handleSubmit}>
             Send
           </Button>
-          <Button variant="contained" color="secondary" onClick={() => history.push(`/property_details/${propertyId}`)}>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => history.push(`/property_details/${propertyId}`)}
+          >
             cancel
           </Button>
         </>
@@ -189,10 +191,15 @@ export default function ApplicationForm() {
       {mode === SENT && (
         <>
           <p>SENT!</p>
-          <Button variant="contained" color="secondary" onClick={() => history.push(`/property_details/${propertyId}`)}>Back to Property Details</Button>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => history.push(`/property_details/${propertyId}`)}
+          >
+            Back to Property Details
+          </Button>
         </>
       )}
-
     </Container>
   );
 }
