@@ -1,17 +1,12 @@
 import useVisualMode from "../RefReqList/RefReqItem/useVisualMode";
 import axios from "axios";
-import {
-  Container,
-  ListItem,
-  List,
-  Button,
-  makeStyles,
-  Avatar,
-} from "@material-ui/core";
+import ReceivedRef from './ReceivedRef';
+import { Button } from "@material-ui/core"
 
 export default function Status({ record }) {
   const DEFAULT = "DEFAULT";
   const REQUESTED = "REQUESTED";
+  const REVIEW = "REVIEW";
   const { mode, transition } = useVisualMode(DEFAULT);
 
   const refRequested = async (historyRecord) => {
@@ -59,7 +54,22 @@ export default function Status({ record }) {
             </Button>
           ) : (
             REQUESTED
-          ))}
+          )
+          )}
+        {mode === REVIEW && (
+          record.review_content !== null ? (
+            <>
+              <p>REQUESTED</p>
+              <ReceivedRef recordId={record.recordId} />
+            </>
+          ) : (
+            mode === REQUESTED ? (<p>REQUESTED</p>)
+              : (
+                DEFAULT
+              )
+          )
+        )
+        }
       </div>
     </>
   );

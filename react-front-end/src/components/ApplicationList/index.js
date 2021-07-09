@@ -7,13 +7,8 @@ import { useEffect, useState } from "react";
 import {
   Container,
   ListItem,
-  ListItemText,
   List,
-  Typography,
-  Button,
-  TextField,
   makeStyles,
-  Avatar,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => {
@@ -77,7 +72,8 @@ export default function ApplicationList() {
           </div>
         </ListItem>
         <List>
-          {appLists.map((listValue) => {
+          {appLists.reverse().map((listValue) => {
+
             return (
               <ListItem className={classes.root}>
                 <Status listValue={listValue} />
