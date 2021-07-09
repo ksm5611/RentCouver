@@ -38,6 +38,11 @@ export default function RefReqItem(props) {
     fetchData();
   }, [landlordId]);
 
+  const messageSubmit = async () => {
+    await axios.post("http://localhost:8000/api/refRequest", {});
+    transition(SENT);
+  };
+
   return (
     <Fragment>
       {mode === REQUEST && (
