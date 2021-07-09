@@ -1,14 +1,10 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import "./PropertyListItem.css";
 
-
-
 export default function PropertyListItem({ properties }) {
-  
   const propertyValues = ["cost_of_month", "listed_start_date"];
-  
 
   const renderPropertyCard = (property) => {
     return (

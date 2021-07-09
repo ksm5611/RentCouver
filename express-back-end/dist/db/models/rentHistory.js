@@ -58,6 +58,9 @@ module.exports = function (sequelize, DataTypes) {
         this.hasMany(models.Application, {
           foreignKey: "renthistories_id"
         });
+        this.hasMany(models.Ref_request, {
+          foreignKey: "renthistories_id"
+        });
       }
     }]);
 

@@ -23,7 +23,7 @@ router.get("/refRequest/:landlordId", /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return _models.Application.findAll({
+            return _models.Ref_request.findAll({
               where: {
                 landlord_id: req.params.landlordId
               },
@@ -55,7 +55,7 @@ router.get("/refRequest/:landlordId", /*#__PURE__*/function () {
   return function (_x, _x2) {
     return _ref.apply(this, arguments);
   };
-}()); //creating ref request
+}()); //creating ref request(message submit)
 
 router.post("/refRequest/:historyId", /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {

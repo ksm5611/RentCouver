@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Filters from "./Filters";
 import SearchBar from "./SearchBar";
 import Googlemaps from "./Map";
@@ -12,7 +13,12 @@ import React, { memo } from "react";
 export default function PropertyListing() {
   const [properties, setProperties] = useState([]);
   const [error, setError] = useState("");
-  const [filter, setFilter] = useState({ property_type: "", bedrooms: null, bathrooms: null, price: null });
+  const [filter, setFilter] = useState({
+    property_type: "",
+    bedrooms: null,
+    bathrooms: null,
+    price: null,
+  });
 
   // state of [filter, setFilter] will be here
   // original state = { type: "", bedrooms: null, bathrooms: null, price: null}
@@ -45,6 +51,7 @@ export default function PropertyListing() {
           // `http://localhost:8000/api/propertyLists?${query}`
           `http://localhost:8000/api/propertyLists`
         );
+
         setProperties(result.data);
       } catch (error) {
         setError("Your server is broken");
@@ -57,7 +64,7 @@ export default function PropertyListing() {
     <div id="proplist-container">
       <div id="search-and-filter">
         <Filters
-          // filteredProperties={filter => setFilter(filter)}
+        // filteredProperties={filter => setFilter(filter)}
         />
         <SearchBar />
       </div>

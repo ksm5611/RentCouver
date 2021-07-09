@@ -22,7 +22,7 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/user">
+          <Route path="/user/:tenantId">
             <User />
           </Route>
           <Route path="/property_details/:id">
@@ -43,7 +43,7 @@ export default function App() {
           <Route path="/app_review">
             <ApplicationReview />
           </Route>
-          <Route path="/rent_history">
+          <Route path="/rent_history/:tenantId">
             <RentHistory />
           </Route>
           <Route path="/ref_request_list/:landlordId">

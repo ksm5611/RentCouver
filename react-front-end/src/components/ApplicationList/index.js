@@ -1,9 +1,9 @@
 import axios from "axios";
 // import ApplicationReview from "../ApplicationReview";
 // import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
-import Status from '../ApplicationList/Status';
+import Status from "../ApplicationList/Status";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import {
   Container,
   ListItem,
@@ -15,7 +15,6 @@ import {
   makeStyles,
   Avatar,
 } from "@material-ui/core";
-
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -43,29 +42,22 @@ export default function ApplicationList() {
   const [appLists, setAppLists] = useState([]);
   const [error, setError] = useState("");
 
-
-
-  let { landlordId } = useParams();
-  console.log(landlordId);
+  // let { landlordId } = useParams();
   useEffect(() => {
     async function fetchData() {
       try {
-        const result = await axios.get(
-          `http://localhost:8000/api/appList/${landlordId}`
-        );
+        const result = await axios.get("http://localhost:8000/api/appList/1");
         setAppLists(result.data);
       } catch (error) {
         setError("Your server is broken");
       }
     }
     fetchData();
-  }, [landlordId]);
-
+  }, []);
 
   //material ui styling funtion
   const classes = useStyles();
 
-  //decline button function
   // const handleDecline = async (applicationId) => {
   //   await axios.post(`http://localhost:8000/api/appList/${applicationId}`);
   // };
@@ -89,7 +81,7 @@ export default function ApplicationList() {
           {appLists.map((listValue) => {
             return (
               <ListItem className={classes.root}>
-                <Status listValue={listValue}/>
+                <Status listValue={listValue} />
               </ListItem>
             );
           })}

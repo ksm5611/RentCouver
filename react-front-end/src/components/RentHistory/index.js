@@ -1,12 +1,13 @@
-import axios from 'axios';
-import { useState, useEffect, Fragment } from 'react';
+import axios from "axios";
+import { useState, useEffect, Fragment } from "react";
+import { useParams } from "react-router-dom";
 import {
   Container,
   ListItem,
   List,
   Button,
   makeStyles,
-  Avatar
+  Avatar,
 } from "@material-ui/core";
 
 import Status from './Status';
@@ -18,36 +19,38 @@ const useStyles = makeStyles((theme) => {
       border: "1px solid black",
       marginBottom: "16px",
       display: "flex",
-      justifyContent: "space-between"
+      justifyContent: "space-between",
     },
     btn: {
-      backgroundColor: '#f1a177',
-      color: 'white',
+      backgroundColor: "#f1a177",
+      color: "white",
       "&:hover": {
-        backgroundColor: 'rgb(7, 177, 77, 0.42)'
-      }
-    }
+        backgroundColor: "rgb(7, 177, 77, 0.42)",
+      },
+    },
   };
 });
 
 export default function RentHistory() {
-
   const classes = useStyles();
 
   const [history, setHistory] = useState([]);
   const [error, setError] = useState(false);
 
+  let { tenantId } = useParams();
   useEffect(() => {
     async function fetchData() {
       try {
-        const result = await axios.get("http://localhost:8000/api/rentHistories");
-        setHistory(result.data)
+        const result = await axios.get(
+          `http://localhost:8000/api/rentHistories/${tenantId}`
+        );
+        setHistory(result.data);
       } catch (error) {
-        setError("Your server is broken")
+        setError("Your server is broken");
       }
     }
     fetchData();
-  }, [])
+  }, [tenantId]);
 
   return (
     <div>
@@ -71,12 +74,10 @@ export default function RentHistory() {
               <ListItem className={classes.root}>
                 <Status record={record} />
               </ListItem>
-            )
+            );
           })}
         </List>
       </Container>
-
     </div>
-  )
-  
+  );
 }

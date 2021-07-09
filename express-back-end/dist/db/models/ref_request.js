@@ -59,6 +59,10 @@ module.exports = function (sequelize, DataTypes) {
           foreignKey: "property_id",
           onDelete: "CASCADE"
         });
+        this.belongsTo(models.RentHistory, {
+          foreignKey: "renthistories_id",
+          onDelete: "CASCADE"
+        });
       }
     }]);
 
@@ -66,21 +70,30 @@ module.exports = function (sequelize, DataTypes) {
   }(Model);
 
   Ref_request.init({
-    landlord_id: {
+    renthistories_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     tenant_id: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    property_id: {
+    landlord_id: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
+    property_id: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    potential_move_in_date: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
     is_decline: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
+      allowNull: false,
+      defaultValue: false
     }
   }, {
     sequelize: sequelize,

@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS photos CASCADE;
 DROP TABLE IF EXISTS rentHistories CASCADE;
 DROP TABLE IF EXISTS refs CASCADE;
 DROP TABLE IF EXISTS applications CASCADE;
--- DROP TABLE IF EXISTS ref_requests CASCADE;
+DROP TABLE IF EXISTS ref_requests CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -71,10 +71,12 @@ CREATE TABLE applications (
   is_decline BOOLEAN NOT NULL
 );
 
--- CREATE TABLE ref_requests (
---   id SERIAL PRIMARY KEY NOT NULL,
---   landlord_id INTEGER REFERENCES users(id) ON DELETE CASCADE, 
---   tenant_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
---   property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE,
---   is_decline BOOLEAN NOT NULL
--- );
+CREATE TABLE ref_requests (
+  id SERIAL PRIMARY KEY NOT NULL,
+  renthistories_id INTEGER REFERENCES rentHistories(id) ON DELETE CASCADE,
+  tenant_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  landlord_id INTEGER REFERENCES users(id) ON DELETE CASCADE, 
+  property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE,
+  potential_move_in_date DATE,
+  is_decline BOOLEAN NOT NULL
+);

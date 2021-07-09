@@ -55,7 +55,7 @@ export default function Navigation() {
             <NavDropdown.Item
               className="dropdown-item"
               onClick={() => dropdownItemColor}
-              href="/user"
+              href="/user/11"
             >
               Dashboard
             </NavDropdown.Item>
@@ -69,7 +69,7 @@ export default function Navigation() {
             <NavDropdown.Item
               className="dropdown-item"
               onClick={() => dropdownItemColor}
-              href="/rent_history"
+              href="/rent_history/10"
             >
               My Rent History
             </NavDropdown.Item>
@@ -84,14 +84,14 @@ export default function Navigation() {
             <NavDropdown.Item
               className="dropdown-item"
               onClick={() => dropdownItemColor}
-              href="/app_list"
+              href="/app_list/1"
             >
               Received Apps
             </NavDropdown.Item>
             <NavDropdown.Item
               className="dropdown-item"
               onClick={() => dropdownItemColor}
-              href="/ref_request_list"
+              href="/ref_request_list/1"
             >
               Reference requests
             </NavDropdown.Item>

@@ -1,15 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import "../../App.css";
 
 export default function UserpageHeroContent() {
   const [user, setUser] = useState(null);
   const [error, setError] = useState("");
 
+  let { tenantId } = useParams();
   useEffect(() => {
     async function fetchData() {
       try {
-        const result = await axios.get("http://localhost:8000/api/users/10");
+        const result = await axios.get(
+          `http://localhost:8000/api/users/${tenantId}`
+        );
         const { ...userData } = result.data;
         setUser(userData);
       } catch (error) {
@@ -17,7 +21,7 @@ export default function UserpageHeroContent() {
       }
     }
     fetchData();
-  }, []);
+  }, [tenantId]);
 
   //if loading backend info is slow, this will show shortly
   if (!user) {
