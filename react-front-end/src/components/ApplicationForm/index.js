@@ -41,7 +41,8 @@ export default function ApplicationForm() {
   // modes for buttons
   const DEFAULT = "DEFAULT";
   const SENT = "SENT";
-  const { mode, transition } = useVisualMode(DEFAULT);
+  // const { mode, transition } = useVisualMode(DEFAULT);
+  const [mode, setMode] = useState(DEFAULT);
 
   // go back to previous property page
   const history = useHistory();
@@ -132,7 +133,7 @@ export default function ApplicationForm() {
       landlord_id: landlordId,
       potential_move_in_date: potentialMoveInDate,
     });
-    transition(SENT);
+    setMode(SENT);
   };
 
   // setting date funtion
@@ -186,6 +187,7 @@ export default function ApplicationForm() {
           >
             cancel
           </Button>
+          <Button variant="contained">Edit My Application</Button>
         </>
       )}
       {mode === SENT && (
