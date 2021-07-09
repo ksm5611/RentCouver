@@ -3,7 +3,7 @@ import axios from "axios";
 // import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
 import Status from "../ApplicationList/Status";
 import { useEffect, useState } from "react";
-// import { useParams } from "react-router-dom";
+
 import {
   Container,
   ListItem,
@@ -42,7 +42,6 @@ export default function ApplicationList() {
   const [appLists, setAppLists] = useState([]);
   const [error, setError] = useState("");
 
-  // let { landlordId } = useParams();
   useEffect(() => {
     async function fetchData() {
       try {
