@@ -1,5 +1,6 @@
 import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
 import axios from 'axios';
+import ReceivedRef from './ReceivedRef';
 import {
   Container,
   ListItem,
@@ -28,6 +29,10 @@ export default function Status({ record }) {
     transition(REQUESTED)
   }
 
+  const renderReference = () => {
+
+  }
+
 
   return (
     <>
@@ -37,6 +42,7 @@ export default function Status({ record }) {
         <span>{record.Property.User.name}</span>
       </div>
       <div className="option-btn">
+      {/* <ReceivedRef /> */}
         {mode === REQUESTED && (<p>REQUESTED</p>)}
         {mode === DEFAULT && (
           record.is_requested === false ? (
@@ -54,15 +60,19 @@ export default function Status({ record }) {
           )
         )}
         {mode === REVIEW && (
-          <>
-            <p>REQUESTED</p>
-            <Button onClick={() => {
-
-            }}>
-              REVIEW
-            </Button>
-          </>
-        )}
+          record.review_content !== null ? (
+            <>
+              <p>REQUESTED</p>
+              <ReceivedRef recordId={record.recordId}/>
+            </>
+          ) : (
+            mode === REQUESTED ? (<p>REQUESTED</p>)
+              : (
+                DEFAULT
+              )
+          )
+        )
+        }
       </div>
     </>
   )
