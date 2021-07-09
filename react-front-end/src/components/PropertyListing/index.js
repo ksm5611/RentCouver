@@ -5,7 +5,7 @@ import Filters from "./Filters";
 import SearchBar from "./SearchBar";
 import Googlemaps from "./Map";
 import PropertyListItem from "./PropertyListItem";
-import "./index.css";
+// import "./index.css";
 import React, { memo } from "react";
 
 // this file cannot have props because this doesn't have a parent file

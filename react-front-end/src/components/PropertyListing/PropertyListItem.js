@@ -5,7 +5,7 @@ import {
   Button,
   makeStyles
 } from "@material-ui/core";
-import "./PropertyListItem.css";
+// import "./PropertyListItem.css";
 
 
 const useStyles = makeStyles({

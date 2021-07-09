@@ -29,24 +29,24 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ReceivedRef({ tenantId }) { // tenantId = 10?
-  const [receivedRef, setReceivedRef] = useState([]);
-  const [error, setError] = useState("");
+export default function ReceivedRef({ reference }) { // tenantId = 10?
+  // const [receivedRef, setReceivedRef] = useState([]);
+  // const [error, setError] = useState("");
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        // get request for received ref
-        const result = await axios.get(
-          `/`
-        );
-        setReceivedRef(result.data);
-      } catch (error) {
-        setError("Your server is broken");
-      }
-    }
-    fetchData();
-  }, [tenantId]);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       // get request for received ref
+  //       const result = await axios.get(
+  //         `/`
+  //       );
+  //       setReceivedRef(result.data);
+  //     } catch (error) {
+  //       setError("Your server is broken");
+  //     }
+  //   }
+  //   fetchData();
+  // }, [tenantId]);
 
   const classes = useStyles();
 
@@ -69,23 +69,25 @@ export default function ReceivedRef({ tenantId }) { // tenantId = 10?
     setState({ ...state, [anchor]: open });
   };
 
-  const list = (anchor) => (
-    <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === "top" || anchor === "bottom",
-      })}
-      role="presentation"
-      onClick={toggleDrawer(anchor, true)}
-      onKeyDown={toggleDrawer(anchor, true)}
-      id="drawer-container"
-    >
-      <div className="drawer-content">
-        
-      </div>
-    </div>
-  );
+  // const reviewContent = (anchor) => (
+  //   <div
+  //     className={clsx(classes.list, {
+  //       [classes.fullList]: anchor === "top" || anchor === "bottom",
+  //     })}
+  //     role="presentation"
+  //     onClick={toggleDrawer(anchor, true)}
+  //     onKeyDown={toggleDrawer(anchor, true)}
+  //     id="drawer-container"
+  //   >
+  //     <div className="drawer-content">
 
-  if (!receivedRef) {
+  //       {reference}
+        
+  //     </div>
+  //   </div>
+  // );
+
+  if (!reference) {
     return <div>Loading..</div>;
   }
 
@@ -108,7 +110,8 @@ export default function ReceivedRef({ tenantId }) { // tenantId = 10?
           open={state["left"]}
           onClose={toggleDrawer("left", false)}
         >
-          {list("left")}
+          {/* {reviewContent("left")} */}
+          <p>{reference}</p>
         </Drawer>
       </div>
     </div>

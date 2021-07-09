@@ -58,8 +58,7 @@ export default function Status({ record }) {
         {mode === REVIEW && (
           record.review_content !== null ? (
             <>
-              <p>REQUESTED</p>
-              <ReceivedRef recordId={record.recordId} />
+              <ReceivedRef reference={record.review_content} />
             </>
           ) : (
             mode === REQUESTED ? (<p>REQUESTED</p>)
