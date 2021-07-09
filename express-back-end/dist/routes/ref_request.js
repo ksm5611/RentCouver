@@ -202,6 +202,39 @@ router.post("/appList/:renthistoriesId", /*#__PURE__*/function () {
   return function (_x7, _x8) {
     return _ref4.apply(this, arguments);
   };
+}()); //decline request form call
+
+router.post("/declineRefReq/:renthistoriesId", /*#__PURE__*/function () {
+  var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(req, res) {
+    var declineRefReq;
+    return regeneratorRuntime.wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            _context5.next = 2;
+            return _models.Ref_request.update({
+              is_decline: true
+            }, {
+              where: {
+                renthistories_id: req.params.renthistoriesId
+              }
+            });
+
+          case 2:
+            declineRefReq = _context5.sent;
+            res.json(declineRefReq);
+
+          case 4:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5);
+  }));
+
+  return function (_x9, _x10) {
+    return _ref5.apply(this, arguments);
+  };
 }());
 var _default = router;
 exports["default"] = _default;

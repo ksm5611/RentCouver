@@ -89,4 +89,17 @@ router.post("/appList/:renthistoriesId", async (req, res) => {
   res.json(appList);
 });
 
+//decline request form call
+router.post("/declineRefReq/:renthistoriesId", async (req, res) => {
+  const declineRefReq = await Ref_request.update(
+    {
+      is_decline: true,
+    },
+    {
+      where: { renthistories_id: req.params.renthistoriesId },
+    }
+  );
+  res.json(declineRefReq);
+});
+
 export default router;

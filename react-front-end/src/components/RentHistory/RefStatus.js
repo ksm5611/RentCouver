@@ -10,7 +10,6 @@ export default function Status({ record }) {
   const { mode, transition } = useVisualMode(DEFAULT);
 
   const refRequested = async (historyRecord) => {
-    // if (historyRecordId === historyRecord.id) {
 
     try {
       await axios.post(`http://localhost:8000/api/reqReference`, {
