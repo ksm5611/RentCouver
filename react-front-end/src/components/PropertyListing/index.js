@@ -2,12 +2,15 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Filters from "./Filters";
-import MyComponent from "./Map";
+import SearchBar from "./SearchBar";
+import Googlemaps from "./Map";
 import PropertyListItem from "./PropertyListItem";
 import "./index.css";
 import React, { memo } from "react";
 
-export default function PropertyListing(props) {
+// this file cannot have props because this doesn't have a parent file
+
+export default function PropertyListing() {
   const [properties, setProperties] = useState([]);
   const [error, setError] = useState("");
   const [filter, setFilter] = useState({
@@ -25,17 +28,18 @@ export default function PropertyListing(props) {
   // send the state [filter, setFilter] down to Filters.js and each filter
   // Filters.js will setState and it will be sent up here
 
-  // const query = (props) => {
+  // const query = (filter) => {
   //   // this props will be from Filters.js
   //   // props are the filter selections
-  //   if (props.property_type !== null) {
-  //     // the search button in Filters.js {"type=" + property_type} />
+  //   result = "";
+  //   if (filter.property_type !== null) {
+  //     result = "type=" + property_type;
   //   }
-  //   if (props.number_of_bedrooms !== null) {
-  //     // the search button in Filters.js {"number_of_bedrooms=" + number_of_bedrooms} />
+  //   if (filter.bedrooms !== null) {
+  //     result = "bedrooms=" + number_of_bedrooms;
   //   }
-  //   if (number_of_bathrooms !== null) {
-  //     // the search button in Filters.js {"number_of_bathrooms=" + number_of_bathrooms} />
+  //   if (filter.bathrooms !== null) {
+  //     result = "bathrooms=" + number_of_bathrooms;
   //   }
 
   // }
@@ -44,7 +48,8 @@ export default function PropertyListing(props) {
     async function fetchData() {
       try {
         const result = await axios.get(
-          "http://localhost:8000/api/propertyLists"
+          // `http://localhost:8000/api/propertyLists?${query}`
+          `http://localhost:8000/api/propertyLists`
         );
 
         setProperties(result.data);
@@ -57,10 +62,19 @@ export default function PropertyListing(props) {
 
   return (
     <div id="proplist-container">
-      <Filters />
+      <div id="search-and-filter">
+        <Filters
+        // filteredProperties={filter => setFilter(filter)}
+        />
+        <SearchBar />
+      </div>
       <div id="map-and-proplist">
-        <PropertyListItem properties={properties} />
-        <MyComponent />
+        <div id="just-propList">
+          <PropertyListItem properties={properties} />
+        </div>
+        <div id="just-map">
+          <Googlemaps />
+        </div>
       </div>
     </div>
   );

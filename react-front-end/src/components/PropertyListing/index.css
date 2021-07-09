@@ -2,9 +2,22 @@
   padding-top: 55px
 }
 
+#search-and-filter {
+  display: flex;
+  align-items: center;
+}
+
 #map-and-proplist {
   display: flex;
   flex-direction: row;
-  width: 500px;
-  height: 180px;
+}
+
+#just-propList {
+  width: auto;
+  height: 750px;
+  overflow: auto
+}
+
+#just-map {
+  padding: 5px 0 0 8px;
 }
