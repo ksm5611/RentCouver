@@ -10,7 +10,7 @@ import {
   Avatar,
 } from "@material-ui/core";
 
-import Status from './RefStatus';
+import RefStatus from './RefStatus';
 
 
 const useStyles = makeStyles((theme) => {
@@ -72,7 +72,7 @@ export default function RentHistory() {
           {history.map((record) => {
             return (
               <ListItem className={classes.root}>
-                <Status record={record} />
+                <RefStatus record={record} />
               </ListItem>
             );
           })}

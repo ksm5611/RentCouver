@@ -18,7 +18,7 @@ import {
   makeStyles,
   List
 } from "@material-ui/core";
-import './Filters.css';
+// import './Filters.css';
 
 const useStyles = makeStyles({
   root: {
