@@ -69,7 +69,7 @@ export default function RentHistory() {
           </div>
         </ListItem>
         <List>
-          {history.map((record) => {
+          {history.reverse().map((record) => {
             return (
               <ListItem className={classes.root}>
                 <RefStatus record={record} />

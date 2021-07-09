@@ -6,7 +6,6 @@ import { Button } from "@material-ui/core"
 export default function Status({ record }) {
   const DEFAULT = "DEFAULT";
   const REQUESTED = "REQUESTED";
-  const REVIEW = "REVIEW";
   const { mode, transition } = useVisualMode(DEFAULT);
 
   const refRequested = async (historyRecord) => {
@@ -43,7 +42,6 @@ export default function Status({ record }) {
         {mode === DEFAULT &&
           (record.is_requested === false ? (
             <Button
-              // className={classes.btn}
               variant="contained"
               onClick={() => {
                 refRequested(record);
@@ -52,22 +50,13 @@ export default function Status({ record }) {
               Request Reference
             </Button>
           ) : (
-            REQUESTED
+            record.review_content === null ? (
+              REQUESTED
+            ) : (
+                <ReceivedRef reference={record.review_content} />
+            )
           )
           )}
-        {mode === REVIEW && (
-          record.review_content !== null ? (
-            <>
-              <ReceivedRef reference={record.review_content} />
-            </>
-          ) : (
-            mode === REQUESTED ? (<p>REQUESTED</p>)
-              : (
-                DEFAULT
-              )
-          )
-        )
-        }
       </div>
     </>
   );
