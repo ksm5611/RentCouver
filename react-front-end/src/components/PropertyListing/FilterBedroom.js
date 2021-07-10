@@ -31,7 +31,7 @@ export default function FilterBedroom(props) {
     setSelectedIndex(index);
   };
 
-  const selectionArr = ["All", "1", "2", "3", "4"];
+  const selectionArr = ["All", "1", "2", "3", "4+"];
 
   return (
     <>
@@ -49,9 +49,9 @@ export default function FilterBedroom(props) {
               className={classes.nested}
               selected={selectedIndex === index}
               onClick={(event) => {
-                props.changeBedroom(selectionArr[index])
-                handleListItemClick(event, index) }
-              }
+                props.changeBedroom(selectionArr[index]);
+                handleListItemClick(event, index);
+              }}
             >
               <ListItemText primary={text} />
             </ListItem>
