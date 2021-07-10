@@ -3,9 +3,10 @@ import "../App.css";
 import "rsuite/dist/styles/rsuite-default.css";
 import { Navbar } from "rsuite";
 import NavItem from "react-bootstrap/Nav";
-import { NavDropdown } from "react-bootstrap";
+import { NavDropdown, Dropdown } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faUser } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom"
 
 export default function Navigation() {
   function dropdownItemColor() {
@@ -16,35 +17,32 @@ export default function Navigation() {
   return (
     <Navbar id="nav-wrapper">
       <Navbar.Header id="nav-logo">
-        <a href="/" className="navbar-brand logo">
-          <div>
-            <h4>RentCouver</h4>
-          </div>
-        </a>
+
+          <Link as={Link} to="/" className="navbar-brand logo">
+            RentCouver
+          </Link>
+
       </Navbar.Header>
       <Navbar.Body className="nav-body">
         <NavItem className="nav-body-item-list">
           <NavItem.Item>
-            <NavItem.Link className="nav-link" href="/home">
+            <Link className="nav-link" to="/home">
               <FontAwesomeIcon icon={faHome} />
               &nbsp; Home
-            </NavItem.Link>
+            </Link>
           </NavItem.Item>
           <NavItem.Item>
-            <NavItem.Link
-              className="nav-link"
-              eventKey="link-1"
-              href="/property_listings"
-            >
+            <Link className="nav-link" to="/property_listings">
               Properties
-            </NavItem.Link>
+            </Link>
           </NavItem.Item>
           <NavItem.Item>
-            <NavItem.Link className="nav-link" eventKey="link-2">
-              About Us
-            </NavItem.Link>
+            <Link className="nav-link" to="/">
+              About us
+            </Link>
           </NavItem.Item>
         </NavItem>
+
         <NavItem className="nav-body-item-list">
           <FontAwesomeIcon className="user-icon" icon={faUser} />
           <NavDropdown
@@ -53,48 +51,56 @@ export default function Navigation() {
             id="basic-nav-dropdown"
           >
             <NavDropdown.Item
+              as={Link}
               className="dropdown-item"
               onClick={() => dropdownItemColor}
-              href="/user/11"
+              to="/user/11"
             >
               Dashboard
             </NavDropdown.Item>
+
             <NavDropdown.Item
+              as={Link}
               className="dropdown-item"
               onClick={() => dropdownItemColor}
-              href="/"
+              to="/"
             >
               My properties
             </NavDropdown.Item>
             <NavDropdown.Item
+              as={Link}
               className="dropdown-item"
               onClick={() => dropdownItemColor}
-              href="/rent_history/10"
+              to="/rent_history/10"
             >
-              My Rent History
+              Rent history
             </NavDropdown.Item>
             <NavDropdown.Item
+              as={Link}
               className="dropdown-item"
               onClick={() => dropdownItemColor}
-              href="/user"
+              to="/"
             >
-              My References
+              References
             </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item
+              as={Link}
               className="dropdown-item"
               onClick={() => dropdownItemColor}
-              href="/app_list/1"
+              to="/app_list/1"
             >
               Received Apps
             </NavDropdown.Item>
             <NavDropdown.Item
+              as={Link}
               className="dropdown-item"
               onClick={() => dropdownItemColor}
-              href="/ref_request_list/1"
+              to="/ref_request_list/1"
             >
               Reference requests
             </NavDropdown.Item>
+
           </NavDropdown>
         </NavItem>
       </Navbar.Body>

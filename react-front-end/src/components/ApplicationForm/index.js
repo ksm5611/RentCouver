@@ -177,7 +177,7 @@ export default function ApplicationForm() {
       </div>
       {mode === DEFAULT && (
         <>
-          <Button variant="contained" color="primary" onClick={handleSubmit}>
+          <Button className="haha" variant="contained" color="primary" onClick={handleSubmit}>
             Send
           </Button>
           <Button

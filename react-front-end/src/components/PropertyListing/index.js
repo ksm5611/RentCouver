@@ -61,7 +61,7 @@ export default function PropertyListing() {
   }, []);
 
   return (
-    <div id="proplist-container">
+    <div id="proplist-container" className="wrapper">
       <div id="search-and-filter">
         <Filters
         // filteredProperties={filter => setFilter(filter)}

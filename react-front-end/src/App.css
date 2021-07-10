@@ -2,16 +2,25 @@ body {
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
 }
-body a:hover {
+
+a:hover {
   text-decoration: none;
 }
-body ul {
+
+ul {
   padding: 0;
 }
-body li {
+
+li {
   list-style: none;
 }
-body .hero-container {
+
+.wrapper {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.hero-container {
   padding-top: 80px;
   font-family: "Kalam", cursive;
   height: 310px;
@@ -21,7 +30,7 @@ body .hero-container {
   justify-content: center;
   align-items: center;
 }
-body .hero-container .hero-content {
+.hero-container .hero-content {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -30,24 +39,25 @@ body .hero-container .hero-content {
   padding: 20px;
   z-index: 1;
 }
-body .hero-container .hero-content .hero-content-item {
+.hero-container .hero-content .hero-content-item {
   margin: 10px;
 }
-body .hero-container .hero-content .hero-content-item .profile-img {
+.hero-container .hero-content .hero-content-item .profile-img {
   width: 200px;
   border-radius: 50%;
 }
-body .hero-container .hero-content h2 {
+.hero-container .hero-content h2 {
   font-size: 40px;
   color: #7c7878;
 }
-body .second-hero-container {
+
+.second-hero-container {
   display: flex;
   justify-content: start;
   padding-left: 100px;
   height: 240px;
 }
-body .second-hero-container h2 {
+.second-hero-container h2 {
   font-family: "Ubuntu", sans-serif;
   color: #7c7878;
 }
@@ -104,10 +114,10 @@ body .second-hero-container h2 {
   display: flex;
   justify-content: space-around;
   font-family: "Ubuntu", sans-serif;
-  padding: 0 28px;
+  padding: 0 60px;
   position: fixed;
   z-index: 2;
-  width: 100%;
+  width: 1000px;
   background-color: #f8f3f0;
 }
 #nav-wrapper #nav-logo {
@@ -425,11 +435,11 @@ body .second-hero-container h2 {
   margin-right: 5px;
 }
 
-#card {
+.card {
   border: solid 2px;
   border-color: #c1b9b9;
   border-radius: 5px;
-  margin: 10px;
+  margin-bottom: 10px;
 }
 
 #card:hover {

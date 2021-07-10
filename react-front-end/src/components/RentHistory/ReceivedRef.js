@@ -51,9 +51,9 @@ export default function ReceivedRef({ reference }) {
     setState({ ...state, [anchor]: open });
   };
 
-  if (!reference) {
-    return <div>Loading..</div>;
-  }
+  // if (!reference) {
+  //   return <div>Loading..</div>;
+  // }
 
   return (
     <div id="proplist_top">
