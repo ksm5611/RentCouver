@@ -55,13 +55,8 @@ export default function Filters(props) {
   // for  <Filtertype />
   const [ type, setType ] = useState('All');
 
-  // const [filter, setFilter] = useState({
-  //   property_type: null,
-  //   number_of_bedrooms: null,
-  //   number_of_bathrooms: null,
-  //   price: null,
-  // });
-
+  // for <FilterBedroom />
+  const [ bedrooms, setBedrooms ] = useState('All');
 
 
   // insides of the drawer
@@ -82,7 +77,9 @@ export default function Filters(props) {
           changeType={type => setType(type)}
         />
 
-        <FilterBedroom />
+        <FilterBedroom
+          changeBedroom={bedrooms => setBedrooms(bedrooms)}
+        />
 
         <FilterBathroom />
 
@@ -145,8 +142,9 @@ export default function Filters(props) {
             // value=take the child info in {}, then put this in the onClick into a setState(value)
             onClick={() => {
               // console.log("type in Filters.js: ", type)
-              props.filteredProperties(type);
-              toggleDrawer("left", false) }
+              toggleDrawer("left", false)
+              props.filteredProperties(type, bedrooms); 
+            }
             }
           >
             Search

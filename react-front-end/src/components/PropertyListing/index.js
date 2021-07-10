@@ -15,7 +15,7 @@ export default function PropertyListing() {
   const [error, setError] = useState("");
   const [filter, setFilter] = useState({
     property_type: null,
-    // number_of_bedrooms: null,
+    number_of_bedrooms: null,
     // number_of_bathrooms: null,
     // price: null,
   });
@@ -29,8 +29,11 @@ export default function PropertyListing() {
   // Filters.js will setState and it will be sent up here
   // http://localhost:8000/api/propertyLists?property_type=condo&&number_of_bedrooms=2
 
-  const updateFilter = (type) => {
-    setFilter({...filter, property_type: type})
+  const updateFilter = (type, bedrooms) => {
+    setFilter({...filter,
+      property_type: type,
+      number_of_bedrooms: bedrooms
+    })
   }
   
   const query = () => {
@@ -39,13 +42,12 @@ export default function PropertyListing() {
     if (filter.property_type !== null) {
       result = "property_type=" + filter.property_type.toLowerCase(); 
     }
-    if (filter.property_type === 'All') {
-      result = ''
+    if (filter.number_of_bedrooms !== null) {
+      result = "number_of_bedrooms=" + filter.number_of_bedrooms;
     }
-    // } 
-    // if (filter.bedrooms !== null) {
-    //   result = "number_of_bedrooms=" + filter.number_of_bedrooms;
-    // }
+    if (filter.property_type === 'All') {
+      result = '';
+    }
     // if (filter.bathrooms !== null) {
     //   result = "number_of_bathrooms=" + filter.number_of_bathrooms;
     // }
@@ -70,7 +72,7 @@ export default function PropertyListing() {
       }
     }
     fetchData();
-  }, [filter.property_type]);
+  }, [filter.property_type, filter.number_of_bedrooms]);
 
   return (
     <div id="proplist-container">

@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function FilterBedroom() {
+export default function FilterBedroom(props) {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
@@ -31,6 +31,8 @@ export default function FilterBedroom() {
     setSelectedIndex(index);
   };
 
+  const selectionArr = ["All", "1", "2", "3", "4"];
+
   return (
     <>
       <ListItem button onClick={handleClick}>
@@ -38,7 +40,7 @@ export default function FilterBedroom() {
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
 
-      {["All", "1", "2", "3", "4+"].map((text, index) => (
+      {selectionArr.map((text, index) => (
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
             <ListItem
@@ -46,7 +48,10 @@ export default function FilterBedroom() {
               id="nested-filters"
               className={classes.nested}
               selected={selectedIndex === index}
-              onClick={(event) => handleListItemClick(event, index)}
+              onClick={(event) => {
+                props.changeBedroom(selectionArr[index])
+                handleListItemClick(event, index) }
+              }
             >
               <ListItemText primary={text} />
             </ListItem>
