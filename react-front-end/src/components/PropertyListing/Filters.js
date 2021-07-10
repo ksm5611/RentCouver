@@ -52,7 +52,17 @@ export default function Filters(props) {
     setState({ ...state, [anchor]: open });
   };
 
-  // const [ selectedIndex, setSelectedIndex ] = React.useState(0)...?
+  // for  <Filtertype />
+  const [ type, setType ] = useState('All');
+
+  // const [filter, setFilter] = useState({
+  //   property_type: null,
+  //   number_of_bedrooms: null,
+  //   number_of_bathrooms: null,
+  //   price: null,
+  // });
+
+
 
   // insides of the drawer
   const list = (anchor) => (
@@ -68,7 +78,9 @@ export default function Filters(props) {
 
         <PriceSlider />
 
-        <FilterType />
+        <FilterType
+          changeType={type => setType(type)}
+        />
 
         <FilterBedroom />
 
@@ -90,14 +102,14 @@ export default function Filters(props) {
 
   // search button
   // the search button will redirect the user to a URL which has the new params for the filter
-  // /property_listings/filter?type=condo&&bedrooms=2&&bathrooms=2
+  //  http://localhost:8000/api/propertyLists?property_type=condo&&number_of_bedrooms=2
   // the search URL is set in PropertyListItem.js
   // then in the back end, access the URL through req.params
   // then express should pass in the req.params back to the ReactJS
   // set the values using useEffect hook to toggle the drawer and change the URL at the same time
 
-  // inside the search button
-  // onClick={() => props.filteredProperties()} && toggleDrawer("left", false)
+  
+
 
 
   return (
@@ -131,10 +143,10 @@ export default function Filters(props) {
             className={classes.root}
             // variant="outline-primary"
             // value=take the child info in {}, then put this in the onClick into a setState(value)
-            onClick={
-              // () => {
-              // props.filteredProperties();
-              toggleDrawer("left", false) /*}*/
+            onClick={() => {
+              // console.log("type in Filters.js: ", type)
+              props.filteredProperties(type);
+              toggleDrawer("left", false) }
             }
           >
             Search
