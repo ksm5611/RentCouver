@@ -5,9 +5,7 @@ import {
   Container,
   ListItem,
   List,
-  Button,
-  makeStyles,
-  Avatar,
+  makeStyles
 } from "@material-ui/core";
 
 import RefStatus from './RefStatus';

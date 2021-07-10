@@ -17,7 +17,6 @@ export default function Status({ listValue }) {
     transition(DECLINED)
   }
 
-
   return (
     <>
       <div className="req-info">
