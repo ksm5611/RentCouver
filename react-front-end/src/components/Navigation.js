@@ -3,7 +3,7 @@ import "../App.css";
 import "rsuite/dist/styles/rsuite-default.css";
 import { Navbar } from "rsuite";
 import NavItem from "react-bootstrap/Nav";
-import { NavDropdown, Dropdown } from "react-bootstrap";
+import { NavDropdown } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom"
@@ -17,11 +17,9 @@ export default function Navigation() {
   return (
     <Navbar id="nav-wrapper">
       <Navbar.Header id="nav-logo">
-
           <Link as={Link} to="/" className="navbar-brand logo">
             RentCouver
           </Link>
-
       </Navbar.Header>
       <Navbar.Body className="nav-body">
         <NavItem className="nav-body-item-list">
@@ -42,7 +40,6 @@ export default function Navigation() {
             </Link>
           </NavItem.Item>
         </NavItem>
-
         <NavItem className="nav-body-item-list">
           <FontAwesomeIcon className="user-icon" icon={faUser} />
           <NavDropdown
@@ -58,7 +55,6 @@ export default function Navigation() {
             >
               Dashboard
             </NavDropdown.Item>
-
             <NavDropdown.Item
               as={Link}
               className="dropdown-item"
@@ -83,6 +79,14 @@ export default function Navigation() {
             >
               References
             </NavDropdown.Item>
+            <NavDropdown.Item
+              as={Link}
+              className="dropdown-item"
+              onClick={() => dropdownItemColor}
+              to="/"
+            >
+              App status
+            </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item
               as={Link}
@@ -100,7 +104,6 @@ export default function Navigation() {
             >
               Reference requests
             </NavDropdown.Item>
-
           </NavDropdown>
         </NavItem>
       </Navbar.Body>
