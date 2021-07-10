@@ -12,8 +12,6 @@ import {
 import React from "react";
 import { Drawer } from "@material-ui/core";
 
-import Divider from "@material-ui/core/Divider";
-
 const useStyles = makeStyles({
   list: {
     width: 700,
@@ -43,6 +41,7 @@ export default function Filters({ tenantId }) {
           `http://localhost:8000/api/applications/${tenantId}`
         );
         const { RentHistories: rentHistoryData, ...userData } = result.data;
+        console.log("reference", result.data);
         setUser(userData);
         setRentHistories(rentHistoryData);
       } catch (error) {
@@ -123,8 +122,16 @@ export default function Filters({ tenantId }) {
             })}
           </List>
           <List>
-            <ListItem>References</ListItem>
-            {/* 그 전 집주인이 남긴 ref? */}
+            {rentHistories.map((review) => {
+              return (
+                <ListItem>
+                  References
+                  {review.Property.User.name}
+                  {review.Property.User.email}
+                  {review.review_content}
+                </ListItem>
+              );
+            })}
           </List>
           <Button className={classes.btn}>Contact tenant</Button>
         </List>

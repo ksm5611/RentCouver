@@ -1,7 +1,7 @@
 import useVisualMode from "../RefReqList/RefReqItem/useVisualMode";
 import axios from "axios";
-import ReceivedRef from './ReceivedRef';
-import { Button } from "@material-ui/core"
+import ReceivedRef from "./ReceivedRef";
+import { Button } from "@material-ui/core";
 
 export default function Status({ record }) {
   const DEFAULT = "DEFAULT";
@@ -9,7 +9,6 @@ export default function Status({ record }) {
   const { mode, transition } = useVisualMode(DEFAULT);
 
   const refRequested = async (historyRecord) => {
-
     try {
       await axios.post(`http://localhost:8000/api/reqReference`, {
         renthistories_id: historyRecord.id,
@@ -49,14 +48,11 @@ export default function Status({ record }) {
             >
               Request Reference
             </Button>
+          ) : record.review_content === null ? (
+            REQUESTED
           ) : (
-            record.review_content === null ? (
-              REQUESTED
-            ) : (
-                <ReceivedRef reference={record.review_content} />
-            )
-          )
-          )}
+            <ReceivedRef reference={record.review_content} />
+          ))}
       </div>
     </>
   );
