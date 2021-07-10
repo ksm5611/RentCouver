@@ -13,7 +13,7 @@ router.get("/applications/:tenantId", async (req, res) => {
         where: { tenant_id: req.params.tenantId },
         require: false,
         attributes: {
-          exclude: ["is_requested", "is_decline", "review_content"],
+          exclude: ["is_requested", "is_decline"],
         },
         include: [
           {
@@ -31,6 +31,11 @@ router.get("/applications/:tenantId", async (req, res) => {
                 "pets_allowed",
               ],
             },
+            include: [
+              {
+                model: User,
+              },
+            ],
           },
         ],
       },

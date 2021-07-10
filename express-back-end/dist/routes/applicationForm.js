@@ -37,13 +37,16 @@ router.get("/applications/:tenantId", /*#__PURE__*/function () {
                 },
                 require: false,
                 attributes: {
-                  exclude: ["is_requested", "is_decline", "review_content"]
+                  exclude: ["is_requested", "is_decline"]
                 },
                 include: [{
                   model: _models.Property,
                   attributes: {
                     exclude: ["title", "square_feet", "description", "property_type", "number_of_bathrooms", "number_of_bedrooms", "listed_start_date", "cost_of_month", "pets_allowed"]
-                  }
+                  },
+                  include: [{
+                    model: _models.User
+                  }]
                 }]
               }]
             });
