@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     width: 700,
   },
   fullList: {
-    width: "auto",
+    maxWidth: 700,
   },
   btn: {
     backgroundColor: "#f1a177",
@@ -58,7 +58,7 @@ export default function ReceivedRef({ reference }) {
   return (
     <div>
       <button
-        className="button action-button"
+        className="secondary-btn button action-button"
         onClick={toggleDrawer("left", true)}
       >
         REVIEW REFERENCE
@@ -72,7 +72,7 @@ export default function ReceivedRef({ reference }) {
         open={state["left"]}
         onClose={toggleDrawer("left", false)}
       >
-        <p>{reference}</p>
+        <p className={classes.list}>{reference}</p>
       </Drawer>
     </div>
   );

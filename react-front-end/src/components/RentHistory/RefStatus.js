@@ -23,31 +23,31 @@ export default function Status({ record }) {
   };
 
   return (
-      <tr className="tr-history">
-        <td>{record.Property.street},{" "}{record.Property.unit && <>#{record.Property.unit}</>}{" "}</td>
-        <td>{record.Property.city}</td>
-        <td>{record.Property.province}</td>
-        <td>{record.Property.postal_code}</td>
-        <td>{record.start_date} - {record.end_date}</td>
-        <td>{record.Property.User.name}</td>
-        <td className="history-th-button">
-          {mode === REQUESTED && <p>REQUESTED</p>}
-          {mode === DEFAULT &&
-            (record.is_requested === false ? (
-              <button
-                className="button action-button dual-buttons"
-                onClick={() => {
-                  refRequested(record);
-                }}
-              >
-                REQUEST REFERENCE
-              </button>
-            ) : record.review_content === null ? (
-              <p>REQUESTED</p>
-            ) : (
-              <ReceivedRef reference={record.review_content} />
-            ))}
-        </td>
-      </tr>
+    <tr className="tr-history">
+      <td>{record.Property.street},{" "}{record.Property.unit && <>#{record.Property.unit}</>}{" "}</td>
+      <td>{record.Property.city}</td>
+      <td>{record.Property.province}</td>
+      <td>{record.Property.postal_code}</td>
+      <td>{record.start_date} - {record.end_date}</td>
+      <td>{record.Property.User.name}</td>
+      <td className="history-th-button">
+        {mode === DEFAULT &&
+          (record.is_requested === false ? (
+            <button
+              className="primary-btn button action-button"
+              onClick={() => {
+                refRequested(record);
+              }}
+            >
+              REQUEST REFERENCE
+            </button>
+          ) : record.review_content === null ? (
+            <p>REQUESTED</p>
+          ) : (
+            <ReceivedRef reference={record.review_content} />
+          ))}
+        {mode === REQUESTED && <p>REQUESTED</p>}
+      </td>
+    </tr>
   );
 }
