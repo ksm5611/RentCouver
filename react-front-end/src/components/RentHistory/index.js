@@ -62,12 +62,12 @@ export default function RentHistory() {
         <table className="table-container">
           <thead>
             <tr className="tr-heading">
-              <th className="th-address">Address</th>
-              <th className="th-city">City</th>
-              <th className="th-province">Province</th>
-              <th className="th-postal-code">Postal Code</th>
-              <th className="th-rental-period">Rental Period</th>
-              <th className="th-landlord-name">Landlord</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>Province</th>
+              <th>Postal Code</th>
+              <th>Rental Period</th>
+              <th>Landlord</th>
               <th> </th>
             </tr>
           </thead>

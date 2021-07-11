@@ -34,7 +34,7 @@ export default function ReqRefList() {
           <h2>Reference Requests </h2>
         </section>
       </div>
-      <Container>
+      <div className="wrapper">
         {/* <Typography variant="h4">Tenant name Address</Typography> */}
         <ListItem className={classes.root} id="listitem-head">
           <div className="req-info head">
@@ -45,7 +45,20 @@ export default function ReqRefList() {
         <List className={classes.root}>
           <RefReqItem />
         </List>
-      </Container>
+
+        <table className="table-container">
+          <thead>
+            <tr className="tr-heading">
+              <th>Tenant's name</th>
+              <th>Property Address</th>
+              <th className="reference-th-action">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <RefReqItem />
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

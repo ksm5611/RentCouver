@@ -70,7 +70,7 @@ $table-container-color: #7c7878;
     padding: 0 16px;
   }
 
-  .action-btn {
+  .action-button {
     width: 200px;
     padding: 8px;
 
@@ -87,17 +87,29 @@ $table-container-color: #7c7878;
     color: white;
   }
 
-  .tr-history {
+  .tr-history, .tr-reference {
     height: 60px;
+    // display: flex;
   }
 
   th {
     margin-right: 20px;
   }
 
-  .th-action {
+  .history-th-action {
     width: 200px;
     text-align: center;
+  }
+
+  .reference-th-button {
+    margin-top: 9px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .reference-th-action {
+    text-align: center;
+    width: 480px;
   }
 }
 

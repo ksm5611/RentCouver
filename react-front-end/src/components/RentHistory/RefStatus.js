@@ -45,12 +45,12 @@ export default function Status({ record }) {
         <td>{record.Property.User.name}</td>
 
 
-        <td className="th-action">
-          {mode === REQUESTED && <p>REQUESTED</p>}
+        <td className="history-th-action">
+          {mode === REQUESTED && <>REQUESTED</>}
           {mode === DEFAULT &&
             (record.is_requested === false ? (
               <button
-                className="button action-btn"
+                className="button action-button"
                 onClick={() => {
                   refRequested(record);
                 }}

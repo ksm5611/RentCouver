@@ -307,11 +307,11 @@
   position: relative;
   padding: 0 16px;
 }
-.table-container .action-btn {
+.table-container .action-button {
   width: 200px;
   padding: 8px;
 }
-.table-container .action-btn:hover {
+.table-container .action-button:hover {
   background-color: red;
 }
 .table-container .tr-heading {
@@ -320,15 +320,24 @@
   background-color: #7c7878;
   color: white;
 }
-.table-container .tr-history {
+.table-container .tr-history, .table-container .tr-reference {
   height: 60px;
 }
 .table-container th {
   margin-right: 20px;
 }
-.table-container .th-action {
+.table-container .history-th-action {
   width: 200px;
   text-align: center;
+}
+.table-container .reference-th-button {
+  margin-top: 9px;
+  display: flex;
+  justify-content: space-around;
+}
+.table-container .reference-th-action {
+  text-align: center;
+  width: 480px;
 }
 
 #drawer-container {

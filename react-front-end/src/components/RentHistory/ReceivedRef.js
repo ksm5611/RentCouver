@@ -58,7 +58,7 @@ export default function ReceivedRef({ reference }) {
   return (
     <div>
       <button
-        className="button action-btn"
+        className="button action-button"
         onClick={toggleDrawer("left", true)}
       >
         REVIEW REFERENCE
