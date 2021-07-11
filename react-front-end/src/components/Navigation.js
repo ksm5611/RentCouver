@@ -49,7 +49,7 @@ export default function Navigation() {
               className="profile-tab basic-nav-dropdown"
               title="Profile"
             >
-              <Fade>
+              {/* <Fade> */}
               <NavDropdown.Item
                 as={Link}
                 className="dropdown-item"
@@ -99,7 +99,7 @@ export default function Navigation() {
               >
                 Reference requests
             </NavDropdown.Item>
-            </Fade>
+            {/* </Fade> */}
             </NavDropdown>
 
           </NavItem>
@@ -108,22 +108,3 @@ export default function Navigation() {
     </div>
   );
 }
-
-
-// class FadeExample extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         <Fade top cascade>
-//           <div>
-//             <h2>React Reveal</h2>
-//             <h2>React Reveal</h2>
-//             <h2>React Reveal</h2>
-//           </div>
-//         </Fade>
-//       </div>
-//     );
-//   }
-// }
-
-// export default FadeExample;

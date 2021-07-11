@@ -33,7 +33,7 @@ export default function SearchBar() {
   const classes = useStyles();
 
   return (
-    <Fade top cascade>
+    <Fade>
     <form className="search-form" action="/" method="get">
       <label className="search-label" htmlFor="header-search">
         <h1>Find your fresh start</h1>

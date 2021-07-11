@@ -1,7 +1,6 @@
 import axios from "axios";
 import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
 import ApplicationReview from './ApplicationReview';
-import Flip from 'react-reveal/Flip';
 import Fade from 'react-reveal/Fade';
 
 import {

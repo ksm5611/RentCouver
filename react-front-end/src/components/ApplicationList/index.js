@@ -2,7 +2,6 @@ import axios from "axios";
 import Status from "../ApplicationList/Status";
 import { useEffect, useState } from "react";
 import Fade from 'react-reveal/Fade';
-import Flip from 'react-reveal/Flip';
 
 export default function ApplicationList() {
   const [appLists, setAppLists] = useState([]);
@@ -33,7 +32,7 @@ export default function ApplicationList() {
           <table className="table-container">
             <thead>
               <tr className="tr-heading">
-                <Flip left cascade>
+                <Fade>
                   <th></th>
                   <th>Tenant's name</th>
                   <th>Address</th>
@@ -41,7 +40,7 @@ export default function ApplicationList() {
                   <th>Province</th>
                   <th>Postal Code</th>
                   <th className="appList-th-action">Action</th>
-                </Flip>
+                </Fade>
               </tr>
             </thead>
             <tbody>

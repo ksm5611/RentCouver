@@ -17,24 +17,3 @@ export default function Homepage() {
     </div>
   )
 }
-
-
-
-
-// class FadeExample extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         <Fade top cascade>
-//           <div>
-//             <h2>React Reveal</h2>
-//             <h2>React Reveal</h2>
-//             <h2>React Reveal</h2>
-//           </div>
-//         </Fade>
-//       </div>
-//     );
-//   }
-// }
-
-// export default FadeExample;

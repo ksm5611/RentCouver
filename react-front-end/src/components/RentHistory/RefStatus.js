@@ -23,7 +23,6 @@ export default function Status({ record }) {
   };
 
   return (
-    // <Fade top cascade>
     <tr className="tr-history">
       <Fade>
         <td>{record.Property.street},{" "}{record.Property.unit && <>#{record.Property.unit}</>}{" "}</td>
