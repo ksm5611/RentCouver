@@ -38,21 +38,6 @@ $table-container-color: #7c7878;
   width: 300px;
 }
 
-// ReqList/Form.js
-
-.seperator {
-  position: absolute;
-  margin-top: 200px;
-  right: 0;
-
-  #text {
-    width: 800px;
-    height: 100px;
-    resize: none;
-    border-radius: 6px;
-  }
-}
-
 // RentHistory.js
 
 .table-container {
@@ -62,8 +47,8 @@ $table-container-color: #7c7878;
 
   tr:nth-child(even) {
     background-color: $light-orange;
-}
-  
+  }
+
   th,
   td {
     position: relative;
@@ -77,6 +62,7 @@ $table-container-color: #7c7878;
     &:hover {
       background-color: red;
     }
+
   }
 
   .tr-heading {
@@ -87,7 +73,8 @@ $table-container-color: #7c7878;
     color: white;
   }
 
-  .tr-history, .tr-reference {
+  .tr-history,
+  .tr-reference {
     height: 60px;
     // display: flex;
   }
@@ -105,31 +92,44 @@ $table-container-color: #7c7878;
     margin-top: 9px;
     display: flex;
     justify-content: space-around;
+
+    p {
+      margin-top: 9px;
+    }
+
   }
 
   .reference-th-action {
     text-align: center;
     width: 480px;
   }
+
+  .seperator {
+    position: absolute;
+    margin-top: 60px;
+    right: 0;
+
+    .review-content {
+      width: 452px;
+      height: 100px;
+      resize: none;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+  }
+
+  // ReqList/Form.js
+
+  // .seperator {
+  //   position: absolute;
+  //   margin-top: 200px;
+  //   right: 0;
+
+  //   #text {
+  //     width: 800px;
+  //     height: 100px;
+  //     resize: none;
+  //     border-radius: 6px;
+  //   }
+  // }
 }
-
-// .rent-history-info {
-//   display: flex;
-//   padding: 0 20px;
-
-//   .rent-historty-address {
-//     width: 480px;
-//   }
-
-//   h5 {
-//     padding-right: 112px;
-//   }
-
-// }
-
-// .test2 {
-//   border: 1px solid red;
-//   width: 200px;
-//   height: 400px;
-//   z-index: 3;
-// }

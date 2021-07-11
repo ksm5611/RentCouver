@@ -24,18 +24,6 @@ export default function Status({ record }) {
 
   return (
     <>
-      {/* <div className="history-info">
-        <p className="req-landlord address">
-          {record.Property.street},{" "}
-          {record.Property.unit && <>#{record.Property.unit}</>}{" "}
-          {record.Property.city} {record.Property.province}{" "}
-          {record.Property.postal_code}
-        </p>
-        <p className="req-landlord">
-          {record.start_date} - {record.end_date}
-        </p>
-        <span>{record.Property.User.name}</span>
-      </div> */}
       <tr className="tr-history">
         <td>{record.Property.street},{" "}{record.Property.unit && <>#{record.Property.unit}</>}{" "}</td>
         <td>{record.Property.city}</td>
@@ -43,7 +31,6 @@ export default function Status({ record }) {
         <td>{record.Property.postal_code}</td>
         <td>{record.start_date} - {record.end_date}</td>
         <td>{record.Property.User.name}</td>
-
 
         <td className="history-th-action">
           {mode === REQUESTED && <>REQUESTED</>}

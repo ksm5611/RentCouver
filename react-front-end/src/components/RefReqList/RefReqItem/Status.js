@@ -37,13 +37,6 @@ export default function Status({ refReqeust, refReqeustId }) {
 
   return (
     <>
-      {/* <div className="req-info">
-        <Avatar src={refReqeust.RentHistory.User.profile_picture_url} />
-        <p className="req-tenant">{refReqeust.RentHistory.User.name}</p>
-        <p className="req-tenant address">
-          {refReqeust.RentHistory.Property.street}
-        </p>
-      </div> */}
       <tr className="tr-reference">
         <td>{refReqeust.RentHistory.User.name}</td>
         <td>{refReqeust.RentHistory.Property.street}</td>
@@ -67,9 +60,9 @@ export default function Status({ refReqeust, refReqeustId }) {
               </button>
               </>
             ) : (
-              DECLINED
+              <p>{DECLINED}</p>
             ))}
-          {mode === DECLINED && <>DECLINED</>}
+          {/* {mode === DECLINED && <p className="dec">DECLINED</p>} */}
           {mode === FORM &&
             (refReqeust.is_updated === false ? (
               <>
@@ -90,6 +83,7 @@ export default function Status({ refReqeust, refReqeustId }) {
               </button>
                 <form className="seperator">
                   <textarea
+                    className="review-content"
                     id="text"
                     value={message}
                     onChange={(e) => setMessge(e.target.value)}
@@ -97,19 +91,11 @@ export default function Status({ refReqeust, refReqeustId }) {
                 </form>
               </>
             ) : (
-              // <ListItem className={refReqeust.classes}>
-              //   <div className="option-btn">
-                  <>SENT</>
-               
+              <p>{SENT}</p>
             ))
-            }
+          }
           {mode === SENT && (
-            // <ListItem className={refReqeust.classes}>
-            //   <div className="option-btn">
-            //     <p>Sent</p>
-            //   </div>
-            // </ListItem>
-            <>Sent</>
+            <p>{SENT}</p>
           )}
         </td>
       </tr>

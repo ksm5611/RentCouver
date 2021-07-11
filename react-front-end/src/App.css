@@ -282,18 +282,6 @@
   width: 300px;
 }
 
-.seperator {
-  position: absolute;
-  margin-top: 200px;
-  right: 0;
-}
-.seperator #text {
-  width: 800px;
-  height: 100px;
-  resize: none;
-  border-radius: 6px;
-}
-
 .table-container {
   width: 1280px;
   margin-top: 40px;
@@ -320,7 +308,8 @@
   background-color: #7c7878;
   color: white;
 }
-.table-container .tr-history, .table-container .tr-reference {
+.table-container .tr-history,
+.table-container .tr-reference {
   height: 60px;
 }
 .table-container th {
@@ -335,9 +324,24 @@
   display: flex;
   justify-content: space-around;
 }
+.table-container .reference-th-button p {
+  margin-top: 9px;
+}
 .table-container .reference-th-action {
   text-align: center;
   width: 480px;
+}
+.table-container .seperator {
+  position: absolute;
+  margin-top: 60px;
+  right: 0;
+}
+.table-container .seperator .review-content {
+  width: 452px;
+  height: 100px;
+  resize: none;
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
 #drawer-container {

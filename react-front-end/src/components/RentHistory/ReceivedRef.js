@@ -72,7 +72,6 @@ export default function ReceivedRef({ reference }) {
         open={state["left"]}
         onClose={toggleDrawer("left", false)}
       >
-        {/* {reviewContent("left")} */}
         <p>{reference}</p>
       </Drawer>
     </div>

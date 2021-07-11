@@ -10,27 +10,7 @@ import {
 
 import RefStatus from './RefStatus';
 
-
-// const useStyles = makeStyles((theme) => {
-//   return {
-//     root: {
-//       border: "1px solid black",
-//       marginBottom: "16px",
-//       display: "flex",
-//       justifyContent: "space-between",
-//     },
-//     btn: {
-//       backgroundColor: "#f1a177",
-//       color: "white",
-//       "&:hover": {
-//         backgroundColor: "rgb(7, 177, 77, 0.42)",
-//       },
-//     },
-//   };
-// });
-
 export default function RentHistory() {
-  // const classes = useStyles();
 
   const [history, setHistory] = useState([]);
   const [error, setError] = useState(false);
