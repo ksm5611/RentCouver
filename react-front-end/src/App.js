@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import ApplicationForm from "./components/ApplicationForm";
@@ -10,11 +10,30 @@ import PropertyListing from "./components/PropertyListing";
 import RefReqList from "./components/RefReqList";
 import RentHistory from "./components/RentHistory";
 import User from "./components/User";
+import Login from "./components/Login/Login";
+import Signup from "./components/Signup/Signup";
+import useToken from "./hooks/useToken";
 
 import "react-slideshow-image/dist/styles.css";
 import "./App.css";
 
 export default function App() {
+  const { token, setToken } = useToken();
+  console.log(token);
+  if (!token) {
+    return (
+      <Router>
+        <Switch>
+          <Route path="/signup">
+            <Signup />
+          </Route>
+          <Route path="/login">
+            <Login setToken={setToken} />
+          </Route>
+        </Switch>
+      </Router>
+    );
+  }
   return (
     <>
       <Router>
