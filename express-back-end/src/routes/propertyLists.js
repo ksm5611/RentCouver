@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { Op } from "sequelize";
 const router = Router();
 import { Property, Photo } from "../db/models";
 
@@ -14,16 +15,27 @@ router.get("/propertyLists", async (req, res) => {
     if (req.query.number_of_bedrooms) {
       where.number_of_bedrooms = req.query.number_of_bedrooms;
     }
-    if (req.query.cost_of_month) {
-      where.cost_of_month = req.query.cost_of_month;
+    if (req.query.cost_of_month_gt) {
+      where.cost_of_month = {
+        [Op.gt]: req.query.cost_of_month,
+      };
     }
+
+    if (req.query.cost_of_month_lt) {
+      where.cost_of_month = {
+        [Op.lt]: req.query.cost_of_month,
+      };
+    }
+
     if (req.query.pets_allowed) {
       where.pets_allowed = req.query.pets_allowed;
     }
   }
 
   const propertyList = await Property.findAll({
-    where: where,
+    where: {
+      ...where,
+    },
     attributes: {
       exclude: ["landlord_id", "square_feet", "description"],
     },

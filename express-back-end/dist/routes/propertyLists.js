@@ -7,7 +7,15 @@ exports["default"] = void 0;
 
 var _express = require("express");
 
+var _sequelize = require("sequelize");
+
 var _models = require("../db/models");
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -36,8 +44,12 @@ router.get("/propertyLists", /*#__PURE__*/function () {
                 where.number_of_bedrooms = req.query.number_of_bedrooms;
               }
 
-              if (req.query.cost_of_month) {
-                where.cost_of_month = req.query.cost_of_month;
+              if (req.query.cost_of_month_gt) {
+                where.cost_of_month = _defineProperty({}, _sequelize.Op.gt, req.query.cost_of_month);
+              }
+
+              if (req.query.cost_of_month_lt) {
+                where.cost_of_month = _defineProperty({}, _sequelize.Op.lt, req.query.cost_of_month);
               }
 
               if (req.query.pets_allowed) {
@@ -47,7 +59,7 @@ router.get("/propertyLists", /*#__PURE__*/function () {
 
             _context.next = 4;
             return _models.Property.findAll({
-              where: where,
+              where: _objectSpread({}, where),
               attributes: {
                 exclude: ["landlord_id", "square_feet", "description"]
               },

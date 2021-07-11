@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 });
 
 
-export default function FilterType () {
+export default function FilterType (props) {
 
   const classes = useStyles();
 
@@ -33,6 +33,8 @@ export default function FilterType () {
     setSelectedIndex(index);
   };
 
+  const selectionArr = ['All', 'Apartment', 'Condo', 'House'];
+
   return (
     <>
       <ListItem button onClick={handleClick}>
@@ -40,7 +42,7 @@ export default function FilterType () {
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
 
-        {['All', 'Apartment', 'Condo', 'House'].map((text, index) => (
+        {selectionArr.map((text, index) => (
           <Collapse in={open} timeout="auto" unmountOnExit>
             
             <List component="div" disablePadding>
@@ -48,7 +50,11 @@ export default function FilterType () {
                 id="nested-filters"
                 className={classes.nested}
                 selected={selectedIndex === index}
-                onClick={(event) => handleListItemClick(event, index)}
+                onClick={(event) => {
+                  handleListItemClick(event, index);
+                  props.changeType(selectionArr[index])
+                  }
+                }
               >
                 <ListItemText primary={text} />
               </ListItem>
