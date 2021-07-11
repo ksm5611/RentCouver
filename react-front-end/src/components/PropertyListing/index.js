@@ -59,11 +59,11 @@ export default function PropertyListing() {
     // if (filter.number_of_bathrooms !== null) {
     //   numberOfBathRoom = "number_of_bathrooms=" + filter.number_of_bathrooms;
     // }
-    if (filter.cost_of_month_gt !== null ) {
+    if (filter.cost_of_month_gt !== null) {
       minPrice = filter.cost_of_month_gt;
     }
 
-    if (filter.cost_of_month_lt !== null ) {
+    if (filter.cost_of_month_lt !== null) {
       maxPrice = filter.cost_of_month_lt;
     }
 
@@ -125,20 +125,22 @@ export default function PropertyListing() {
   }, [query]);
 
   return (
-    <div id="proplist-container" className="wrapper">
-      <div id="search-and-filter">
-        <Filters filteredProperties={updateFilter} />
-        <SearchBar />
-      </div>
-      <div id="map-and-proplist">
-        <div id="just-propList">
-          <PropertyListItem
-            filteredProperties={(filter) => setFilter(filter)}
-            properties={properties}
-          />
+    <div className="prop-list-wrapper">
+      <div className="prop-list-page-container">
+        <div className="search-and-filter">
+          <Filters filteredProperties={updateFilter} />
+          <SearchBar />
         </div>
-        <div id="just-map">
-          <Googlemaps />
+        <div className="map-and-proplist">
+          <div className="prop-list-container">
+            <PropertyListItem
+              filteredProperties={(filter) => setFilter(filter)}
+              properties={properties}
+            />
+          </div>
+          <div className="just-map">
+            <Googlemaps />
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-#card-container {
+.card-container {
   display: flex;
   flex-direction: column;
   width: 500px;
@@ -18,7 +18,7 @@
   transition: box-shadow 0.2s ease-in-out;
 }
 
-#prop_ins {
+.prop_ins {
   display: flex;
   flex-direction: row;
 }
@@ -39,8 +39,9 @@
   margin-bottom: 0px;
 } */
 
-#propslist_buttons {
+.prop_list_buttons {
   display: flex;
-  justify-content: center;
-  padding: 0px
+  justify-content: space-between;
+  padding: 0;
+  width: 256px;
 }

@@ -344,38 +344,50 @@
   padding-left: 30px;
 }
 
-#proplist-container {
+.prop-list-wrapper {
+  margin: 0 auto;
+  width: 1380px;
+}
+.search-and-filter {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  align-items: center;
+  width: 450px;
+}
+
+.prop-list-page-container {
   padding-top: 55px;
 }
 
-#search-and-filter {
-  display: flex;
-  align-items: center;
+.proplist-container {
+  padding-top: 55px;
 }
 
-#map-and-proplist {
+.map-and-proplist {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
-#just-propList {
-  position: absolute;
-  z-index: 1;
-  width: auto;
+.prop-list-container {
+  width: 510px;
   height: 750px;
   overflow: auto;
 }
 
-#just-map {
+.just-map {
+  position: absolute;
+  right: 0;
+  top: 56px;
   /* padding: 5px 0 0 8px; */
-  margin-left: 536px;
 }
 
 #price-slider {
   padding-left: 18px;
 }
 
-#card-container {
+.card-container {
   display: flex;
   flex-direction: column;
   width: 500px;
@@ -395,7 +407,7 @@
   transition: box-shadow 0.2s ease-in-out;
 }
 
-#prop_ins {
+.prop_ins {
   display: flex;
   flex-direction: row;
 }
@@ -415,10 +427,11 @@
 /* #bed-bath{
   margin-bottom: 0px;
 } */
-#propslist_buttons {
+.prop_list_buttons {
   display: flex;
-  justify-content: center;
-  padding: 0px;
+  justify-content: space-between;
+  padding: 0;
+  width: 256px;
 }
 
 .application-form-wrapper {

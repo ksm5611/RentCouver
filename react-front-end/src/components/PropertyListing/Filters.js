@@ -104,16 +104,17 @@ export default function Filters(props) {
   return (
     <div id="proplist_top">
       <div className="filters">
-        <Button
+        <button
           // variant="contained"
           // color="secondary"
           // id="btn-outline-primary"
-          className={classes.root}
+          // className={classes.root}
           // variant="outline-primary"
+          className="button secondary-btn"
           onClick={toggleDrawer("left", true)}
         >
           Filters
-        </Button>
+        </button>
 
         <Drawer
           style={{ width: "220px" }}
