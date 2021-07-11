@@ -16,7 +16,8 @@ export default function PropertyListing() {
     property_type: null,
     number_of_bedrooms: null,
     number_of_bathrooms: null,
-    // price: null,
+    minPrice: null,
+    maxPrice: null
   });
 
   // state of [filter, setFilter] will be here
@@ -28,12 +29,14 @@ export default function PropertyListing() {
   // Filters.js will setState and it will be sent up here
   // http://localhost:8000/api/propertyLists?property_type=condo&&number_of_bedrooms=2
 
-  const updateFilter = (type, bedrooms, bathrooms) => {
+  const updateFilter = (type, bedrooms, bathrooms, minPrice, maxPrice) => {
     setFilter({
       ...filter,
       property_type: type,
       number_of_bedrooms: bedrooms,
       number_of_bathrooms: bathrooms,
+      minPrice: minPrice,
+      maxPrice: maxPrice
     });
   };
 
@@ -42,6 +45,8 @@ export default function PropertyListing() {
     let propertyType = "";
     let numberOfBedRoom = "";
     let numberOfBathRoom = "";
+    let minPrice = 0;
+    let maxPrice = 0;
 
     if (filter.property_type !== null) {
       propertyType = "property_type=" + filter.property_type.toLowerCase();
@@ -62,6 +67,14 @@ export default function PropertyListing() {
       numberOfBathRoom = "";
     }
 
+    // if (filter.minPrice === 800 ) {
+    //   minPrice = 800;
+    // }
+
+    // if (filter.maxPrice === 5000 ) {
+    //   minPrice = 5000;
+    // }
+
     if (propertyType) {
       result += propertyType + "&";
     }
@@ -74,13 +87,22 @@ export default function PropertyListing() {
       result += numberOfBathRoom + "&";
     }
 
+    // if (minPrice) {
+    //   result += minPrice + "&";
+    // }
+
+    // if (maxPrice) {
+    //   result += maxPrice + "&";
+    // }
+
     console.log("query result in /PropListing/index.js: ", result);
     return result;
-    // return 'property_type=condo&&number_of_bedrooms=2';
   }, [
     filter.property_type,
     filter.number_of_bedrooms,
     filter.number_of_bathrooms,
+    // filter.minPrice,
+    // filter.maxPrice
   ]);
 
   useEffect(() => {
