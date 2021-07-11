@@ -250,7 +250,7 @@
   font-family: "Ubuntu", sans-serif;
   width: 1280px;
   margin-top: 40px;
-  border: 1px solid #7c7878;
+  border: 1px solid #aaa5a5;
 }
 .table-container .tr-reference:nth-child(odd), .table-container .tr-history:nth-child(odd), .table-container .tr-appList:nth-child(odd) {
   background-color: #f8f3f0;
@@ -271,7 +271,7 @@
 .table-container .tr-heading {
   position: relative;
   height: 60px;
-  background-color: #7c7878;
+  background-color: #aaa5a5;
   color: white;
 }
 .table-container .tr-history,
@@ -419,6 +419,68 @@
   display: flex;
   justify-content: center;
   padding: 0px;
+}
+
+.application-form-wrapper {
+  margin: 0 auto;
+  width: 980px;
+  color: #574f4a;
+}
+
+.application-form-container {
+  font-family: "Ubuntu", sans-serif;
+  padding-top: 100px;
+}
+
+.application-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  height: 100px;
+}
+.application-form-header .application-form-image {
+  display: flex;
+  width: 340px;
+  justify-content: space-between;
+  align-items: center;
+}
+.application-form-header .application-form-image .application-form-avatar {
+  width: 80px;
+}
+.application-form-header .application-form-notice {
+  display: flex;
+  flex-direction: column;
+}
+.application-form-header .application-form-notice p {
+  margin: 0;
+}
+
+.history-address {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.history-address p {
+  margin: 0;
+}
+
+.appliaction-user-info {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+}
+.appliaction-user-info p {
+  margin: 0;
+}
+.appliaction-user-info span {
+  width: 300px;
+}
+
+.app-rent-history-container {
+  margin: 10px 0 20px 0;
 }
 
 body {

@@ -9,7 +9,7 @@ import {
   ListItem,
   ListItemText,
   List,
-  Container,
+  div,
   Typography,
   makeStyles,
   ListItemAvatar,
@@ -22,8 +22,10 @@ import {
 const useStyles = makeStyles((theme) => {
   return {
     root: {
-      border: "1px solid black",
+      border: "1px solid #574f4a",
+      borderRadius: 4,
       marginBottom: "16px",
+      padding: '1rem'
     },
     "& > *": {
       margin: theme.spacing(1),
@@ -71,6 +73,7 @@ export default function ApplicationForm() {
         );
         const { RentHistories: rentHistoryData, ...userData } = result.data;
         setUser(userData);
+        console.log(result.data)
         setRentHistories(rentHistoryData);
       } catch (error) {
         setError("Your server is broken");
@@ -83,16 +86,23 @@ export default function ApplicationForm() {
   const renderUserData = () => {
     return (
       <List>
-        <ListItem className={classes.root}>
-          <ListItemAvatar>
-            <Avatar src={user.profile_picture_url} />
-            <ListItem>{landlordId.name}</ListItem>
-          </ListItemAvatar>
-        </ListItem>
+        <div className="application-form-header">
+          <div className="application-form-image">
+            <img alt="avatar" className="application-form-avatar" src={user.profile_picture_url} />
+            <h2>Application From</h2>
+          </div>
+          <div className="application-form-notice">
+            <p>Please review your application before submitting </p>
+            <p>* Any references you have will be shown to the landlord</p>
+          </div>
+        </div>
         {userInfo.map((info) => (
-          <ListItem key={info.value} className={classes.root}>
-            <ListItemText primary={info.label} secondary={user[info.value]} />
-          </ListItem>
+          <List className={classes.root}>
+            <div className="appliaction-user-info">
+              <span>{info.label} :</span>
+              <p>{user[info.value]}</p>
+            </div>
+          </List>
         ))}
       </List>
     );
@@ -110,18 +120,12 @@ export default function ApplicationForm() {
   const renderRentHistory = (rentHistory) => {
     return (
       <List className={classes.root}>
-        <ListItem>
-          <ListItemText
-            primary="Address"
-            secondary={formatAddressFromProperty(rentHistory.Property)}
-          />
-        </ListItem>
-        <ListItem>
-          <ListItemText
-            primary="Period"
-            secondary={formatRentHistoryPeriod(rentHistory)}
-          />
-        </ListItem>
+        <div className="history-address">
+          <span>Address :</span>
+          <p>{formatAddressFromProperty(rentHistory.Property)}</p>
+          <span>Period :</span>
+          <p>{formatRentHistoryPeriod(rentHistory)}</p>
+        </div>
       </List>
     );
   };
@@ -153,55 +157,56 @@ export default function ApplicationForm() {
     setPotentailDate(event.target.value);
   };
   if (error) {
-    return <Container maxWidth="md">{error}</Container>;
+    return <div maxWidth="md">{error}</div>;
   }
 
   return (
-    <Container maxWidth="md">
-      <Typography variant="h4">About yourself</Typography>
+    <div className="application-form-wrapper">
+      <div className="application-form-container">
 
-      {user && renderUserData()}
-      {rentHistories.length > 0 && (
-        <>
-          <Typography>Residential history</Typography>
-          {rentHistories.map((history) => renderRentHistory(history))}
-        </>
-      )}
-      <div>
-        <TextField
-          label="Potential Move-in date"
-          type="date"
-          value={potentialMoveInDate}
-          onChange={onChangeDate}
-        />
+        {user && renderUserData()}
+        {rentHistories.length > 0 && (
+          <>
+            <h4 className="app-rent-history-container">Residential history</h4>
+            {rentHistories.map((history) => renderRentHistory(history))}
+          </>
+        )}
+        <div>
+          <TextField
+            label="Potential Move-in date"
+            type="date"
+            value={potentialMoveInDate}
+            onChange={onChangeDate}
+          />
+        </div>
+        {mode === DEFAULT && (
+          <>
+            <Button className="button primary-btn dual-button" onClick={handleSubmit}>
+              Send
+          </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => history.push(`/property_details/${propertyId}`)}
+            >
+              cancel
+          </Button>
+            <Button variant="contained">Edit My Application</Button>
+          </>
+        )}
+        {mode === SENT && (
+          <>
+            <p>SENT!</p>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => history.push(`/property_details/${propertyId}`)}
+            >
+              Back to Property Details
+          </Button>
+          </>
+        )}
       </div>
-      {mode === DEFAULT && (
-        <>
-          <Button className="haha" variant="contained" color="primary" onClick={handleSubmit}>
-            Send
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={() => history.push(`/property_details/${propertyId}`)}
-          >
-            cancel
-          </Button>
-          <Button variant="contained">Edit My Application</Button>
-        </>
-      )}
-      {mode === SENT && (
-        <>
-          <p>SENT!</p>
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={() => history.push(`/property_details/${propertyId}`)}
-          >
-            Back to Property Details
-          </Button>
-        </>
-      )}
-    </Container>
+    </div>
   );
 }
