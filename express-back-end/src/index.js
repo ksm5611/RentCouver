@@ -13,13 +13,22 @@ import rentHistories from "./routes/rentHistories";
 import appList from "./routes/appList";
 import refRequest from "./routes/ref_request";
 const App = Express();
-App.use(cors());
 const PORT = process.env.PORT;
 
+const corsOptions = {
+  origin: "http://localhost:8081",
+};
+App.use(cors(corsOptions));
+
 // Express Configuration
-App.use(BodyParser.urlencoded({ extended: false }));
+App.use(BodyParser.urlencoded({ extended: true }));
 App.use(BodyParser.json());
 App.use(Express.static("public"));
+
+// simple route
+App.get("/", (req, res) => {
+  res.json({ message: "Welcome to bezkoder application." });
+});
 
 App.use("/api", userInfo);
 
@@ -32,6 +41,10 @@ App.use("/api", rentHistories);
 
 App.use("/api", appList);
 App.use("/api", refRequest);
+
+// routes (login)
+require("../src/db/loginRoutes/auth.routes")(App);
+require("../src/db/loginRoutes/user.routes")(App);
 
 App.listen(PORT, () => {
   // eslint-disable-next-line no-console
