@@ -18,8 +18,8 @@ export default function Status({ listValue }) {
   }
 
   return (
-    <>
-      <div className="req-info">
+    <tr className="tr-reference">
+      {/* <div className="req-info">
         <Avatar src={listValue.tenant.profile_picture_url} />
         <p className="req-tenant">{listValue.tenant.name}</p>
         <p className="req-tenant address">
@@ -29,27 +29,31 @@ export default function Status({ listValue }) {
           {listValue.Property.provice}
           {listValue.Property.postal_code}
         </p>
-      </div>
-      <div className="option-btn">
+      </div> */}
+      <td><Avatar src={listValue.tenant.profile_picture_url} /></td>
+      <td>{listValue.tenant.name}</td>
+      <td>{listValue.Property.street}</td>
+      <td>{listValue.Property.city}</td>
+      <td>{listValue.Property.province}</td>
+      <td>{listValue.Property.postal_code}</td>
+      <td className="reference-th-button">
         {mode === DEFAULT && (
           listValue.is_decline === false ? (
             <>
               <ApplicationReview tenantId={listValue.tenant_id} />
-              <Button
-                // className={classes.btn}
-                variant="contained"
-                color="secondary"
+              <button
+                className="button action-button"
                 onClick={() => { declineApp(listValue.id) }}
               >
                 Decline
-                </Button>
+                </button>
             </>
           ) : (
-            DECLINED
+            <p>{DECLINED}</p>
           )
         )}
-        {mode === DECLINED && (<p>DECLINED</p>)}
-      </div>
-    </>
+        {mode === DECLINED && (<p>{DECLINED}</p>)}
+      </td>
+    </tr>
   )
 }

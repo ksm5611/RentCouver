@@ -14,6 +14,7 @@ export default function ReqRefList() {
         <table className="table-container">
           <thead>
             <tr className="tr-heading">
+              <th></th>
               <th>Tenant's name</th>
               <th>Address</th>
               <th>City</th>

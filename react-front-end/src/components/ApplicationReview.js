@@ -144,15 +144,13 @@ export default function Filters({ tenantId }) {
   }
 
   return (
-    <div id="proplist_top">
       <div>
-        <Button
-          className={classes.btn}
-          variant="outline-primary"
+        <button
+          className="button action-button"
           onClick={toggleDrawer("left", true)}
         >
           Review Application
-        </Button>
+        </button>
 
         <Drawer
           className="drawer"
@@ -165,6 +163,5 @@ export default function Filters({ tenantId }) {
           {list("left")}
         </Drawer>
       </div>
-    </div>
   );
 }

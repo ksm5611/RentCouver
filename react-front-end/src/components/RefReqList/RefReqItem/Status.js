@@ -36,8 +36,8 @@ export default function Status({ refReqeust, refReqeustId }) {
   };
 
   return (
-    <>
       <tr className="tr-reference">
+        <td><Avatar src={refReqeust.RentHistory.User.profile_picture_url} /></td>
         <td>{refReqeust.RentHistory.User.name}</td>
         <td>{refReqeust.RentHistory.Property.street}</td>
         <td>{refReqeust.RentHistory.Property.city}</td>
@@ -102,6 +102,5 @@ export default function Status({ refReqeust, refReqeustId }) {
           )}
         </td>
       </tr>
-    </>
   );
 }

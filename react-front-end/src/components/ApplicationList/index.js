@@ -83,10 +83,14 @@ export default function ApplicationList() {
           })}
         </List> */}
         <table className="table-container">
-          <thead>
+        <thead>
             <tr className="tr-heading">
+              <th></th>
               <th>Tenant's name</th>
-              <th>Property Address</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>Province</th>
+              <th>Postal Code</th>
               <th className="reference-th-action">Action</th>
             </tr>
           </thead>
