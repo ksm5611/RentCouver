@@ -29,7 +29,7 @@ export default function RefReqItem() {
 
   return (
     <Fragment>
-      {refRequests.map((refReqeust) => {
+      {[...refRequests].reverse().map((refReqeust) => {
         return <Status refReqeust={refReqeust} />;
       })}
     </Fragment>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
-import ApplicationReview from "../ApplicationReview";
+import ApplicationReview from './ApplicationReview'
 
 import {
   Button,

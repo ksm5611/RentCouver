@@ -52,7 +52,7 @@ export default function RentHistory() {
             </tr>
           </thead>
           <tbody>
-            {history.reverse().map((record) => {
+            {[...history].reverse().map((record) => {
               return (
                 <>
                   <RefStatus record={record} />

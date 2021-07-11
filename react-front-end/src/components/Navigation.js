@@ -69,25 +69,17 @@ export default function Navigation() {
                 as={Link}
                 className="dropdown-item"
                 onClick={() => dropdownItemColor}
-                to="/rent_history/10"
-              >
-                Rent history
-            </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                className="dropdown-item"
-                onClick={() => dropdownItemColor}
-                to="/"
-              >
-                References
-            </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                className="dropdown-item"
-                onClick={() => dropdownItemColor}
                 to="/"
               >
                 App status
+            </NavDropdown.Item>
+              <NavDropdown.Item
+                as={Link}
+                className="dropdown-item"
+                onClick={() => dropdownItemColor}
+                to="/rent_history/10"
+              >
+                Rent history
             </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item

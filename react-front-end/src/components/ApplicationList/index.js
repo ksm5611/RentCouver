@@ -1,6 +1,4 @@
 import axios from "axios";
-// import ApplicationReview from "../ApplicationReview";
-// import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
 import Status from "../ApplicationList/Status";
 import { useEffect, useState } from "react";
 
@@ -43,7 +41,7 @@ export default function ApplicationList() {
             </tr>
           </thead>
           <tbody>
-            {appLists.reverse().map((listValue) => {
+            {[...appLists].reverse().map((listValue) => {
               return (
                 <>
                   <Status listValue={listValue} />

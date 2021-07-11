@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import ApplicationForm from "./components/ApplicationForm";
 import ApplicationList from "./components/ApplicationList";
-import ApplicationReview from "./components/ApplicationReview";
+import ApplicationReview from "./components/ApplicationList/ApplicationReview";
 import Homepage from "./components/Homepage";
 import PropertyDetails from "./components/PropertyDetails";
 import PropertyListing from "./components/PropertyListing";
