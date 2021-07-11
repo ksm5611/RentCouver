@@ -125,7 +125,7 @@ export default function PropertyListing() {
   }, [query]);
 
   return (
-    <div id="proplist-container">
+    <div id="proplist-container" className="wrapper">
       <div id="search-and-filter">
         <Filters filteredProperties={updateFilter} />
         <SearchBar />

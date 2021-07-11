@@ -24,7 +24,7 @@ export default function PropertyListItem({ properties }) {
 
   const renderPropertyCard = (property) => {
     return (
-      <div id="card" key={property.id}>
+      <div className="card" key={property.id}>
         <Card id="prop_ins">
           <Card.Img
             id="card-img"

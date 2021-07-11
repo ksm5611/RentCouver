@@ -1,7 +1,8 @@
 import useVisualMode from "./useVisualMode";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, Avatar, ListItem } from "@material-ui/core";
+import Fade from 'react-reveal/Fade';
+import { Avatar } from "@material-ui/core";
 
 export default function Status({ refReqeust, refReqeustId }) {
   const [message, setMessge] = useState("");
@@ -36,61 +37,67 @@ export default function Status({ refReqeust, refReqeustId }) {
   };
 
   return (
-    <>
-      <div className="req-info">
-        <Avatar src={refReqeust.RentHistory.User.profile_picture_url} />
-        <p className="req-tenant">{refReqeust.RentHistory.User.name}</p>
-        <p className="req-tenant address">
-          {refReqeust.RentHistory.Property.street}
-        </p>
-      </div>
-      <div className="option-btn">
+    <tr className="tr-reference">
+      <Fade>
+        <td><Avatar src={refReqeust.RentHistory.User.profile_picture_url} /></td>
+        <td>{refReqeust.RentHistory.User.name}</td>
+        <td>{refReqeust.RentHistory.Property.street}</td>
+        <td>{refReqeust.RentHistory.Property.city}</td>
+        <td>{refReqeust.RentHistory.Property.province}</td>
+        <td>{refReqeust.RentHistory.Property.postal_code}</td>
+      </Fade>
+      <td className="reference-th-button">
         {mode === DEFAULT &&
           (refReqeust.is_decline === false ? (
             <>
-              <Button
-                variant="contained"
-                color="primary"
+              <Fade>
+              <button
+                className="primary-btn button action-button dual-buttons"
                 onClick={() => transition(FORM)}
               >
                 Write Reference
-              </Button>
-              <Button
-                variant="contained"
-                color="secondary"
+              </button>
+              </Fade>
+              <Fade>
+              <button
+                className="secondary-btn button action-button dual-buttons"
                 onClick={() => {
                   declineReq(refReqeust.renthistories_id);
                 }}
               >
                 Decline
-              </Button>
+              </button>
+              </Fade>
             </>
           ) : (
-            DECLINED
+            <p>{DECLINED}</p>
           ))}
-        {mode === DECLINED && <p>DECLINED</p>}
+        {/* {mode === DECLINED && <p className="dec">DECLINED</p>} */}
         {mode === FORM &&
           (refReqeust.is_updated === false ? (
             <>
-              <Button
-                variant="contained"
-                color="primary"
+              <Fade>
+              <button
+                className="primary-btn button action-button dual-buttons"
                 onClick={() => {
                   console.log("application", refReqeust);
                   messageSubmit(refReqeust.renthistories_id);
                 }}
               >
                 Submit
-              </Button>
-              <Button
-                variant="contained"
-                color="secondary"
+              </button>
+              </Fade>
+              <Fade>
+              <button
+                className="secondary-btn button action-button dual-buttons"
                 onClick={() => back()}
               >
                 Cancel
-              </Button>
+              </button>
+              </Fade>
               <form className="seperator">
                 <textarea
+                  className="review-content"
                   id="text"
                   value={message}
                   onChange={(e) => setMessge(e.target.value)}
@@ -98,20 +105,13 @@ export default function Status({ refReqeust, refReqeustId }) {
               </form>
             </>
           ) : (
-            <ListItem className={refReqeust.classes}>
-              <div className="option-btn">
-                <p>Sent</p>
-              </div>
-            </ListItem>
-          ))}
+            <Fade><p>{SENT}</p></Fade>
+          ))
+        }
         {mode === SENT && (
-          <ListItem className={refReqeust.classes}>
-            <div className="option-btn">
-              <p>Sent</p>
-            </div>
-          </ListItem>
+          <Fade><p>{SENT}</p></Fade>
         )}
-      </div>
-    </>
+      </td>
+    </tr>
   );
 }

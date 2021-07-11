@@ -43,12 +43,11 @@ export default function PropertyDetails() {
 
   return (
     <div>
-      <section className="hero-container second-hero-container">
-        <div>
+      <div className="hero-wrapper">
+        <section className="hero-container second-hero-container">
           <h2>Property Details</h2>
-        </div>
-      </section>
-
+        </section>
+      </div>
       <div className="property-container-wrapper">
         <div className="property-container-top">
           <div className="landlord-contact-container">

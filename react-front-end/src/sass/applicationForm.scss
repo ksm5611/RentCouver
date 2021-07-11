@@ -1,0 +1,79 @@
+$font-dark-grey: #574f4a;
+
+.application-form-wrapper {
+  margin: 0 auto;
+  width: 980px;
+  color: $font-dark-grey;
+}
+
+.application-form-container {
+  font-family: "Ubuntu", sans-serif;
+  padding-top: 100px;
+}
+
+.application-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  height: 100px;
+
+  .application-form-image {
+    display: flex;
+    width: 340px;
+    justify-content: space-between;
+    align-items: center;
+
+    .application-form-avatar {
+      width: 80px;
+    }
+  }
+
+  .application-form-notice {
+    display: flex;
+    flex-direction: column;
+    // height: 80px;
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.history-address {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  
+  p {
+    margin: 0;
+  }
+}
+
+.appliaction-user-info {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  // justify-content: space-between;
+  align-items: center;
+
+  p {
+    margin: 0;
+  }
+
+  span {
+    width: 300px;
+    // border: 1px red solid;
+  }
+}
+
+.app-rent-history-container {
+  margin: 10px 0 20px 0;
+}
+
+.application-form-btn-container {
+  width: 460px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 40px 0;
+}

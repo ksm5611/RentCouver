@@ -1,6 +1,7 @@
 import axios from "axios";
 import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
-import ApplicationReview from "../ApplicationReview";
+import ApplicationReview from './ApplicationReview';
+import Fade from 'react-reveal/Fade';
 
 import {
   Button,
@@ -17,40 +18,36 @@ export default function Status({ listValue }) {
     transition(DECLINED)
   }
 
-
   return (
-    <>
-      <div className="req-info">
-        <Avatar src={listValue.tenant.profile_picture_url} />
-        <p className="req-tenant">{listValue.tenant.name}</p>
-        <p className="req-tenant address">
-          {listValue.Property.street}
-          {listValue.Property.unit}
-          {listValue.Property.city}
-          {listValue.Property.provice}
-          {listValue.Property.postal_code}
-        </p>
-      </div>
-      <div className="option-btn">
+    <tr className="tr-appList">
+      <Fade>
+        <td><Avatar src={listValue.tenant.profile_picture_url} /></td>
+        <td>{listValue.tenant.name}</td>
+        <td>{listValue.Property.street}</td>
+        <td>{listValue.Property.city}</td>
+        <td>{listValue.Property.province}</td>
+        <td>{listValue.Property.postal_code}</td>
+      </Fade>
+      <td className="appList-th-button">
         {mode === DEFAULT && (
           listValue.is_decline === false ? (
             <>
-              <ApplicationReview tenantId={listValue.tenant_id} />
-              <Button
-                // className={classes.btn}
-                variant="contained"
-                color="secondary"
-                onClick={() => { declineApp(listValue.id) }}
-              >
-                Decline
-                </Button>
+              <Fade>
+              <ApplicationReview className="dual-buttons" tenantId={listValue.tenant_id} />
+                <button
+                  className="secondary-btn button action-button dual-buttons"
+                  onClick={() => { declineApp(listValue.id) }}
+                  >
+                  Decline
+                </button>
+              </Fade>
             </>
           ) : (
-            DECLINED
+            <p>{DECLINED}</p>
           )
         )}
-        {mode === DECLINED && (<p>DECLINED</p>)}
-      </div>
-    </>
+        {mode === DECLINED && (<p>{DECLINED}</p>)}
+      </td>
+    </tr>
   )
 }

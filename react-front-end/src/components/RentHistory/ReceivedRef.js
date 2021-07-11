@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     width: 700,
   },
   fullList: {
-    width: "auto",
+    maxWidth: 700,
   },
   btn: {
     backgroundColor: "#f1a177",
@@ -51,33 +51,29 @@ export default function ReceivedRef({ reference }) {
     setState({ ...state, [anchor]: open });
   };
 
-  if (!reference) {
-    return <div>Loading..</div>;
-  }
+  // if (!reference) {
+  //   return <div>Loading..</div>;
+  // }
 
   return (
-    <div id="proplist_top">
-      <div>
-        <Button
-          className={classes.btn}
-          variant="outline-primary"
-          onClick={toggleDrawer("left", true)}
-        >
-          Review Reference
-        </Button>
+    <div>
+      <button
+        className="secondary-btn button action-button"
+        onClick={toggleDrawer("left", true)}
+      >
+        REVIEW REFERENCE
+        </button>
 
-        <Drawer
-          className="drawer"
-          style={{ width: "640px" }}
-          variant="temporary"
-          anchor="left"
-          open={state["left"]}
-          onClose={toggleDrawer("left", false)}
-        >
-          {/* {reviewContent("left")} */}
-          <p>{reference}</p>
-        </Drawer>
-      </div>
+      <Drawer
+        className="drawer"
+        style={{ width: "640px" }}
+        variant="temporary"
+        anchor="left"
+        open={state["left"]}
+        onClose={toggleDrawer("left", false)}
+      >
+        <p className={classes.list}>{reference}</p>
+      </Drawer>
     </div>
   );
 }
