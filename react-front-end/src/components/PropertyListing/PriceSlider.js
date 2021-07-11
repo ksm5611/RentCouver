@@ -14,10 +14,11 @@ function valuetext(value) {
   return `${value}`;
 }
 
-export default function RangeSlider() {
+export default function RangeSlider(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState([800, 3000]);
 
+  // this is to allow you to drag the slider values
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };

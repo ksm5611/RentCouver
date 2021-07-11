@@ -16,8 +16,8 @@ export default function PropertyListing() {
     property_type: null,
     number_of_bedrooms: null,
     number_of_bathrooms: null,
-    minPrice: null,
-    maxPrice: null
+    cost_of_month_lt: null,
+    cost_of_month_gt: null
   });
 
   // state of [filter, setFilter] will be here
@@ -35,8 +35,8 @@ export default function PropertyListing() {
       property_type: type,
       number_of_bedrooms: bedrooms,
       number_of_bathrooms: bathrooms,
-      minPrice: minPrice,
-      maxPrice: maxPrice
+      cost_of_month_lt: maxPrice,
+      cost_of_month_gt: minPrice
     });
   };
 
@@ -67,13 +67,13 @@ export default function PropertyListing() {
       numberOfBathRoom = "";
     }
 
-    // if (filter.minPrice === 800 ) {
-    //   minPrice = 800;
-    // }
+    if (filter.cost_of_month_gt === 800 ) {
+      minPrice = 800;
+    }
 
-    // if (filter.maxPrice === 5000 ) {
-    //   minPrice = 5000;
-    // }
+    if (filter.cost_of_month_lt === 5000 ) {
+      maxPrice = 5000;
+    }
 
     if (propertyType) {
       result += propertyType + "&";
@@ -87,13 +87,13 @@ export default function PropertyListing() {
       result += numberOfBathRoom + "&";
     }
 
-    // if (minPrice) {
-    //   result += minPrice + "&";
-    // }
+    if (minPrice) {
+      result += minPrice + "&";
+    }
 
-    // if (maxPrice) {
-    //   result += maxPrice + "&";
-    // }
+    if (maxPrice) {
+      result += maxPrice + "&";
+    }
 
     console.log("query result in /PropListing/index.js: ", result);
     return result;
@@ -101,8 +101,8 @@ export default function PropertyListing() {
     filter.property_type,
     filter.number_of_bedrooms,
     filter.number_of_bathrooms,
-    // filter.minPrice,
-    // filter.maxPrice
+    filter.cost_of_month_lt,
+    filter.cost_of_month_gt
   ]);
 
   useEffect(() => {

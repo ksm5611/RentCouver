@@ -57,8 +57,8 @@ export default function Filters(props) {
   const [bathrooms, setBathrooms] = useState("All");
 
   // for <PriceSlider />
-  // const [minPrice, setMinPrice] = useState(800);
-  // const [maxPrice, setMaxPrice] = useState(3000); 
+  const [minPrice, setMinPrice] = useState(800);
+  const [maxPrice, setMaxPrice] = useState(3000); 
 
   // insides of the drawer
   const list = (anchor) => (
@@ -72,8 +72,8 @@ export default function Filters(props) {
     >
       <List>
         <PriceSlider 
-          // changeMaxPrice={(max) => setMaxPrice(max)}
-          // changeMinPrice={(min) => setMinPrice(min)}
+          changeMaxPrice={(max) => setMaxPrice(max)}
+          changeMinPrice={(min) => setMinPrice(min)}
         />
 
         <FilterType changeType={(type) => setType(type)} />
@@ -135,7 +135,7 @@ export default function Filters(props) {
             onClick={() => {
               // console.log("type in Filters.js: ", type)
               toggleDrawer("left", false);
-              props.filteredProperties(type, bedrooms, bathrooms/*, minPrice, maxPrice*/);
+              props.filteredProperties(type, bedrooms, bathrooms, minPrice, maxPrice);
             }}
           >
             Search
