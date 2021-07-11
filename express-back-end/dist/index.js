@@ -41,13 +41,7 @@ App.use(_bodyParser["default"].urlencoded({
   extended: true
 }));
 App.use(_bodyParser["default"].json());
-App.use(_express["default"]["static"]("public")); // simple route
-
-App.get("/", function (req, res) {
-  res.json({
-    message: "Welcome to bezkoder application."
-  });
-});
+App.use(_express["default"]["static"]("public"));
 App.use("/api", _userInfo["default"]);
 App.use("/api", _propertyDetails["default"]);
 App.use("/api", _propertyLists["default"]);

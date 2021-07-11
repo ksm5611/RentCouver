@@ -9,7 +9,6 @@ module.exports = function (App) {
     );
     next();
   });
-
   App.post(
     "/api/auth/signup",
     [verifySignUp.checkDuplicateEmail],

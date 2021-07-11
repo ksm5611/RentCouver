@@ -25,11 +25,6 @@ App.use(BodyParser.urlencoded({ extended: true }));
 App.use(BodyParser.json());
 App.use(Express.static("public"));
 
-// simple route
-App.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
-});
-
 App.use("/api", userInfo);
 
 App.use("/api", propertyDetails);

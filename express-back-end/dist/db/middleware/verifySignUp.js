@@ -1,9 +1,8 @@
 "use strict";
 
 //middleware functions
-var db = require("../models");
-
-var User = db.user;
+var _require = require("../models"),
+    User = _require.User;
 
 var checkDuplicateEmail = function checkDuplicateEmail(req, res, next) {
   // Email
