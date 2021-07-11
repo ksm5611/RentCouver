@@ -7,6 +7,7 @@ $dark-grey: #7c7878;
 $font-dark-grey: #574f4a;
 $wrapper-width: 1280px;
 $hero-container-height: 240px;
+$primary-btn-color: #b75858;
 
 @import "homepage";
 @import "navigation";
@@ -47,7 +48,7 @@ li {
   border-radius: 4px;
   // background-color: $light-orange;
   background-color: white;
-  border: 1px solid red;
+  // border: 1px solid $primary-btn-color
 
   // &:focus, &:after, &:visited{
   //   padding: 8px 32px;
@@ -55,6 +56,28 @@ li {
   // background-color: $light-orange;
   // border: 1px solid red;
   // }
+}
+
+.primary-btn {
+  background-color: $primary-btn-color;
+  color: #fff;
+  border: 1px solid $primary-btn-color;
+  &:hover {
+    background-color: #fff;
+    color: $primary-btn-color;
+    border: 1px solid $primary-btn-color;
+  }
+}
+
+.secondary-btn {
+  background-color: #fff;
+  color: $primary-btn-color;
+  border: 1px solid $primary-btn-color;
+  &:hover {
+    background-color: $dark-grey;
+    color: #fff;
+    border: 1px solid $dark-grey;
+  }
 }
 
 .hero-container {

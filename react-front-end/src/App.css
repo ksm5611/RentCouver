@@ -287,7 +287,7 @@
   margin-top: 40px;
   border: 1px solid #7c7878;
 }
-.table-container tr:nth-child(even) {
+.table-container .tr-reference:nth-child(odd), .table-container .tr-history:nth-child(odd), .table-container .tr-appList:nth-child(odd) {
   background-color: #f8f3f0;
 }
 .table-container th,
@@ -298,9 +298,11 @@
 .table-container .action-button {
   width: 200px;
   padding: 8px;
+  border: 1px solid #7c7878;
 }
-.table-container .action-button:hover {
-  background-color: red;
+.table-container .dual-buttons {
+  margin-left: 8px;
+  border: 1px solid #b75858;
 }
 .table-container .tr-heading {
   position: relative;
@@ -309,27 +311,27 @@
   color: white;
 }
 .table-container .tr-history,
-.table-container .tr-reference {
+.table-container .tr-reference, .table-container .tr-appList {
   height: 60px;
 }
 .table-container th {
   margin-right: 20px;
 }
-.table-container .history-th-action {
-  width: 200px;
-  text-align: center;
-}
-.table-container .reference-th-button {
+.table-container .reference-th-button, .table-container .history-th-button, .table-container .appList-th-button {
   margin-top: 9px;
   display: flex;
   justify-content: space-around;
 }
-.table-container .reference-th-button p {
+.table-container .reference-th-button p, .table-container .history-th-button p, .table-container .appList-th-button p {
   margin-top: 9px;
 }
-.table-container .reference-th-action {
+.table-container .history-th-action {
+  width: 200px;
   text-align: center;
-  width: 480px;
+}
+.table-container .reference-th-action, .table-container .appList-th-action {
+  text-align: center;
+  width: 400px;
 }
 .table-container .seperator {
   position: absolute;
@@ -337,7 +339,7 @@
   right: 0;
 }
 .table-container .seperator .review-content {
-  width: 452px;
+  width: 424px;
   height: 100px;
   resize: none;
   border-radius: 6px;
@@ -481,7 +483,28 @@ li {
   padding: 8px 32px;
   border-radius: 4px;
   background-color: white;
-  border: 1px solid red;
+}
+
+.primary-btn {
+  background-color: #b75858;
+  color: #fff;
+  border: 1px solid #b75858;
+}
+.primary-btn:hover {
+  background-color: #fff;
+  color: #b75858;
+  border: 1px solid #b75858;
+}
+
+.secondary-btn {
+  background-color: #fff;
+  color: #b75858;
+  border: 1px solid #b75858;
+}
+.secondary-btn:hover {
+  background-color: #7c7878;
+  color: #fff;
+  border: 1px solid #7c7878;
 }
 
 .hero-container {

@@ -18,31 +18,20 @@ export default function Status({ listValue }) {
   }
 
   return (
-    <tr className="tr-reference">
-      {/* <div className="req-info">
-        <Avatar src={listValue.tenant.profile_picture_url} />
-        <p className="req-tenant">{listValue.tenant.name}</p>
-        <p className="req-tenant address">
-          {listValue.Property.street}
-          {listValue.Property.unit}
-          {listValue.Property.city}
-          {listValue.Property.provice}
-          {listValue.Property.postal_code}
-        </p>
-      </div> */}
+    <tr className="tr-appList">
       <td><Avatar src={listValue.tenant.profile_picture_url} /></td>
       <td>{listValue.tenant.name}</td>
       <td>{listValue.Property.street}</td>
       <td>{listValue.Property.city}</td>
       <td>{listValue.Property.province}</td>
       <td>{listValue.Property.postal_code}</td>
-      <td className="reference-th-button">
+      <td className="appList-th-button">
         {mode === DEFAULT && (
           listValue.is_decline === false ? (
             <>
-              <ApplicationReview tenantId={listValue.tenant_id} />
+              <ApplicationReview className="dual-buttons" tenantId={listValue.tenant_id} />
               <button
-                className="button action-button"
+                className="secondary-btn button action-button dual-buttons"
                 onClick={() => { declineApp(listValue.id) }}
               >
                 Decline

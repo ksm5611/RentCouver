@@ -146,7 +146,7 @@ export default function Filters({ tenantId }) {
   return (
       <div>
         <button
-          className="button action-button"
+          className="primary-btn button action-button dual-buttons"
           onClick={toggleDrawer("left", true)}
         >
           Review Application

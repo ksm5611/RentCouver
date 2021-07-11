@@ -48,13 +48,13 @@ export default function Status({ refReqeust, refReqeustId }) {
             (refReqeust.is_decline === false ? (
               <>
                 <button
-                  className="button action-button"
+                  className="primary-btn button action-button dual-buttons"
                   onClick={() => transition(FORM)}
                 >
                   Write Reference
               </button>
                 <button
-                  className="button action-button"
+                  className="secondary-btn button action-button dual-buttons"
                   onClick={() => {
                     declineReq(refReqeust.renthistories_id);
                   }}
@@ -70,7 +70,7 @@ export default function Status({ refReqeust, refReqeustId }) {
             (refReqeust.is_updated === false ? (
               <>
                 <button
-                  className="button action-button"
+                  className="primary-btn button action-button dual-buttons"
                   onClick={() => {
                     console.log("application", refReqeust);
                     messageSubmit(refReqeust.renthistories_id);
@@ -79,7 +79,7 @@ export default function Status({ refReqeust, refReqeustId }) {
                   Submit
               </button>
                 <button
-                  className="button action-button"
+                  className="secondary-btn button action-button dual-buttons"
                   onClick={() => back()}
                 >
                   Cancel

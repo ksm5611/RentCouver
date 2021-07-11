@@ -4,35 +4,6 @@ import axios from "axios";
 import Status from "../ApplicationList/Status";
 import { useEffect, useState } from "react";
 
-import {
-  Container,
-  ListItem,
-  List,
-  makeStyles,
-} from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => {
-  return {
-    root: {
-      border: "1px solid black",
-      marginBottom: "16px",
-      display: "flex",
-      justifyContent: "space-between",
-    },
-    "& > *": {
-      margin: theme.spacing(1),
-    },
-    btn: {
-      backgroundColor: "#f1a177",
-      color: "white",
-
-      "&:hover": {
-        backgroundColor: "rgb(7, 177, 77, 0.42)",
-      },
-    },
-  };
-});
-
 export default function ApplicationList() {
   const [appLists, setAppLists] = useState([]);
   const [error, setError] = useState("");
@@ -49,12 +20,6 @@ export default function ApplicationList() {
     fetchData();
   }, []);
 
-  //material ui styling funtion
-  const classes = useStyles();
-
-  // const handleDecline = async (applicationId) => {
-  //   await axios.post(`http://localhost:8000/api/appList/${applicationId}`);
-  // };
 
   return (
     <div>
@@ -65,25 +30,8 @@ export default function ApplicationList() {
       </div>
 
       <div className="wrapper">
-        {/* <Typography variant="h4">Tenant name Address</Typography> */}
-        {/* <ListItem className={classes.root} id="listitem-head">
-          <div className="req-info head">
-            <h5>Tenant's name</h5>
-            <h5>Property Address</h5>
-          </div>
-        </ListItem>
-        <List>
-          {appLists.reverse().map((listValue) => {
-
-            return (
-              <ListItem className={classes.root}>
-                <Status listValue={listValue} />
-              </ListItem>
-            );
-          })}
-        </List> */}
         <table className="table-container">
-        <thead>
+          <thead>
             <tr className="tr-heading">
               <th></th>
               <th>Tenant's name</th>
@@ -91,7 +39,7 @@ export default function ApplicationList() {
               <th>City</th>
               <th>Province</th>
               <th>Postal Code</th>
-              <th className="reference-th-action">Action</th>
+              <th className="appList-th-action">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -104,9 +52,7 @@ export default function ApplicationList() {
             })}
           </tbody>
         </table>
-
       </div>
-
     </div>
   );
 }

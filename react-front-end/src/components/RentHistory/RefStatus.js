@@ -23,7 +23,6 @@ export default function Status({ record }) {
   };
 
   return (
-    <>
       <tr className="tr-history">
         <td>{record.Property.street},{" "}{record.Property.unit && <>#{record.Property.unit}</>}{" "}</td>
         <td>{record.Property.city}</td>
@@ -31,13 +30,12 @@ export default function Status({ record }) {
         <td>{record.Property.postal_code}</td>
         <td>{record.start_date} - {record.end_date}</td>
         <td>{record.Property.User.name}</td>
-
-        <td className="history-th-action">
-          {mode === REQUESTED && <>REQUESTED</>}
+        <td className="history-th-button">
+          {mode === REQUESTED && <p>REQUESTED</p>}
           {mode === DEFAULT &&
             (record.is_requested === false ? (
               <button
-                className="button action-button"
+                className="button action-button dual-buttons"
                 onClick={() => {
                   refRequested(record);
                 }}
@@ -45,12 +43,11 @@ export default function Status({ record }) {
                 REQUEST REFERENCE
               </button>
             ) : record.review_content === null ? (
-              REQUESTED
+              <p>REQUESTED</p>
             ) : (
               <ReceivedRef reference={record.review_content} />
             ))}
         </td>
       </tr>
-    </>
   );
 }

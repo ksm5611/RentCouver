@@ -48,7 +48,7 @@ export default function RentHistory() {
               <th>Postal Code</th>
               <th>Rental Period</th>
               <th>Landlord</th>
-              <th> </th>
+              <th className="history-th-action">References</th>
             </tr>
           </thead>
           <tbody>

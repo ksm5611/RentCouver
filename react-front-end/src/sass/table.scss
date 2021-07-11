@@ -45,7 +45,7 @@ $table-container-color: #7c7878;
   margin-top: 40px;
   border: 1px solid $table-container-color;
 
-  tr:nth-child(even) {
+  .tr-reference:nth-child(odd), .tr-history:nth-child(odd), .tr-appList:nth-child(odd) {
     background-color: $light-orange;
   }
 
@@ -58,12 +58,18 @@ $table-container-color: #7c7878;
   .action-button {
     width: 200px;
     padding: 8px;
+    border: 1px solid $dark-grey;
 
     &:hover {
-      background-color: red;
+      // background-color: red;
     }
-
   }
+
+  .dual-buttons {
+    margin-left: 8px;
+    border: 1px solid $primary-btn-color;
+  }
+
 
   .tr-heading {
     position: relative;
@@ -74,7 +80,7 @@ $table-container-color: #7c7878;
   }
 
   .tr-history,
-  .tr-reference {
+  .tr-reference, .tr-appList {
     height: 60px;
     // display: flex;
   }
@@ -83,12 +89,7 @@ $table-container-color: #7c7878;
     margin-right: 20px;
   }
 
-  .history-th-action {
-    width: 200px;
-    text-align: center;
-  }
-
-  .reference-th-button {
+  .reference-th-button, .history-th-button, .appList-th-button {
     margin-top: 9px;
     display: flex;
     justify-content: space-around;
@@ -96,12 +97,16 @@ $table-container-color: #7c7878;
     p {
       margin-top: 9px;
     }
-
   }
 
-  .reference-th-action {
+  .history-th-action {
+    width: 200px;
     text-align: center;
-    width: 480px;
+  }
+
+  .reference-th-action, .appList-th-action{
+    text-align: center;
+    width: 400px;
   }
 
   .seperator {
@@ -110,7 +115,7 @@ $table-container-color: #7c7878;
     right: 0;
 
     .review-content {
-      width: 452px;
+      width: 424px;
       height: 100px;
       resize: none;
       border-radius: 6px;
