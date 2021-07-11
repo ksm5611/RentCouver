@@ -1,0 +1,126 @@
+$wrapper-width: 1280px;
+$light-orange: #f8f3f0;
+$table-container-color: #7c7878;
+
+.listitem-head {
+  margin: 24px 0;
+}
+
+.req-info,
+.history-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-right: 20px;
+
+  .req-tenant,
+  .req-landlord,
+  h5 {
+    margin: 0;
+    padding: 0 20px;
+    width: 240px;
+  }
+
+  .address {
+    width: 480px;
+  }
+}
+
+.head {
+  padding-left: 40px;
+  height: 60px;
+}
+
+.option-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 300px;
+}
+
+// RentHistory.js
+
+.table-container {
+  width: $wrapper-width;
+  margin-top: 40px;
+  border: 1px solid $table-container-color;
+
+  .tr-reference:nth-child(odd), .tr-history:nth-child(odd), .tr-appList:nth-child(odd) {
+    background-color: $light-orange;
+  }
+
+  th,
+  td {
+    position: relative;
+    padding: 0 16px;
+  }
+
+  .action-button {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid $dark-grey;
+
+    &:hover {
+      // background-color: red;
+    }
+  }
+
+  .dual-buttons {
+    margin-left: 8px;
+    border: 1px solid $primary-btn-color;
+  }
+
+
+  .tr-heading {
+    position: relative;
+    // border: 1px solid blue;
+    height: 60px;
+    background-color: $table-container-color;
+    color: white;
+  }
+
+  .tr-history,
+  .tr-reference, .tr-appList {
+    height: 60px;
+    // display: flex;
+  }
+
+  th {
+    margin-right: 20px;
+  }
+
+  .reference-th-button, .history-th-button, .appList-th-button {
+    margin-top: 9px;
+    display: flex;
+    justify-content: space-around;
+
+    p {
+      margin-top: 9px;
+    }
+  }
+
+  .history-th-action {
+    width: 200px;
+    text-align: center;
+  }
+
+  .reference-th-action, .appList-th-action{
+    text-align: center;
+    width: 400px;
+  }
+
+  .seperator {
+    position: absolute;
+    margin-top: 60px;
+    right: 0;
+
+    .review-content {
+      width: 424px;
+      height: 100px;
+      resize: none;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+  }
+
+}

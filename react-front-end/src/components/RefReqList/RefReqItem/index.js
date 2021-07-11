@@ -29,13 +29,9 @@ export default function RefReqItem() {
 
   return (
     <Fragment>
-      <ListItem>
-        <div className="req-info">
-          {refRequests.map((refReqeust) => {
-            return <Status refReqeust={refReqeust} />;
-          })}
-        </div>
-      </ListItem>
+      {refRequests.map((refReqeust) => {
+        return <Status refReqeust={refReqeust} />;
+      })}
     </Fragment>
   );
 }

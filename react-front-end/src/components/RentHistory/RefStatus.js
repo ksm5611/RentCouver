@@ -23,37 +23,31 @@ export default function Status({ record }) {
   };
 
   return (
-    <>
-      <div className="history-info">
-        <p className="req-landlord address">
-          {record.Property.street},{" "}
-          {record.Property.unit && <>#{record.Property.unit}</>}{" "}
-          {record.Property.city} {record.Property.province}{" "}
-          {record.Property.postal_code}
-        </p>
-        <p className="req-landlord">
-          {record.start_date} - {record.end_date}
-        </p>
-        <span>{record.Property.User.name}</span>
-      </div>
-      <div className="option-btn">
-        {mode === REQUESTED && <p>REQUESTED</p>}
-        {mode === DEFAULT &&
-          (record.is_requested === false ? (
-            <Button
-              variant="contained"
-              onClick={() => {
-                refRequested(record);
-              }}
-            >
-              Request Reference
-            </Button>
-          ) : record.review_content === null ? (
-            REQUESTED
-          ) : (
-            <ReceivedRef reference={record.review_content} />
-          ))}
-      </div>
-    </>
+      <tr className="tr-history">
+        <td>{record.Property.street},{" "}{record.Property.unit && <>#{record.Property.unit}</>}{" "}</td>
+        <td>{record.Property.city}</td>
+        <td>{record.Property.province}</td>
+        <td>{record.Property.postal_code}</td>
+        <td>{record.start_date} - {record.end_date}</td>
+        <td>{record.Property.User.name}</td>
+        <td className="history-th-button">
+          {mode === REQUESTED && <p>REQUESTED</p>}
+          {mode === DEFAULT &&
+            (record.is_requested === false ? (
+              <button
+                className="button action-button dual-buttons"
+                onClick={() => {
+                  refRequested(record);
+                }}
+              >
+                REQUEST REFERENCE
+              </button>
+            ) : record.review_content === null ? (
+              <p>REQUESTED</p>
+            ) : (
+              <ReceivedRef reference={record.review_content} />
+            ))}
+        </td>
+      </tr>
   );
 }

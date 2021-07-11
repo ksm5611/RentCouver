@@ -1,7 +1,7 @@
 import useVisualMode from "./useVisualMode";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, Avatar, ListItem } from "@material-ui/core";
+import { button, Avatar, ListItem } from "@material-ui/core";
 
 export default function Status({ refReqeust, refReqeustId }) {
   const [message, setMessge] = useState("");
@@ -36,82 +36,71 @@ export default function Status({ refReqeust, refReqeustId }) {
   };
 
   return (
-    <>
-      <div className="req-info">
-        <Avatar src={refReqeust.RentHistory.User.profile_picture_url} />
-        <p className="req-tenant">{refReqeust.RentHistory.User.name}</p>
-        <p className="req-tenant address">
-          {refReqeust.RentHistory.Property.street}
-        </p>
-      </div>
-      <div className="option-btn">
-        {mode === DEFAULT &&
-          (refReqeust.is_decline === false ? (
-            <>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={() => transition(FORM)}
-              >
-                Write Reference
-              </Button>
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={() => {
-                  declineReq(refReqeust.renthistories_id);
-                }}
-              >
-                Decline
-              </Button>
-            </>
-          ) : (
-            DECLINED
-          ))}
-        {mode === DECLINED && <p>DECLINED</p>}
-        {mode === FORM &&
-          (refReqeust.is_updated === false ? (
-            <>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={() => {
-                  console.log("application", refReqeust);
-                  messageSubmit(refReqeust.renthistories_id);
-                }}
-              >
-                Submit
-              </Button>
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={() => back()}
-              >
-                Cancel
-              </Button>
-              <form className="seperator">
-                <textarea
-                  id="text"
-                  value={message}
-                  onChange={(e) => setMessge(e.target.value)}
-                />
-              </form>
-            </>
-          ) : (
-            <ListItem className={refReqeust.classes}>
-              <div className="option-btn">
-                <p>Sent</p>
-              </div>
-            </ListItem>
-          ))}
-        {mode === SENT && (
-          <ListItem className={refReqeust.classes}>
-            <div className="option-btn">
-              <p>Sent</p>
-            </div>
-          </ListItem>
-        )}
-      </div>
-    </>
+      <tr className="tr-reference">
+        <td><Avatar src={refReqeust.RentHistory.User.profile_picture_url} /></td>
+        <td>{refReqeust.RentHistory.User.name}</td>
+        <td>{refReqeust.RentHistory.Property.street}</td>
+        <td>{refReqeust.RentHistory.Property.city}</td>
+        <td>{refReqeust.RentHistory.Property.province}</td>
+        <td>{refReqeust.RentHistory.Property.postal_code}</td>
+        <td className="reference-th-button">
+          {mode === DEFAULT &&
+            (refReqeust.is_decline === false ? (
+              <>
+                <button
+                  className="primary-btn button action-button dual-buttons"
+                  onClick={() => transition(FORM)}
+                >
+                  Write Reference
+              </button>
+                <button
+                  className="secondary-btn button action-button dual-buttons"
+                  onClick={() => {
+                    declineReq(refReqeust.renthistories_id);
+                  }}
+                >
+                  Decline
+              </button>
+              </>
+            ) : (
+              <p>{DECLINED}</p>
+            ))}
+          {/* {mode === DECLINED && <p className="dec">DECLINED</p>} */}
+          {mode === FORM &&
+            (refReqeust.is_updated === false ? (
+              <>
+                <button
+                  className="primary-btn button action-button dual-buttons"
+                  onClick={() => {
+                    console.log("application", refReqeust);
+                    messageSubmit(refReqeust.renthistories_id);
+                  }}
+                >
+                  Submit
+              </button>
+                <button
+                  className="secondary-btn button action-button dual-buttons"
+                  onClick={() => back()}
+                >
+                  Cancel
+              </button>
+                <form className="seperator">
+                  <textarea
+                    className="review-content"
+                    id="text"
+                    value={message}
+                    onChange={(e) => setMessge(e.target.value)}
+                  />
+                </form>
+              </>
+            ) : (
+              <p>{SENT}</p>
+            ))
+          }
+          {mode === SENT && (
+            <p>{SENT}</p>
+          )}
+        </td>
+      </tr>
   );
 }

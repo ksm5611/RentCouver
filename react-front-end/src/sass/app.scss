@@ -5,79 +5,133 @@ $name-font: "Kalam", cursive;
 $background-color: #c1b9b9;
 $dark-grey: #7c7878;
 $font-dark-grey: #574f4a;
-
-body {
-  box-sizing: border-box;
-  font-family: $main-font;
-
-  a:hover {
-    text-decoration: none;
-  }
-
-  ul {
-    padding: 0;
-  }
-
-  li {
-    list-style: none;
-  }
-
-  .hero-container {
-    padding-top: 80px;
-    font-family: $name-font;
-    height: 310px;
-    width: 100%;
-    background-color: $light-orange;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    .hero-content {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      list-style: none;
-      margin-top: 200px;
-      padding: 20px;
-      z-index: 1;
-  
-      .hero-content-item {
-        margin: 10px;
-  
-        .profile-img {
-          width: 200px;
-          border-radius: 50%;
-        }
-      }
-  
-      h2 {
-        font-size: 40px;
-        color: $dark-grey;
-      }
-    }
-  }
-
-  .second-hero-container {
-    display: flex;
-    justify-content: start;
-    padding-left: 100px;
-    height: 240px;
-  
-    h2 {
-      font-family: $main-font;
-      color: $dark-grey;
-    }
-  }
-}
+$wrapper-width: 1280px;
+$hero-container-height: 240px;
+$primary-btn-color: #b75858;
 
 @import "homepage";
 @import "navigation";
 @import "user";
 @import "propertyDetail";
-@import "ReqList";
+@import "table";
 @import "appReview";
 
-@import "filters"; 
+@import "filters";
 @import "propertyListings";
 @import "priceSlider";
 @import "propertyListItem";
+
+
+body {
+  box-sizing: border-box;
+  font-family: $main-font;
+}
+a:hover {
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: $wrapper-width;
+}
+
+.button {
+  padding: 8px 32px;
+  border-radius: 4px;
+  // background-color: $light-orange;
+  background-color: white;
+  // border: 1px solid $primary-btn-color
+
+  // &:focus, &:after, &:visited{
+  //   padding: 8px 32px;
+  // border-radius: 2px;
+  // background-color: $light-orange;
+  // border: 1px solid red;
+  // }
+}
+
+.primary-btn {
+  background-color: $primary-btn-color;
+  color: #fff;
+  border: 1px solid $primary-btn-color;
+  &:hover {
+    background-color: #fff;
+    color: $primary-btn-color;
+    border: 1px solid $primary-btn-color;
+  }
+}
+
+.secondary-btn {
+  background-color: #fff;
+  color: $primary-btn-color;
+  border: 1px solid $primary-btn-color;
+  &:hover {
+    background-color: $dark-grey;
+    color: #fff;
+    border: 1px solid $dark-grey;
+  }
+}
+
+.hero-container {
+  padding-top: 80px;
+  font-family: $name-font;
+  height: 310px;
+  width: 100%;
+  background-color: $light-orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .hero-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    list-style: none;
+    margin-top: 200px;
+    padding: 20px;
+    z-index: 1;
+
+    .hero-content-item {
+      margin: 10px;
+
+      .profile-img {
+        width: 200px;
+        border-radius: 50%;
+      }
+    }
+
+    h2 {
+      font-size: 40px;
+      color: $dark-grey;
+    }
+  }
+}
+
+.hero-wrapper {
+  width: 100%;
+  height: $hero-container-height;
+  background-color: $light-orange;
+}
+
+.second-hero-container {
+  display: flex;
+  justify-content: start;
+  margin: 0 auto;
+  width: $wrapper-width;
+  height: $hero-container-height;
+
+  h2 {
+    font-family: $main-font;
+    color: $dark-grey;
+  }
+}
+
+
