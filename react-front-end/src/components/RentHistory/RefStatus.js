@@ -45,24 +45,24 @@ export default function Status({ record }) {
         <td>{record.Property.User.name}</td>
 
 
-        <div className="th-action">
+        <td className="th-action">
           {mode === REQUESTED && <p>REQUESTED</p>}
           {mode === DEFAULT &&
             (record.is_requested === false ? (
-              <Button
-                variant="contained"
+              <button
+                className="button action-btn"
                 onClick={() => {
                   refRequested(record);
                 }}
               >
-                Request Reference
-              </Button>
+                REQUEST REFERENCE
+              </button>
             ) : record.review_content === null ? (
               REQUESTED
             ) : (
               <ReceivedRef reference={record.review_content} />
             ))}
-        </div>
+        </td>
       </tr>
     </>
   );

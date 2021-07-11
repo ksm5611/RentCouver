@@ -1,16 +1,21 @@
 $wrapper-width: 1280px;
+$light-orange: #f8f3f0;
+$table-container-color: #7c7878;
 
 .listitem-head {
   margin: 24px 0;
 }
 
-.req-info, .history-info {
+.req-info,
+.history-info {
   display: flex;
   align-items: center;
   width: 100%;
   padding-right: 20px;
 
-  .req-tenant, .req-landlord, h5 {
+  .req-tenant,
+  .req-landlord,
+  h5 {
     margin: 0;
     padding: 0 20px;
     width: 240px;
@@ -50,29 +55,40 @@ $wrapper-width: 1280px;
 
 // RentHistory.js
 
-
 .table-container {
   width: $wrapper-width;
   margin-top: 40px;
-  border: 1px solid red;
-    th, td {
-      position: relative;
-      padding: 0 16px;
+  border: 1px solid $table-container-color;
+
+  tr:nth-child(even) {
+    background-color: $light-orange;
+}
+  
+  th,
+  td {
+    position: relative;
+    padding: 0 16px;
+  }
+
+  .action-btn {
+    width: 200px;
+    padding: 8px;
+
+    &:hover {
+      background-color: red;
     }
+  }
 
   .tr-heading {
     position: relative;
-    border: 1px solid blue;
+    // border: 1px solid blue;
     height: 60px;
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: space-between;
+    background-color: $table-container-color;
+    color: white;
   }
 
-  .tr-history{
+  .tr-history {
     height: 60px;
-    border: 1px solid red;
-
   }
 
   th {
@@ -81,6 +97,7 @@ $wrapper-width: 1280px;
 
   .th-action {
     width: 200px;
+    text-align: center;
   }
 }
 

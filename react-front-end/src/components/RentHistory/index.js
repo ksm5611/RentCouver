@@ -60,22 +60,26 @@ export default function RentHistory() {
       <div className="wrapper">
         {error && <div>Error Loading data</div>}
         <table className="table-container">
-          <tr className="tr-heading">
-            <th className="th-address">Address</th>
-            <th className="th-city">City</th>
-            <th className="th-province">Province</th>
-            <th className="th-postal-code">Postal Code</th>
-            <th className="th-rental-period">Rental Period</th>
-            <th className="th-landlord-name">Landlord</th>
-            <th> </th>
-          </tr>
-          {history.reverse().map((record) => {
-            return (
-              <>
-                <RefStatus record={record} />
-              </>
-            );
-          })}
+          <thead>
+            <tr className="tr-heading">
+              <th className="th-address">Address</th>
+              <th className="th-city">City</th>
+              <th className="th-province">Province</th>
+              <th className="th-postal-code">Postal Code</th>
+              <th className="th-rental-period">Rental Period</th>
+              <th className="th-landlord-name">Landlord</th>
+              <th> </th>
+            </tr>
+          </thead>
+          <tbody>
+            {history.reverse().map((record) => {
+              return (
+                <>
+                  <RefStatus record={record} />
+                </>
+              );
+            })}
+          </tbody>
         </table>
       </div>
     </div>

@@ -56,28 +56,25 @@ export default function ReceivedRef({ reference }) {
   // }
 
   return (
-    <div id="proplist_top">
-      <div>
-        <Button
-          className={classes.btn}
-          variant="outline-primary"
-          onClick={toggleDrawer("left", true)}
-        >
-          Review Reference
-        </Button>
+    <div>
+      <button
+        className="button action-btn"
+        onClick={toggleDrawer("left", true)}
+      >
+        REVIEW REFERENCE
+        </button>
 
-        <Drawer
-          className="drawer"
-          style={{ width: "640px" }}
-          variant="temporary"
-          anchor="left"
-          open={state["left"]}
-          onClose={toggleDrawer("left", false)}
-        >
-          {/* {reviewContent("left")} */}
-          <p>{reference}</p>
-        </Drawer>
-      </div>
+      <Drawer
+        className="drawer"
+        style={{ width: "640px" }}
+        variant="temporary"
+        anchor="left"
+        open={state["left"]}
+        onClose={toggleDrawer("left", false)}
+      >
+        {/* {reviewContent("left")} */}
+        <p>{reference}</p>
+      </Drawer>
     </div>
   );
 }

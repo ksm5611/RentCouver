@@ -42,7 +42,20 @@ li {
   width: $wrapper-width;
 }
 
+.button {
+  padding: 8px 32px;
+  border-radius: 4px;
+  // background-color: $light-orange;
+  background-color: white;
+  border: 1px solid red;
 
+  // &:focus, &:after, &:visited{
+  //   padding: 8px 32px;
+  // border-radius: 2px;
+  // background-color: $light-orange;
+  // border: 1px solid red;
+  // }
+}
 
 .hero-container {
   padding-top: 80px;

@@ -148,12 +148,6 @@
   border: #7c7878;
 }
 
-.btn {
-  padding: 8px 32px;
-  border-radius: 2px;
-  background-color: #f8f3f0;
-}
-
 .property-container-wrapper {
   color: #574f4a;
   background-color: #7c7878;
@@ -254,18 +248,25 @@
   margin: 24px 0;
 }
 
-.req-info, .history-info {
+.req-info,
+.history-info {
   display: flex;
   align-items: center;
   width: 100%;
   padding-right: 20px;
 }
-.req-info .req-tenant, .req-info .req-landlord, .req-info h5, .history-info .req-tenant, .history-info .req-landlord, .history-info h5 {
+.req-info .req-tenant,
+.req-info .req-landlord,
+.req-info h5,
+.history-info .req-tenant,
+.history-info .req-landlord,
+.history-info h5 {
   margin: 0;
   padding: 0 20px;
   width: 240px;
 }
-.req-info .address, .history-info .address {
+.req-info .address,
+.history-info .address {
   width: 480px;
 }
 
@@ -296,26 +297,38 @@
 .table-container {
   width: 1280px;
   margin-top: 40px;
-  border: 1px solid red;
+  border: 1px solid #7c7878;
 }
-.table-container th, .table-container td {
+.table-container tr:nth-child(even) {
+  background-color: #f8f3f0;
+}
+.table-container th,
+.table-container td {
   position: relative;
   padding: 0 16px;
 }
+.table-container .action-btn {
+  width: 200px;
+  padding: 8px;
+}
+.table-container .action-btn:hover {
+  background-color: red;
+}
 .table-container .tr-heading {
   position: relative;
-  border: 1px solid blue;
   height: 60px;
+  background-color: #7c7878;
+  color: white;
 }
 .table-container .tr-history {
   height: 60px;
-  border: 1px solid red;
 }
 .table-container th {
   margin-right: 20px;
 }
 .table-container .th-action {
   width: 200px;
+  text-align: center;
 }
 
 #drawer-container {
@@ -449,6 +462,13 @@ li {
 .wrapper {
   margin: 0 auto;
   width: 1280px;
+}
+
+.button {
+  padding: 8px 32px;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid red;
 }
 
 .hero-container {
