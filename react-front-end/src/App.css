@@ -483,6 +483,13 @@
   margin: 10px 0 20px 0;
 }
 
+.application-form-btn-container {
+  width: 460px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 40px 0;
+}
+
 body {
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;

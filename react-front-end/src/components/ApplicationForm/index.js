@@ -1,5 +1,6 @@
 import useVisualMode from "../RefReqList/RefReqItem/useVisualMode";
 import axios from "axios";
+import Fade from 'react-reveal/Fade';
 
 import { useHistory } from "react-router-dom";
 
@@ -96,14 +97,16 @@ export default function ApplicationForm() {
             <p>* Any references you have will be shown to the landlord</p>
           </div>
         </div>
-        {userInfo.map((info) => (
-          <List className={classes.root}>
-            <div className="appliaction-user-info">
-              <span>{info.label} :</span>
-              <p>{user[info.value]}</p>
-            </div>
-          </List>
-        ))}
+        <Fade>
+          {userInfo.map((info) => (
+            <List className={classes.root}>
+              <div className="appliaction-user-info">
+                <span>{info.label} :</span>
+                <p>{user[info.value]}</p>
+              </div>
+            </List>
+          ))}
+        </Fade>
       </List>
     );
   };
@@ -119,14 +122,16 @@ export default function ApplicationForm() {
 
   const renderRentHistory = (rentHistory) => {
     return (
-      <List className={classes.root}>
-        <div className="history-address">
-          <span>Address :</span>
-          <p>{formatAddressFromProperty(rentHistory.Property)}</p>
-          <span>Period :</span>
-          <p>{formatRentHistoryPeriod(rentHistory)}</p>
-        </div>
-      </List>
+      <Fade>
+        <List className={classes.root}>
+          <div className="history-address">
+            <span>Address :</span>
+            <p>{formatAddressFromProperty(rentHistory.Property)}</p>
+            <span>Period :</span>
+            <p>{formatRentHistoryPeriod(rentHistory)}</p>
+          </div>
+        </List>
+      </Fade>
     );
   };
 
@@ -179,33 +184,36 @@ export default function ApplicationForm() {
             onChange={onChangeDate}
           />
         </div>
-        {mode === DEFAULT && (
-          <>
-            <Button className="button primary-btn dual-button" onClick={handleSubmit}>
-              Send
-          </Button>
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={() => history.push(`/property_details/${propertyId}`)}
-            >
-              cancel
-          </Button>
-            <Button variant="contained">Edit My Application</Button>
-          </>
-        )}
-        {mode === SENT && (
-          <>
-            <p>SENT!</p>
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={() => history.push(`/property_details/${propertyId}`)}
-            >
-              Back to Property Details
-          </Button>
-          </>
-        )}
+        <div className="application-form-btn-container">
+          {mode === DEFAULT && (
+            <>
+              <button className="button primary-btn dual-button" onClick={handleSubmit}>
+                Send
+          </button>
+              <button
+                className="button secondary-btn dual-button"
+                variant="contained"
+                color="secondary"
+                onClick={() => history.push(`/property_details/${propertyId}`)}
+              >
+                Cancel
+          </button>
+              <button className="button secondary-btn dual-button" variant="contained">Edit My Application</button>
+            </>
+          )}
+          {mode === SENT && (
+            <>
+              <p>SENT!</p>
+              <button
+                variant="contained"
+                color="secondary"
+                onClick={() => history.push(`/property_details/${propertyId}`)}
+              >
+                Back to Property Details
+          </button>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
