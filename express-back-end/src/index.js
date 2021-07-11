@@ -15,10 +15,10 @@ import refRequest from "./routes/ref_request";
 const App = Express();
 const PORT = process.env.PORT;
 
-const corsOptions = {
-  origin: "http://localhost:8081",
-};
-App.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: "http://localhost:8081",
+// };
+App.use(cors());
 
 // Express Configuration
 App.use(BodyParser.urlencoded({ extended: true }));
