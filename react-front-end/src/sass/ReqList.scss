@@ -1,4 +1,6 @@
-#listitem-head {
+$wrapper-width: 1280px;
+
+.listitem-head {
   margin: 24px 0;
 }
 
@@ -48,23 +50,57 @@
 
 // RentHistory.js
 
-.rent-history-info {
-  display: flex;
-  padding: 0 20px;
 
-  .rent-historty-address {
-    width: 480px;
-  }
-
-  h5 {
-    padding-right: 112px;
-  }
-
-}
-
-.test2 {
+.table-container {
+  width: $wrapper-width;
+  margin-top: 40px;
   border: 1px solid red;
-  width: 200px;
-  height: 400px;
-  z-index: 3;
+    th, td {
+      position: relative;
+      padding: 0 16px;
+    }
+
+  .tr-heading {
+    position: relative;
+    border: 1px solid blue;
+    height: 60px;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-between;
+  }
+
+  .tr-history{
+    height: 60px;
+    border: 1px solid red;
+
+  }
+
+  th {
+    margin-right: 20px;
+  }
+
+  .th-action {
+    width: 200px;
+  }
 }
+
+// .rent-history-info {
+//   display: flex;
+//   padding: 0 20px;
+
+//   .rent-historty-address {
+//     width: 480px;
+//   }
+
+//   h5 {
+//     padding-right: 112px;
+//   }
+
+// }
+
+// .test2 {
+//   border: 1px solid red;
+//   width: 200px;
+//   height: 400px;
+//   z-index: 3;
+// }

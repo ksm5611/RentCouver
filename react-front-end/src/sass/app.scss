@@ -5,6 +5,21 @@ $name-font: "Kalam", cursive;
 $background-color: #c1b9b9;
 $dark-grey: #7c7878;
 $font-dark-grey: #574f4a;
+$wrapper-width: 1280px;
+$hero-container-height: 240px;
+
+@import "homepage";
+@import "navigation";
+@import "user";
+@import "propertyDetail";
+@import "ReqList";
+@import "appReview";
+
+@import "filters";
+@import "propertyListings";
+@import "priceSlider";
+@import "propertyListItem";
+
 
 body {
   box-sizing: border-box;
@@ -24,7 +39,7 @@ li {
 
 .wrapper {
   margin: 0 auto;
-  width: 1000px;
+  width: $wrapper-width;
 }
 
 
@@ -64,11 +79,18 @@ li {
   }
 }
 
+.hero-wrapper {
+  width: 100%;
+  height: $hero-container-height;
+  background-color: $light-orange;
+}
+
 .second-hero-container {
   display: flex;
   justify-content: start;
-  padding-left: 100px;
-  height: 240px;
+  margin: 0 auto;
+  width: $wrapper-width;
+  height: $hero-container-height;
 
   h2 {
     font-family: $main-font;
@@ -76,14 +98,4 @@ li {
   }
 }
 
-@import "homepage";
-@import "navigation";
-@import "user";
-@import "propertyDetail";
-@import "ReqList";
-@import "appReview";
 
-@import "filters";
-@import "propertyListings";
-@import "priceSlider";
-@import "propertyListItem";

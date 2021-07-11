@@ -15,98 +15,101 @@ export default function Navigation() {
   }
 
   return (
-    <Navbar id="nav-wrapper">
-      <Navbar.Header id="nav-logo">
+    <div className="nav-container">
+      <Navbar className="nav-wrapper">
+        <Navbar.Header className="nav-logo">
           <Link as={Link} to="/" className="navbar-brand logo">
             RentCouver
           </Link>
-      </Navbar.Header>
-      <Navbar.Body className="nav-body">
-        <NavItem className="nav-body-item-list">
-          <NavItem.Item>
-            <Link className="nav-link" to="/home">
-              <FontAwesomeIcon icon={faHome} />
+        </Navbar.Header>
+        <Navbar.Body className="nav-body">
+
+          <NavItem className="nav-body-item-list nav-list-main">
+            <NavItem.Item>
+              <Link className="nav-link" to="/home">
+                <FontAwesomeIcon icon={faHome} />
               &nbsp; Home
             </Link>
-          </NavItem.Item>
-          <NavItem.Item>
-            <Link className="nav-link" to="/property_listings">
-              Properties
+            </NavItem.Item>
+            <NavItem.Item>
+              <Link className="nav-link" to="/property_listings">
+                Properties
             </Link>
-          </NavItem.Item>
-          <NavItem.Item>
-            <Link className="nav-link" to="/">
-              About us
+            </NavItem.Item>
+            <NavItem.Item>
+              <Link className="nav-link" to="/">
+                About us
             </Link>
-          </NavItem.Item>
-        </NavItem>
-        <NavItem className="nav-body-item-list">
-          <FontAwesomeIcon className="user-icon" icon={faUser} />
-          <NavDropdown
-            className="profile-tab"
-            title="Profile"
-            id="basic-nav-dropdown"
-          >
-            <NavDropdown.Item
-              as={Link}
-              className="dropdown-item"
-              onClick={() => dropdownItemColor}
-              to="/user/11"
+            </NavItem.Item>
+          </NavItem>
+
+          <NavItem className="nav-body-item-list">
+            <FontAwesomeIcon className="user-icon" icon={faUser} />
+            <NavDropdown
+              className="profile-tab basic-nav-dropdown"
+              title="Profile"
             >
-              Dashboard
+              <NavDropdown.Item
+                as={Link}
+                className="dropdown-item"
+                onClick={() => dropdownItemColor}
+                to="/user/11"
+              >
+                Dashboard
             </NavDropdown.Item>
-            <NavDropdown.Item
-              as={Link}
-              className="dropdown-item"
-              onClick={() => dropdownItemColor}
-              to="/"
-            >
-              My properties
+              <NavDropdown.Item
+                as={Link}
+                className="dropdown-item"
+                onClick={() => dropdownItemColor}
+                to="/"
+              >
+                My properties
             </NavDropdown.Item>
-            <NavDropdown.Item
-              as={Link}
-              className="dropdown-item"
-              onClick={() => dropdownItemColor}
-              to="/rent_history/10"
-            >
-              Rent history
+              <NavDropdown.Item
+                as={Link}
+                className="dropdown-item"
+                onClick={() => dropdownItemColor}
+                to="/rent_history/10"
+              >
+                Rent history
             </NavDropdown.Item>
-            <NavDropdown.Item
-              as={Link}
-              className="dropdown-item"
-              onClick={() => dropdownItemColor}
-              to="/"
-            >
-              References
+              <NavDropdown.Item
+                as={Link}
+                className="dropdown-item"
+                onClick={() => dropdownItemColor}
+                to="/"
+              >
+                References
             </NavDropdown.Item>
-            <NavDropdown.Item
-              as={Link}
-              className="dropdown-item"
-              onClick={() => dropdownItemColor}
-              to="/"
-            >
-              App status
+              <NavDropdown.Item
+                as={Link}
+                className="dropdown-item"
+                onClick={() => dropdownItemColor}
+                to="/"
+              >
+                App status
             </NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item
-              as={Link}
-              className="dropdown-item"
-              onClick={() => dropdownItemColor}
-              to="/app_list/1"
-            >
-              Received Apps
+              <NavDropdown.Divider />
+              <NavDropdown.Item
+                as={Link}
+                className="dropdown-item"
+                onClick={() => dropdownItemColor}
+                to="/app_list/1"
+              >
+                Received Apps
             </NavDropdown.Item>
-            <NavDropdown.Item
-              as={Link}
-              className="dropdown-item"
-              onClick={() => dropdownItemColor}
-              to="/ref_request_list/1"
-            >
-              Reference requests
+              <NavDropdown.Item
+                as={Link}
+                className="dropdown-item"
+                onClick={() => dropdownItemColor}
+                to="/ref_request_list/1"
+              >
+                Reference requests
             </NavDropdown.Item>
-          </NavDropdown>
-        </NavItem>
-      </Navbar.Body>
-    </Navbar>
+            </NavDropdown>
+          </NavItem>
+        </Navbar.Body>
+      </Navbar>
+    </div>
   );
 }

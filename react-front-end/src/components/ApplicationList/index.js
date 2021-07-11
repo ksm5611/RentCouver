@@ -58,11 +58,11 @@ export default function ApplicationList() {
 
   return (
     <div>
-      <section className="hero-container second-hero-container">
-        <div>
+      <div className="hero-wrapper">
+        <section className="hero-container second-hero-container">
           <h2>Received Applications</h2>
-        </div>
-      </section>
+        </section>
+      </div>
       <Container>
         {/* <Typography variant="h4">Tenant name Address</Typography> */}
         <ListItem className={classes.root} id="listitem-head">
