@@ -23,6 +23,8 @@ export default function RangeSlider(props) {
     setValue(newValue);
   };
 
+  
+
   return (
     <div id="price-slider" className={classes.root}>
       <Typography id="range-slider" gutterBottom>
