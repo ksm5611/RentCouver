@@ -89,28 +89,27 @@ li {
   justify-content: center;
   align-items: center;
 
-  .hero-content {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    list-style: none;
-    margin-top: 200px;
-    padding: 20px;
-    z-index: 1;
+}
+.hero-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  list-style: none;
+  padding-top: 80px;
+  z-index: 1;
 
-    .hero-content-item {
-      margin: 10px;
+  .hero-content-item {
+    margin: 10px;
 
-      .profile-img {
-        width: 200px;
-        border-radius: 50%;
-      }
+    .profile-img {
+      width: 200px;
+      border-radius: 50%;
     }
+  }
 
-    h2 {
-      font-size: 40px;
-      color: $dark-grey;
-    }
+  h2 {
+    font-size: 40px;
+    color: $dark-grey;
   }
 }
 

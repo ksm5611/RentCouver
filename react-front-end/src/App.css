@@ -94,13 +94,10 @@
 /* UserpageHeroContent.js */
 /* User.js (index.js) */
 .user-page-wrapper {
-  background-color: #c1b9b9;
   padding: 160px;
   margin: 0 auto;
   display: flex;
   position: relative;
-  height: 1000px;
-  width: 2000px;
   /* RecentViewList.js & RecentView.js */
   /* UserInfo.js */
 }
@@ -484,23 +481,23 @@ li {
   justify-content: center;
   align-items: center;
 }
-.hero-container .hero-content {
+
+.hero-content {
   display: flex;
   align-items: center;
   flex-direction: column;
   list-style: none;
-  margin-top: 200px;
-  padding: 20px;
+  padding-top: 80px;
   z-index: 1;
 }
-.hero-container .hero-content .hero-content-item {
+.hero-content .hero-content-item {
   margin: 10px;
 }
-.hero-container .hero-content .hero-content-item .profile-img {
+.hero-content .hero-content-item .profile-img {
   width: 200px;
   border-radius: 50%;
 }
-.hero-container .hero-content h2 {
+.hero-content h2 {
   font-size: 40px;
   color: #7c7878;
 }
