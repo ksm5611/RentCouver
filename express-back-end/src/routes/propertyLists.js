@@ -17,13 +17,13 @@ router.get("/propertyLists", async (req, res) => {
     }
     if (req.query.cost_of_month_gt) {
       where.cost_of_month = {
-        [Op.gt]: req.query.cost_of_month,
+        [Op.gt]: req.query.cost_of_month_gt,
       };
     }
 
     if (req.query.cost_of_month_lt) {
       where.cost_of_month = {
-        [Op.lt]: req.query.cost_of_month,
+        [Op.lt]: req.query.cost_of_month_lt,
       };
     }
 

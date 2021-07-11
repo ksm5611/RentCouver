@@ -45,11 +45,11 @@ router.get("/propertyLists", /*#__PURE__*/function () {
               }
 
               if (req.query.cost_of_month_gt) {
-                where.cost_of_month = _defineProperty({}, _sequelize.Op.gt, req.query.cost_of_month);
+                where.cost_of_month = _defineProperty({}, _sequelize.Op.gt, req.query.cost_of_month_gt);
               }
 
               if (req.query.cost_of_month_lt) {
-                where.cost_of_month = _defineProperty({}, _sequelize.Op.lt, req.query.cost_of_month);
+                where.cost_of_month = _defineProperty({}, _sequelize.Op.lt, req.query.cost_of_month_lt);
               }
 
               if (req.query.pets_allowed) {

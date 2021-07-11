@@ -31,11 +31,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 _dotenv["default"].config();
 
 var App = (0, _express["default"])();
-App.use((0, _cors["default"])());
-var PORT = process.env.PORT; // Express Configuration
+var PORT = process.env.PORT;
+var corsOptions = {
+  origin: "http://localhost:8081"
+};
+App.use((0, _cors["default"])(corsOptions)); // Express Configuration
 
 App.use(_bodyParser["default"].urlencoded({
-  extended: false
+  extended: true
 }));
 App.use(_bodyParser["default"].json());
 App.use(_express["default"]["static"]("public"));
@@ -45,7 +48,12 @@ App.use("/api", _propertyLists["default"]);
 App.use("/api", _applicationForm["default"]);
 App.use("/api", _rentHistories["default"]);
 App.use("/api", _appList["default"]);
-App.use("/api", _ref_request["default"]);
+App.use("/api", _ref_request["default"]); // routes (login)
+
+require("../src/db/loginRoutes/auth.routes")(App);
+
+require("../src/db/loginRoutes/user.routes")(App);
+
 App.listen(PORT, function () {
   // eslint-disable-next-line no-console
   console.log("Express seems to be listening on port ".concat(PORT, " so that's pretty good \uD83D\uDC4D"));
