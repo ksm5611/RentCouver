@@ -63,9 +63,10 @@ export default function ApplicationList() {
           <h2>Received Applications</h2>
         </section>
       </div>
-      <Container>
+
+      <div className="wrapper">
         {/* <Typography variant="h4">Tenant name Address</Typography> */}
-        <ListItem className={classes.root} id="listitem-head">
+        {/* <ListItem className={classes.root} id="listitem-head">
           <div className="req-info head">
             <h5>Tenant's name</h5>
             <h5>Property Address</h5>
@@ -80,8 +81,28 @@ export default function ApplicationList() {
               </ListItem>
             );
           })}
-        </List>
-      </Container>
+        </List> */}
+        <table className="table-container">
+          <thead>
+            <tr className="tr-heading">
+              <th>Tenant's name</th>
+              <th>Property Address</th>
+              <th className="reference-th-action">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {appLists.reverse().map((listValue) => {
+              return (
+                <>
+                  <Status listValue={listValue} />
+                </>
+              );
+            })}
+          </tbody>
+        </table>
+
+      </div>
+
     </div>
   );
 }

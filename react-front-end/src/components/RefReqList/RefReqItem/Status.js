@@ -40,6 +40,9 @@ export default function Status({ refReqeust, refReqeustId }) {
       <tr className="tr-reference">
         <td>{refReqeust.RentHistory.User.name}</td>
         <td>{refReqeust.RentHistory.Property.street}</td>
+        <td>{refReqeust.RentHistory.Property.city}</td>
+        <td>{refReqeust.RentHistory.Property.province}</td>
+        <td>{refReqeust.RentHistory.Property.postal_code}</td>
         <td className="reference-th-button">
           {mode === DEFAULT &&
             (refReqeust.is_decline === false ? (
