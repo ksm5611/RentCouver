@@ -1,6 +1,8 @@
 import axios from "axios";
 import Status from "../ApplicationList/Status";
 import { useEffect, useState } from "react";
+import Fade from 'react-reveal/Fade';
+import Flip from 'react-reveal/Flip';
 
 export default function ApplicationList() {
   const [appLists, setAppLists] = useState([]);
@@ -28,28 +30,30 @@ export default function ApplicationList() {
       </div>
 
       <div className="wrapper">
-        <table className="table-container">
-          <thead>
-            <tr className="tr-heading">
-              <th></th>
-              <th>Tenant's name</th>
-              <th>Address</th>
-              <th>City</th>
-              <th>Province</th>
-              <th>Postal Code</th>
-              <th className="appList-th-action">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[...appLists].reverse().map((listValue) => {
-              return (
-                <>
-                  <Status listValue={listValue} />
-                </>
-              );
-            })}
-          </tbody>
-        </table>
+          <table className="table-container">
+            <thead>
+              <tr className="tr-heading">
+                <Flip left cascade>
+                  <th></th>
+                  <th>Tenant's name</th>
+                  <th>Address</th>
+                  <th>City</th>
+                  <th>Province</th>
+                  <th>Postal Code</th>
+                  <th className="appList-th-action">Action</th>
+                </Flip>
+              </tr>
+            </thead>
+            <tbody>
+              {[...appLists].reverse().map((listValue) => {
+                return (
+                  <>
+                    <Status listValue={listValue} />
+                  </>
+                );
+              })}
+            </tbody>
+          </table>
       </div>
     </div>
   );

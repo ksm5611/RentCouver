@@ -1,12 +1,7 @@
 import axios from "axios";
 import { useState, useEffect, Fragment } from "react";
 import { useParams } from "react-router-dom";
-import {
-  // Container,
-  // ListItem,
-  // List,
-  makeStyles
-} from "@material-ui/core";
+import Flip from 'react-reveal/Flip';
 
 import RefStatus from './RefStatus';
 
@@ -42,13 +37,15 @@ export default function RentHistory() {
         <table className="table-container">
           <thead>
             <tr className="tr-heading">
-              <th>Address</th>
-              <th>City</th>
-              <th>Province</th>
-              <th>Postal Code</th>
-              <th>Rental Period</th>
-              <th>Landlord</th>
-              <th className="history-th-action">References</th>
+              <Flip left cascade>
+                <th>Address</th>
+                <th>City</th>
+                <th>Province</th>
+                <th>Postal Code</th>
+                <th>Rental Period</th>
+                <th>Landlord</th>
+                <th className="history-th-action">References</th>
+              </Flip>
             </tr>
           </thead>
           <tbody>

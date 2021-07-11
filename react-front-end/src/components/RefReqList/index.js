@@ -1,5 +1,6 @@
 import RefReqItem from "./RefReqItem/index";
 import "../../App.css";
+import Flip from 'react-reveal/Flip';
 
 export default function ReqRefList() {
 
@@ -14,13 +15,15 @@ export default function ReqRefList() {
         <table className="table-container">
           <thead>
             <tr className="tr-heading">
-              <th></th>
-              <th>Tenant's name</th>
-              <th>Address</th>
-              <th>City</th>
-              <th>Province</th>
-              <th>Postal Code</th>
-              <th className="reference-th-action">Action</th>
+              <Flip left cascade>
+                <th></th>
+                <th>Tenant's name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Province</th>
+                <th>Postal Code</th>
+                <th className="reference-th-action">Action</th>
+              </Flip>
             </tr>
           </thead>
           <tbody>

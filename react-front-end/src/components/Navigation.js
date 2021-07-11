@@ -7,6 +7,7 @@ import { NavDropdown } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom"
+import Fade from 'react-reveal/Fade';
 
 export default function Navigation() {
   function dropdownItemColor() {
@@ -23,7 +24,6 @@ export default function Navigation() {
           </Link>
         </Navbar.Header>
         <Navbar.Body className="nav-body">
-
           <NavItem className="nav-body-item-list nav-list-main">
             <NavItem.Item>
               <Link className="nav-link" to="/home">
@@ -49,6 +49,7 @@ export default function Navigation() {
               className="profile-tab basic-nav-dropdown"
               title="Profile"
             >
+              <Fade>
               <NavDropdown.Item
                 as={Link}
                 className="dropdown-item"
@@ -98,10 +99,31 @@ export default function Navigation() {
               >
                 Reference requests
             </NavDropdown.Item>
+            </Fade>
             </NavDropdown>
+
           </NavItem>
         </Navbar.Body>
       </Navbar>
     </div>
   );
 }
+
+
+// class FadeExample extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <Fade top cascade>
+//           <div>
+//             <h2>React Reveal</h2>
+//             <h2>React Reveal</h2>
+//             <h2>React Reveal</h2>
+//           </div>
+//         </Fade>
+//       </div>
+//     );
+//   }
+// }
+
+// export default FadeExample;

@@ -2,9 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Status from "./Status";
-import useVisualMode from "./useVisualMode";
 import { Fragment } from "react";
-import { ListItem, Button, Avatar } from "@material-ui/core";
 import "../../../App.css";
 
 export default function RefReqItem() {

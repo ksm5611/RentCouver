@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import DirectionsIcon from '@material-ui/icons/Directions';
+import Fade from 'react-reveal/Fade';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +33,7 @@ export default function SearchBar() {
   const classes = useStyles();
 
   return (
+    <Fade top cascade>
     <form className="search-form" action="/" method="get">
       <label className="search-label" htmlFor="header-search">
         <h1>Find your fresh start</h1>
@@ -50,6 +52,6 @@ export default function SearchBar() {
         </Paper>
       </div>
     </form>
+    </Fade>
   )
 };
-
