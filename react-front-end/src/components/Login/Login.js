@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./Login.css";
 
 export default function Login({ setToken }) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const history = useHistory();
 
   const loginUser = async () => {
     const response = await axios.post("http://localhost:8000/api/auth/signin", {
@@ -15,6 +17,7 @@ export default function Login({ setToken }) {
     return response;
   };
 
+  console.log("here");
   //submit login form
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +25,13 @@ export default function Login({ setToken }) {
       email,
       password,
     });
-    setToken(response.data.accessToken);
+    console.log("landlord", response.data.is_landlord);
+    setToken(
+      response.data.accessToken,
+      response.data.id,
+      response.data.is_landlord
+    );
+    history.push(`/user/${response.data.id}`);
   };
 
   return (

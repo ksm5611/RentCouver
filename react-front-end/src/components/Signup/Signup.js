@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./Signup.css";
 
@@ -10,6 +11,7 @@ export default function Signup() {
   const [jobTitle, setJobTitle] = useState();
   const [annualIncome, setAnnualIncome] = useState();
   const [isLandlord, setIsLandlord] = useState(false);
+  const history = useHistory();
 
   const signUpUser = async () => {
     await axios.post("http://localhost:8000/api/auth/signup", {
@@ -35,6 +37,7 @@ export default function Signup() {
       annualIncome,
       isLandlord,
     });
+    history.push("/login");
   };
 
   return (

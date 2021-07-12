@@ -3,23 +3,26 @@ import axios from "axios";
 // import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
 import Status from "../ApplicationList/Status";
 import { useEffect, useState } from "react";
+import useToken from "../../hooks/useToken";
 
 export default function ApplicationList() {
   const [appLists, setAppLists] = useState([]);
   const [error, setError] = useState("");
+  const { userId } = useToken();
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const result = await axios.get("http://localhost:8000/api/appList/1");
+        const result = await axios.get(
+          `http://localhost:8000/api/appList/${userId}`
+        );
         setAppLists(result.data);
       } catch (error) {
         setError("Your server is broken");
       }
     }
     fetchData();
-  }, []);
-
+  }, [userId]);
 
   return (
     <div>

@@ -6,13 +6,25 @@ import NavItem from "react-bootstrap/Nav";
 import { NavDropdown } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faUser } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import useToken from "../hooks/useToken";
+import { useHistory } from "react-router-dom";
 
 export default function Navigation() {
   function dropdownItemColor() {
     document.getElementsByClassName("dropdown-item").style.backgroundColor =
       "#FFF";
   }
+  const { deleteToken } = useToken();
+  const history = useHistory();
+  const { userId } = useToken();
+  console.log(userId);
+
+  const logout = () => {
+    deleteToken();
+    history.push("/login");
+    history.go(0);
+  };
 
   return (
     <div className="nav-container">
@@ -23,23 +35,37 @@ export default function Navigation() {
           </Link>
         </Navbar.Header>
         <Navbar.Body className="nav-body">
-
           <NavItem className="nav-body-item-list nav-list-main">
             <NavItem.Item>
               <Link className="nav-link" to="/home">
                 <FontAwesomeIcon icon={faHome} />
-              &nbsp; Home
-            </Link>
+                &nbsp; Home
+              </Link>
             </NavItem.Item>
             <NavItem.Item>
               <Link className="nav-link" to="/property_listings">
                 Properties
-            </Link>
+              </Link>
             </NavItem.Item>
             <NavItem.Item>
               <Link className="nav-link" to="/">
                 About us
-            </Link>
+              </Link>
+            </NavItem.Item>
+            <NavItem.Item>
+              <Link className="nav-link" to="/signup">
+                Sign up
+              </Link>
+            </NavItem.Item>
+            <NavItem.Item>
+              <Link className="nav-link" to="/login">
+                Login
+              </Link>
+            </NavItem.Item>
+            <NavItem.Item>
+              <Link className="nav-link" to="/login">
+                <button onClick={logout}>Logout</button>
+              </Link>
             </NavItem.Item>
           </NavItem>
 
@@ -53,10 +79,10 @@ export default function Navigation() {
                 as={Link}
                 className="dropdown-item"
                 onClick={() => dropdownItemColor}
-                to="/user/11"
+                to={`/user/${userId}`}
               >
                 Dashboard
-            </NavDropdown.Item>
+              </NavDropdown.Item>
               <NavDropdown.Item
                 as={Link}
                 className="dropdown-item"
@@ -64,15 +90,15 @@ export default function Navigation() {
                 to="/"
               >
                 My properties
-            </NavDropdown.Item>
+              </NavDropdown.Item>
               <NavDropdown.Item
                 as={Link}
                 className="dropdown-item"
                 onClick={() => dropdownItemColor}
-                to="/rent_history/10"
+                to={`/rent_history/${userId}`}
               >
                 Rent history
-            </NavDropdown.Item>
+              </NavDropdown.Item>
               <NavDropdown.Item
                 as={Link}
                 className="dropdown-item"
@@ -80,7 +106,7 @@ export default function Navigation() {
                 to="/"
               >
                 References
-            </NavDropdown.Item>
+              </NavDropdown.Item>
               <NavDropdown.Item
                 as={Link}
                 className="dropdown-item"
@@ -88,24 +114,24 @@ export default function Navigation() {
                 to="/"
               >
                 App status
-            </NavDropdown.Item>
+              </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item
                 as={Link}
                 className="dropdown-item"
                 onClick={() => dropdownItemColor}
-                to="/app_list/1"
+                to={`/app_list/${userId}`}
               >
                 Received Apps
-            </NavDropdown.Item>
+              </NavDropdown.Item>
               <NavDropdown.Item
                 as={Link}
                 className="dropdown-item"
                 onClick={() => dropdownItemColor}
-                to="/ref_request_list/1"
+                to={`/ref_request_list/${userId}`}
               >
                 Reference requests
-            </NavDropdown.Item>
+              </NavDropdown.Item>
             </NavDropdown>
           </NavItem>
         </Navbar.Body>

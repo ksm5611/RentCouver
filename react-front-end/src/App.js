@@ -19,10 +19,11 @@ import "./App.css";
 
 export default function App() {
   const { token, setToken } = useToken();
-  console.log(token);
+
   if (!token) {
     return (
       <Router>
+        <Navigation />
         <Switch>
           <Route path="/signup">
             <Signup />
@@ -30,10 +31,14 @@ export default function App() {
           <Route path="/login">
             <Login setToken={setToken} />
           </Route>
+          <Route path="/home">
+            <Homepage />
+          </Route>
         </Switch>
       </Router>
     );
   }
+
   return (
     <>
       <Router>

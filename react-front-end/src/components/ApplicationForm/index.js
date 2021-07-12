@@ -2,6 +2,7 @@ import useVisualMode from "../RefReqList/RefReqItem/useVisualMode";
 import axios from "axios";
 
 import { useHistory } from "react-router-dom";
+import useToken from "../../hooks/useToken";
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -44,8 +45,8 @@ export default function ApplicationForm() {
   // const { mode, transition } = useVisualMode(DEFAULT);
   const [mode, setMode] = useState(DEFAULT);
 
-  // go back to previous property page
   const history = useHistory();
+  const { userId } = useToken();
 
   //labeling user's info function
   const userInfo = [
@@ -67,7 +68,7 @@ export default function ApplicationForm() {
     async function fetchData() {
       try {
         const result = await axios.get(
-          "http://localhost:8000/api/applications/11"
+          `http://localhost:8000/api/applications/${userId}`
         );
         const { RentHistories: rentHistoryData, ...userData } = result.data;
         setUser(userData);
@@ -77,7 +78,7 @@ export default function ApplicationForm() {
       }
     }
     fetchData();
-  }, []);
+  }, [userId]);
 
   //function for rendering user data
   const renderUserData = () => {
@@ -177,7 +178,12 @@ export default function ApplicationForm() {
       </div>
       {mode === DEFAULT && (
         <>
-          <Button className="haha" variant="contained" color="primary" onClick={handleSubmit}>
+          <Button
+            className="haha"
+            variant="contained"
+            color="primary"
+            onClick={handleSubmit}
+          >
             Send
           </Button>
           <Button
