@@ -48,7 +48,7 @@ export default function Status({ record }) {
           ) : record.review_content === null ? (
             <Fade><p>REQUESTED</p></Fade>
           ) : (
-            <Fade><ReceivedRef reference={record.review_content} /></Fade>
+            <ReceivedRef reference={record.review_content} />
           ))}
         {mode === REQUESTED && <Fade><p>REQUESTED</p></Fade>}
       </td>
