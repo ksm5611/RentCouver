@@ -121,100 +121,99 @@
   border: #7c7878;
 }
 
-.property-container-wrapper {
+.property-details-main-container {
+  background-color: #e9eff0;
+}
+
+.property-container {
   color: #574f4a;
   background-color: #e9eff0;
-  padding: 80px 100px;
+  padding: 60px 0;
   display: flex;
   flex-direction: column;
   height: 2000px;
   /* Slideshow.js */
 }
-.property-container-wrapper .property-container-top {
+.property-container .property-container-top {
   font-family: "Ubuntu", sans-serif;
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 540px;
 }
-.property-container-wrapper .property-container-top .property-img {
-  width: 720px;
-  border-radius: 8px;
+.property-container .property-container-top .property-img {
+  width: 900px;
 }
-.property-container-wrapper .property-container-top .contact-info {
+.property-container .property-container-top .contact-info {
   width: 400px;
 }
-.property-container-wrapper .property-container-top .contact-info .landlord-contact-container {
+.property-container .property-container-top .contact-info .landlord-contact-container {
   text-align: center;
   min-height: 113px;
 }
-.property-container-wrapper .property-container-top .contact-info .landlord-contact-container .landlord-img {
+.property-container .property-container-top .contact-info .landlord-contact-container .landlord-img {
   width: 100px;
   border-radius: 50%;
   margin: 16px 0;
 }
-.property-container-wrapper .property-container-top .contact-info .landlord-contact-container .contact-us a {
-  color: #c4dfe6;
-  background-color: #7c7878;
-  padding: 8px 24px;
-  border-radius: 4px;
+.property-container .property-container-top .contact-info .landlord-contact-container a {
+  color: #7395ae;
 }
-.property-container-wrapper .property-container-top .contact-info .landlord-contact-container a:hover {
-  color: #7c7878;
-  background-color: #c4dfe6;
+.property-container .property-container-top .contact-info .landlord-contact-container a:hover {
+  color: #fff;
 }
-.property-container-wrapper .property-container-top .contact-info .landlord-contact-container a:visited,
-.property-container-wrapper .property-container-top .contact-info .landlord-contact-container a:active,
-.property-container-wrapper .property-container-top .contact-info .landlord-contact-container a:link {
+.property-container .property-container-top .contact-info .landlord-contact-container a:visited, .property-container .property-container-top .contact-info .landlord-contact-container a:active, .property-container .property-container-top .contact-info .landlord-contact-container a:link {
   text-decoration: none;
 }
-.property-container-wrapper .property-container-bottom {
+.property-container .property-container-bottom {
   font-family: "Ubuntu", sans-serif;
-  background-color: #c4dfe6;
+  background-color: #fff;
   margin-top: 80px;
   height: 800px;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 72px 140px;
 }
-.property-container-wrapper .property-container-bottom .property-title {
+.property-container .property-container-bottom .property-title {
   margin-bottom: 60px;
   display: flex;
   justify-content: space-between;
 }
-.property-container-wrapper .property-container-bottom .details-main {
+.property-container .property-container-bottom .details-main {
+  display: flex;
+  justify-content: start;
+}
+.property-container .property-container-bottom .details-main .details-main-list {
   display: flex;
 }
-.property-container-wrapper .property-container-bottom .details-main h4 {
-  padding-right: 100px;
+.property-container .property-container-bottom .details-main h5 {
+  padding-right: 20px;
   margin-bottom: 40px;
 }
-.property-container-wrapper .property-container-bottom .sub-details,
-.property-container-wrapper .property-container-bottom .amenities {
+.property-container .property-container-bottom .sub-details,
+.property-container .property-container-bottom .amenities {
   display: flex;
   justify-content: space-between;
   margin: 40px 0;
 }
-.property-container-wrapper .property-container-bottom .sub-details .sub-details-item,
-.property-container-wrapper .property-container-bottom .amenities .sub-details-item {
+.property-container .property-container-bottom .sub-details .sub-details-item,
+.property-container .property-container-bottom .amenities .sub-details-item {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.property-container-wrapper .property-container-bottom .property-description {
-  margin-bottom: 40px;
+.property-container .property-container-bottom .property-description {
+  margin-bottom: 80px;
   font-size: 18px;
   line-height: 1.8;
 }
-.property-container-wrapper .property-slideshow {
-  width: 720px;
+.property-container .property-slideshow {
+  width: 832px;
 }
-.property-container-wrapper .property-slideshow .each-slide > div {
+.property-container .property-slideshow .each-slide > div {
   display: flex;
   align-items: center;
   justify-content: center;
   background-size: cover;
   height: 540px;
-  border-radius: 8px;
 }
 
 .listitem-head {
