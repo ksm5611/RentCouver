@@ -18,7 +18,10 @@ export default function PropertyListing() {
     number_of_bedrooms: null,
     number_of_bathrooms: null,
     cost_of_month_lt: null,
-    cost_of_month_gt: null
+    cost_of_month_gt: null,
+    // air_conditioning: null,
+    pets_allowed: null,
+    // parking: null
   });
 
   // state of [filter, setFilter] will be here
@@ -35,10 +38,11 @@ export default function PropertyListing() {
     setFilter({
       ...filter,
       property_type: type,
-      // number_of_bedrooms: bedrooms,
-      // number_of_bathrooms: bathrooms,
+      number_of_bedrooms: bedrooms,
+      number_of_bathrooms: bathrooms,
       cost_of_month_lt: maxPrice,
-      cost_of_month_gt: minPrice
+      cost_of_month_gt: minPrice,
+      // pets_allowed: allowed
     });
   };
 
@@ -53,12 +57,12 @@ export default function PropertyListing() {
     if (filter.property_type !== null) {
       propertyType = "property_type=" + filter.property_type.toLowerCase();
     }
-    // if (filter.number_of_bedrooms !== null) {
-    //   numberOfBedRoom = "number_of_bedrooms=" + filter.number_of_bedrooms;
-    // }
-    // if (filter.number_of_bathrooms !== null) {
-    //   numberOfBathRoom = "number_of_bathrooms=" + filter.number_of_bathrooms;
-    // }
+    if (filter.number_of_bedrooms !== null) {
+      numberOfBedRoom = "number_of_bedrooms=" + filter.number_of_bedrooms;
+    }
+    if (filter.number_of_bathrooms !== null) {
+      numberOfBathRoom = "number_of_bathrooms=" + filter.number_of_bathrooms;
+    }
     if (filter.cost_of_month_gt !== null) {
       minPrice = filter.cost_of_month_gt;
     }
@@ -71,11 +75,15 @@ export default function PropertyListing() {
     if (filter.property_type === "All") {
       propertyType = "";
     }
-    // if (filter.number_of_bedrooms === "All") {
-    //   numberOfBedRoom = "";
-    // }
-    // if (filter.number_of_bathrooms === "All") {
-    //   numberOfBathRoom = "";
+    if (filter.number_of_bedrooms === "All") {
+      numberOfBedRoom = "";
+    }
+    if (filter.number_of_bathrooms === "All") {
+      numberOfBathRoom = "";
+    }
+
+    // if (filter.pets_allowed) {
+
     // }
 
 
@@ -83,13 +91,13 @@ export default function PropertyListing() {
       result += propertyType + "&";
     }
 
-    // if (numberOfBedRoom) {
-    //   result += numberOfBedRoom + "&";
-    // }
+    if (numberOfBedRoom) {
+      result += numberOfBedRoom + "&";
+    }
 
-    // if (numberOfBathRoom) {
-    //   result += numberOfBathRoom + "&";
-    // }
+    if (numberOfBathRoom) {
+      result += numberOfBathRoom + "&";
+    }
 
     if (minPrice) {
       result += minPrice + "&";
@@ -103,8 +111,8 @@ export default function PropertyListing() {
     return result;
   }, [
     filter.property_type,
-    // filter.number_of_bedrooms,
-    // filter.number_of_bathrooms,
+    filter.number_of_bedrooms,
+    filter.number_of_bathrooms,
     filter.cost_of_month_lt,
     filter.cost_of_month_gt
   ]);
