@@ -9,6 +9,7 @@ import { faHome, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import useToken from "../hooks/useToken";
 import { useHistory } from "react-router-dom";
+import { Fragment } from "react";
 
 export default function Navigation() {
   function dropdownItemColor() {
@@ -52,81 +53,93 @@ export default function Navigation() {
                 About us
               </Link>
             </NavItem.Item>
-            <NavItem.Item>
-              <Link className="nav-link" to="/signup">
-                Sign up
-              </Link>
-            </NavItem.Item>
-            <NavItem.Item>
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-            </NavItem.Item>
-            <NavItem.Item>
-              <Link className="nav-link" to="/login">
-                <button onClick={logout}>Logout</button>
-              </Link>
-            </NavItem.Item>
           </NavItem>
 
-          <NavItem className="nav-body-item-list">
-            <FontAwesomeIcon className="user-icon" icon={faUser} />
-            <NavDropdown
-              className="profile-tab basic-nav-dropdown"
-              title="Profile"
-            >
-              {/* <Fade> */}
-              <NavDropdown.Item
-                as={Link}
-                className="dropdown-item"
-                onClick={() => dropdownItemColor}
-                to={`/user/${userId}`}
-              >
-                Dashboard
+          {/* 어떤 조건일 때 로그인 사인업이 나와야하는지 */}
+          {userId === null ? ( 
+            <div className="no-user-access">
+              <NavItem.Item>
+                <Link className="nav-link buttom secondary-btn access-btn" to="/login">
+                  Login
+              </Link>
+              </NavItem.Item>
+              <NavItem.Item>
+                <Link className="nav-link button primary-btn access-btn" to="/signup">
+                  Sign up
+              </Link>
+              </NavItem.Item>
+            </div>
+          ) : (
+            <Fragment>
+              <NavItem className="nav-body-item-list">
+                <FontAwesomeIcon className="user-icon" icon={faUser} />
+                <NavDropdown
+                  className="profile-tab basic-nav-dropdown"
+                  title="Profile"
+                >
+                  {/* <Fade> */}
+                  <NavDropdown.Item
+                    as={Link}
+                    className="dropdown-item"
+                    onClick={() => dropdownItemColor}
+                    to={`/user/${userId}`}
+                  >
+                    Dashboard
               </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                className="dropdown-item"
-                onClick={() => dropdownItemColor}
-                to="/"
-              >
-                My properties
+                  <NavDropdown.Item
+                    as={Link}
+                    className="dropdown-item"
+                    onClick={() => dropdownItemColor}
+                    to="/"
+                  >
+                    My properties
               </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                className="dropdown-item"
-                onClick={() => dropdownItemColor}
-                to={`/rent_history/${userId}`}
-              >
-                Rent history
+                  <NavDropdown.Item
+                    as={Link}
+                    className="dropdown-item"
+                    onClick={() => dropdownItemColor}
+                    to={`/rent_history/${userId}`}
+                  >
+                    App status
               </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                className="dropdown-item"
-                onClick={() => dropdownItemColor}
-                to={`/rent_history/${userId}`}
-              >
-                App status
+                  <NavDropdown.Item
+                    as={Link}
+                    className="dropdown-item"
+                    onClick={() => dropdownItemColor}
+                    to={`/rent_history/${userId}`}
+                  >
+                    Rent history
               </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item
-                as={Link}
-                className="dropdown-item"
-                onClick={() => dropdownItemColor}
-                to={`/app_list/${userId}`}
-              >
-                Received Apps
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item
+                    as={Link}
+                    className="dropdown-item"
+                    onClick={() => dropdownItemColor}
+                    to={`/app_list/${userId}`}
+                  >
+                    Received Apps
               </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                className="dropdown-item"
-                onClick={() => dropdownItemColor}
-                to={`/ref_request_list/${userId}`}
-              >
-                Reference requests
+                  <NavDropdown.Item
+                    as={Link}
+                    className="dropdown-item"
+                    onClick={() => dropdownItemColor}
+                    to={`/ref_request_list/${userId}`}
+                  >
+                    Reference requests
               </NavDropdown.Item>
-            </NavDropdown>
-          </NavItem>
+                  <NavDropdown.Item
+                    as={Link}
+                    className="dropdown-item"
+                    onClick={logout}
+                  >
+                    Logout
+              </NavDropdown.Item>
+                </NavDropdown>
+              </NavItem>
+            </Fragment>
+          )
+          }
+
         </Navbar.Body>
       </Navbar>
     </div>

@@ -81,5 +81,16 @@
       }
 
     }
+
+    .no-user-access {
+      display: flex;
+      align-items: center;
+
+      .access-btn {
+        border-radius: 4px;
+        padding: 4px 24px;
+        margin-left: 20px;
+      }
+    }
   }
 }

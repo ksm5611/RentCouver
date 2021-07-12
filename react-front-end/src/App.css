@@ -92,6 +92,15 @@
   font-size: 14px;
   color: #7c7878;
 }
+.nav-wrapper .nav-body .no-user-access {
+  display: flex;
+  align-items: center;
+}
+.nav-wrapper .nav-body .no-user-access .access-btn {
+  border-radius: 4px;
+  padding: 4px 24px;
+  margin-left: 20px;
+}
 
 /* UserpageHeroContent.js */
 /* User.js (index.js) */
