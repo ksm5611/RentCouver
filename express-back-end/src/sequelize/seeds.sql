@@ -41,26 +41,26 @@ INSERT INTO properties (landlord_id, title, street, unit, city, province, postal
 INSERT INTO properties (landlord_id, title, street, unit, city, province, postal_code, square_feet, description, property_type, number_of_bathrooms, number_of_bedrooms, listed_start_date, cost_of_month, pets_allowed) VALUES (3, 'North Vancouver King Edward','288 King Edward Ave', 307, 'Vancouver', 'BC', 'V5Y 2J2', 1100, 'The Edward - Brand new boutique development by Mosaic. Spacious & filled with light, with 10-ft. ceilings & big windows. Huge wrap-around balcony. Quality finishings, with attention to details. Serene view of mountains & treetops. Close to Cambie Canada Line station, Queen Elizabeth Park, Cambie village, and Main Street. LEED Gold certified.', 'apartment', 2, 2, '2021-05-20', 3000, true);
 
 
-INSERT INTO photos (property_id, photo_url) VALUES (1, 'https://img.zumpercdn.com/424911000/1280x960?auto=format&w=1238&h=580&fit=fill');
-INSERT INTO photos (property_id, photo_url) VALUES (2, 'https://img.zumpercdn.com/427039524/1280x960?auto=format&w=326&h=360&fit=crop');
-INSERT INTO photos (property_id, photo_url) VALUES (2, 'https://img.zumpercdn.com/427039528/1280x960?auto=format&w=1140&h=488&fit=fill');
-INSERT INTO photos (property_id, photo_url) VALUES (2, 'https://img.zumpercdn.com/427039526/1280x960?auto=format&w=1140&h=488&fit=fill');
-INSERT INTO photos (property_id, photo_url) VALUES (3, 'https://img.zumpercdn.com/305108468/1280x960?auto=format&w=1238&h=580&fit=fill');
-INSERT INTO photos (property_id, photo_url) VALUES (4, 'https://img.zumpercdn.com/424440739/1280x960?auto=format&w=1238&h=580&fit=fill');
-INSERT INTO photos (property_id, photo_url) VALUES (5, 'https://img.zumpercdn.com/424438325/1280x960?auto=format&w=1238&h=580&fit=fill');
-INSERT INTO photos (property_id, photo_url) VALUES (6, 'https://img.zumpercdn.com/426153350/1280x960?auto=format&w=832&h=687&fit=fill');
-INSERT INTO photos (property_id, photo_url) VALUES (7, 'https://img.zumpercdn.com/327920993/1280x960?auto=format&w=832&h=687&fit=fill');
-INSERT INTO photos (property_id, photo_url) VALUES (8, 'https://img.zumpercdn.com/419366950/1280x960?auto=format&w=832&h=687&fit=fill');
-INSERT INTO photos (property_id, photo_url) VALUES (9, 'https://img.zumpercdn.com/424810278/1280x960?auto=format&w=832&h=687&fit=fill');
-INSERT INTO photos (property_id, photo_url) VALUES (10, 'https://img.zumpercdn.com/329535855/1280x960?auto=format&w=832&h=687&fit=fill');
-INSERT INTO photos (property_id, photo_url) VALUES (11, 'https://img.zumpercdn.com/418922891/1280x960?auto=format&w=392&h=360&fit=crop&dpr=2');
-INSERT INTO photos (property_id, photo_url) VALUES (12, 'https://img.zumpercdn.com/418922892/1280x960?auto=format&w=1302&h=445&fit=fill&dpr=2');
-INSERT INTO photos (property_id, photo_url) VALUES (13, 'https://img.zumpercdn.com/342635545/1280x960?auto=format&w=1302&h=403&fit=fill&dpr=2');
-INSERT INTO photos (property_id, photo_url) VALUES (14, 'https://img.zumpercdn.com/418922844/1280x960?auto=format&w=1302&h=403&fit=fill&dpr=2');
-INSERT INTO photos (property_id, photo_url) VALUES (15, 'https://img.zumpercdn.com/418922848/1280x960?auto=format&w=1302&h=403&fit=fill&dpr=2');
-INSERT INTO photos (property_id, photo_url) VALUES (16, 'https://img.zumpercdn.com/418922898/1280x960?auto=format&w=1302&h=445&fit=fill&dpr=2');
-INSERT INTO photos (property_id, photo_url) VALUES (17, 'https://img.zumpercdn.com/418922894/1280x960?auto=format&w=1302&h=445&fit=fill&dpr=2');
-INSERT INTO photos (property_id, photo_url) VALUES (18, 'https://img.zumpercdn.com/426438098/1280x960?auto=format&w=1438&h=494&fit=fill&dpr=2');
+INSERT INTO photos (property_id, photo_url) VALUES (1, 'https://images.squarespace-cdn.com/content/v1/50c77e32e4b012358d467131/1469120722164-I4TGBQKJS1JPMC73R465/image-asset.jpeg?format=500w');
+INSERT INTO photos (property_id, photo_url) VALUES (2, 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1794&q=80');
+INSERT INTO photos (property_id, photo_url) VALUES (2, 'https://images.unsplash.com/photo-1592928302636-c83cf1e1c887?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO photos (property_id, photo_url) VALUES (2, 'https://images.unsplash.com/photo-1595526051245-4506e0005bd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO photos (property_id, photo_url) VALUES (3, 'https://images.squarespace-cdn.com/content/v1/50c77e32e4b012358d467131/1625701859451-82MVPWIUTW5ILJZYTABJ/Lanefab-Willow-Residence-1117.jpg?format=2500w');
+INSERT INTO photos (property_id, photo_url) VALUES (4, 'https://images.unsplash.com/photo-1598928387577-d49b6d399110?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO photos (property_id, photo_url) VALUES (5, 'https://images.unsplash.com/photo-1602028967263-17d1255ad02f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO photos (property_id, photo_url) VALUES (6, 'https://images.unsplash.com/photo-1612965607446-25e1332775ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO photos (property_id, photo_url) VALUES (7, 'https://vancouveravenue.ca/wp-content/uploads/2018/03/1-1007-1775-Quebec-Street-Vancouver-Opsal-Building-Olympic-Village-False-Creek-Mount-Pleasant-1.jpg');
+INSERT INTO photos (property_id, photo_url) VALUES (8, 'https://images.unsplash.com/photo-1591924141389-7875d935d3d1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO photos (property_id, photo_url) VALUES (9, 'https://images.unsplash.com/photo-1603072845032-7b5bd641a82a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO photos (property_id, photo_url) VALUES (10, 'https://images.unsplash.com/photo-1613082294483-fec382d8367e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO photos (property_id, photo_url) VALUES (11, 'https://images.unsplash.com/photo-1611094016919-36b65678f3d6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO photos (property_id, photo_url) VALUES (12, 'https://images.unsplash.com/photo-1571843439991-dd2b8e051966?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO photos (property_id, photo_url) VALUES (13, 'https://images.unsplash.com/photo-1609766857120-0183863c7971?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO photos (property_id, photo_url) VALUES (14, 'https://images.unsplash.com/photo-1609766857326-18a204c2cf31?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO photos (property_id, photo_url) VALUES (15, 'https://images.unsplash.com/photo-1602029012024-22ef00d7575a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO photos (property_id, photo_url) VALUES (16, 'https://images.unsplash.com/photo-1609767175584-7abe16d3f1fa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO photos (property_id, photo_url) VALUES (17, 'https://images.unsplash.com/photo-1602029073757-d1040b3b554e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO photos (property_id, photo_url) VALUES (18, 'https://images.unsplash.com/photo-1560448075-cbc16bb4af8e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
 
 
 

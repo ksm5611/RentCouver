@@ -14,11 +14,11 @@ export default function PropertyListing() {
   const [properties, setProperties] = useState([]);
   const [error, setError] = useState("");
   const [filter, setFilter] = useState({
-    property_type: "condo",
-    // number_of_bedrooms: null,
-    // number_of_bathrooms: null,
-    cost_of_month_lt: 2000,
-    // cost_of_month_gt: null
+    property_type: null,
+    number_of_bedrooms: null,
+    number_of_bathrooms: null,
+    cost_of_month_lt: null,
+    cost_of_month_gt: null
   });
 
   // state of [filter, setFilter] will be here
