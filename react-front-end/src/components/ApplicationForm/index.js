@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   List,
-  div,
   makeStyles,
   TextField
 } from "@material-ui/core";
@@ -51,7 +50,7 @@ export default function ApplicationForm() {
     { label: "Job title", value: "job_title" },
     { label: "Annual income", value: "annual_income" },
     { label: "Other Household Occupants", value: "other_household_occupants" },
-    { label: "Email address", value: "email" },
+    { label: "Contact email", value: "email" },
   ];
 
   useEffect(() => {

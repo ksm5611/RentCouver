@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, ListItemText } from "@material-ui/core";
+import Fade from 'react-reveal/Fade';
 import clsx from "clsx";
 import {
   List,
@@ -9,6 +10,7 @@ import {
   makeStyles,
   Avatar,
 } from "@material-ui/core";
+
 import React from "react";
 import { Drawer } from "@material-ui/core";
 
@@ -29,7 +31,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Filters({ tenantId }) {
+export default function ApplicationReview({ tenantId }) {
   const [user, setUser] = useState(null);
   const [rentHistories, setRentHistories] = useState([]);
   const [error, setError] = useState("");
@@ -61,6 +63,15 @@ export default function Filters({ tenantId }) {
     right: false,
   });
 
+  const userInfo = [
+    { label: "Name", value: "name" },
+    { label: "Current address", value: "current_address" },
+    { label: "Job title", value: "job_title" },
+    { label: "Annual income", value: "annual_income" },
+    { label: "Other Household Occupants", value: "other_household_occupants" },
+    { label: "Contact email", value: "email" },
+  ];
+
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -76,10 +87,12 @@ export default function Filters({ tenantId }) {
   const formatRentHistoryPeriod = (rentHistory) => {
     return `${rentHistory.start_date} - ${rentHistory.end_date}`;
   };
+
   //to show residential history address
   const formatAddressFromProperty = (property) => {
     return `${property.street}, ${property.city}, ${property.province} ${property.postal_code}`;
   };
+
   //rendering two parts of rent history values
   const renderRentHistory = (rentHistory) => {
     return (
@@ -95,6 +108,7 @@ export default function Filters({ tenantId }) {
       </List>
     );
   };
+
   const list = (anchor) => (
     <div
       className={clsx(classes.list, {
@@ -107,33 +121,36 @@ export default function Filters({ tenantId }) {
     >
       <div className="drawer-content">
         <List>
-          <Avatar src={user.profile_picture_url} />
-          <ListItem>Name: {user.name}</ListItem>
-          <ListItem>Current address: {user.current_address}</ListItem>
-          <ListItem>Job title: {user.job_title}</ListItem>
-          <ListItem>Annual income: {user.annual_income}</ListItem>
-          <ListItem>
-            Other Household Occupants: {user.other_household_occupants}
-          </ListItem>
-          <ListItem>Contact email: {user.email}</ListItem>
-          <List>
-            {rentHistories.map((history) => {
-              return <ListItem>{renderRentHistory(history)}</ListItem>;
-            })}
-          </List>
-          <List>
+          <div className="app-review-avatar"><Avatar className="avatar-img" src={user.profile_picture_url} /></div>
+          <Fade>
+            {userInfo.map((info) => (
+              <List className={classes.root}>
+                <div className="appliaction-user-info app-review-info">
+                  <span className="app-review-label">{info.label} :</span>
+                  <p>{user[info.value]}</p>
+                </div>
+              </List>
+            ))}
+            <List>
+              <h5>Rent history</h5>
+              {rentHistories.map((history) => {
+                return <p className="app-review-info">{renderRentHistory(history)}</p>;
+              })}
+            </List>
+            <List>
+            <h5>References</h5>
             {rentHistories.map((review) => {
               return (
-                <ListItem>
-                  References
-                  {review.Property.User.name}
-                  {review.Property.User.email}
-                  {review.review_content}
-                </ListItem>
+                <div className="app-review-info">
+                  <p>Landlord name: &nbsp; {review.Property.User.name}</p>
+                  <p>{review.Property.User.email}</p>
+                  <p>{review.review_content}</p>
+                </div>
               );
             })}
-          </List>
-          <Button className={classes.btn}>Contact tenant</Button>
+            </List>
+          </Fade>
+          <button className="button primary-btn contact-btn">Contact tenant</button>
         </List>
       </div>
     </div>
@@ -144,24 +161,24 @@ export default function Filters({ tenantId }) {
   }
 
   return (
-      <div>
-        <button
-          className="primary-btn button action-button dual-buttons"
-          onClick={toggleDrawer("left", true)}
-        >
-          Review Application
+    <div>
+      <button
+        className="primary-btn button action-button dual-buttons"
+        onClick={toggleDrawer("left", true)}
+      >
+        Review Application
         </button>
 
-        <Drawer
-          className="drawer"
-          style={{ width: "640px" }}
-          variant="temporary"
-          anchor="left"
-          open={state["left"]}
-          onClose={toggleDrawer("left", false)}
-        >
-          {list("left")}
-        </Drawer>
-      </div>
+      <Drawer
+        className="drawer"
+        style={{ width: "640px" }}
+        variant="temporary"
+        anchor="left"
+        open={state["left"]}
+        onClose={toggleDrawer("left", false)}
+      >
+        {list("left")}
+      </Drawer>
+    </div>
   );
 }

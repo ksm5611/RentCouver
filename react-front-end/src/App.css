@@ -313,16 +313,40 @@
 }
 
 #drawer-container {
+  font-family: "Ubuntu", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .drawer-content {
-  border: 1px solid red;
   margin-top: 40px;
   height: 660px;
   width: 600px;
+}
+.drawer-content .app-review-avatar {
+  width: max-content;
+}
+.drawer-content .app-review-avatar .avatar-img {
+  height: 120px;
+  width: 100px;
+}
+.drawer-content .app-review-info {
+  color: #4a4a4b;
+  border-bottom: 1px solid #4a4a4b;
+}
+.drawer-content .app-review-info .app-review-label {
+  width: 260px;
+}
+.drawer-content .app-review-info p {
+  padding-top: 10px;
+}
+.drawer-content h5 {
+  color: #4a4a4b;
+  margin: 32px 0 20px 0;
+}
+.drawer-content .contact-btn {
+  margin: 30px 0;
 }
 
 /* #proplist_top {
