@@ -19,6 +19,8 @@ export default function Navigation() {
   const { deleteToken } = useToken();
   const history = useHistory();
   const { userId } = useToken();
+  const { token, setToken } = useToken();
+
   console.log(userId);
 
   const logout = () => {
@@ -26,6 +28,7 @@ export default function Navigation() {
     history.push("/login");
     history.go(0);
   };
+
 
   return (
     <div className="nav-container">
@@ -43,8 +46,6 @@ export default function Navigation() {
                 &nbsp; Home
               </Link>
             </NavItem.Item>
-
-            {/* property는 엑세스 상관없이 사용 가능? */}
             <NavItem.Item>
               <Link className="nav-link" to="/property_listings">
                 Properties
@@ -57,8 +58,8 @@ export default function Navigation() {
             </NavItem.Item>
           </NavItem>
 
-          {/* 어떤 조건일 때 로그인 사인업이 나와야하는지 */}
-          {/* {userId !== null ? (  */}
+          {/* 무슨 조건인지 ㄹ */}
+          {token === null ? ( 
             <div className="no-user-access">
               <NavItem.Item>
                 <Link className="nav-link buttom secondary-btn access-btn" to="/login">
@@ -71,7 +72,7 @@ export default function Navigation() {
               </Link>
               </NavItem.Item>
             </div>
-          {/* ) : ( */}
+          ) : (
             <Fragment>
               <NavItem className="nav-body-item-list">
                 <FontAwesomeIcon className="user-icon" icon={faUser} />
@@ -139,8 +140,8 @@ export default function Navigation() {
                 </NavDropdown>
               </NavItem>
             </Fragment>
-          {/* )
-          } */}
+          )
+          }
 
         </Navbar.Body>
       </Navbar>

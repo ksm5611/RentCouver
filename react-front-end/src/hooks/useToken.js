@@ -32,7 +32,11 @@ export default function useToken() {
 
   const deleteToken = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("id");
+    localStorage.removeItem("is_landlord");
     setToken(null);
+    setUserId(null);
+    setLandlordId(null);
   };
 
   return {
