@@ -1,21 +1,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import Status from "./Status";
 import { Fragment } from "react";
+import useToken from "../../../hooks/useToken";
 import "../../../App.css";
 
 export default function RefReqItem() {
   const [refRequests, setReferenceReqeust] = useState([]);
   const [error, setError] = useState("");
 
-  let { landlordId } = useParams();
+  const { userId } = useToken();
 
   useEffect(() => {
     async function fetchData() {
       try {
         const result = await axios.get(
-          `http://localhost:8000/api/refRequest/${landlordId}`
+          `http://localhost:8000/api/refRequest/${userId}`
         );
         setReferenceReqeust(result.data);
       } catch (error) {
@@ -23,7 +23,7 @@ export default function RefReqItem() {
       }
     }
     fetchData();
-  }, [landlordId]);
+  }, [userId]);
 
   return (
     <Fragment>

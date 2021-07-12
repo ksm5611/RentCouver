@@ -1,8 +1,9 @@
 import useVisualMode from "../RefReqList/RefReqItem/useVisualMode";
 import axios from "axios";
-import Fade from 'react-reveal/Fade';
+import Fade from "react-reveal/Fade";
 
 import { useHistory } from "react-router-dom";
+import useToken from "../../hooks/useToken";
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => {
       border: "1px solid #574f4a",
       borderRadius: 4,
       marginBottom: "16px",
-      padding: '1rem'
+      padding: "1rem",
     },
     "& > *": {
       margin: theme.spacing(1),
@@ -47,8 +48,8 @@ export default function ApplicationForm() {
   // const { mode, transition } = useVisualMode(DEFAULT);
   const [mode, setMode] = useState(DEFAULT);
 
-  // go back to previous property page
   const history = useHistory();
+  const { userId } = useToken();
 
   //labeling user's info function
   const userInfo = [
@@ -70,18 +71,18 @@ export default function ApplicationForm() {
     async function fetchData() {
       try {
         const result = await axios.get(
-          "http://localhost:8000/api/applications/11"
+          `http://localhost:8000/api/applications/${userId}`
         );
         const { RentHistories: rentHistoryData, ...userData } = result.data;
         setUser(userData);
-        console.log(result.data)
+        console.log(result.data);
         setRentHistories(rentHistoryData);
       } catch (error) {
         setError("Your server is broken");
       }
     }
     fetchData();
-  }, []);
+  }, [userId]);
 
   //function for rendering user data
   const renderUserData = () => {
@@ -89,7 +90,11 @@ export default function ApplicationForm() {
       <List>
         <div className="application-form-header">
           <div className="application-form-image">
-            <img alt="avatar" className="application-form-avatar" src={user.profile_picture_url} />
+            <img
+              alt="avatar"
+              className="application-form-avatar"
+              src={user.profile_picture_url}
+            />
             <h2>Application From</h2>
           </div>
           <div className="application-form-notice">
@@ -168,7 +173,6 @@ export default function ApplicationForm() {
   return (
     <div className="application-form-wrapper">
       <div className="application-form-container">
-
         {user && renderUserData()}
         {rentHistories.length > 0 && (
           <>
@@ -187,9 +191,12 @@ export default function ApplicationForm() {
         <div className="application-form-btn-container">
           {mode === DEFAULT && (
             <>
-              <button className="button primary-btn dual-button" onClick={handleSubmit}>
+              <button
+                className="button primary-btn dual-button"
+                onClick={handleSubmit}
+              >
                 Send
-          </button>
+              </button>
               <button
                 className="button secondary-btn dual-button"
                 variant="contained"
@@ -197,8 +204,13 @@ export default function ApplicationForm() {
                 onClick={() => history.push(`/property_details/${propertyId}`)}
               >
                 Cancel
-          </button>
-              <button className="button secondary-btn dual-button" variant="contained">Edit My Application</button>
+              </button>
+              <button
+                className="button secondary-btn dual-button"
+                variant="contained"
+              >
+                Edit My Application
+              </button>
             </>
           )}
           {mode === SENT && (
@@ -210,7 +222,7 @@ export default function ApplicationForm() {
                 onClick={() => history.push(`/property_details/${propertyId}`)}
               >
                 Back to Property Details
-          </button>
+              </button>
             </>
           )}
         </div>

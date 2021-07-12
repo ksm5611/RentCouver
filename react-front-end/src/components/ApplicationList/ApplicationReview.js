@@ -29,7 +29,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Filters({ tenantId }) {
+export default function ApplicationReview({ tenantId }) {
   const [user, setUser] = useState(null);
   const [rentHistories, setRentHistories] = useState([]);
   const [error, setError] = useState("");
@@ -41,7 +41,6 @@ export default function Filters({ tenantId }) {
           `http://localhost:8000/api/applications/${tenantId}`
         );
         const { RentHistories: rentHistoryData, ...userData } = result.data;
-        console.log("reference", result.data);
         setUser(userData);
         setRentHistories(rentHistoryData);
       } catch (error) {
@@ -144,24 +143,24 @@ export default function Filters({ tenantId }) {
   }
 
   return (
-      <div>
-        <button
-          className="primary-btn button action-button dual-buttons"
-          onClick={toggleDrawer("left", true)}
-        >
-          Review Application
-        </button>
+    <div>
+      <button
+        className="primary-btn button action-button dual-buttons"
+        onClick={toggleDrawer("left", true)}
+      >
+        Review Application
+      </button>
 
-        <Drawer
-          className="drawer"
-          style={{ width: "640px" }}
-          variant="temporary"
-          anchor="left"
-          open={state["left"]}
-          onClose={toggleDrawer("left", false)}
-        >
-          {list("left")}
-        </Drawer>
-      </div>
+      <Drawer
+        className="drawer"
+        style={{ width: "640px" }}
+        variant="temporary"
+        anchor="left"
+        open={state["left"]}
+        onClose={toggleDrawer("left", false)}
+      >
+        {list("left")}
+      </Drawer>
+    </div>
   );
 }

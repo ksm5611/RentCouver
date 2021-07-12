@@ -97,7 +97,8 @@ exports.signin = /*#__PURE__*/function () {
             res.status(200).send({
               id: user.id,
               email: user.email,
-              accessToken: token
+              accessToken: token,
+              is_landlord: user.is_landlord
             });
 
           case 10:

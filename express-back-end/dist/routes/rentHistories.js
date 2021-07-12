@@ -34,7 +34,7 @@ router.get("/rentHistories/:tenantId", /*#__PURE__*/function () {
                 include: [{
                   model: _models.User,
                   attributes: {
-                    exclude: ["password", "job_title", "annual_income", "profile_picture_url", "other_household_occupants", "is_landlord"]
+                    exclude: ["password", "job_title", "annual_income", "profile_picture_url", "other_household_occupants"]
                   }
                 }]
               }]
