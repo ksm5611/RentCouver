@@ -18,7 +18,7 @@ export default function Navigation() {
   const { deleteToken } = useToken();
   const history = useHistory();
   const { userId } = useToken();
-  console.log(userId);
+  const { token, setToken } = useToken();
 
   const logout = () => {
     deleteToken();
@@ -63,9 +63,24 @@ export default function Navigation() {
               </Link>
             </NavItem.Item>
             <NavItem.Item>
-              <Link className="nav-link" to="/login">
-                <button onClick={logout}>Logout</button>
-              </Link>
+              {token !== null ? (
+                <Link className="nav-link" to="/login">
+                  <button onClick={logout}>Logout</button>
+                </Link>
+              ) : (
+                <>
+                  <NavItem.Item>
+                    <Link className="nav-link" to="/signup">
+                      Sign up
+                    </Link>
+                  </NavItem.Item>
+                  <NavItem.Item>
+                    <Link className="nav-link" to="/login">
+                      Login
+                    </Link>
+                  </NavItem.Item>
+                </>
+              )}
             </NavItem.Item>
           </NavItem>
 
