@@ -29,8 +29,9 @@ export default function UserpageHeroContent() {
   }
 
   return (
-    <section className="hero-container">
-      <div className="hero-content">
+    <section>
+      <div className="hero-wrapper">
+        <section className="hero-content wrapper">
         <div className="hero-content-item">
           <img
             className="profile-img"
@@ -39,7 +40,19 @@ export default function UserpageHeroContent() {
           />
         </div>
         <h2 className="hero-content-item">{user.name}</h2>
+        </section>
       </div>
+      
+      {/* <div className="hero-content">
+        <div className="hero-content-item">
+          <img
+            className="profile-img"
+            src={user.profile_picture_url}
+            alt="profile"
+          />
+        </div>
+        <h2 className="hero-content-item">{user.name}</h2>
+      </div> */}
     </section>
   );
 }

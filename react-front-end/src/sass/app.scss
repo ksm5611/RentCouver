@@ -1,4 +1,4 @@
-$light-orange: #f8f3f0;
+$light-orange: #c4dfe6;
 $main-font: "Ubuntu", sans-serif;
 $logo-font: "Bad Script", cursive;
 $name-font: "Kalam", cursive;
@@ -7,7 +7,8 @@ $dark-grey: #7c7878;
 $font-dark-grey: #574f4a;
 $wrapper-width: 1280px;
 $hero-container-height: 240px;
-$primary-btn-color: #b75858;
+$primary-btn-color: #7395ae;
+$off-white-blue: #e9eff0;
 
 @import "homepage";
 @import "navigation";
@@ -15,12 +16,10 @@ $primary-btn-color: #b75858;
 @import "propertyDetail";
 @import "table";
 @import "appReview";
-
 @import "filters";
 @import "propertyListings";
-@import "priceSlider";
 @import "propertyListItem";
-
+@import "applicationForm";
 
 body {
   box-sizing: border-box;
@@ -90,28 +89,27 @@ li {
   justify-content: center;
   align-items: center;
 
-  .hero-content {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    list-style: none;
-    margin-top: 200px;
-    padding: 20px;
-    z-index: 1;
+}
+.hero-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  list-style: none;
+  padding-top: 80px;
+  z-index: 1;
 
-    .hero-content-item {
-      margin: 10px;
+  .hero-content-item {
+    margin: 10px;
 
-      .profile-img {
-        width: 200px;
-        border-radius: 50%;
-      }
+    .profile-img {
+      width: 200px;
+      border-radius: 50%;
     }
+  }
 
-    h2 {
-      font-size: 40px;
-      color: $dark-grey;
-    }
+  h2 {
+    font-size: 40px;
+    color: $dark-grey;
   }
 }
 
@@ -133,5 +131,3 @@ li {
     color: $dark-grey;
   }
 }
-
-

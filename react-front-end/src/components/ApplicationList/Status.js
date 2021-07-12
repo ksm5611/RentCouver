@@ -1,6 +1,7 @@
 import axios from "axios";
 import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
-import ApplicationReview from "../ApplicationReview";
+import ApplicationReview from './ApplicationReview';
+import Fade from 'react-reveal/Fade';
 
 import {
   Button,
@@ -19,23 +20,27 @@ export default function Status({ listValue }) {
 
   return (
     <tr className="tr-appList">
-      <td><Avatar src={listValue.tenant.profile_picture_url} /></td>
-      <td>{listValue.tenant.name}</td>
-      <td>{listValue.Property.street}</td>
-      <td>{listValue.Property.city}</td>
-      <td>{listValue.Property.province}</td>
-      <td>{listValue.Property.postal_code}</td>
+      <Fade>
+        <td><Avatar src={listValue.tenant.profile_picture_url} /></td>
+        <td>{listValue.tenant.name}</td>
+        <td>{listValue.Property.street}</td>
+        <td>{listValue.Property.city}</td>
+        <td>{listValue.Property.province}</td>
+        <td>{listValue.Property.postal_code}</td>
+      </Fade>
       <td className="appList-th-button">
         {mode === DEFAULT && (
           listValue.is_decline === false ? (
             <>
+              <Fade>
               <ApplicationReview className="dual-buttons" tenantId={listValue.tenant_id} />
-              <button
-                className="secondary-btn button action-button dual-buttons"
-                onClick={() => { declineApp(listValue.id) }}
-              >
-                Decline
+                <button
+                  className="secondary-btn button action-button dual-buttons"
+                  onClick={() => { declineApp(listValue.id) }}
+                  >
+                  Decline
                 </button>
+              </Fade>
             </>
           ) : (
             <p>{DECLINED}</p>

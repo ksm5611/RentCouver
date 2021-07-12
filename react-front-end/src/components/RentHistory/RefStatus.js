@@ -1,7 +1,7 @@
 import useVisualMode from "../RefReqList/RefReqItem/useVisualMode";
 import axios from "axios";
 import ReceivedRef from "./ReceivedRef";
-import { Button } from "@material-ui/core";
+import Fade from 'react-reveal/Fade';
 
 export default function Status({ record }) {
   const DEFAULT = "DEFAULT";
@@ -23,31 +23,36 @@ export default function Status({ record }) {
   };
 
   return (
-      <tr className="tr-history">
+    <tr className="tr-history">
+      <Fade>
         <td>{record.Property.street},{" "}{record.Property.unit && <>#{record.Property.unit}</>}{" "}</td>
         <td>{record.Property.city}</td>
         <td>{record.Property.province}</td>
         <td>{record.Property.postal_code}</td>
         <td>{record.start_date} - {record.end_date}</td>
         <td>{record.Property.User.name}</td>
-        <td className="history-th-button">
-          {mode === REQUESTED && <p>REQUESTED</p>}
-          {mode === DEFAULT &&
-            (record.is_requested === false ? (
+      </Fade>
+      <td className="history-th-button">
+        {mode === DEFAULT &&
+          (record.is_requested === false ? (
+            <Fade>
               <button
-                className="button action-button dual-buttons"
+                className="primary-btn button action-button"
                 onClick={() => {
                   refRequested(record);
                 }}
               >
                 REQUEST REFERENCE
-              </button>
-            ) : record.review_content === null ? (
-              <p>REQUESTED</p>
-            ) : (
-              <ReceivedRef reference={record.review_content} />
-            ))}
-        </td>
-      </tr>
+            </button>
+            </Fade>
+          ) : record.review_content === null ? (
+            <Fade><p>REQUESTED</p></Fade>
+          ) : (
+            <Fade><ReceivedRef reference={record.review_content} /></Fade>
+          ))}
+        {mode === REQUESTED && <Fade><p>REQUESTED</p></Fade>}
+      </td>
+    </tr>
+    // </Fade>
   );
 }

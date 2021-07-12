@@ -18,11 +18,11 @@ const useStyles = makeStyles({
     backgroundColor: "#c1b9b9",
   },
   list: {
-    width: 250,
+    width: 380,
   },
   fullList: {
     width: "auto",
-  },
+  }
 });
 
 export default function Filters(props) {
@@ -36,6 +36,19 @@ export default function Filters(props) {
     right: false,
   });
 
+  // for  <Filtertype />
+  const [type, setType] = useState("All");
+
+  // for <FilterBedroom />
+  const [bedrooms, setBedrooms] = useState("All");
+
+  // for <FilterBathroom />
+  const [bathrooms, setBathrooms] = useState("All");
+
+  // for <PriceSlider />
+  const [minPrice, setMinPrice] = useState(800);
+  const [maxPrice, setMaxPrice] = useState(3000);
+
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -47,43 +60,54 @@ export default function Filters(props) {
     setState({ ...state, [anchor]: open });
   };
 
-  // for  <Filtertype />
-  const [type, setType] = useState("All");
-
-  // for <FilterBedroom />
-  const [bedrooms, setBedrooms] = useState("All");
-
-  // for <FilterBathroom />
-  const [bathrooms, setBathrooms] = useState("All");
-
   // insides of the drawer
   const list = (anchor) => (
-    <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === "top" || anchor === "bottom",
-      })}
-      role="presentation"
-      onClick={toggleDrawer(anchor, true)}
-      onKeyDown={toggleDrawer(anchor, true)}
-    >
-      <List>
-        <PriceSlider />
+    (
+      <div
+        className={clsx(classes.list, {
+          [classes.fullList]: anchor === "top" || anchor === "bottom",
+        })}
+        role="presentation"
+        onClick={toggleDrawer(anchor, true)}
+        onKeyDown={toggleDrawer(anchor, true)}
+      >
+        <List>
+          <PriceSlider
+            changeMaxPrice={(max) => setMaxPrice(max)}
+            changeMinPrice={(min) => setMinPrice(min)}
+          />
 
-        <FilterType changeType={(type) => setType(type)} />
+          <FilterType changeType={(type) => setType(type)} />
 
-        <FilterBedroom changeBedroom={(bedrooms) => setBedrooms(bedrooms)} />
+          <FilterBedroom changeBedroom={(bedrooms) => setBedrooms(bedrooms)} />
 
-        <FilterBathroom
-          changeBathroom={(bathrooms) => setBathrooms(bathrooms)}
-        />
-      </List>
+          <FilterBathroom
+            changeBathroom={(bathrooms) => setBathrooms(bathrooms)}
+          />
+        </List>
 
-      <Divider />
+        <Divider />
 
-      <List>
-        <FilterChecklist />
-      </List>
-    </div>
+        <List>
+          <FilterChecklist />
+        </List>
+        <div className="filter-search-btn-container">
+          <button
+            className="button primary-btn filter-search-btn"
+            // variant="outline-primary"
+            // value=take the child info in {}, then put this in the onClick into a setState(value)
+            onClick={() => {
+              // console.log("type in Filters.js: ", type)
+              toggleDrawer("left", false);
+              props.filteredProperties(type, bedrooms, bathrooms, minPrice, maxPrice);
+            }}
+            onClose={toggleDrawer("left", false)}
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    )
   );
 
   // search button
@@ -95,46 +119,36 @@ export default function Filters(props) {
   // set the values using useEffect hook to toggle the drawer and change the URL at the same time
 
   return (
-    <div id="proplist_top">
-      <div className="filters">
-        <Button
-          // variant="contained"
-          // color="secondary"
-          // id="btn-outline-primary"
+    <div>
+      <button
+        className="button secondary-btn"
+        onClick={toggleDrawer("left", true)}
+      >
+        Filters
+        </button>
+
+      <Drawer
+        style={{ width: "220px" }}
+        variant="temporary"
+        anchor="left"
+        open={state["left"]}
+        onClose={toggleDrawer("left", false)}
+      >
+        {list("left")}
+
+        {/* <Button
           className={classes.root}
           // variant="outline-primary"
-          onClick={toggleDrawer("left", true)}
+          // value=take the child info in {}, then put this in the onClick into a setState(value)
+          onClick={() => {
+            // console.log("type in Filters.js: ", type)
+            toggleDrawer("left", false);
+            props.filteredProperties(type, bedrooms, bathrooms, minPrice, maxPrice);
+          }}
         >
-          Filters
-        </Button>
-
-        <Drawer
-          style={{ width: "220px" }}
-          variant="temporary"
-          anchor="left"
-          open={state["left"]}
-          onClose={toggleDrawer("left", false)}
-        >
-          {list("left")}
-
-          <Button
-            // variant="contained"
-            // color="secondary"
-            // use a Router then a Link to={query_type + query_bedrooms + query_bathrooms} so the app doesn't refresh and lose the state
-            // id="btn-outline-primary"
-            className={classes.root}
-            // variant="outline-primary"
-            // value=take the child info in {}, then put this in the onClick into a setState(value)
-            onClick={() => {
-              // console.log("type in Filters.js: ", type)
-              toggleDrawer("left", false);
-              props.filteredProperties(type, bedrooms, bathrooms);
-            }}
-          >
-            Search
-          </Button>
-        </Drawer>
-      </div>
+          Search
+          </Button> */}
+      </Drawer>
     </div>
   );
 }

@@ -75,6 +75,7 @@ export default function Navigation() {
               className="profile-tab basic-nav-dropdown"
               title="Profile"
             >
+              {/* <Fade> */}
               <NavDropdown.Item
                 as={Link}
                 className="dropdown-item"
@@ -111,7 +112,7 @@ export default function Navigation() {
                 as={Link}
                 className="dropdown-item"
                 onClick={() => dropdownItemColor}
-                to="/"
+                to="/rent_history/10"
               >
                 App status
               </NavDropdown.Item>

@@ -2,12 +2,7 @@ import axios from "axios";
 import { useState, useEffect, Fragment } from "react";
 import { useParams } from "react-router-dom";
 import useToken from "../../hooks/useToken";
-import {
-  // Container,
-  // ListItem,
-  // List,
-  makeStyles,
-} from "@material-ui/core";
+import Fade from "react-reveal/Fade";
 
 import RefStatus from "./RefStatus";
 
@@ -43,17 +38,19 @@ export default function RentHistory() {
         <table className="table-container">
           <thead>
             <tr className="tr-heading">
-              <th>Address</th>
-              <th>City</th>
-              <th>Province</th>
-              <th>Postal Code</th>
-              <th>Rental Period</th>
-              <th>Landlord</th>
-              <th className="history-th-action">References</th>
+              <Fade>
+                <th>Address</th>
+                <th>City</th>
+                <th>Province</th>
+                <th>Postal Code</th>
+                <th>Rental Period</th>
+                <th>Landlord</th>
+                <th className="history-th-action">References</th>
+              </Fade>
             </tr>
           </thead>
           <tbody>
-            {history.reverse().map((record) => {
+            {[...history].reverse().map((record) => {
               return (
                 <>
                   <RefStatus record={record} />

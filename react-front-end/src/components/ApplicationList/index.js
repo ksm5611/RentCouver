@@ -1,9 +1,8 @@
 import axios from "axios";
-// import ApplicationReview from "../ApplicationReview";
-// import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
 import Status from "../ApplicationList/Status";
 import { useEffect, useState } from "react";
 import useToken from "../../hooks/useToken";
+import Fade from "react-reveal/Fade";
 
 export default function ApplicationList() {
   const [appLists, setAppLists] = useState([]);
@@ -36,17 +35,19 @@ export default function ApplicationList() {
         <table className="table-container">
           <thead>
             <tr className="tr-heading">
-              <th></th>
-              <th>Tenant's name</th>
-              <th>Address</th>
-              <th>City</th>
-              <th>Province</th>
-              <th>Postal Code</th>
-              <th className="appList-th-action">Action</th>
+              <Fade>
+                <th></th>
+                <th>Tenant's name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Province</th>
+                <th>Postal Code</th>
+                <th className="appList-th-action">Action</th>
+              </Fade>
             </tr>
           </thead>
           <tbody>
-            {appLists.reverse().map((listValue) => {
+            {[...appLists].reverse().map((listValue) => {
               return (
                 <>
                   <Status listValue={listValue} />

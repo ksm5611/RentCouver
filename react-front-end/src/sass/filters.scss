@@ -3,16 +3,16 @@
 } */
 
 
-#btn-outline-primary {
-  margin: 15px;
-  border-radius: 40px;
-  color: #7c7878;
-  border-color: #7c7878;
-}
+// #btn-outline-primary {
+//   margin: 15px;
+//   border-radius: 40px;
+//   color: #7c7878;
+//   border-color: #7c7878;
+// }
 
-#btn-outline-primary:hover {
-  background-color: #f8f3f0;
-}
+// #btn-outline-primary:hover {
+//   background-color: #f8f3f0;
+// }
 
 #nested-filters {
   display: flex;
@@ -20,4 +20,19 @@
   align-items: flex-start;
   padding-left: 30px;
 
+}
+
+// #price-slider {
+  
+//   width: 362px;
+//   margin: 24px 0; 
+// }
+
+.filter-search-btn-container {
+  text-align: center;
+  margin-top: 40px;
+
+  .filter-search-btn {
+    width: 240px;
+  }
 }

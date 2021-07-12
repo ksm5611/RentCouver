@@ -6,7 +6,14 @@ import Slider from '@material-ui/core/Slider';
 
 const useStyles = makeStyles({
   root: {
-    width: 220,
+    width: 362,
+    paddingLeft: 18,
+    marginTop: 24,
+    marginBottom: 40,
+    height: 100,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between"
   },
 });
 
@@ -14,13 +21,16 @@ function valuetext(value) {
   return `${value}`;
 }
 
-export default function RangeSlider() {
+export default function RangeSlider(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState([800, 2000]);
+  const [value, setValue] = React.useState([800, 3000]);
 
+  // this is to allow you to drag the slider values
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  
 
   return (
     <div id="price-slider" className={classes.root}>
@@ -29,7 +39,7 @@ export default function RangeSlider() {
       </Typography>
       <Slider
         min={400}
-        max={5000}
+        max={6000}
         style={{padding:'50px 0 0 0'}}
         value={value}
         onChange={handleChange}
