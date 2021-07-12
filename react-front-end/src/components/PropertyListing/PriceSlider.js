@@ -6,7 +6,14 @@ import Slider from '@material-ui/core/Slider';
 
 const useStyles = makeStyles({
   root: {
-    width: 220,
+    width: 362,
+    paddingLeft: 18,
+    marginTop: 24,
+    marginBottom: 40,
+    height: 100,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between"
   },
 });
 

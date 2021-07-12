@@ -17,8 +17,9 @@ const useStyles = makeStyles({
   card: {
     display: "flex",
     flexDirection: "row",
-    marginBottom: 16 
-  }
+    marginBottom: 16
+  },
+
 });
 
 
@@ -30,7 +31,6 @@ export default function PropertyListItem({ properties }) {
 
   const renderPropertyCard = (property) => {
     return (
-      // <div className="card" key={property.id}>
         <Card className={classes.card}>
           <Card.Img
             id="card-img"
@@ -38,13 +38,13 @@ export default function PropertyListItem({ properties }) {
             src={property.Photos[0].photo_url}
           />
           <div>
-            <Card.Body id="card-body">
+            <Card.Body className="card-body">
               <Card.Title>{property.title}</Card.Title>
               {propertyValues.map((value) => (
                 <Fragment key={property.id + value}>
                   <Card.Text>
                     {value === "cost_of_month" ? (
-                      <p>
+                      <p className="price-per-month">
                         <b>${property.cost_of_month}</b>
                       </p>
                     ) : (
@@ -66,7 +66,6 @@ export default function PropertyListItem({ properties }) {
             </Card.Body>
           </div>
         </Card>
-      // </div>
     );
   };
 
