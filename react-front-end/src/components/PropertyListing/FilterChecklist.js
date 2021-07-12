@@ -5,6 +5,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
+import { propTypes } from 'react-bootstrap/esm/Image';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FilterChecklist () {
+export default function FilterChecklist (props) {
   const classes = useStyles();
   const [checked, setChecked] = React.useState([0]);
 
@@ -31,13 +32,20 @@ export default function FilterChecklist () {
     setChecked(newChecked);
   };
 
+  const selectionArr = ['Air Conditioning', 'Pets Allowed', 'Parking'];
+
   return (
     <List className={classes.root}>
-      {['Air Conditioning', 'Pets Allowed', 'Parking'].map((value) => {
+      {selectionArr.map((value) => {
         const labelId = `checkbox-list-label-${value}`;
 
         return (
-          <ListItem key={value} role={undefined} dense button onClick={handleToggle(value)}>
+          <ListItem key={value}
+            role={undefined} dense button
+            onClick={() => {
+              handleToggle(value);
+              props.changeCheck(value)
+              }}>
             <ListItemIcon>
               <Checkbox
                 edge="start"

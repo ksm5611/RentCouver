@@ -59,6 +59,7 @@ export default function Filters(props) {
 
     setState({ ...state, [anchor]: open });
   };
+  
 
   // insides of the drawer
   const list = (anchor) => (
@@ -89,8 +90,9 @@ export default function Filters(props) {
         <Divider />
 
         <List>
-          <FilterChecklist />
+          <FilterChecklist /*changeCheck={(checked) => setChecked(checked)}*/ />
         </List>
+
         <div className="filter-search-btn-container">
           <button
             className="button primary-btn filter-search-btn"
@@ -98,7 +100,8 @@ export default function Filters(props) {
             // value=take the child info in {}, then put this in the onClick into a setState(value)
             onClick={() => {
               // console.log("type in Filters.js: ", type)
-              // toggleDrawer("left", false);
+              // toggleDrawer('left', false)
+              // this.setState({...state, [anchor]: false});
               props.filteredProperties(type, bedrooms, bathrooms, minPrice, maxPrice);
             }}
           >
@@ -135,18 +138,6 @@ export default function Filters(props) {
       >
         {list("left")}
 
-        {/* <Button
-          className={classes.root}
-          // variant="outline-primary"
-          // value=take the child info in {}, then put this in the onClick into a setState(value)
-          onClick={() => {
-            // console.log("type in Filters.js: ", type)
-            toggleDrawer("left", false);
-            props.filteredProperties(type, bedrooms, bathrooms, minPrice, maxPrice);
-          }}
-        >
-          Search
-          </Button> */}
       </Drawer>
     </div>
   );
