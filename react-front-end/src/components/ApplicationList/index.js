@@ -32,30 +32,30 @@ export default function ApplicationList() {
       </div>
 
       <div className="wrapper">
-        <table className="table-container">
-          <thead>
-            <tr className="tr-heading">
-              <Fade>
-                <th></th>
-                <th>Tenant's name</th>
-                <th>Address</th>
-                <th>City</th>
-                <th>Province</th>
-                <th>Postal Code</th>
-                <th className="appList-th-action">Action</th>
-              </Fade>
-            </tr>
-          </thead>
-          <tbody>
-            {[...appLists].reverse().map((listValue) => {
-              return (
-                <>
-                  <Status listValue={listValue} />
-                </>
-              );
-            })}
-          </tbody>
-        </table>
+          <table className="table-container">
+            <thead>
+              <tr className="tr-heading">
+                <Fade>
+                  <th></th>
+                  <th>Tenant's name</th>
+                  <th>Address</th>
+                  <th>City</th>
+                  <th>Province</th>
+                  <th>Postal Code</th>
+                  <th className="appList-th-action">Applications</th>
+                </Fade>
+              </tr>
+            </thead>
+            <tbody>
+              {[...appLists].reverse().map((listValue) => {
+                return (
+                  <>
+                    <Status listValue={listValue} />
+                  </>
+                );
+              })}
+            </tbody>
+          </table>
       </div>
     </div>
   );

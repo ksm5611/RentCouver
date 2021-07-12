@@ -22,7 +22,7 @@ export default function ReqRefList() {
                 <th>City</th>
                 <th>Province</th>
                 <th>Postal Code</th>
-                <th className="reference-th-action">Action</th>
+                <th className="reference-th-action">References</th>
               </Fade>
             </tr>
           </thead>

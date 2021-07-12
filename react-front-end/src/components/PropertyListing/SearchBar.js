@@ -12,10 +12,10 @@ import Fade from 'react-reveal/Fade';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: '2px 4px',
+    height: 42,
     display: 'flex',
     alignItems: 'center',
-    width: 360,
+    width: 360
   },
   input: {
     marginLeft: theme.spacing(1),

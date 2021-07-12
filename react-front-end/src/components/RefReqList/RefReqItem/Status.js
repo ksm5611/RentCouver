@@ -72,7 +72,7 @@ export default function Status({ refReqeust, refReqeustId }) {
           ) : (
             <p>{DECLINED}</p>
           ))}
-        {/* {mode === DECLINED && <p className="dec">DECLINED</p>} */}
+        {mode === DECLINED && <p className="dec">DECLINED</p>}
         {mode === FORM &&
           (refReqeust.is_updated === false ? (
             <>

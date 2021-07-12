@@ -1,7 +1,11 @@
-.property-container-wrapper {
+.property-details-main-container {
+  background-color: $off-white-blue;
+}
+
+.property-container {
   color: $font-dark-grey;
   background-color: $off-white-blue;
-  padding: 80px 100px;
+  padding: 60px 0;
   display: flex;
   flex-direction: column;
 
@@ -12,15 +16,15 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 540px;
+    // height: 540px;
 
     .property-img {
-      width: 720px;
-      border-radius: 8px;
+      width: 900px;
     }
 
     .contact-info {
       width: 400px;
+      border-radius: 4px;
 
       .landlord-contact-container {
         text-align: center;
@@ -31,24 +35,14 @@
           border-radius: 50%;
           margin: 16px 0;
         }
-
-        .contact-us a {
-          // color: rgb(55, 52, 52);
-          color: $light-orange;
-          background-color: $dark-grey;
-          padding: 8px 24px;
-          border-radius: 4px;
-        }
-
-        a:hover {
-          color: $dark-grey;
-          background-color: $light-orange;
-        }
-
-        a:visited,
-        a:active,
-        a:link {
-          text-decoration: none;
+        a {
+          color: $primary-btn-color;
+          &:hover {
+            color: #fff;
+          }
+          &:visited, &:active ,&:link {
+            text-decoration: none;
+          }
         }
       }
     }
@@ -56,11 +50,11 @@
 
   .property-container-bottom {
     font-family: $main-font;
-    background-color: $light-orange;
+    background-color: #fff;
     margin-top: 80px;
     height: 800px;
-    border-radius: 8px;
-    padding: 72px 140px;
+    border-radius: 4px;
+    padding: 60px 84px;
 
     .property-title {
       margin-bottom: 60px;
@@ -69,9 +63,14 @@
     }
     .details-main {
       display: flex;
+      justify-content: start;
 
-      h4 {
-        padding-right: 100px;
+      .details-main-list {
+        display: flex;
+      }
+
+      h5 {
+        padding-right: 20px;
         margin-bottom: 40px;
       }
     }
@@ -90,7 +89,7 @@
     }
 
     .property-description {
-      margin-bottom: 40px;
+      margin-bottom: 80px;
       font-size: 18px;
       line-height: 1.8;
     }
@@ -99,7 +98,7 @@
   /* Slideshow.js */
 
   .property-slideshow {
-    width: 720px;
+    width: 832px;
 
     .each-slide > div {
       display: flex;
@@ -107,7 +106,6 @@
       justify-content: center;
       background-size: cover;
       height: 540px;
-      border-radius: 8px;
     }
   }
 }
