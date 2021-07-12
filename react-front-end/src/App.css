@@ -541,6 +541,18 @@
   margin: 0;
 }
 
+.reference-container {
+  font-family: "Ubuntu", sans-serif;
+  color: #4a4a4b;
+  width: 600px;
+  padding: 40px 60px 0 60px;
+}
+.reference-container h4 {
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
 body {
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
