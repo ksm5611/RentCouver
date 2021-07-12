@@ -53,36 +53,6 @@ export default function Navigation() {
                 About us
               </Link>
             </NavItem.Item>
-            <NavItem.Item>
-              <Link className="nav-link" to="/signup">
-                Sign up
-              </Link>
-            </NavItem.Item>
-            <NavItem.Item>
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-            </NavItem.Item>
-            <NavItem.Item>
-              {token !== null ? (
-                <Link className="nav-link" to="/login">
-                  <button onClick={logout}>Logout</button>
-                </Link>
-              ) : (
-                <>
-                  <NavItem.Item>
-                    <Link className="nav-link" to="/signup">
-                      Sign up
-                    </Link>
-                  </NavItem.Item>
-                  <NavItem.Item>
-                    <Link className="nav-link" to="/login">
-                      Login
-                    </Link>
-                  </NavItem.Item>
-                </>
-              )}
-            </NavItem.Item>
           </NavItem>
 
           {/* 무슨 조건인지 ㄹ */}
