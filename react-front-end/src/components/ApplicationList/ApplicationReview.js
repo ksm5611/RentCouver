@@ -122,7 +122,7 @@ export default function ApplicationReview({ tenantId }) {
       <div className="drawer-content">
         <List>
           <div className="app-review-avatar"><Avatar className="avatar-img" src={user.profile_picture_url} /></div>
-          <Fade>
+          <Fade bottom cascade>
             {userInfo.map((info) => (
               <List className={classes.root}>
                 <div className="appliaction-user-info app-review-info">
