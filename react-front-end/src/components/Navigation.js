@@ -43,6 +43,8 @@ export default function Navigation() {
                 &nbsp; Home
               </Link>
             </NavItem.Item>
+
+            {/* property는 엑세스 상관없이 사용 가능? */}
             <NavItem.Item>
               <Link className="nav-link" to="/property_listings">
                 Properties
@@ -56,7 +58,7 @@ export default function Navigation() {
           </NavItem>
 
           {/* 어떤 조건일 때 로그인 사인업이 나와야하는지 */}
-          {userId === null ? ( 
+          {/* {userId !== null ? (  */}
             <div className="no-user-access">
               <NavItem.Item>
                 <Link className="nav-link buttom secondary-btn access-btn" to="/login">
@@ -69,7 +71,7 @@ export default function Navigation() {
               </Link>
               </NavItem.Item>
             </div>
-          ) : (
+          {/* ) : ( */}
             <Fragment>
               <NavItem className="nav-body-item-list">
                 <FontAwesomeIcon className="user-icon" icon={faUser} />
@@ -137,8 +139,8 @@ export default function Navigation() {
                 </NavDropdown>
               </NavItem>
             </Fragment>
-          )
-          }
+          {/* )
+          } */}
 
         </Navbar.Body>
       </Navbar>

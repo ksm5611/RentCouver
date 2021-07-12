@@ -154,6 +154,7 @@
 }
 .property-container .property-container-top .contact-info {
   width: 400px;
+  border-radius: 4px;
 }
 .property-container .property-container-top .contact-info .landlord-contact-container {
   text-align: center;
@@ -178,8 +179,8 @@
   background-color: #fff;
   margin-top: 80px;
   height: 800px;
-  border-radius: 6px;
-  padding: 72px 140px;
+  border-radius: 4px;
+  padding: 60px 84px;
 }
 .property-container .property-container-bottom .property-title {
   margin-bottom: 60px;
@@ -379,20 +380,18 @@
 .prop-list-wrapper {
   margin: 0 auto;
   width: 1380px;
+  display: flex;
 }
+
 .search-and-filter {
   display: flex;
   justify-content: space-between;
   padding: 20px 0;
   align-items: center;
-  width: 450px;
+  width: 434px;
 }
 
 .prop-list-page-container {
-  padding-top: 55px;
-}
-
-.proplist-container {
   padding-top: 55px;
 }
 
@@ -405,16 +404,15 @@
 }
 
 .prop-list-container {
+  z-index: 1;
   width: 510px;
   height: 750px;
   overflow: auto;
 }
 
 .just-map {
-  position: absolute;
-  right: 0;
-  top: 56px;
   /* padding: 5px 0 0 8px; */
+  padding-top: 56px;
 }
 
 .card-container {
@@ -453,7 +451,8 @@
   width: 275px;
   height: 198px;
 }
-.card-body .price-per-month {
+
+.price-per-month {
   color: #009906;
 }
 

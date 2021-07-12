@@ -90,7 +90,7 @@ export default function PropertyDetails() {
           <div className="property-container-bottom">
             <div className="property-title">
               <h2>{property.title}</h2>
-              <h2>${property.cost_of_month}/month</h2>
+              <h2 className="price-per-month">${property.cost_of_month}/month</h2>
             </div>
             <div className="details-main">
               <div className="details-main-list">

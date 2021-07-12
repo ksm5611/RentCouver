@@ -127,6 +127,7 @@ export default function PropertyListing() {
   return (
     <div className="prop-list-wrapper">
       <div className="prop-list-page-container">
+
         <div className="search-and-filter">
           <Filters filteredProperties={updateFilter} />
           <SearchBar />
@@ -138,10 +139,11 @@ export default function PropertyListing() {
               properties={properties}
             />
           </div>
-          <div className="just-map">
-            <Googlemaps />
-          </div>
         </div>
+
+      </div>
+      <div className="just-map">
+        <Googlemaps />
       </div>
     </div>
   );
