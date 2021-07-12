@@ -39,7 +39,7 @@ export default function ApplicationList() {
                   <th>City</th>
                   <th>Province</th>
                   <th>Postal Code</th>
-                  <th className="appList-th-action">Action</th>
+                  <th className="appList-th-action">Applications</th>
                 </Fade>
               </tr>
             </thead>

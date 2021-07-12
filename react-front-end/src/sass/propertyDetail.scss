@@ -34,7 +34,7 @@
 
         .contact-us a {
           // color: rgb(55, 52, 52);
-          color: $light-orange;
+          color: $light-blue;
           background-color: $dark-grey;
           padding: 8px 24px;
           border-radius: 4px;
@@ -42,7 +42,7 @@
 
         a:hover {
           color: $dark-grey;
-          background-color: $light-orange;
+          background-color: $light-blue;
         }
 
         a:visited,
@@ -56,7 +56,7 @@
 
   .property-container-bottom {
     font-family: $main-font;
-    background-color: $light-orange;
+    background-color: $light-blue;
     margin-top: 80px;
     height: 800px;
     border-radius: 8px;

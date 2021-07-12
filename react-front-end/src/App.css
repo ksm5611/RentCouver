@@ -45,6 +45,7 @@
   display: flex;
   align-items: center;
   font-family: "Bad Script", cursive;
+  font-weight: 700;
   background-color: #c4dfe6;
 }
 .nav-wrapper .nav-logo h4 {
