@@ -36,7 +36,7 @@ router.get("/appList/:landlordId", /*#__PURE__*/function () {
                 model: _models.User,
                 as: "tenant",
                 attributes: {
-                  exclude: ["email", "password", "current_address", "property_type", "job_title", "annual_income", "is_landlord", "other_household_occupants"]
+                  exclude: ["email", "password", "current_address", "property_type", "job_title", "annual_income", "other_household_occupants"]
                 }
               }]
             });

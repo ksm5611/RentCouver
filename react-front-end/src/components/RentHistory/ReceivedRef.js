@@ -52,9 +52,9 @@ export default function ReceivedRef({ reference }) {
     setState({ ...state, [anchor]: open });
   };
 
-  // if (!reference) {
-  //   return <div>Loading..</div>;
-  // }
+  if (!reference) {
+    return <div>Loading..</div>;
+  }
 
   const list = (anchor) => {
     <div
@@ -84,7 +84,7 @@ export default function ReceivedRef({ reference }) {
         onClick={toggleDrawer("left", true)}
       >
         REVIEW REFERENCE
-        </button>
+      </button>
 
       <Drawer
         className="drawer"

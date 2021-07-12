@@ -29,7 +29,7 @@ router.get("/properties/:id", /*#__PURE__*/function () {
               include: [{
                 model: _models.User,
                 attributes: {
-                  exclude: ["password", "annual_income", "other_household_occupants", "is_landlord"]
+                  exclude: ["password", "annual_income", "other_household_occupants"]
                 }
               }, {
                 model: _models.Photo

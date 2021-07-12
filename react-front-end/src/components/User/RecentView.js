@@ -13,7 +13,6 @@ export default function RecentView() {
           "http://localhost:8000/api/propertyLists?limit=3"
         );
         setProperties(result.data);
-        console.log(result.data);
       } catch (error) {
         setError("Your server is broken");
       }

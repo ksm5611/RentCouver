@@ -34,7 +34,6 @@ router.get("/appList/:landlordId", async (req, res) => {
             "property_type",
             "job_title",
             "annual_income",
-            "is_landlord",
             "other_household_occupants",
           ],
         },

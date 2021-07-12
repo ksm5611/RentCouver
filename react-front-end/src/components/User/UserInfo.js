@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { List } from "rsuite";
 import { ListItemText } from "@material-ui/core";
+import useToken from "../../hooks/useToken";
 
 export default function UserInfo() {
   const [user, setUser] = useState(null);
@@ -15,11 +16,12 @@ export default function UserInfo() {
     { label: "Job title", value: "job_title" },
   ];
   let { tenantId } = useParams();
+  const { userId } = useToken();
   useEffect(() => {
     async function fetchData() {
       try {
         const result = await axios.get(
-          `http://localhost:8000/api/users/${tenantId}`
+          `http://localhost:8000/api/users/${userId}`
         );
         const { ...userData } = result.data;
         setUser(userData);
@@ -28,7 +30,7 @@ export default function UserInfo() {
       }
     }
     fetchData();
-  }, [tenantId]);
+  }, [userId]);
 
   const settings = [
     "Edit MyAccount",
