@@ -7,16 +7,10 @@ import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
-  ListItem,
-  ListItemText,
   List,
   div,
-  Typography,
   makeStyles,
-  ListItemAvatar,
-  Avatar,
-  Button,
-  TextField,
+  TextField
 } from "@material-ui/core";
 
 //material ui styling funtion
@@ -205,8 +199,7 @@ export default function ApplicationForm() {
             <>
               <p>SENT!</p>
               <button
-                variant="contained"
-                color="secondary"
+                className="button primary-btn dual-button"
                 onClick={() => history.push(`/property_details/${propertyId}`)}
               >
                 Back to Property Details
