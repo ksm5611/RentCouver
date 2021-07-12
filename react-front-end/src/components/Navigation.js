@@ -9,6 +9,7 @@ import { faHome, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import useToken from "../hooks/useToken";
 import { useHistory } from "react-router-dom";
+import { Fragment } from "react";
 
 export default function Navigation() {
   function dropdownItemColor() {
@@ -84,64 +85,95 @@ export default function Navigation() {
             </NavItem.Item>
           </NavItem>
 
-          <NavItem className="nav-body-item-list">
-            <FontAwesomeIcon className="user-icon" icon={faUser} />
-            <NavDropdown
-              className="profile-tab basic-nav-dropdown"
-              title="Profile"
-            >
-              {/* <Fade> */}
-              <NavDropdown.Item
-                as={Link}
-                className="dropdown-item"
-                onClick={() => dropdownItemColor}
-                to={`/user/${userId}`}
-              >
-                Dashboard
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                className="dropdown-item"
-                onClick={() => dropdownItemColor}
-                to="/"
-              >
-                My properties
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                className="dropdown-item"
-                onClick={() => dropdownItemColor}
-                to={`/rent_history/${userId}`}
-              >
-                Rent history
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                className="dropdown-item"
-                onClick={() => dropdownItemColor}
-                to={`/rent_history/${userId}`}
-              >
-                App status
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item
-                as={Link}
-                className="dropdown-item"
-                onClick={() => dropdownItemColor}
-                to={`/app_list/${userId}`}
-              >
-                Received Apps
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                className="dropdown-item"
-                onClick={() => dropdownItemColor}
-                to={`/ref_request_list/${userId}`}
-              >
-                Reference requests
-              </NavDropdown.Item>
-            </NavDropdown>
-          </NavItem>
+          {/* 무슨 조건인지 ㄹ */}
+          {token === null ? (
+            <div className="no-user-access">
+              <NavItem.Item>
+                <Link
+                  className="nav-link buttom secondary-btn access-btn"
+                  to="/login"
+                >
+                  Login
+                </Link>
+              </NavItem.Item>
+              <NavItem.Item>
+                <Link
+                  className="nav-link button primary-btn access-btn"
+                  to="/signup"
+                >
+                  Sign up
+                </Link>
+              </NavItem.Item>
+            </div>
+          ) : (
+            <Fragment>
+              <NavItem className="nav-body-item-list">
+                <FontAwesomeIcon className="user-icon" icon={faUser} />
+                <NavDropdown
+                  className="profile-tab basic-nav-dropdown"
+                  title="Profile"
+                >
+                  {/* <Fade> */}
+                  <NavDropdown.Item
+                    as={Link}
+                    className="dropdown-item"
+                    onClick={() => dropdownItemColor}
+                    to={`/user/${userId}`}
+                  >
+                    Dashboard
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={Link}
+                    className="dropdown-item"
+                    onClick={() => dropdownItemColor}
+                    to="/"
+                  >
+                    My properties
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={Link}
+                    className="dropdown-item"
+                    onClick={() => dropdownItemColor}
+                    to={`/rent_history/${userId}`}
+                  >
+                    App status
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={Link}
+                    className="dropdown-item"
+                    onClick={() => dropdownItemColor}
+                    to={`/rent_history/${userId}`}
+                  >
+                    Rent history
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item
+                    as={Link}
+                    className="dropdown-item"
+                    onClick={() => dropdownItemColor}
+                    to={`/app_list/${userId}`}
+                  >
+                    Received Apps
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={Link}
+                    className="dropdown-item"
+                    onClick={() => dropdownItemColor}
+                    to={`/ref_request_list/${userId}`}
+                  >
+                    Reference requests
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={Link}
+                    className="dropdown-item"
+                    onClick={logout}
+                  >
+                    Logout
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </NavItem>
+            </Fragment>
+          )}
         </Navbar.Body>
       </Navbar>
     </div>

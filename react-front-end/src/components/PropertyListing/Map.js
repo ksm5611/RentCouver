@@ -36,17 +36,17 @@ export default function Googlemaps () {
   ))
   
   return (
-    <div id='prop-map'>
+    // <div id='prop-map'>
 
       <MyMapComponent
         isMarkerShown
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${APIKey}`}
         loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `828px`, width: `876px` }} />}
+        containerElement={<div style={{ height: `831px`, width: `916px` }} />}
         mapElement={<div style={{ height: `100%` }} />}
       />
 
-    </div>
+    // </div>
   )
 }
 

@@ -98,10 +98,9 @@ export default function Filters(props) {
             // value=take the child info in {}, then put this in the onClick into a setState(value)
             onClick={() => {
               // console.log("type in Filters.js: ", type)
-              toggleDrawer("left", false);
+              // toggleDrawer("left", false);
               props.filteredProperties(type, bedrooms, bathrooms, minPrice, maxPrice);
             }}
-            onClose={toggleDrawer("left", false)}
           >
             Search
           </button>
