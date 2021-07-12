@@ -1,6 +1,7 @@
 $wrapper-width: 1280px;
-$light-orange: #f8f3f0;
-$table-container-color: #aaa5a5;
+$light-blue: #c4dfe6;
+$table-container-color: rgb(198, 198, 198);
+$table-font-color: #4a4a4b;
 
 .listitem-head {
   margin: 24px 0;
@@ -40,7 +41,7 @@ $table-container-color: #aaa5a5;
   border: 1px solid $table-container-color;
 
   .tr-reference:nth-child(odd), .tr-history:nth-child(odd), .tr-appList:nth-child(odd) {
-    background-color: $light-orange;
+    background-color: $light-blue;
   }
 
   th,
@@ -65,12 +66,13 @@ $table-container-color: #aaa5a5;
     // border: 1px solid blue;
     height: 60px;
     background-color: $table-container-color;
-    color: white;
+    color: #4a4a4b;
   }
 
   .tr-history,
   .tr-reference, .tr-appList {
     height: 60px;
+    color: $table-font-color;
     // display: flex;
   }
 
