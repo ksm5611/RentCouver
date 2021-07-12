@@ -9,12 +9,7 @@ router.get("/properties/:id", async (req, res) => {
       {
         model: User,
         attributes: {
-          exclude: [
-            "password",
-            "annual_income",
-            "other_household_occupants",
-            "is_landlord",
-          ],
+          exclude: ["password", "annual_income", "other_household_occupants"],
         },
       },
       {

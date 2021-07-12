@@ -46,5 +46,6 @@ exports.signin = async (req, res) => {
     id: user.id,
     email: user.email,
     accessToken: token,
+    is_landlord: user.is_landlord,
   });
 };

@@ -32,7 +32,6 @@ router.get("/rentHistories/:tenantId", async (req, res) => {
                 "annual_income",
                 "profile_picture_url",
                 "other_household_occupants",
-                "is_landlord",
               ],
             },
           },
