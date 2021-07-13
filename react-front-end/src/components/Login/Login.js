@@ -17,7 +17,6 @@ export default function Login({ setToken }) {
     return response;
   };
 
-  console.log("here");
   //submit login form
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +24,6 @@ export default function Login({ setToken }) {
       email,
       password,
     });
-    console.log("landlord", response.data.is_landlord);
     setToken(
       response.data.accessToken,
       response.data.id,
