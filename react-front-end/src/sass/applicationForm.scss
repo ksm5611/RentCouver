@@ -26,13 +26,14 @@ $font-dark-grey: #574f4a;
 
     .application-form-avatar {
       width: 80px;
+
     }
   }
 
   .application-form-notice {
     display: flex;
     flex-direction: column;
-    // height: 80px;
+    align-items: flex-end;
     p {
       margin: 0;
     }

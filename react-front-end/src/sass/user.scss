@@ -1,17 +1,6 @@
 /* UserpageHeroContent.js */
 
 /* User.js (index.js) */
-
-.user-page-wrapper {
-  // background-color: $background-color;
-  padding: 160px;
-  margin: 0 auto;
-  display: flex;
-  position: relative;
-
-  /* RecentView.js */
-}
-
 .hero-content-item {
   // width: 1200px;
   font-family: $main-font;
@@ -21,7 +10,7 @@
   align-items: center;
 
   h2 {
-    color: $table-font-color;
+    color: $dark-grey;
   }
 
   .round-container {
@@ -49,14 +38,53 @@
   background-color: #fff;
   // border: 1px red solid;
 }
-.user-page-container {
-  padding-top: 40px;
-  // width: 100%;
-  // display: flex;
-  // justify-content: space-between;
+
+.user-page-wrapper {
+  // background-color: $background-color;
+  padding: 160px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+
+  /* RecentView.js */
 }
 
-.test {
+.user-page-container {
+  font-family: $main-font;
+  color: $dark-grey;
+  background-color: $off-white-blue;
+  padding: 60px 80px;
+  border-radius: 6px;
+  // width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.view-title {
+  border-radius: 6px;
+  height: 50px;
+  width: 496px;
+  background-color: $primary-btn-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h5 {
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    // border-bottom: 2px solid $dark-grey;
+    // padding-bottom: 20px;
+  }
+}
+
+.info-item {
+  display: flex;
+  height: 40px;
+  align-items: center;
+}
+
+.viewed-property {
+  margin-top: 40px;
   width: 496px;
 }
 
@@ -64,13 +92,14 @@
 
 .user-info-wrapper {
   position: relative;
-  width: 400px;
   .user-info-list {
+    width: 560px;
     margin-bottom: 40px;
   }
+}
 
-  #my-info-label {
-    background-color: $dark-grey;
-    border: $dark-grey;
-  }
+#my-info-label {
+  background-color: $primary-btn-color;
+  border: $dark-grey;
+  color: #fff;
 }

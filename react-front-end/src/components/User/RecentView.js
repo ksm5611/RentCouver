@@ -24,11 +24,8 @@ export default function RecentView() {
     return <div>Loading...</div>;
   }
   return (
-    <div className="recent-viewed-properties">
-      <div className="test">
+    <div className="viewed-property">
       <PropertyListItem properties={properties} />
-      </div>
-      
     </div>
   );
 }
