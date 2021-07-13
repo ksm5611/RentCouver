@@ -26,7 +26,7 @@ export default function LandlordDropdown() {
   // };
 
   return (
-    <FormControl variant="outlined" className={classes.formControl}>
+    <FormControl variant="outlined" className={classes.formControl} style={{ width:"280px" }}>
       <InputLabel id="demo-simple-select-outlined-label">Are you a landlord?</InputLabel>
       <Select
         labelId="demo-simple-select-outlined-label"
@@ -34,7 +34,7 @@ export default function LandlordDropdown() {
         value={isLandlord}
         // onChange={handleChange}
         onChange={(e) => setIsLandlord(e.target.value)}
-        label="Age"
+        label="Are you a landlord?"
       >
         <MenuItem value={true}>Yes</MenuItem>
         <MenuItem value={false}>No</MenuItem>
