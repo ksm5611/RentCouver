@@ -48,7 +48,7 @@ export default function PropertyListItem({ properties }) {
                         <b>${property.cost_of_month}</b>
                       </p>
                     ) : (
-                      <p>{property[value]}</p>
+                      <p><span><strong>Listed on: </strong></span>{property[value]}</p>
                     )}
                   </Card.Text>
                 </Fragment>

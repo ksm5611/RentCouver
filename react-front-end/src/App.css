@@ -149,7 +149,7 @@
   color: #7c7878;
   background-color: #e9eff0;
   padding: 60px 80px;
-  border-radius: 6px;
+  border-radius: 2px;
   display: flex;
   justify-content: space-between;
 }
@@ -157,8 +157,8 @@
 .view-title {
   border-radius: 6px;
   height: 50px;
-  width: 496px;
-  background-color: #7395ae;
+  width: 492px;
+  background-color: #7c7878;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,7 +177,7 @@
 
 .viewed-property {
   margin-top: 40px;
-  width: 496px;
+  width: 492px;
 }
 
 /* UserInfo.js */
@@ -190,7 +190,7 @@
 }
 
 #my-info-label {
-  background-color: #7395ae;
+  background-color: #7c7878;
   border: #7c7878;
   color: #fff;
 }
@@ -521,17 +521,10 @@
   color: #4a4a4b;
   position: relative;
 }
-.property-title:after {
-  display: block;
-  content: "";
-  height: 1px;
-  width: 42px;
-  background: #7c7878;
-  margin-top: 12px;
-}
 
 .price-per-month {
   color: #009906;
+  font-size: 1.8rem;
 }
 
 /* #bed-bath{

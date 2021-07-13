@@ -17,7 +17,7 @@
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    // border: 1px solid $primary-btn-color;
+    // border: 1px solid $dark-grey;
     box-shadow: 2px 2px 8px 0.1px #c2c2c2;
     overflow: hidden;
     position: relative;
@@ -54,7 +54,7 @@
   color: $dark-grey;
   background-color: $off-white-blue;
   padding: 60px 80px;
-  border-radius: 6px;
+  border-radius: 2px;
   // width: 100%;
   display: flex;
   justify-content: space-between;
@@ -63,8 +63,8 @@
 .view-title {
   border-radius: 6px;
   height: 50px;
-  width: 496px;
-  background-color: $primary-btn-color;
+  width: 492px;
+  background-color: $dark-grey;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,7 +85,7 @@
 
 .viewed-property {
   margin-top: 40px;
-  width: 496px;
+  width: 492px;
 }
 
 /* UserInfo.js */
@@ -99,7 +99,7 @@
 }
 
 #my-info-label {
-  background-color: $primary-btn-color;
+  background-color: $dark-grey;
   border: $dark-grey;
   color: #fff;
 }

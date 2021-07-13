@@ -39,18 +39,19 @@
 .property-title {
   color: $table-font-color;
   position: relative;
-  &:after {
-    display: block;
-    content: "";
-    // border: 1px solid red;
-    height: 1px;
-    width: 42px;
-    background: $dark-grey;
-    margin-top: 12px;
-  }
+  // &:after {
+  //   display: block;
+  //   content: "";
+  //   // border: 1px solid red;
+  //   height: 1px;
+  //   width: 42px;
+  //   background: $dark-grey;
+  //   margin-top: 12px;
+  // }
 }
 .price-per-month {
   color: #009906;
+  font-size: 1.8rem;
 }
 
 /* #bed-bath{
