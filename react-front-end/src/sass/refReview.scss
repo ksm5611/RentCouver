@@ -1,6 +1,8 @@
 .reference-container {
   font-family: $main-font;
   color: $table-font-color;
+  position: relative;
+  word-wrap: break-word;
   h4 {
     border-bottom: 1px solid black;
     padding-bottom: 20px;

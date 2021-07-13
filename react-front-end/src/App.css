@@ -677,6 +677,8 @@
 .reference-container {
   font-family: "Ubuntu", sans-serif;
   color: #4a4a4b;
+  position: relative;
+  word-wrap: break-word;
   width: 600px;
   padding: 40px 60px 0 60px;
 }
