@@ -21,14 +21,11 @@ export default function Navigation() {
   const { userId } = useToken();
   const { token, setToken } = useToken();
 
-  console.log(userId);
-
   const logout = () => {
     deleteToken();
     history.push("/login");
     history.go(0);
   };
-
 
   return (
     <div className="nav-container">
@@ -59,17 +56,23 @@ export default function Navigation() {
           </NavItem>
 
           {/* 무슨 조건인지 ㄹ */}
-          {token === null ? ( 
+          {token === null ? (
             <div className="no-user-access">
               <NavItem.Item>
-                <Link className="nav-link buttom secondary-btn access-btn" to="/login">
+                <Link
+                  className="nav-link buttom secondary-btn access-btn"
+                  to="/login"
+                >
                   Login
-              </Link>
+                </Link>
               </NavItem.Item>
               <NavItem.Item>
-                <Link className="nav-link button primary-btn access-btn" to="/signup">
+                <Link
+                  className="nav-link button primary-btn access-btn"
+                  to="/signup"
+                >
                   Sign up
-              </Link>
+                </Link>
               </NavItem.Item>
             </div>
           ) : (
@@ -88,7 +91,7 @@ export default function Navigation() {
                     to={`/user/${userId}`}
                   >
                     Dashboard
-              </NavDropdown.Item>
+                  </NavDropdown.Item>
                   <NavDropdown.Item
                     as={Link}
                     className="dropdown-item"
@@ -96,7 +99,7 @@ export default function Navigation() {
                     to="/"
                   >
                     My properties
-              </NavDropdown.Item>
+                  </NavDropdown.Item>
                   <NavDropdown.Item
                     as={Link}
                     className="dropdown-item"
@@ -104,7 +107,7 @@ export default function Navigation() {
                     to={`/rent_history/${userId}`}
                   >
                     App status
-              </NavDropdown.Item>
+                  </NavDropdown.Item>
                   <NavDropdown.Item
                     as={Link}
                     className="dropdown-item"
@@ -112,7 +115,7 @@ export default function Navigation() {
                     to={`/rent_history/${userId}`}
                   >
                     Rent history
-              </NavDropdown.Item>
+                  </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item
                     as={Link}
@@ -121,7 +124,7 @@ export default function Navigation() {
                     to={`/app_list/${userId}`}
                   >
                     Received Apps
-              </NavDropdown.Item>
+                  </NavDropdown.Item>
                   <NavDropdown.Item
                     as={Link}
                     className="dropdown-item"
@@ -129,20 +132,18 @@ export default function Navigation() {
                     to={`/ref_request_list/${userId}`}
                   >
                     Reference requests
-              </NavDropdown.Item>
+                  </NavDropdown.Item>
                   <NavDropdown.Item
                     as={Link}
                     className="dropdown-item"
                     onClick={logout}
                   >
                     Logout
-              </NavDropdown.Item>
+                  </NavDropdown.Item>
                 </NavDropdown>
               </NavItem>
             </Fragment>
-          )
-          }
-
+          )}
         </Navbar.Body>
       </Navbar>
     </div>
