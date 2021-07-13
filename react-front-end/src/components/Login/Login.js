@@ -33,6 +33,7 @@ export default function Login({ setToken }) {
       response.data.is_landlord
     );
     history.push(`/user/${response.data.id}`);
+    window.location.reload();
   };
 
   return (

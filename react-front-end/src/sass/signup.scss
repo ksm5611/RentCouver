@@ -1,0 +1,31 @@
+.signup-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px;
+}
+
+.form-paper {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  padding: 20px
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-textbox {
+  padding: 10px;
+}
+
+#outlined-basic {
+  width: 250px;
+}
+
+.signup-button {
+  width: 250px;
+  margin: 5px
+}

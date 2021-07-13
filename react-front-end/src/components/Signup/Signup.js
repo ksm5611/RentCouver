@@ -1,7 +1,25 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import "./Signup.css";
+// import "./signup.css";
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
+import LandlordDropdown from "./LandlordDropdown";
+
+// for the form styling
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    '& > *': {
+      margin: theme.spacing(1),
+      width: theme.spacing(16),
+      height: theme.spacing(16),
+    },
+  },
+}));
+
 
 export default function Signup() {
   const [name, setName] = useState();
@@ -12,7 +30,9 @@ export default function Signup() {
   const [annualIncome, setAnnualIncome] = useState();
   const [isLandlord, setIsLandlord] = useState(false);
   const history = useHistory();
+  const classes = useStyles();
 
+  
   const signUpUser = async () => {
     await axios.post("http://localhost:8000/api/auth/signup", {
       name: name,
@@ -24,7 +44,7 @@ export default function Signup() {
       is_landlord: isLandlord,
     });
   };
-
+  
   //submit sign up form
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,49 +59,76 @@ export default function Signup() {
     });
     history.push("/login");
   };
+  
+  // dropdown "Are you a landlord?"
+  // const handleChange = (event) => {
+  //   setAge(event.target.value);
+  // };
+  // maybe we don't need this because we already have setIsLandlord
 
   return (
     <div className="signup-wrapper">
-      <h1>Sign up Here!</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <p>Name</p>
-          <input type="text" onChange={(e) => setName(e.target.value)} />
-        </label>
-        <label>
-          <p>Email</p>
-          <input type="text" onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <label>
-          <p>Password</p>
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <label>
-          <p>Address</p>
-          <input type="text" onChange={(e) => setAddress(e.target.value)} />
-        </label>
-        <label>
-          <p>Job Title</p>
-          <input type="text" onChange={(e) => setJobTitle(e.target.value)} />
-        </label>
-        <label>
-          <p>Annual Income</p>
-          <input
-            type="text"
-            onChange={(e) => setAnnualIncome(e.target.value)}
-          />
-        </label>
-        <label>
-          <p>Are you Landlord?</p>
-          <input type="text" onChange={(e) => setIsLandlord(e.target.value)} />
-        </label>
-        <div>
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+      {/* <div className={classes.root}> */}
+        <h1>Sign Up Here!</h1>
+        <Paper className="form-paper" elevation={3}>
+          <form className="form-content"  onSubmit={handleSubmit}>
+            <div className="form-textbox">
+              <TextField
+                id="outlined-basic"
+                label="Name"
+                variant="outlined"
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className="form-textbox">
+              <TextField
+                id="outlined-basic"
+                label="Email"
+                variant="outlined"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="form-textbox">
+              <TextField
+                id="outlined-basic"
+                label="Password"
+                variant="outlined"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div className="form-textbox">
+              <TextField
+                id="outlined-basic"
+                label="Address"
+                variant="outlined"
+                onChange={(e) => setAddress(e.target.value)}
+              />
+            </div>
+            <div className="form-textbox">
+              <TextField
+                id="outlined-basic"
+                label="Job Title"
+                variant="outlined"
+                onChange={(e) => setJobTitle(e.target.value)}
+              />
+            </div>
+            <div className="form-textbox">
+              <TextField
+                id="outlined-basic"
+                label="Annual Income"
+                variant="outlined"
+                onChange={(e) => setAnnualIncome(e.target.value)}
+              />
+            </div>
+            <div>
+              <LandlordDropdown className="form-textbox"/>
+            </div>
+            <div>
+              <button type="submit" className="button primary-btn signup-button">Submit</button>
+            </div>
+          </form>
+        </Paper>
+      {/* </div> */}
     </div>
   );
 }
