@@ -109,23 +109,58 @@
   margin: 0 auto;
   display: flex;
   position: relative;
-  /* RecentViewList.js & RecentView.js */
-  /* UserInfo.js */
+  /* RecentView.js */
 }
-.user-page-wrapper .fav-wrapper {
-  width: 100px;
-}
-.user-page-wrapper .fav-wrapper .fav-properties {
+
+.hero-content-item {
+  font-family: "Ubuntu", sans-serif;
+  height: auto;
   display: flex;
+  justify-content: start;
+  align-items: center;
 }
-.user-page-wrapper .user-info-wrapper {
+.hero-content-item h2 {
+  color: #4a4a4b;
+}
+.hero-content-item .round-container {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 8px 0.1px #c2c2c2;
+  overflow: hidden;
+  position: relative;
+  margin-right: 40px;
+}
+.hero-content-item .profile-img {
+  max-width: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: inherit;
+}
+
+.about-me {
+  height: 200px;
+  background-color: #fff;
+}
+
+.user-page-container {
+  padding-top: 40px;
+}
+
+.test {
+  width: 496px;
+}
+
+/* UserInfo.js */
+.user-info-wrapper {
   position: relative;
   width: 400px;
 }
-.user-page-wrapper .user-info-wrapper .user-info-list {
+.user-info-wrapper .user-info-list {
   margin-bottom: 40px;
 }
-.user-page-wrapper .user-info-wrapper #my-info-label {
+.user-info-wrapper #my-info-label {
   background-color: #7c7878;
   border: #7c7878;
 }
@@ -616,22 +651,10 @@ li {
 
 .hero-content {
   display: flex;
-  align-items: center;
   flex-direction: column;
   list-style: none;
-  padding-top: 80px;
+  padding-top: 200px;
   z-index: 1;
-}
-.hero-content .hero-content-item {
-  margin: 10px;
-}
-.hero-content .hero-content-item .profile-img {
-  width: 200px;
-  border-radius: 50%;
-}
-.hero-content h2 {
-  font-size: 40px;
-  color: #7c7878;
 }
 
 .hero-wrapper {
