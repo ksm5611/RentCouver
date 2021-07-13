@@ -4,7 +4,8 @@ import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import "./Login.css";
+import TextField from '@material-ui/core/TextField';
+// import "./Login.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,19 +57,25 @@ export default function Login({ setToken }) {
       <h1>Please Log In</h1>
       <Paper className="form-paper" elevation={3}>
         <form onSubmit={handleSubmit}>
-          <label>
-            <p>Email</p>
-            <input type="text" onChange={(e) => setEmail(e.target.value)} />
-          </label>
-          <label>
-            <p>Password</p>
-            <input
+          <div className="form-textbox">
+            <TextField
+              id="outlined-basic"
+              label="Email"
+              variant="outlined"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="form-textbox">
+            <TextField
+              id="outlined-basic"
+              label="Password"
               type="password"
+              variant="outlined"
               onChange={(e) => setPassword(e.target.value)}
             />
-          </label>
+          </div>
           <div>
-            <button type="submit">Submit</button>
+            <button type="submit" className="button primary-btn login-button">Submit</button>
           </div>
         </form>
       </Paper>
