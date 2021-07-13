@@ -28,8 +28,10 @@ export default function Login({ setToken }) {
       response.data.accessToken,
       response.data.id,
       response.data.is_landlord
-    );
-    history.push(`/user/${response.data.id}`);
+      );
+      history.push(`/user/${response.data.id}`);
+      window.location.reload();
+
   };
 
   return (
@@ -58,3 +60,6 @@ export default function Login({ setToken }) {
 Login.propTypes = {
   setToken: PropTypes.func.isRequired,
 };
+
+
+// example1@lhl.com

@@ -39,7 +39,7 @@ export default function PropertyListItem({ properties }) {
           />
           <div>
             <Card.Body className="card-body">
-              <Card.Title>{property.title}</Card.Title>
+              <Card.Title className="property-title">{property.title}</Card.Title>
               {propertyValues.map((value) => (
                 <Fragment key={property.id + value}>
                   <Card.Text>
@@ -48,7 +48,7 @@ export default function PropertyListItem({ properties }) {
                         <b>${property.cost_of_month}</b>
                       </p>
                     ) : (
-                      <p>{property[value]}</p>
+                      <p><span><strong>Listed on: </strong></span>{property[value]}</p>
                     )}
                   </Card.Text>
                 </Fragment>

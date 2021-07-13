@@ -27,16 +27,31 @@
   object-fit: cover;
   border-radius: 5px 0 0 5px;
   width: 200px;
-  height: 198px;
+  height: 210px;
 }
 
 .card-body {
   width: 275px;
-  height: 198px; 
+  height: 210px; 
 
+}
+
+.property-title {
+  color: $table-font-color;
+  position: relative;
+  // &:after {
+  //   display: block;
+  //   content: "";
+  //   // border: 1px solid red;
+  //   height: 1px;
+  //   width: 42px;
+  //   background: $dark-grey;
+  //   margin-top: 12px;
+  // }
 }
 .price-per-month {
   color: #009906;
+  font-size: 1.8rem;
 }
 
 /* #bed-bath{

@@ -2,6 +2,8 @@ import useVisualMode from "../RefReqList/RefReqItem/useVisualMode";
 import axios from "axios";
 import ReceivedRef from "./ReceivedRef";
 import Fade from 'react-reveal/Fade';
+import { List } from '@material-ui/core';
+import { Divider } from '@material-ui/core';
 
 export default function Status({ record }) {
   const DEFAULT = "DEFAULT";
@@ -21,6 +23,18 @@ export default function Status({ record }) {
     }
     transition(REQUESTED);
   };
+
+  const list = (
+    <div className="drawer-content">
+      <Fade bottom cascade>
+        <div className="reference-container">
+          <h4>Reference from {record.Property.User.name}</h4>
+          <p>{record.review_content}</p>
+        </div>
+      </Fade>
+    </div>
+  )
+
 
   return (
     <tr className="tr-history">
@@ -48,7 +62,7 @@ export default function Status({ record }) {
           ) : record.review_content === null ? (
             <Fade><p>REQUESTED</p></Fade>
           ) : (
-            <ReceivedRef reference={record.review_content} />
+            <ReceivedRef reference={list} />
           ))}
         {mode === REQUESTED && <Fade><p>REQUESTED</p></Fade>}
       </td>

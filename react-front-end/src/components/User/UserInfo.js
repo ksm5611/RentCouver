@@ -33,7 +33,7 @@ export default function UserInfo() {
   }, [userId]);
 
   const settings = [
-    "Edit MyAccount",
+    "MyAccount",
     "Preferences",
     "Notifications",
     "Privacy and Safety",
@@ -59,19 +59,20 @@ export default function UserInfo() {
             <List.Item id="my-info-label">User Information</List.Item>
             {userList.map((info) => (
               <List.Item key={info.label} index={info.value}>
-                <ListItemText
-                  primary={info.label}
-                  secondary={user[info.value]}
-                />
+                <div className="info-item">
+                  <ListItemText
+                    primary={info.label}
+                    secondary={user[info.value]}
+                  />
+                  <button className="button secondary-btn">Edit</button>
+                </div>
               </List.Item>
             ))}
           </List>
           <List bordered className="user-info-list">
             <List.Item id="my-info-label">Account Settings</List.Item>
-            {settings.map((item, index) => (
-              <List.Item key={index} index={index}>
-                {item}
-              </List.Item>
+            {settings.map((item) => (
+              <List.Item>{item}</List.Item>
             ))}
           </List>
         </div>

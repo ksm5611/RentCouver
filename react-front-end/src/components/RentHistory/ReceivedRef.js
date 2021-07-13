@@ -56,27 +56,6 @@ export default function ReceivedRef({ reference }) {
     return <div>Loading..</div>;
   }
 
-  const list = (anchor) => {
-    <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === "top" || anchor === "bottom",
-      })}
-      role="presentation"
-      onClick={toggleDrawer(anchor, true)}
-      onKeyDown={toggleDrawer(anchor, true)}
-      id="drawer-container"
-    >
-      <div className="drawer-content">
-        {/* <Fade bottom cascade> */}
-          <List>
-            {/* <p className={classes.list}>{references}</p> */}
-            <button className="button primary-btn contact-btn">Contact tenant</button>
-          </List>
-        {/* </Fade> */}
-      </div>
-    </div>
-  }
-
   return (
     <div>
       <button
@@ -94,8 +73,8 @@ export default function ReceivedRef({ reference }) {
         open={state["left"]}
         onClose={toggleDrawer("left", false)}
       >
-        {list("left")}
-        {/* {reference} */}
+        {/* {list("left")} */}
+        {reference}
 
       </Drawer>
     </div>

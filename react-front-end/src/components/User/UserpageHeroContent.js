@@ -32,27 +32,18 @@ export default function UserpageHeroContent() {
     <section>
       <div className="hero-wrapper">
         <section className="hero-content wrapper">
-        <div className="hero-content-item">
-          <img
-            className="profile-img"
-            src={user.profile_picture_url}
-            alt="profile"
-          />
-        </div>
-        <h2 className="hero-content-item">{user.name}</h2>
+          <div className="hero-content-item">
+            <div className="round-container">
+              <img
+                className="profile-img"
+                src={user.profile_picture_url}
+                alt="profile"
+              />
+            </div>
+            <h2>{user.name}</h2>
+          </div>
         </section>
       </div>
-      
-      {/* <div className="hero-content">
-        <div className="hero-content-item">
-          <img
-            className="profile-img"
-            src={user.profile_picture_url}
-            alt="profile"
-          />
-        </div>
-        <h2 className="hero-content-item">{user.name}</h2>
-      </div> */}
     </section>
   );
 }

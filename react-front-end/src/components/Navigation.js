@@ -19,7 +19,7 @@ export default function Navigation() {
   const { deleteToken } = useToken();
   const history = useHistory();
   const { userId } = useToken();
-  const { token, setToken } = useToken();
+  const { token } = useToken();
 
   const logout = () => {
     deleteToken();
@@ -55,8 +55,7 @@ export default function Navigation() {
             </NavItem.Item>
           </NavItem>
 
-          {/* 무슨 조건인지 ㄹ */}
-          {token === null ? (
+          {token === null ? ( 
             <div className="no-user-access">
               <NavItem.Item>
                 <Link
