@@ -91,8 +91,8 @@ export default function ApplicationForm() {
             <h2>Application From</h2>
           </div>
           <div className="application-form-notice">
-            <p>Please review your application before submitting </p>
-            <p>* Any references you have will be shown to the landlord</p>
+            <p>Please review your application before submitting. </p>
+            <p><strong>* Any references you have will be shown to the landlord</strong></p>
           </div>
         </div>
         <Fade>
@@ -169,7 +169,7 @@ export default function ApplicationForm() {
         {user && renderUserData()}
         {rentHistories.length > 0 && (
           <>
-            <h4 className="app-rent-history-container">Residential history</h4>
+            <h4 className="app-rent-history-container">Rent history</h4>
             {rentHistories.map((history) => renderRentHistory(history))}
           </>
         )}

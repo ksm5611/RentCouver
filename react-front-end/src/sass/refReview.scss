@@ -1,0 +1,11 @@
+.reference-container {
+  font-family: $main-font;
+  color: $table-font-color;
+  h4 {
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  width: 600px;
+  padding: 40px 60px 0 60px;
+}

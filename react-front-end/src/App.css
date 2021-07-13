@@ -85,25 +85,82 @@
 
 /* UserpageHeroContent.js */
 /* User.js (index.js) */
+.hero-content-item {
+  font-family: "Ubuntu", sans-serif;
+  height: auto;
+  display: flex;
+  justify-content: start;
+  align-items: center; }
+  .hero-content-item h2 {
+    color: #7c7878; }
+  .hero-content-item .round-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px 0.1px #c2c2c2;
+    overflow: hidden;
+    position: relative;
+    margin-right: 40px; }
+  .hero-content-item .profile-img {
+    max-width: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: inherit; }
+
+.about-me {
+  height: 200px;
+  background-color: #fff; }
+
 .user-page-wrapper {
   padding: 160px;
   margin: 0 auto;
   display: flex;
   position: relative;
-  /* RecentViewList.js & RecentView.js */
-  /* UserInfo.js */ }
-  .user-page-wrapper .fav-wrapper {
-    width: 100px; }
-    .user-page-wrapper .fav-wrapper .fav-properties {
-      display: flex; }
-  .user-page-wrapper .user-info-wrapper {
-    position: relative;
-    width: 400px; }
-    .user-page-wrapper .user-info-wrapper .user-info-list {
-      margin-bottom: 40px; }
-    .user-page-wrapper .user-info-wrapper #my-info-label {
-      background-color: #7c7878;
-      border: #7c7878; }
+  /* RecentView.js */ }
+
+.user-page-container {
+  font-family: "Ubuntu", sans-serif;
+  color: #7c7878;
+  background-color: #e9eff0;
+  padding: 60px 80px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between; }
+
+.view-title {
+  border-radius: 6px;
+  height: 50px;
+  width: 492px;
+  background-color: #7c7878;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .view-title h5 {
+    color: #fff;
+    text-align: center;
+    margin: 0; }
+
+.info-item {
+  display: flex;
+  height: 40px;
+  align-items: center; }
+
+.viewed-property {
+  margin-top: 40px;
+  width: 492px; }
+
+/* UserInfo.js */
+.user-info-wrapper {
+  position: relative; }
+  .user-info-wrapper .user-info-list {
+    width: 560px;
+    margin-bottom: 40px; }
+
+#my-info-label {
+  background-color: #7c7878;
+  border: #7c7878;
+  color: #fff; }
 
 .property-details-main-container {
   background-color: #e9eff0; }
@@ -358,14 +415,19 @@
   object-fit: cover;
   border-radius: 5px 0 0 5px;
   width: 200px;
-  height: 198px; }
+  height: 210px; }
 
 .card-body {
   width: 275px;
-  height: 198px; }
+  height: 210px; }
+
+.property-title {
+  color: #4a4a4b;
+  position: relative; }
 
 .price-per-month {
-  color: #009906; }
+  color: #009906;
+  font-size: 1.8rem; }
 
 /* #bed-bath{
   margin-bottom: 0px;
@@ -400,7 +462,8 @@
       width: 80px; }
   .application-form-header .application-form-notice {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    align-items: flex-end; }
     .application-form-header .application-form-notice p {
       margin: 0; }
 
@@ -485,6 +548,16 @@
 .form-textbox {
   padding: 10px; }
 
+.reference-container {
+  font-family: "Ubuntu", sans-serif;
+  color: #4a4a4b;
+  width: 600px;
+  padding: 40px 60px 0 60px; }
+  .reference-container h4 {
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    margin-bottom: 20px; }
+
 body {
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif; }
@@ -537,19 +610,10 @@ li {
 
 .hero-content {
   display: flex;
-  align-items: center;
   flex-direction: column;
   list-style: none;
-  padding-top: 80px;
+  padding-top: 200px;
   z-index: 1; }
-  .hero-content .hero-content-item {
-    margin: 10px; }
-    .hero-content .hero-content-item .profile-img {
-      width: 200px;
-      border-radius: 50%; }
-  .hero-content h2 {
-    font-size: 40px;
-    color: #7c7878; }
 
 .hero-wrapper {
   width: 100%;
