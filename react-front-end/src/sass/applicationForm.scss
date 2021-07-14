@@ -26,7 +26,6 @@ $font-dark-grey: #574f4a;
 
     .application-form-avatar {
       width: 80px;
-
     }
   }
 
@@ -45,7 +44,7 @@ $font-dark-grey: #574f4a;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  
+
   p {
     margin: 0;
   }
@@ -55,7 +54,6 @@ $font-dark-grey: #574f4a;
   display: flex;
   width: 100%;
   flex-direction: row;
-  // justify-content: space-between;
   align-items: center;
 
   p {
@@ -64,7 +62,6 @@ $font-dark-grey: #574f4a;
 
   span {
     width: 300px;
-    // border: 1px red solid;
   }
 }
 
@@ -78,7 +75,7 @@ $font-dark-grey: #574f4a;
   justify-content: space-between;
   margin: 20px 0 40px 0;
   align-items: center;
-  
+
   p {
     text-align: center;
     padding-left: 60px;

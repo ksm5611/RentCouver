@@ -2,14 +2,13 @@ import useVisualMode from "../RefReqList/RefReqItem/useVisualMode";
 import axios from "axios";
 import ReceivedRef from "./ReceivedRef";
 import Fade from 'react-reveal/Fade';
-import { List } from '@material-ui/core';
-import { Divider } from '@material-ui/core';
 
 export default function Status({ record }) {
   const DEFAULT = "DEFAULT";
   const REQUESTED = "REQUESTED";
   const { mode, transition } = useVisualMode(DEFAULT);
 
+  // post call for reference request
   const refRequested = async (historyRecord) => {
     try {
       await axios.post(`http://localhost:8000/api/reqReference`, {

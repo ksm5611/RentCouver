@@ -1,18 +1,13 @@
 import React, { useState } from "react";
-// import { Button } from 'react-bootstrap';
-// import { Drawer } from '@material-ui/core';
-// import { makeStyles } from '@material-ui/core/styles';
 import clsx from "clsx";
-// import List from '@material-ui/core/List';
 import PriceSlider from "./PriceSlider";
-// import Divider from '@material-ui/core/Divider';
 import FilterType from "./FilterType";
 import FilterBedroom from "./FilterBedroom";
 import FilterBathroom from "./FilterBathroom";
 import FilterChecklist from "./FilterChecklist";
-import { Button, Drawer, Divider, makeStyles, List } from "@material-ui/core";
-// import './Filters.css';
+import { Drawer, Divider, makeStyles, List } from "@material-ui/core";
 
+// for the drawer
 const useStyles = makeStyles({
   root: {
     backgroundColor: "#c1b9b9",
@@ -59,7 +54,7 @@ export default function Filters(props) {
 
     setState({ ...state, [anchor]: open });
   };
-  
+
 
   // insides of the drawer
   const list = (anchor) => (
@@ -77,31 +72,20 @@ export default function Filters(props) {
             changeMaxPrice={(max) => setMaxPrice(max)}
             changeMinPrice={(min) => setMinPrice(min)}
           />
-
           <FilterType changeType={(type) => setType(type)} />
-
           <FilterBedroom changeBedroom={(bedrooms) => setBedrooms(bedrooms)} />
-
           <FilterBathroom
             changeBathroom={(bathrooms) => setBathrooms(bathrooms)}
           />
         </List>
-
         <Divider />
-
         <List>
-          <FilterChecklist /*changeCheck={(checked) => setChecked(checked)}*/ />
+          <FilterChecklist />
         </List>
-
         <div className="filter-search-btn-container">
           <button
             className="button primary-btn filter-search-btn"
-            // variant="outline-primary"
-            // value=take the child info in {}, then put this in the onClick into a setState(value)
             onClick={() => {
-              // console.log("type in Filters.js: ", type)
-              // toggleDrawer('left', false)
-              // this.setState({...state, [anchor]: false});
               props.filteredProperties(type, bedrooms, bathrooms, minPrice, maxPrice);
             }}
           >
@@ -111,14 +95,6 @@ export default function Filters(props) {
       </div>
     )
   );
-
-  // search button
-  // the search button will redirect the user to a URL which has the new params for the filter
-  //  http://localhost:8000/api/propertyLists?property_type=condo&&number_of_bedrooms=2
-  // the search URL is set in PropertyListItem.js
-  // then in the back end, access the URL through req.params
-  // then express should pass in the req.params back to the ReactJS
-  // set the values using useEffect hook to toggle the drawer and change the URL at the same time
 
   return (
     <div>

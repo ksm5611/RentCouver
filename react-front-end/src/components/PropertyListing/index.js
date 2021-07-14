@@ -4,11 +4,7 @@ import Filters from "./Filters";
 import SearchBar from "./SearchBar";
 import Googlemaps from "./Map";
 import PropertyListItem from "./PropertyListItem";
-// import "./index.css";
-import React, { memo, useCallback } from "react";
-
-// this file cannot have props because this doesn't have a parent file
-// cost_of_month_lt = lower than, gt = greater than
+import React, { useCallback } from "react";
 
 export default function PropertyListing() {
   const [properties, setProperties] = useState([]);
@@ -19,21 +15,10 @@ export default function PropertyListing() {
     number_of_bathrooms: null,
     cost_of_month_lt: null,
     cost_of_month_gt: null,
-    // air_conditioning: null,
     pets_allowed: null,
-    // parking: null
   });
 
-  // state of [filter, setFilter] will be here
-  // original state = { type: "", bedrooms: null, bathrooms: null, price: null}
-  // setFilter = original state
-  // with useState
-  // query to the back end will be here
-  // send the state [filter, setFilter] down to Filters.js and each filter
-  // Filters.js will setState and it will be sent up here
-  // http://localhost:8000/api/propertyLists?property_type=condo&&number_of_bedrooms=2
-  // http://localhost:8000/api/propertyLists?cost_of_month_lt=2000
-
+  // update filter function
   const updateFilter = (type, bedrooms, bathrooms, minPrice, maxPrice) => {
     setFilter({
       ...filter,
@@ -42,10 +27,10 @@ export default function PropertyListing() {
       number_of_bathrooms: bathrooms,
       cost_of_month_lt: maxPrice,
       cost_of_month_gt: minPrice,
-      // pets_allowed: allowed
     });
   };
 
+  // filter selections
   const query = useCallback(() => {
     let result = "";
     let propertyType = "";
@@ -66,12 +51,9 @@ export default function PropertyListing() {
     if (filter.cost_of_month_gt !== null) {
       minPrice = filter.cost_of_month_gt;
     }
-
     if (filter.cost_of_month_lt !== null) {
       maxPrice = filter.cost_of_month_lt;
     }
-
-
     if (filter.property_type === "All") {
       propertyType = "";
     }
@@ -81,33 +63,21 @@ export default function PropertyListing() {
     if (filter.number_of_bathrooms === "All") {
       numberOfBathRoom = "";
     }
-
-    // if (filter.pets_allowed) {
-
-    // }
-
-
     if (propertyType) {
       result += propertyType + "&";
     }
-
     if (numberOfBedRoom) {
       result += numberOfBedRoom + "&";
     }
-
     if (numberOfBathRoom) {
       result += numberOfBathRoom + "&";
     }
-
     if (minPrice) {
       result += minPrice + "&";
     }
-
     if (maxPrice) {
       result += maxPrice + "&";
     }
-
-    console.log("query result in /PropListing/index.js: ", result);
     return result;
   }, [
     filter.property_type,
@@ -117,13 +87,13 @@ export default function PropertyListing() {
     filter.cost_of_month_gt
   ]);
 
+  // fetch filtered data
   useEffect(() => {
     async function fetchData() {
       try {
         const result = await axios.get(
           `http://localhost:8000/api/propertyLists?${query()}`
         );
-        console.log("result.data PropListing/index.js: ", result.data);
         setProperties(result.data);
       } catch (error) {
         setError("Your server is broken");
@@ -150,7 +120,7 @@ export default function PropertyListing() {
         </div>
 
       </div>
-      <div className="just-map">
+      <div className="map-container">
         <Googlemaps />
       </div>
     </div>

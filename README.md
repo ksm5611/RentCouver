@@ -1,46 +1,50 @@
-# React + Express No-Fluff Boilerplate
+# RentCouver
 
-A boilerplate project for anyone interested in making a project that uses React and Express.
+This was a final project for the Web Development Bootcamp at Lighthouse Labs, created by [Sumin](https://github.com/ksm5611), [Sura](https://github.com/surajeon), and [Felicia](https://github.com/feliciaokta). We decided to make this app to address some of the shortcomings of common rental applications like Craigslist and Facebook Marketplace. This app is designed to streamline the entire rental application process from rental search all the way to application approval.
 
-This repository is a bootleg of @NimaBoscarino's [React Rails Boilerplate](https://github.com/NimaBoscarino/react-rails-boilerplate). It uses the same React app, but replaces the Rails server with an Express server.
+In this app, users are able to sign up as a tenant or a landlord.
 
-Note! This boilerplate has _no fluff_! That means that there's nothing set up for you to do authentication stuff, there's no Redux stuff, and there's no React Router stuff. On the Express end, there is no session storage or database connection.
+Tenants will be able to:
+- Browse property listings
+- Send application for tenancy for a specific property with pre-populated info obtained from the user profile
+- Request references from previous landlords in the app
+- Review references given by previous landlords
 
-The main important bit is that the React project has `proxy` set to `localhost:8080` in the `package.json` file, and that the Express app listens to port 8080 in `server.js`. Take a look!
+Landlords will be able to:
+- Receive tenancy application forms with tenant's basic info, tenant's rent history, and references from previous landlords
+- Receive or decline requests to write references for previous tenants, then post it to the tenant's profile
 
-You can (and perhaps should) rename the directories `express-back-end` and `react-front-end` if you want-- The name doesn't matter.
 
-## Running the projects
+## Tech Stack
 
-You need **TWO** terminal windows/tabs for this (or some other plan for running two Node processes).
+We used PostgreSQL, Express, ReactJS, and NodeJS from a template made by two of our mentors, Garrett (@garrettgsb on Slack) and Nima `nima@lighthouselabs.com`.
 
-In one terminal, `cd` into `react-front-end`. Run `npm install` or `yarn` to install the dependencies. Then run `npm start` or `yarn start`, and go to `localhost:3000` in your browser.
+The property listings page on this app uses GoogleMaps API, so you will need to obtain your own API key to make the map work.
 
-In the other terminal, `cd` into `express-back-end`. Run `npm install` or `yarn` to install the dependencies, then `npm start` or `yarn start` to launch the server.
 
-In the browser, you can click on the button and see the data get loaded.
+## Running the project
 
-If this doesn't work, please message me!
+You need **THREE** terminal windows/tabs for this (or some other plan for running two Node processes).
 
-## Next steps
+In the first terminal, create a user with a database named `rentcouver_database_dev`. Then run `psql -U [USERNAME] -d rentcouver_database_dev < ./src/sequelize/schema.sql && psql -U [USERNAME] -d rentcouver_database_dev  < ./src/sequelize/seeds.sql` to set up the Postgres database.
 
-From here, you can start working on your project!
+In the second terminal, `cd` into `express-back-end`. Run `npm install` or `yarn` to install the dependencies, then `npm start` or `yarn dev` to launch the server.
 
-As soon as the dependencies are installed, your Express server can serve JSON and static assets (like images) in response to API calls from the React app. You can get started on developing your React app, routing plan, etc. right away! Any request that isn't handled by React is passed on to the Express server. That means that you can call a route like `/api/users` from React using `fetch`, `axios`, or something else, and Express will receive it as though they originated from the same app. For routing, best practice is to namespace all of your data routes to `/api`, so that they don't clash with other routing schemes, like React Router.
+In third terminal, `cd` into `react-front-end`. Run `npm install` or `yarn` to install the dependencies. Then run `npm start` or `yarn start`, and go to `localhost:7000/home` in your browser. From there, you can start exploring our app.
 
-At some point, you'll likely want to install and configure a database driver for Postgres or MongoDB-- Refer to past projects for hints on how to do this.
 
-And don't forget to update the README!
+## Features & Screenshots
 
-## Example Projects
+!["Sign Up Page"]()
 
-You might want to look at examples of projects that have used this boilerplate for hints on how to extend it. Here are a few:
+!["Property Listings Page"]()
 
-* [Later Cart](https://github.com/bonitac/later-cart)
-* [Buddi.io](https://github.com/Danny-Tran/buddi.io)
+!["Tenant's Rent History"]()
 
-If you'd like your project added to the list, please shoot me a message.
+!["Tenant's Request for References"]()
 
-## Contact
+!["Landlord's Reference Requests"]()
 
-Please contact me on Slack (@garrettgsb) or Nima at `nima@lighthouselabs.com` if you have any questions, requests, or feedback, or post an issue to this repo. If you are using the boilerplate, I'd love to hear from you as well!
+!["Landlord Writing Reference and Submitting to Tenant's Profile"]()
+
+!["Tenant's References from Previous Landlords"]()

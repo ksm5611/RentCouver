@@ -3,16 +3,14 @@ import useVisualMode from '../RefReqList/RefReqItem/useVisualMode';
 import ApplicationReview from './ApplicationReview';
 import Fade from 'react-reveal/Fade';
 
-import {
-  Button,
-  Avatar,
-} from "@material-ui/core";
+import { Avatar } from "@material-ui/core";
 
 export default function Status({ listValue }) {
   const DEFAULT = "DEFAULT";
   const DECLINED = "DECLINED";
   const { mode, transition } = useVisualMode(DEFAULT);
 
+  // decline application (is_decline to be true)
   const declineApp = async (appID) => {
     await axios.post(`http://localhost:8000/api/appList/${appID}`);
     transition(DECLINED)
@@ -33,11 +31,11 @@ export default function Status({ listValue }) {
           listValue.is_decline === false ? (
             <>
               <Fade>
-              <ApplicationReview className="dual-buttons" tenantId={listValue.tenant_id} />
+                <ApplicationReview className="dual-buttons" tenantId={listValue.tenant_id} />
                 <button
                   className="secondary-btn button action-button dual-buttons"
                   onClick={() => { declineApp(listValue.id) }}
-                  >
+                >
                   Decline
                 </button>
               </Fade>

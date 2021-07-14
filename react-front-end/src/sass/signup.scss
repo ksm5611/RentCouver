@@ -7,9 +7,8 @@
 
   h1 {
     margin: 20px 0;
-    color: $table-font-color
+    color: $table-font-color;
   }
-
 }
 
 .form-paper {
@@ -22,18 +21,16 @@
 .form-content {
   display: flex;
   flex-direction: column;
-  
+
   .form-textbox {
     padding: 10px;
   }
-  
+
   .signup-button {
     width: 280px;
-    margin: 8px
+    margin: 8px;
   }
 }
-
-
 
 #outlined-basic {
   width: 250px;

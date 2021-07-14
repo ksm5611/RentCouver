@@ -39,13 +39,7 @@ module.exports = function (sequelize, DataTypes) {
 
     _createClass(Application, null, [{
       key: "associate",
-      value:
-      /**
-       * Helper method for defining associations.
-       * This method is not a part of Sequelize lifecycle.
-       * The `models/index` file will call this method automatically.
-       */
-      function associate(models) {
+      value: function associate(models) {
         // define association here
         this.belongsTo(models.User, {
           foreignKey: "tenant_id",

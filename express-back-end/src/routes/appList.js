@@ -2,7 +2,7 @@ import { Router } from "express";
 const router = Router();
 import { Property, Application, User } from "../db/models";
 
-//req.param will find
+
 router.get("/appList/:landlordId", async (req, res) => {
   const appList = await Application.findAll({
     where: { landlord_id: req.params.landlordId },

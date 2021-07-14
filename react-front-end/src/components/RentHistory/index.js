@@ -1,6 +1,5 @@
 import axios from "axios";
-import { useState, useEffect, Fragment } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect} from "react";
 import useToken from "../../hooks/useToken";
 import Fade from "react-reveal/Fade";
 
@@ -9,9 +8,9 @@ import RefStatus from "./RefStatus";
 export default function RentHistory() {
   const [history, setHistory] = useState([]);
   const [error, setError] = useState(false);
-
-  let { tenantId } = useParams();
   const { userId } = useToken();
+
+  // fetch user rent history
   useEffect(() => {
     async function fetchData() {
       try {

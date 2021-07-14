@@ -1,4 +1,3 @@
-import useVisualMode from "../RefReqList/RefReqItem/useVisualMode";
 import axios from "axios";
 import Fade from "react-reveal/Fade";
 
@@ -38,7 +37,6 @@ export default function ApplicationForm() {
   // modes for buttons
   const DEFAULT = "DEFAULT";
   const SENT = "SENT";
-  // const { mode, transition } = useVisualMode(DEFAULT);
   const [mode, setMode] = useState(DEFAULT);
 
   const history = useHistory();
@@ -57,7 +55,8 @@ export default function ApplicationForm() {
   useEffect(() => {
     setPotentailDate(formateDefaultDate());
   }, []);
-  //property detail에서 클릭후 url로 갈때 필요한 propertyid랑 landlordid 찾기
+  
+  // url params for rendering application form
   let { propertyId, landlordId } = useParams();
 
   useEffect(() => {
@@ -68,7 +67,6 @@ export default function ApplicationForm() {
         );
         const { RentHistories: rentHistoryData, ...userData } = result.data;
         setUser(userData);
-        console.log(result.data);
         setRentHistories(rentHistoryData);
       } catch (error) {
         setError("Your server is broken");

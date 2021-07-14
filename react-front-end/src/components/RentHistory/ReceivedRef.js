@@ -1,37 +1,7 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { Button, ListItemText } from "@material-ui/core";
-import clsx from "clsx";
-import Fade from 'react-reveal/Fade';
-import {
-  List,
-  Container,
-  ListItem,
-  makeStyles,
-  Avatar,
-} from "@material-ui/core";
-import React from "react";
+import { useState } from "react";
 import { Drawer } from "@material-ui/core";
 
-const useStyles = makeStyles({
-  list: {
-    width: 700,
-  },
-  fullList: {
-    maxWidth: 700,
-  },
-  btn: {
-    backgroundColor: "#f1a177",
-    color: "white",
-
-    "&:hover": {
-      backgroundColor: "rgb(7, 177, 77, 0.42)",
-    },
-  },
-});
-
 export default function ReceivedRef({ reference }) {
-  const classes = useStyles();
 
   // for the drawer
   const [state, setState] = useState({
@@ -73,7 +43,6 @@ export default function ReceivedRef({ reference }) {
         open={state["left"]}
         onClose={toggleDrawer("left", false)}
       >
-        {/* {list("left")} */}
         {reference}
 
       </Drawer>

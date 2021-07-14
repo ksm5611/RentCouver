@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import ApplicationForm from "./components/ApplicationForm";
 import ApplicationList from "./components/ApplicationList";
@@ -34,6 +34,13 @@ export default function App() {
           <Route path="/home">
             <Homepage />
           </Route>
+          <Route path="/property_listings">
+            <PropertyListing />
+          </Route>
+          <Route path="/property_details/:id">
+            <PropertyDetails />
+          </Route>
+          <Redirect to="/home" />
         </Switch>
       </Router>
     );

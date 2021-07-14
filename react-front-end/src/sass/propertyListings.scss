@@ -27,20 +27,12 @@
 }
 
 .prop-list-container {
-  // position: absolute;
   z-index: 1;
   width: 510px;
   height: 750px;
   overflow: auto
 }
 
-.just-map {
-  // position: absolute;
-  // right: 0;
-  // top: 56px;
-  /* padding: 5px 0 0 8px; */
-  // margin-left: 536px;
-  // width: 300px;
+.map-container {
   padding-top: 56px;
-  // margin-right: -40px;
 }

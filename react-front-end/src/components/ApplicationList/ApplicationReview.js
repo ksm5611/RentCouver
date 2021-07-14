@@ -1,14 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, ListItemText } from "@material-ui/core";
+import { ListItemText } from "@material-ui/core";
 import Fade from 'react-reveal/Fade';
 import clsx from "clsx";
 import {
   List,
-  Container,
-  ListItem,
   makeStyles,
-  Avatar,
+  Avatar
 } from "@material-ui/core";
 
 import React from "react";
@@ -108,6 +106,7 @@ export default function ApplicationReview({ tenantId }) {
     );
   };
 
+  // application review page data
   const list = (anchor) => (
     <div
       className={clsx(classes.list, {
@@ -154,7 +153,8 @@ export default function ApplicationReview({ tenantId }) {
       </div>
     </div>
   );
-
+  
+  // to prevent browser crash due to data loading time
   if (!user) {
     return <div>Loading..</div>;
   }

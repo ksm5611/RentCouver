@@ -21,7 +21,9 @@ export default function PropertyDetails() {
   const [user, setUser] = useState(null);
   const [property, setProperty] = useState(null);
 
+  // url param to set user and property data
   let { id } = useParams();
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -29,7 +31,6 @@ export default function PropertyDetails() {
           `http://localhost:8000/api/properties/${id}`
         );
         const { User: userData, ...propertyData } = result.data;
-        console.log(result.data);
         setUser(userData);
         setProperty(propertyData);
       } catch (error) {
@@ -39,6 +40,7 @@ export default function PropertyDetails() {
     fetchData();
   }, [id]);
 
+  // to prevent browser crash due to data loading time
   if (!user || !property) {
     return <div>Loading...</div>;
   }
@@ -61,7 +63,7 @@ export default function PropertyDetails() {
                 <img
                   className="landlord-img"
                   alt="landlord-img"
-                  src="https://cad.gov.jm/wp-content/uploads/2017/10/img_avatar2.png"
+                  src={user.profile_picture_url}
                 />
                 <h3>{user.name}</h3>
               </List.Item>

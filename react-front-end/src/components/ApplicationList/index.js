@@ -9,6 +9,7 @@ export default function ApplicationList() {
   const [error, setError] = useState("");
   const { userId } = useToken();
 
+  // fetching application list
   useEffect(() => {
     async function fetchData() {
       try {

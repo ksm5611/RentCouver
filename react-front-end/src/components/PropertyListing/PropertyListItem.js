@@ -1,12 +1,7 @@
 import { Fragment } from "react";
 import { Card } from "react-bootstrap";
-// import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom"
-import {
-  Button,
-  makeStyles
-} from "@material-ui/core";
-// import "./PropertyListItem.css";
+import { makeStyles } from "@material-ui/core";
 
 
 const useStyles = makeStyles({
@@ -19,15 +14,12 @@ const useStyles = makeStyles({
     flexDirection: "row",
     marginBottom: 16
   },
-
 });
-
 
 export default function PropertyListItem({ properties }) {
   const propertyValues = ["cost_of_month", "listed_start_date"];
 
   const classes = useStyles();
-
 
   const renderPropertyCard = (property) => {
     return (

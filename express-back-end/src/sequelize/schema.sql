@@ -7,9 +7,6 @@ DROP TABLE IF EXISTS applications CASCADE;
 DROP TABLE IF EXISTS ref_requests CASCADE;
 
 
--- 회원가입시 application에 연동하기 생각해보기?
--- is landlord==체크박스 만들기?
-
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,

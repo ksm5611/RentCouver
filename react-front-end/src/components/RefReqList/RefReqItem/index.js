@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import Status from "./Status";
 import { Fragment } from "react";
 import useToken from "../../../hooks/useToken";
-import "../../../App.css";
 
 export default function RefReqItem() {
   const [refRequests, setReferenceReqeust] = useState([]);
@@ -11,6 +10,7 @@ export default function RefReqItem() {
 
   const { userId } = useToken();
 
+  // fetch references for the rent history page
   useEffect(() => {
     async function fetchData() {
       try {

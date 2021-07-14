@@ -1,8 +1,7 @@
-import React from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
-// import './PriceSlider.css';
 
 const useStyles = makeStyles({
   root: {
@@ -23,14 +22,13 @@ function valuetext(value) {
 
 export default function RangeSlider(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState([800, 3000]);
+  const [value, setValue] = useState([800, 3000]);
 
   // this is to allow you to drag the slider values
-  const handleChange = (event, newValue) => {
+  const handleChange = (newValue) => {
     setValue(newValue);
   };
 
-  
 
   return (
     <div id="price-slider" className={classes.root}>

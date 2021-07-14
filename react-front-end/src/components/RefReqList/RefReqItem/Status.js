@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Fade from 'react-reveal/Fade';
 import { Avatar } from "@material-ui/core";
 
-export default function Status({ refReqeust, refReqeustId }) {
+export default function Status({ refReqeust }) {
   const [message, setMessge] = useState("");
   const DEFAULT = "DEFAULT";
   const FORM = "FORM";
@@ -12,6 +12,7 @@ export default function Status({ refReqeust, refReqeustId }) {
   const SENT = "SENT";
   const { mode, transition, back } = useVisualMode(DEFAULT);
 
+  // decline request function
   const declineReq = async (renthistoriesId) => {
     await axios.post(
       `http://localhost:8000/api/declineRefReq/${renthistoriesId}`
@@ -25,6 +26,7 @@ export default function Status({ refReqeust, refReqeustId }) {
     }
   }, [refReqeust, refReqeust.is_updated, transition]);
 
+  // sending reference call
   const messageSubmit = async () => {
     await axios.post(
       `http://localhost:8000/api/refRequest/${refReqeust.renthistories_id}`,
@@ -51,21 +53,21 @@ export default function Status({ refReqeust, refReqeustId }) {
           (refReqeust.is_decline === false ? (
             <>
               <Fade>
-              <button
-                className="primary-btn button action-button dual-buttons"
-                onClick={() => transition(FORM)}
-              >
-                Write Reference
+                <button
+                  className="primary-btn button action-button dual-buttons"
+                  onClick={() => transition(FORM)}
+                >
+                  Write Reference
               </button>
               </Fade>
               <Fade>
-              <button
-                className="secondary-btn button action-button dual-buttons"
-                onClick={() => {
-                  declineReq(refReqeust.renthistories_id);
-                }}
-              >
-                Decline
+                <button
+                  className="secondary-btn button action-button dual-buttons"
+                  onClick={() => {
+                    declineReq(refReqeust.renthistories_id);
+                  }}
+                >
+                  Decline
               </button>
               </Fade>
             </>
@@ -77,22 +79,21 @@ export default function Status({ refReqeust, refReqeustId }) {
           (refReqeust.is_updated === false ? (
             <>
               <Fade>
-              <button
-                className="primary-btn button action-button dual-buttons"
-                onClick={() => {
-                  console.log("application", refReqeust);
-                  messageSubmit(refReqeust.renthistories_id);
-                }}
-              >
-                Submit
+                <button
+                  className="primary-btn button action-button dual-buttons"
+                  onClick={() => {
+                    messageSubmit(refReqeust.renthistories_id);
+                  }}
+                >
+                  Submit
               </button>
               </Fade>
               <Fade>
-              <button
-                className="secondary-btn button action-button dual-buttons"
-                onClick={() => back()}
-              >
-                Cancel
+                <button
+                  className="secondary-btn button action-button dual-buttons"
+                  onClick={() => back()}
+                >
+                  Cancel
               </button>
               </Fade>
               <form className="seperator">

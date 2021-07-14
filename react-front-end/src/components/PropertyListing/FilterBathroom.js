@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -19,19 +19,20 @@ const useStyles = makeStyles({
 export default function FilterBathroom(props) {
   const classes = useStyles();
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
+  // click function
   const handleClick = () => {
     setOpen(!open);
   };
 
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
-
-  const handleListItemClick = (event, index) => {
+  const handleListItemClick = (index) => {
     setSelectedIndex(index);
   };
 
   const selectionArr = ["All", "1", "2", "3", "4+"];
+
   return (
     <>
       <ListItem button onClick={handleClick}>
