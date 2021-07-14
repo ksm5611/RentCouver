@@ -26,7 +26,7 @@ The property listings page on this app uses GoogleMaps API, so you will need to 
 
 You need **THREE** terminal windows/tabs for this (or some other plan for running two Node processes).
 
-In the first terminal, run `psql -U development -d rentcouver_database_dev < ./src/sequelize/schema.sql && psql -U development -d rentcouver_database_dev  < ./src/sequelize/seeds.sql` to set up the Postgres database.
+In the first terminal, create a user with a database named `rentcouver_database_dev`. Then run `psql -U [USERNAME] -d rentcouver_database_dev < ./src/sequelize/schema.sql && psql -U [USERNAME] -d rentcouver_database_dev  < ./src/sequelize/seeds.sql` to set up the Postgres database.
 
 In the second terminal, `cd` into `express-back-end`. Run `npm install` or `yarn` to install the dependencies, then `npm start` or `yarn dev` to launch the server.
 
@@ -35,11 +35,16 @@ In third terminal, `cd` into `react-front-end`. Run `npm install` or `yarn` to i
 
 ## Features & Screenshots
 
-Property Listings Page
+!["Sign Up Page"]()
 
-Tenant's Rent History
+!["Property Listings Page"]()
 
-Tenant's Request for References
+!["Tenant's Rent History"]()
 
-Tenant's References from Landlords
+!["Tenant's Request for References"]()
 
+!["Landlord's Reference Requests"]()
+
+!["Landlord Writing Reference and Submitting to Tenant's Profile"]()
+
+!["Tenant's References from Previous Landlords"]()
