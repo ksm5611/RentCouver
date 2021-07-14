@@ -8,9 +8,7 @@ export default function Homepage() {
       <div>
         <Fade top>
           <div>
-
-      <SearchBar />
-
+            <SearchBar />
           </div>
         </Fade>
       </div>

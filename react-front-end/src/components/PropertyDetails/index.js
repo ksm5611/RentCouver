@@ -21,7 +21,9 @@ export default function PropertyDetails() {
   const [user, setUser] = useState(null);
   const [property, setProperty] = useState(null);
 
+  // url param to set user and property data
   let { id } = useParams();
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -38,6 +40,7 @@ export default function PropertyDetails() {
     fetchData();
   }, [id]);
 
+  // to prevent browser crash due to data loading time
   if (!user || !property) {
     return <div>Loading...</div>;
   }

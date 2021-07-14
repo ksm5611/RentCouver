@@ -20,16 +20,14 @@ const useStyles = makeStyles({
 export default function FilterType (props) {
 
   const classes = useStyles();
-
   const [open, setOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   
   const handleClick = () => {
     setOpen(!open);
   };
 
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const handleListItemClick = (event, index) => {
+  const handleListItemClick = (index) => {
     setSelectedIndex(index);
   };
 

@@ -82,7 +82,6 @@ export default function Navigation() {
                   className="profile-tab basic-nav-dropdown"
                   title="Profile"
                 >
-                  {/* <Fade> */}
                   <NavDropdown.Item
                     as={Link}
                     className="dropdown-item"

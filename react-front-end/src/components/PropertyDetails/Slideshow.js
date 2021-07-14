@@ -8,6 +8,7 @@ const Slideshow = () => {
   const [property, setProperty] = useState(null);
   const [photos, setPhotos] = useState(null);
 
+  // url param to set property and property-image data
   let { id } = useParams();
   useEffect(() => {
     async function fetchData() {
@@ -25,6 +26,7 @@ const Slideshow = () => {
     fetchData();
   }, [id]);
 
+  // to prevent browser crash due to data loading time
   if (!property || !photos) {
     return <div>Loading...</div>;
   }

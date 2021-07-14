@@ -1,25 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-// import "./signup.css";
-import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import LandlordDropdown from "./LandlordDropdown";
-
-// for the form styling
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    '& > *': {
-      margin: theme.spacing(1),
-      width: theme.spacing(16),
-      height: theme.spacing(16),
-    },
-  },
-}));
-
 
 export default function Signup() {
   const [name, setName] = useState();
@@ -30,7 +14,6 @@ export default function Signup() {
   const [annualIncome, setAnnualIncome] = useState();
   const [isLandlord, setIsLandlord] = useState(false);
   const history = useHistory();
-  const classes = useStyles();
 
   
   const signUpUser = async () => {
@@ -59,12 +42,6 @@ export default function Signup() {
     });
     history.push("/login");
   };
-  
-  // dropdown "Are you a landlord?"
-  // const handleChange = (event) => {
-  //   setAge(event.target.value);
-  // };
-  // maybe we don't need this because we already have setIsLandlord
 
   return (
     <div className="signup-wrapper">

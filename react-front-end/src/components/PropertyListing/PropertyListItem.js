@@ -14,15 +14,12 @@ const useStyles = makeStyles({
     flexDirection: "row",
     marginBottom: 16
   },
-
 });
-
 
 export default function PropertyListItem({ properties }) {
   const propertyValues = ["cost_of_month", "listed_start_date"];
 
   const classes = useStyles();
-
 
   const renderPropertyCard = (property) => {
     return (

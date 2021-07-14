@@ -1,5 +1,4 @@
 import RefReqItem from "./RefReqItem/index";
-import "../../App.css";
 import Fade from 'react-reveal/Fade';
 
 export default function ReqRefList() {

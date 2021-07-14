@@ -3,14 +3,12 @@ import { useEffect, useState } from "react";
 import Status from "./Status";
 import { Fragment } from "react";
 import useToken from "../../../hooks/useToken";
-import "../../../App.css";
 
 export default function RefReqItem() {
   const [refRequests, setReferenceReqeust] = useState([]);
   const [error, setError] = useState("");
 
   const { userId } = useToken();
-
 
   // fetch references for the rent history page
   useEffect(() => {

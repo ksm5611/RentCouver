@@ -51,11 +51,9 @@ export default function PropertyListing() {
     if (filter.cost_of_month_gt !== null) {
       minPrice = filter.cost_of_month_gt;
     }
-
     if (filter.cost_of_month_lt !== null) {
       maxPrice = filter.cost_of_month_lt;
     }
-
     if (filter.property_type === "All") {
       propertyType = "";
     }
@@ -65,23 +63,18 @@ export default function PropertyListing() {
     if (filter.number_of_bathrooms === "All") {
       numberOfBathRoom = "";
     }
-
     if (propertyType) {
       result += propertyType + "&";
     }
-
     if (numberOfBedRoom) {
       result += numberOfBedRoom + "&";
     }
-
     if (numberOfBathRoom) {
       result += numberOfBathRoom + "&";
     }
-
     if (minPrice) {
       result += minPrice + "&";
     }
-
     if (maxPrice) {
       result += maxPrice + "&";
     }

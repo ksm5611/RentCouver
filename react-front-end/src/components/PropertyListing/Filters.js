@@ -54,7 +54,7 @@ export default function Filters(props) {
 
     setState({ ...state, [anchor]: open });
   };
-  
+
 
   // insides of the drawer
   const list = (anchor) => (
@@ -72,31 +72,20 @@ export default function Filters(props) {
             changeMaxPrice={(max) => setMaxPrice(max)}
             changeMinPrice={(min) => setMinPrice(min)}
           />
-
           <FilterType changeType={(type) => setType(type)} />
-
           <FilterBedroom changeBedroom={(bedrooms) => setBedrooms(bedrooms)} />
-
           <FilterBathroom
             changeBathroom={(bathrooms) => setBathrooms(bathrooms)}
           />
         </List>
-
         <Divider />
-
         <List>
-          <FilterChecklist /*changeCheck={(checked) => setChecked(checked)}*/ />
+          <FilterChecklist />
         </List>
-
         <div className="filter-search-btn-container">
           <button
             className="button primary-btn filter-search-btn"
-            // variant="outline-primary"
-            // value=take the child info in {}, then put this in the onClick into a setState(value)
             onClick={() => {
-              // tried to close drawer onClick of Search button, didn't work
-              // toggleDrawer('left', false)
-              // this.setState({...state, [anchor]: false});
               props.filteredProperties(type, bedrooms, bathrooms, minPrice, maxPrice);
             }}
           >
@@ -106,14 +95,6 @@ export default function Filters(props) {
       </div>
     )
   );
-
-  // search button
-  // the search button will redirect the user to a URL which has the new params for the filter
-  //  http://localhost:8000/api/propertyLists?property_type=condo&&number_of_bedrooms=2
-  // the search URL is set in PropertyListItem.js
-  // then in the back end, access the URL through req.params
-  // then express should pass in the req.params back to the ReactJS
-  // set the values using useEffect hook to toggle the drawer and change the URL at the same time
 
   return (
     <div>
