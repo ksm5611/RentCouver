@@ -24,13 +24,11 @@ The property listings page on this app uses GoogleMaps API, so you will need to 
 
 ## Running the project
 
-You need **THREE** terminal windows/tabs for this (or some other plan for running two Node processes).
+You need **TWO** terminal windows/tabs for this (or some other plan for running two Node processes).
 
-In the first terminal, create a user with a database named `rentcouver_database_dev`. Then run `psql -U [USERNAME] -d rentcouver_database_dev < ./src/sequelize/schema.sql && psql -U [USERNAME] -d rentcouver_database_dev  < ./src/sequelize/seeds.sql` to set up the Postgres database.
+In the first terminal, `cd` into `express-back-end`. Run `npm install` or `yarn` to install the dependencies, then `npm start` or `yarn dev` to launch the server. Then, create a user with a database named `rentcouver_database_dev`. Run `psql -U [USERNAME] -d rentcouver_database_dev < ./src/sequelize/schema.sql && psql -U [USERNAME] -d rentcouver_database_dev  < ./src/sequelize/seeds.sql` to set up the Postgres database.
 
-In the second terminal, `cd` into `express-back-end`. Run `npm install` or `yarn` to install the dependencies, then `npm start` or `yarn dev` to launch the server.
-
-In third terminal, `cd` into `react-front-end`. Run `npm install` or `yarn` to install the dependencies. Then run `npm start` or `yarn start`, and go to `localhost:7000/home` in your browser. From there, you can start exploring our app.
+In the second terminal, `cd` into `react-front-end`. Run `npm install` or `yarn` to install the dependencies. Then run `npm start` or `yarn start`, and go to `localhost:7000/home` in your browser. From there, you can start exploring our app.
 
 
 ## Features & Screenshots
