@@ -45,7 +45,7 @@ In third terminal, `cd` into `react-front-end`. Run `npm install` or `yarn` to i
 
 !["Landlord's Reference Requests"](https://github.com/ksm5611/RentCouver/blob/master/ReadmeScreenshots/MiniMouseReferenceReceived.png)
 
-!["Landlord Writing Reference and Submitting to Tenant's Profile"]()
+!["Landlord Writing Reference and Submitting to Tenant's Profile"](https://github.com/ksm5611/RentCouver/blob/master/ReadmeScreenshots/MiniMouseWriteReference.png)
 
 !["Tenant's References from Previous Landlords"](https://github.com/ksm5611/RentCouver/blob/master/ReadmeScreenshots/EggEggersonReceivedReference.png)
 
