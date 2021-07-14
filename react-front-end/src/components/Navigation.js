@@ -1,4 +1,4 @@
-// import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+
 import "../App.css";
 import "rsuite/dist/styles/rsuite-default.css";
 import { Navbar } from "rsuite";
@@ -31,7 +31,7 @@ export default function Navigation() {
     <div className="nav-container">
       <Navbar className="nav-wrapper">
         <Navbar.Header className="nav-logo">
-          <Link as={Link} to="/" className="navbar-brand logo">
+          <Link as={Link} to="/home" className="navbar-brand logo">
             RentCouver
           </Link>
         </Navbar.Header>

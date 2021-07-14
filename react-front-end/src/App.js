@@ -34,6 +34,12 @@ export default function App() {
           <Route path="/home">
             <Homepage />
           </Route>
+          <Route path="/property_listings">
+            <PropertyListing />
+          </Route>
+          <Route path="/property_details/:id">
+            <PropertyDetails />
+          </Route>
         </Switch>
       </Router>
     );

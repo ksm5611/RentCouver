@@ -31,10 +31,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 _dotenv["default"].config();
 
 var App = (0, _express["default"])();
-var PORT = process.env.PORT; // const corsOptions = {
-//   origin: "http://localhost:8081",
-// };
-
+var PORT = process.env.PORT;
 App.use((0, _cors["default"])()); // Express Configuration
 
 App.use(_bodyParser["default"].urlencoded({

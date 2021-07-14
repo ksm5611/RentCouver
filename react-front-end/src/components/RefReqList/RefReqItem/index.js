@@ -11,6 +11,8 @@ export default function RefReqItem() {
 
   const { userId } = useToken();
 
+
+  // fetch references for the rent history page
   useEffect(() => {
     async function fetchData() {
       try {

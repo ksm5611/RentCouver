@@ -31,21 +31,6 @@ export default function SearchBar() {
 
   return (
     <div style={{ width: 300 }}>
-      {/* <Autocomplete
-        freeSolo
-        id="free-solo-2-demo"
-        disableClearable
-        options={properties.map((option) => option.title)}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            label="Search properties"
-            margin="normal"
-            variant="outlined"
-            InputProps={{ ...params.InputProps, type: 'search' }}
-          />
-        )}
-      /> */}
       <div className="porp-list-header">
         <Paper component="form" className={classes.root}>
           <InputBase
@@ -61,15 +46,3 @@ export default function SearchBar() {
   );
 }
 
-const properties = [ 
-  // { title: 'Arbutus Nook' },
-  // { title: 'Little Mountain Living'},
-  // { title: 'Oakridge Hideaway'},
-  // { title: 'Marble Mansion' },
-  // { title: 'Primo Valentino' },
-  // { title: 'Anchor Point' },
-  // { title: 'Corner Condo' },
-  // { title: 'Sparkler Parker' },
-  // { title: 'Kingsway Family Condo' },
-  // { title: 'Kensington Palace' }
-]

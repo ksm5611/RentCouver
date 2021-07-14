@@ -14,7 +14,7 @@ export default function User() {
           <div className="user-page-container">
             <UserInfo />
             <div className="recent-view-container">
-              <div className="view-title"><h5>Recently viewed properties</h5></div>
+              <div className="view-title"><p>Recently viewed properties</p></div>
               <RecentView />
             </div>
           </div>

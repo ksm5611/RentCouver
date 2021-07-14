@@ -1,18 +1,13 @@
 import React, { useState } from "react";
-// import { Button } from 'react-bootstrap';
-// import { Drawer } from '@material-ui/core';
-// import { makeStyles } from '@material-ui/core/styles';
 import clsx from "clsx";
-// import List from '@material-ui/core/List';
 import PriceSlider from "./PriceSlider";
-// import Divider from '@material-ui/core/Divider';
 import FilterType from "./FilterType";
 import FilterBedroom from "./FilterBedroom";
 import FilterBathroom from "./FilterBathroom";
 import FilterChecklist from "./FilterChecklist";
-import { Button, Drawer, Divider, makeStyles, List } from "@material-ui/core";
-// import './Filters.css';
+import { Drawer, Divider, makeStyles, List } from "@material-ui/core";
 
+// for the drawer
 const useStyles = makeStyles({
   root: {
     backgroundColor: "#c1b9b9",
@@ -99,7 +94,7 @@ export default function Filters(props) {
             // variant="outline-primary"
             // value=take the child info in {}, then put this in the onClick into a setState(value)
             onClick={() => {
-              // console.log("type in Filters.js: ", type)
+              // tried to close drawer onClick of Search button, didn't work
               // toggleDrawer('left', false)
               // this.setState({...state, [anchor]: false});
               props.filteredProperties(type, bedrooms, bathrooms, minPrice, maxPrice);

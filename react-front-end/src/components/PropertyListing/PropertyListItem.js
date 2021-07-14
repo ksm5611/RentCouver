@@ -1,12 +1,7 @@
 import { Fragment } from "react";
 import { Card } from "react-bootstrap";
-// import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom"
-import {
-  Button,
-  makeStyles
-} from "@material-ui/core";
-// import "./PropertyListItem.css";
+import { makeStyles } from "@material-ui/core";
 
 
 const useStyles = makeStyles({

@@ -4,6 +4,7 @@ const router = Router();
 import { Property, Photo } from "../db/models";
 
 router.get("/propertyLists", async (req, res) => {
+  //query for filter 
   const where = {};
   if (req.query) {
     if (req.query.property_type) {

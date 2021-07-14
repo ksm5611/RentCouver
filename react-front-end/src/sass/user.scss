@@ -1,8 +1,4 @@
-/* UserpageHeroContent.js */
-
-/* User.js (index.js) */
 .hero-content-item {
-  // width: 1200px;
   font-family: $main-font;
   height: auto;
   display: flex;
@@ -17,7 +13,6 @@
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    // border: 1px solid $dark-grey;
     box-shadow: 2px 2px 8px 0.1px #c2c2c2;
     overflow: hidden;
     position: relative;
@@ -36,17 +31,13 @@
 .about-me {
   height: 200px;
   background-color: #fff;
-  // border: 1px red solid;
 }
 
 .user-page-wrapper {
-  // background-color: $background-color;
   padding: 160px;
   margin: 0 auto;
   display: flex;
   position: relative;
-
-  /* RecentView.js */
 }
 
 .user-page-container {
@@ -55,7 +46,6 @@
   background-color: $off-white-blue;
   padding: 60px 80px;
   border-radius: 2px;
-  // width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -67,13 +57,10 @@
   background-color: $dark-grey;
   display: flex;
   align-items: center;
-  justify-content: center;
-  h5 {
+  padding-left: 20px;
+  p {
     color: #fff;
-    text-align: center;
     margin: 0;
-    // border-bottom: 2px solid $dark-grey;
-    // padding-bottom: 20px;
   }
 }
 
@@ -87,8 +74,6 @@
   margin-top: 40px;
   width: 492px;
 }
-
-/* UserInfo.js */
 
 .user-info-wrapper {
   position: relative;

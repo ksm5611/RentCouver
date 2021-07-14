@@ -29,6 +29,7 @@ router.get("/propertyLists", /*#__PURE__*/function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
+            //query for filter 
             where = {};
 
             if (req.query) {

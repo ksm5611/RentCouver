@@ -14,7 +14,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 var router = (0, _express.Router)();
-//req.param will find
 router.get("/refRequest/:landlordId", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(req, res) {
     var refRequest;
@@ -169,7 +168,7 @@ router.post("/refRequest/:renthistoriesId", /*#__PURE__*/function () {
   return function (_x5, _x6) {
     return _ref3.apply(this, arguments);
   };
-}()); //decline request form call
+}()); //decline application List part
 
 router.post("/appList/:renthistoriesId", /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(req, res) {
@@ -202,7 +201,7 @@ router.post("/appList/:renthistoriesId", /*#__PURE__*/function () {
   return function (_x7, _x8) {
     return _ref4.apply(this, arguments);
   };
-}()); //decline request form call
+}()); //decline reference request part
 
 router.post("/declineRefReq/:renthistoriesId", /*#__PURE__*/function () {
   var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(req, res) {

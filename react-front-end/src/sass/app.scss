@@ -46,19 +46,12 @@ li {
   width: $wrapper-width;
 }
 
+// button styles
+
 .button {
   padding: 8px 32px;
   border-radius: 4px;
-  // background-color: $light-orange;
   background-color: white;
-  // border: 1px solid $primary-btn-color
-
-  // &:focus, &:after, &:visited{
-  //   padding: 8px 32px;
-  // border-radius: 2px;
-  // background-color: $light-orange;
-  // border: 1px solid red;
-  // }
 }
 
 .primary-btn {
@@ -83,6 +76,8 @@ li {
   }
 }
 
+// hero-container for user page
+
 .hero-container {
   padding-top: 80px;
   font-family: $name-font;
@@ -95,7 +90,6 @@ li {
 }
 .hero-content {
   display: flex;
-  // align-items: center;
   flex-direction: column;
   list-style: none;
   padding-top: 200px;
