@@ -35,16 +35,18 @@ In third terminal, `cd` into `react-front-end`. Run `npm install` or `yarn` to i
 
 ## Features & Screenshots
 
-!["Sign Up Page"]()
+!["Sign Up Page"](https://github.com/ksm5611/RentCouver/blob/master/ReadmeScreenshots/SignUp.png)
 
-!["Property Listings Page"]()
+!["Property Listings Page"](https://github.com/ksm5611/RentCouver/blob/master/ReadmeScreenshots/PropertyListing.png)
 
-!["Tenant's Rent History"]()
+!["Tenant's Rent History"](https://github.com/ksm5611/RentCouver/blob/master/ReadmeScreenshots/HokeyPokeyRentHistory.png)
 
-!["Tenant's Request for References"]()
+!["Tenant's Request for References"](https://github.com/ksm5611/RentCouver/blob/master/ReadmeScreenshots/EggEggersonReferenceRequested.png)
 
-!["Landlord's Reference Requests"]()
+!["Landlord's Reference Requests"](https://github.com/ksm5611/RentCouver/blob/master/ReadmeScreenshots/MiniMouseReferenceReceived.png)
 
 !["Landlord Writing Reference and Submitting to Tenant's Profile"]()
 
-!["Tenant's References from Previous Landlords"]()
+!["Tenant's References from Previous Landlords"](https://github.com/ksm5611/RentCouver/blob/master/ReadmeScreenshots/EggEggersonReceivedReference.png)
+
+!["Tenant's References in Detail"](https://github.com/ksm5611/RentCouver/blob/master/ReadmeScreenshots/EggEggersonReadReference.png)
