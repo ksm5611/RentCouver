@@ -33,6 +33,9 @@ In the second terminal, `cd` into `react-front-end`. Run `npm install` or `yarn`
 
 ## Features & Screenshots
 
+ERD
+!["ERD"](https://github.com/ksm5611/RentCouver/blob/master/ReadmeScreenshots/ERD.png)
+
 Sign Up Page
 !["Sign Up Page"](https://github.com/ksm5611/RentCouver/blob/master/ReadmeScreenshots/SignUp.png)
 
