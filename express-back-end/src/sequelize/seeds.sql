@@ -56,26 +56,26 @@ INSERT INTO photos (property_id, photo_url) VALUES (17, 'https://images.unsplash
 INSERT INTO photos (property_id, photo_url) VALUES (18, 'https://images.unsplash.com/photo-1560448075-cbc16bb4af8e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
 
 
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 17, '2017-01-01', '2017-12-31', null, false, false);
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 5, '2018-01-01', '2018-12-31', null, false, false);
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (10, 7, '2019-01-01', '2019-12-31', null, false, false);
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (11, 8, '2020-01-01', '2020-12-31', 'This tenant is quiet, respectful, pays rent on time, and a pleasure to deal with. He does not party and does not smoke. Takes good care of our property and left it in good condition.', true, false);
-INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_decline) VALUES (11, 3, '2021-01-01', '2021-05-31', 'This tenant often pays rent late and comes up with excuses to delay paying rent. Although he does not smoke, this tenant left several furnitures for us to dispose of and did not tell us that he broke the kitchen countertop.', true, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_declined) VALUES (10, 17, '2017-01-01', '2017-12-31', null, false, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_declined) VALUES (10, 5, '2018-01-01', '2018-12-31', null, false, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_declined) VALUES (10, 7, '2019-01-01', '2019-12-31', null, false, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_declined) VALUES (11, 8, '2020-01-01', '2020-12-31', 'This tenant is quiet, respectful, pays rent on time, and a pleasure to deal with. He does not party and does not smoke. Takes good care of our property and left it in good condition.', true, false);
+INSERT INTO rentHistories (tenant_id, property_id, start_date, end_date, review_content, is_requested, is_declined) VALUES (11, 3, '2021-01-01', '2021-05-31', 'This tenant often pays rent late and comes up with excuses to delay paying rent. Although he does not smoke, this tenant left several furnitures for us to dispose of and did not tell us that he broke the kitchen countertop.', true, false);
 
 
 
--- unused table
-INSERT INTO refs (tenant_id, landlord_id) VALUES (10, 4);
-INSERT INTO refs (tenant_id, landlord_id) VALUES (10, 2);
-INSERT INTO refs (tenant_id, landlord_id) VALUES (10, 5);
-INSERT INTO refs (tenant_id, landlord_id) VALUES (10, 7);
-INSERT INTO refs (tenant_id, landlord_id) VALUES (10, 6);
+-- -- unused table
+-- INSERT INTO refs (tenant_id, landlord_id) VALUES (10, 4);
+-- INSERT INTO refs (tenant_id, landlord_id) VALUES (10, 2);
+-- INSERT INTO refs (tenant_id, landlord_id) VALUES (10, 5);
+-- INSERT INTO refs (tenant_id, landlord_id) VALUES (10, 7);
+-- INSERT INTO refs (tenant_id, landlord_id) VALUES (10, 6);
 
 
 
 -- actual application form part
-INSERT INTO applications (renthistories_id, tenant_id, landlord_id, property_id, potential_move_in_date, is_decline) VALUES (5, 11, 7, 16, '2021-07-01', false);
-INSERT INTO applications (renthistories_id, tenant_id, landlord_id, property_id, potential_move_in_date, is_decline) VALUES (5, 11, 6, 3, '2021-07-01', false);
+INSERT INTO applications (renthistories_id, tenant_id, landlord_id, property_id, potential_move_in_date, is_declined) VALUES (5, 11, 7, 16, '2021-07-01', false);
+INSERT INTO applications (renthistories_id, tenant_id, landlord_id, property_id, potential_move_in_date, is_declined) VALUES (5, 11, 6, 3, '2021-07-01', false);
 
 
 

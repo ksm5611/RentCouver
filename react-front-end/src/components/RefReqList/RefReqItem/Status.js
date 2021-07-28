@@ -1,7 +1,7 @@
 import useVisualMode from "./useVisualMode";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Fade from 'react-reveal/Fade';
+import Fade from "react-reveal/Fade";
 import { Avatar } from "@material-ui/core";
 
 export default function Status({ refReqeust }) {
@@ -41,7 +41,9 @@ export default function Status({ refReqeust }) {
   return (
     <tr className="tr-reference">
       <Fade>
-        <td><Avatar src={refReqeust.RentHistory.User.profile_picture_url} /></td>
+        <td>
+          <Avatar src={refReqeust.RentHistory.User.profile_picture_url} />
+        </td>
         <td>{refReqeust.RentHistory.User.name}</td>
         <td>{refReqeust.RentHistory.Property.street}</td>
         <td>{refReqeust.RentHistory.Property.city}</td>
@@ -50,7 +52,7 @@ export default function Status({ refReqeust }) {
       </Fade>
       <td className="reference-th-button">
         {mode === DEFAULT &&
-          (refReqeust.is_decline === false ? (
+          (refReqeust.is_declined === false ? (
             <>
               <Fade>
                 <button
@@ -58,7 +60,7 @@ export default function Status({ refReqeust }) {
                   onClick={() => transition(FORM)}
                 >
                   Write Reference
-              </button>
+                </button>
               </Fade>
               <Fade>
                 <button
@@ -68,7 +70,7 @@ export default function Status({ refReqeust }) {
                   }}
                 >
                   Decline
-              </button>
+                </button>
               </Fade>
             </>
           ) : (
@@ -86,7 +88,7 @@ export default function Status({ refReqeust }) {
                   }}
                 >
                   Submit
-              </button>
+                </button>
               </Fade>
               <Fade>
                 <button
@@ -94,7 +96,7 @@ export default function Status({ refReqeust }) {
                   onClick={() => back()}
                 >
                   Cancel
-              </button>
+                </button>
               </Fade>
               <form className="seperator">
                 <textarea
@@ -106,11 +108,14 @@ export default function Status({ refReqeust }) {
               </form>
             </>
           ) : (
-            <Fade><p>{SENT}</p></Fade>
-          ))
-        }
+            <Fade>
+              <p>{SENT}</p>
+            </Fade>
+          ))}
         {mode === SENT && (
-          <Fade><p>{SENT}</p></Fade>
+          <Fade>
+            <p>{SENT}</p>
+          </Fade>
         )}
       </td>
     </tr>

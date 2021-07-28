@@ -2,7 +2,6 @@ import { Router } from "express";
 const router = Router();
 import { Property, Application, User } from "../db/models";
 
-
 router.get("/appList/:landlordId", async (req, res) => {
   const appList = await Application.findAll({
     where: { landlord_id: req.params.landlordId },
@@ -48,7 +47,7 @@ router.get("/appList/:landlordId", async (req, res) => {
 router.post("/appList/:applicationId", async (req, res) => {
   const appList = await Application.update(
     {
-      is_decline: true,
+      is_declined: true,
     },
     {
       where: { id: req.params.applicationId },

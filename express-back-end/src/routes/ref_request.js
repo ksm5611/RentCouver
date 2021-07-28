@@ -2,7 +2,6 @@ import { Router } from "express";
 const router = Router();
 import { Ref_request, RentHistory, Property, User } from "../db/models";
 
-
 router.get("/refRequest/:landlordId", async (req, res) => {
   const refRequest = await Ref_request.findAll({
     where: { landlord_id: req.params.landlordId },
@@ -80,7 +79,7 @@ router.post("/refRequest/:renthistoriesId", async (req, res) => {
 router.post("/appList/:renthistoriesId", async (req, res) => {
   const appList = await Ref_request.update(
     {
-      is_decline: true,
+      is_declined: true,
     },
     {
       where: { renthistories_id: req.params.renthistoriesId },
@@ -93,7 +92,7 @@ router.post("/appList/:renthistoriesId", async (req, res) => {
 router.post("/declineRefReq/:renthistoriesId", async (req, res) => {
   const declineRefReq = await Ref_request.update(
     {
-      is_decline: true,
+      is_declined: true,
     },
     {
       where: { renthistories_id: req.params.renthistoriesId },

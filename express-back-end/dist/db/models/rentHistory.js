@@ -92,7 +92,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
-    is_decline: {
+    is_declined: {
       type: DataTypes.BOOLEAN,
       allowNull: false
     }

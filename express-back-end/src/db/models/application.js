@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         allowNull: true,
       },
-      is_decline: {
+      is_declined: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: false,

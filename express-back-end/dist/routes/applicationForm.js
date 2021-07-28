@@ -36,7 +36,7 @@ router.get("/applications/:tenantId", /*#__PURE__*/function () {
                 },
                 require: false,
                 attributes: {
-                  exclude: ["is_requested", "is_decline"]
+                  exclude: ["is_requested", "is_declined"]
                 },
                 include: [{
                   model: _models.Property,

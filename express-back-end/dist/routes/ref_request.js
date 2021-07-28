@@ -179,7 +179,7 @@ router.post("/appList/:renthistoriesId", /*#__PURE__*/function () {
           case 0:
             _context4.next = 2;
             return _models.Ref_request.update({
-              is_decline: true
+              is_declined: true
             }, {
               where: {
                 renthistories_id: req.params.renthistoriesId
@@ -212,7 +212,7 @@ router.post("/declineRefReq/:renthistoriesId", /*#__PURE__*/function () {
           case 0:
             _context5.next = 2;
             return _models.Ref_request.update({
-              is_decline: true
+              is_declined: true
             }, {
               where: {
                 renthistories_id: req.params.renthistoriesId

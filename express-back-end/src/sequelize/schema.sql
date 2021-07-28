@@ -2,9 +2,10 @@ DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS properties CASCADE;
 DROP TABLE IF EXISTS photos CASCADE;
 DROP TABLE IF EXISTS rentHistories CASCADE;
-DROP TABLE IF EXISTS refs CASCADE;
 DROP TABLE IF EXISTS applications CASCADE;
 DROP TABLE IF EXISTS ref_requests CASCADE;
+DROP TABLE IF EXISTS message_master CASCADE;
+DROP TABLE IF EXISTS message_details CASCADE;
 
 
 CREATE TABLE users (
@@ -53,14 +54,14 @@ CREATE TABLE rentHistories (
   end_date DATE NOT NULL,
   review_content TEXT,
   is_requested BOOLEAN NOT NULL,
-  is_decline BOOLEAN NOT NULL
+  is_declined BOOLEAN NOT NULL
 );
 
-CREATE TABLE refs (
-  id SERIAL PRIMARY KEY NOT NULL,
-  tenant_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  landlord_id INTEGER REFERENCES users(id) ON DELETE CASCADE
-);
+-- CREATE TABLE refs (
+--   id SERIAL PRIMARY KEY NOT NULL,
+--   tenant_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+--   landlord_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+-- );
 -- requests
 CREATE TABLE applications (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -69,7 +70,7 @@ CREATE TABLE applications (
   landlord_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE,
   potential_move_in_date DATE,
-  is_decline BOOLEAN NOT NULL
+  is_declined BOOLEAN NOT NULL
 );
 
 CREATE TABLE ref_requests (
@@ -80,5 +81,21 @@ CREATE TABLE ref_requests (
   property_id INTEGER REFERENCES properties(id) ON DELETE CASCADE,
   potential_move_in_date DATE,
   is_updated BOOLEAN NOT NULL,
-  is_decline BOOLEAN NOT NULL
+  is_declined BOOLEAN NOT NULL
+);
+
+-- message_master
+CREATE TABLE message_master (
+  id SERIAL PRIMARY KEY NOT NULL,
+  sender_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  receiver_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- message_details
+CREATE TABLE message_details (
+  id SERIAL PRIMARY KEY NOT NULL,
+  sender_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  date_time DATE NOT NULL,
+  message_text TEXT NOT NULL,
+  message_master_id INTEGER REFERENCES message_master(id) ON DELETE CASCADE
 );

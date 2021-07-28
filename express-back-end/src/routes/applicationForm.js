@@ -2,7 +2,6 @@ import { Router } from "express";
 const router = Router();
 import { User, RentHistory, Property, Application } from "../db/models";
 
-
 router.get("/applications/:tenantId", async (req, res) => {
   const applicationForm = await User.findOne({
     where: { id: req.params.tenantId },
@@ -13,7 +12,7 @@ router.get("/applications/:tenantId", async (req, res) => {
         where: { tenant_id: req.params.tenantId },
         require: false,
         attributes: {
-          exclude: ["is_requested", "is_decline"],
+          exclude: ["is_requested", "is_declined"],
         },
         include: [
           {

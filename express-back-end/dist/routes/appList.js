@@ -66,7 +66,7 @@ router.post("/appList/:applicationId", /*#__PURE__*/function () {
           case 0:
             _context2.next = 2;
             return _models.Application.update({
-              is_decline: true
+              is_declined: true
             }, {
               where: {
                 id: req.params.applicationId
