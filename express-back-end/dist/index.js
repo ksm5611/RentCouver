@@ -26,6 +26,8 @@ var _appList = _interopRequireDefault(require("./routes/appList"));
 
 var _ref_request = _interopRequireDefault(require("./routes/ref_request"));
 
+var _messages = _interopRequireDefault(require("./routes/messages"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 _dotenv["default"].config();
@@ -45,7 +47,8 @@ App.use("/api", _propertyLists["default"]);
 App.use("/api", _applicationForm["default"]);
 App.use("/api", _rentHistories["default"]);
 App.use("/api", _appList["default"]);
-App.use("/api", _ref_request["default"]); // routes (login)
+App.use("/api", _ref_request["default"]);
+App.use("/api", _messages["default"]); // routes (login)
 
 require("../src/db/loginRoutes/auth.routes")(App);
 

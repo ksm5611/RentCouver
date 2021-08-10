@@ -79,8 +79,9 @@ INSERT INTO applications (renthistories_id, tenant_id, landlord_id, property_id,
 
 
 
+INSERT INTO message_master (sender_id, receiver_id) VALUES (11, 1);
 
-
+INSERT INTO message_details (message_master_id, sender_id, date_time, message_text) VALUES (1, 11, '2021-07-01', 'hi');
 
 
 

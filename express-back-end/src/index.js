@@ -12,9 +12,9 @@ import propertyList from "./routes/propertyLists";
 import rentHistories from "./routes/rentHistories";
 import appList from "./routes/appList";
 import refRequest from "./routes/ref_request";
+import messages from "./routes/messages";
 const App = Express();
 const PORT = process.env.PORT;
-
 
 App.use(cors());
 
@@ -34,6 +34,7 @@ App.use("/api", rentHistories);
 
 App.use("/api", appList);
 App.use("/api", refRequest);
+App.use("/api", messages);
 
 // routes (login)
 require("../src/db/loginRoutes/auth.routes")(App);

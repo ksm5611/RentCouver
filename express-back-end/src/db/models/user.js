@@ -30,6 +30,15 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Ref_request, {
         foreignKey: "tenant_id",
       });
+      this.hasMany(models.Message_master, {
+        foreignKey: "sender_id",
+      });
+      this.hasMany(models.Message_master, {
+        foreignKey: "receiver_id",
+      });
+      this.hasMany(models.Message_details, {
+        foreignKey: "sender_id",
+      });
     }
   }
   User.init(

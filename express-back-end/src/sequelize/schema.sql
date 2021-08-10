@@ -94,8 +94,8 @@ CREATE TABLE message_master (
 -- message_details
 CREATE TABLE message_details (
   id SERIAL PRIMARY KEY NOT NULL,
-  message_master_id INTEGER REFERENCES message_master(id) ON DELETE CASCADE
+  message_master_id INTEGER REFERENCES message_master(id) ON DELETE CASCADE,
   sender_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   date_time DATE NOT NULL,
-  message_text TEXT NOT NULL,
+  message_text TEXT NOT NULL
 );
